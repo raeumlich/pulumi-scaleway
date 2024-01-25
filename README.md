@@ -60,8 +60,8 @@ The following configuration points are available for the `scaleway` provider:
 | Configuration Key         | Environment Variable          | Description                                                                                            |
 |:--------------------------|:------------------------------|:-------------------------------------------------------------------------------------------------------|
 | `scaleway:accessKey`      | `SCW_ACCESS_KEY`              | The access key for authentication (required)                                                           |
-| `scaleway:secretKey`      | `SCW `SCW_SECRET_KEY`         | The secret key for authentication (required)                                                           |
-| `scaleway:projectId`      | `SCW `SCW_DEFAULT_PROJECT_ID` | The project ID that will be used as default value for project-scoped resources (required)              |
+| `scaleway:secretKey`      | `SCW_SECRET_KEY`              | The secret key for authentication (required)                                                           |
+| `scaleway:projectId`      | `SCW_DEFAULT_PROJECT_ID`      | The project ID that will be used as default value for project-scoped resources (required)              |
 | `scaleway:organizationId` | `SCW_DEFAULT_ORGANIZATION_ID` | The organization ID that will be used as default value for organization-scoped resources               |
 | `scaleway:region`         | `SCW_DEFAULT_REGION`          | The region that will be used as default value for all resources. (fr-par if none specified)            |
 | `scaleway:zone`           | `SCW_DEFAULT_ZONE`            | The zone that will be used as default value for all resources. (fr-par-1 if none specified)            |
