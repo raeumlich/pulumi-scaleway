@@ -26,7 +26,7 @@ signs:
       - sign-blob
       - -y
       - --output-certificate=${certificate}
-      - -bundle=${signature}
+      - --bundle=${signature}
       - ${artifact}
     artifacts: all
     output: true
