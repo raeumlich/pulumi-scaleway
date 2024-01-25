@@ -1,0 +1,4222 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "scaleway_account_project": {
+                "current": "scaleway:account/project:Project"
+            },
+            "scaleway_account_ssh_key": {
+                "current": "scaleway:account/sSHKey:SSHKey"
+            },
+            "scaleway_apple_silicon_server": {
+                "current": "scaleway:applesilicon/server:Server"
+            },
+            "scaleway_baremetal_server": {
+                "current": "scaleway:elasticmetal/bareMetalServer:BareMetalServer",
+                "fields": {
+                    "ips": {
+                        "maxItemsOne": false
+                    },
+                    "ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "options": {
+                        "maxItemsOne": false
+                    },
+                    "private_network": {
+                        "maxItemsOne": false
+                    },
+                    "ssh_key_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_block_snapshot": {
+                "current": "scaleway:blockstorage/snapshot:Snapshot",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_block_volume": {
+                "current": "scaleway:blockstorage/volume:Volume",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_cockpit": {
+                "current": "scaleway:cockpit/cockpit:Cockpit",
+                "fields": {
+                    "endpoints": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_cockpit_grafana_user": {
+                "current": "scaleway:cockpit/grafanaUser:GrafanaUser"
+            },
+            "scaleway_cockpit_token": {
+                "current": "scaleway:cockpit/token:Token",
+                "fields": {
+                    "scopes": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_container": {
+                "current": "scaleway:serverless/container:Container"
+            },
+            "scaleway_container_cron": {
+                "current": "scaleway:serverless/containerCron:ContainerCron"
+            },
+            "scaleway_container_domain": {
+                "current": "scaleway:serverless/containerDomain:ContainerDomain"
+            },
+            "scaleway_container_namespace": {
+                "current": "scaleway:serverless/containerNamespace:ContainerNamespace"
+            },
+            "scaleway_container_token": {
+                "current": "scaleway:serverless/containerToken:ContainerToken"
+            },
+            "scaleway_container_trigger": {
+                "current": "scaleway:serverless/containerTrigger:ContainerTrigger",
+                "fields": {
+                    "nats": {
+                        "maxItemsOne": true
+                    },
+                    "sqs": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_documentdb_database": {
+                "current": "scaleway:documentdb/database:Database"
+            },
+            "scaleway_documentdb_instance": {
+                "current": "scaleway:documentdb/instance:Instance",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_documentdb_private_network_endpoint": {
+                "current": "scaleway:documentdb/privateNetworkEndpoint:PrivateNetworkEndpoint"
+            },
+            "scaleway_documentdb_privilege": {
+                "current": "scaleway:documentdb/privilege:Privilege"
+            },
+            "scaleway_documentdb_read_replica": {
+                "current": "scaleway:documentdb/readReplica:ReadReplica",
+                "fields": {
+                    "direct_access": {
+                        "maxItemsOne": true
+                    },
+                    "private_network": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_documentdb_user": {
+                "current": "scaleway:documentdb/user:User"
+            },
+            "scaleway_domain_record": {
+                "current": "scaleway:dns/record:Record",
+                "fields": {
+                    "geo_ip": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "matches": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "continents": {
+                                                "maxItemsOne": false
+                                            },
+                                            "countries": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "http_service": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "view": {
+                        "maxItemsOne": false
+                    },
+                    "weighted": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_domain_zone": {
+                "current": "scaleway:dns/zone:Zone",
+                "fields": {
+                    "ns": {
+                        "maxItemsOne": false
+                    },
+                    "ns_default": {
+                        "maxItemsOne": false
+                    },
+                    "ns_master": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_flexible_ip": {
+                "current": "scaleway:elasticmetal/flexibleIP:FlexibleIP",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_flexible_ip_mac_address": {
+                "current": "scaleway:elasticmetal/flexibleIPMACAddress:FlexibleIPMACAddress",
+                "fields": {
+                    "flexible_ip_ids_to_duplicate": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_function": {
+                "current": "scaleway:serverless/function:Function"
+            },
+            "scaleway_function_cron": {
+                "current": "scaleway:serverless/functionCron:FunctionCron"
+            },
+            "scaleway_function_domain": {
+                "current": "scaleway:serverless/functionDomain:FunctionDomain"
+            },
+            "scaleway_function_namespace": {
+                "current": "scaleway:serverless/functionNamespace:FunctionNamespace"
+            },
+            "scaleway_function_token": {
+                "current": "scaleway:serverless/functionToken:FunctionToken"
+            },
+            "scaleway_function_trigger": {
+                "current": "scaleway:serverless/functionTrigger:FunctionTrigger",
+                "fields": {
+                    "nats": {
+                        "maxItemsOne": true
+                    },
+                    "sqs": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_iam_api_key": {
+                "current": "scaleway:iam/aPIKey:APIKey"
+            },
+            "scaleway_iam_application": {
+                "current": "scaleway:iam/application:Application",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_iam_group": {
+                "current": "scaleway:iam/group:Group",
+                "fields": {
+                    "application_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "user_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_iam_group_membership": {
+                "current": "scaleway:iam/groupMembership:GroupMembership"
+            },
+            "scaleway_iam_policy": {
+                "current": "scaleway:iam/policy:Policy",
+                "fields": {
+                    "rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "permission_set_names": {
+                                    "maxItemsOne": false
+                                },
+                                "project_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_iam_ssh_key": {
+                "current": "scaleway:iam/sSHKey:SSHKey"
+            },
+            "scaleway_iam_user": {
+                "current": "scaleway:iam/user:User"
+            },
+            "scaleway_instance_image": {
+                "current": "scaleway:instance/image:Image",
+                "fields": {
+                    "additional_volume_ids": {
+                        "maxItemsOne": true
+                    },
+                    "additional_volumes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_ip": {
+                "current": "scaleway:instance/iP:IP",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_ip_reverse_dns": {
+                "current": "scaleway:instance/iPReverseDNS:IPReverseDNS"
+            },
+            "scaleway_instance_placement_group": {
+                "current": "scaleway:instance/placementGroup:PlacementGroup",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_private_nic": {
+                "current": "scaleway:instance/privateNIC:PrivateNIC",
+                "fields": {
+                    "ip_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_security_group": {
+                "current": "scaleway:instance/securityGroup:SecurityGroup",
+                "fields": {
+                    "inbound_rule": {
+                        "maxItemsOne": false
+                    },
+                    "outbound_rule": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_security_group_rules": {
+                "current": "scaleway:instance/securityGroupRules:SecurityGroupRules",
+                "fields": {
+                    "inbound_rule": {
+                        "maxItemsOne": false
+                    },
+                    "outbound_rule": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_server": {
+                "current": "scaleway:instance/server:Server",
+                "fields": {
+                    "additional_volume_ids": {
+                        "maxItemsOne": false
+                    },
+                    "ip_ids": {
+                        "maxItemsOne": false
+                    },
+                    "private_network": {
+                        "maxItemsOne": false
+                    },
+                    "public_ips": {
+                        "maxItemsOne": false
+                    },
+                    "root_volume": {
+                        "maxItemsOne": true
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_snapshot": {
+                "current": "scaleway:instance/snapshot:Snapshot",
+                "fields": {
+                    "import": {
+                        "maxItemsOne": true
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_user_data": {
+                "current": "scaleway:instance/userData:UserData"
+            },
+            "scaleway_instance_volume": {
+                "current": "scaleway:instance/volume:Volume",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_iot_device": {
+                "current": "scaleway:iot/device:Device",
+                "fields": {
+                    "certificate": {
+                        "maxItemsOne": true
+                    },
+                    "message_filters": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "publish": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "topics": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "subscribe": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "topics": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "scaleway_iot_hub": {
+                "current": "scaleway:iot/hub:Hub"
+            },
+            "scaleway_iot_network": {
+                "current": "scaleway:iot/network:Network"
+            },
+            "scaleway_iot_route": {
+                "current": "scaleway:iot/route:Route",
+                "fields": {
+                    "database": {
+                        "maxItemsOne": true
+                    },
+                    "rest": {
+                        "maxItemsOne": true
+                    },
+                    "s3": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_ipam_ip": {
+                "current": "scaleway:ipam/iP:IP",
+                "fields": {
+                    "resource": {
+                        "maxItemsOne": false
+                    },
+                    "source": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_job_definition": {
+                "current": "scaleway:serverless/jobDefinition:JobDefinition"
+            },
+            "scaleway_k8s_cluster": {
+                "current": "scaleway:kubernetes/cluster:Cluster",
+                "fields": {
+                    "admission_plugins": {
+                        "maxItemsOne": false
+                    },
+                    "apiserver_cert_sans": {
+                        "maxItemsOne": false
+                    },
+                    "auto_upgrade": {
+                        "maxItemsOne": true
+                    },
+                    "autoscaler_config": {
+                        "maxItemsOne": true
+                    },
+                    "feature_gates": {
+                        "maxItemsOne": false
+                    },
+                    "kubeconfig": {
+                        "maxItemsOne": false
+                    },
+                    "open_id_connect_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "groups_claim": {
+                                    "maxItemsOne": false
+                                },
+                                "required_claim": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_k8s_pool": {
+                "current": "scaleway:kubernetes/pool:Pool",
+                "fields": {
+                    "nodes": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "upgrade_policy": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_lb": {
+                "current": "scaleway:loadbalancer/loadBalancer:LoadBalancer",
+                "fields": {
+                    "private_network": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "static_config": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lb_acl": {
+                "current": "scaleway:loadbalancer/aCL:ACL",
+                "fields": {
+                    "action": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "redirect": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "match": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "http_filter_value": {
+                                    "maxItemsOne": false
+                                },
+                                "ip_subnet": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "scaleway_lb_backend": {
+                "current": "scaleway:loadbalancer/backend:Backend",
+                "fields": {
+                    "health_check_http": {
+                        "maxItemsOne": true
+                    },
+                    "health_check_https": {
+                        "maxItemsOne": true
+                    },
+                    "health_check_tcp": {
+                        "maxItemsOne": true
+                    },
+                    "server_ips": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lb_certificate": {
+                "current": "scaleway:loadbalancer/certficate:Certficate",
+                "fields": {
+                    "custom_certificate": {
+                        "maxItemsOne": true
+                    },
+                    "letsencrypt": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "subject_alternative_name": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "subject_alternative_name": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lb_frontend": {
+                "current": "scaleway:loadbalancer/frontend:Frontend",
+                "fields": {
+                    "acl": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "action": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "redirect": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "match": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "http_filter_value": {
+                                                "maxItemsOne": false
+                                            },
+                                            "ip_subnet": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "certificate_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lb_ip": {
+                "current": "scaleway:loadbalancer/iP:IP"
+            },
+            "scaleway_lb_route": {
+                "current": "scaleway:loadbalancer/route:Route"
+            },
+            "scaleway_mnq_nats_account": {
+                "current": "scaleway:mnq/nATSAccount:NATSAccount"
+            },
+            "scaleway_mnq_nats_credentials": {
+                "current": "scaleway:mnq/nATSCredentials:NATSCredentials"
+            },
+            "scaleway_mnq_sns": {
+                "current": "scaleway:mnq/sNS:SNS"
+            },
+            "scaleway_mnq_sns_credentials": {
+                "current": "scaleway:mnq/sNSCredentials:SNSCredentials",
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_mnq_sns_topic": {
+                "current": "scaleway:mnq/sNSTopic:SNSTopic"
+            },
+            "scaleway_mnq_sns_topic_subscription": {
+                "current": "scaleway:mnq/sNSTopicSubscription:SNSTopicSubscription"
+            },
+            "scaleway_mnq_sqs": {
+                "current": "scaleway:mnq/sQS:SQS"
+            },
+            "scaleway_mnq_sqs_credentials": {
+                "current": "scaleway:mnq/sQSCredentials:SQSCredentials",
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_mnq_sqs_queue": {
+                "current": "scaleway:mnq/sQSQueue:SQSQueue"
+            },
+            "scaleway_object": {
+                "current": "scaleway:objectstorage/item:Item"
+            },
+            "scaleway_object_bucket": {
+                "current": "scaleway:objectstorage/bucket:Bucket",
+                "fields": {
+                    "cors_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_headers": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_methods": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_origins": {
+                                    "maxItemsOne": false
+                                },
+                                "expose_headers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "lifecycle_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "expiration": {
+                                    "maxItemsOne": true
+                                },
+                                "transition": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "versioning": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_object_bucket_acl": {
+                "current": "scaleway:objectstorage/bucketACL:BucketACL",
+                "fields": {
+                    "access_control_policy": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "grant": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "grantee": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "owner": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "scaleway_object_bucket_lock_configuration": {
+                "current": "scaleway:objectstorage/bucketLockConfiguration:BucketLockConfiguration",
+                "fields": {
+                    "rule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "default_retention": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "scaleway_object_bucket_policy": {
+                "current": "scaleway:objectstorage/bucketPolicy:BucketPolicy"
+            },
+            "scaleway_object_bucket_website_configuration": {
+                "current": "scaleway:objectstorage/bucketWebsiteConfiguration:BucketWebsiteConfiguration",
+                "fields": {
+                    "error_document": {
+                        "maxItemsOne": true
+                    },
+                    "index_document": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_rdb_acl": {
+                "current": "scaleway:rdb/aCL:ACL",
+                "fields": {
+                    "acl_rules": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_rdb_database": {
+                "current": "scaleway:rdb/database:Database"
+            },
+            "scaleway_rdb_database_backup": {
+                "current": "scaleway:rdb/databaseBackup:DatabaseBackup"
+            },
+            "scaleway_rdb_instance": {
+                "current": "scaleway:rdb/instance:Instance",
+                "fields": {
+                    "load_balancer": {
+                        "maxItemsOne": false
+                    },
+                    "private_network": {
+                        "maxItemsOne": true
+                    },
+                    "read_replicas": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_rdb_privilege": {
+                "current": "scaleway:rdb/privilege:Privilege"
+            },
+            "scaleway_rdb_read_replica": {
+                "current": "scaleway:rdb/readReplica:ReadReplica",
+                "fields": {
+                    "direct_access": {
+                        "maxItemsOne": true
+                    },
+                    "private_network": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "scaleway_rdb_user": {
+                "current": "scaleway:rdb/user:User"
+            },
+            "scaleway_redis_cluster": {
+                "current": "scaleway:redis/cluster:Cluster",
+                "fields": {
+                    "acl": {
+                        "maxItemsOne": false
+                    },
+                    "private_network": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "service_ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "public_network": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_registry_namespace": {
+                "current": "scaleway:containerregistry/namespace:Namespace"
+            },
+            "scaleway_sdb_sql_database": {
+                "current": "scaleway:serverless/sDBDatabase:SDBDatabase"
+            },
+            "scaleway_secret": {
+                "current": "scaleway:secret/secret:Secret",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_secret_version": {
+                "current": "scaleway:secret/version:Version"
+            },
+            "scaleway_tem_domain": {
+                "current": "scaleway:tem/domain:Domain",
+                "fields": {
+                    "reputation": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc": {
+                "current": "scaleway:vpc/vPC:VPC",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_gateway_network": {
+                "current": "scaleway:vpc/gatewayNetwork:GatewayNetwork",
+                "fields": {
+                    "ipam_config": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_private_network": {
+                "current": "scaleway:vpc/privateNetwork:PrivateNetwork",
+                "fields": {
+                    "ipv4_subnet": {
+                        "maxItemsOne": true
+                    },
+                    "ipv6_subnets": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_public_gateway": {
+                "current": "scaleway:vpc/publicGateway:PublicGateway",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "upstream_dns_servers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_public_gateway_dhcp": {
+                "current": "scaleway:vpc/publicGatewayDHCP:PublicGatewayDHCP",
+                "fields": {
+                    "dns_search": {
+                        "maxItemsOne": false
+                    },
+                    "dns_servers_override": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_public_gateway_dhcp_reservation": {
+                "current": "scaleway:vpc/publicGatewayDHCPReservation:PublicGatewayDHCPReservation"
+            },
+            "scaleway_vpc_public_gateway_ip": {
+                "current": "scaleway:vpc/publicGatewayIP:PublicGatewayIP",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_public_gateway_ip_reverse_dns": {
+                "current": "scaleway:vpc/publicGatewayIPReverseDNS:PublicGatewayIPReverseDNS"
+            },
+            "scaleway_vpc_public_gateway_pat_rule": {
+                "current": "scaleway:vpc/publicGatewayPATRule:PublicGatewayPATRule"
+            },
+            "scaleway_webhosting": {
+                "current": "scaleway:webhosting/webHosting:WebHosting",
+                "fields": {
+                    "cpanel_urls": {
+                        "maxItemsOne": false
+                    },
+                    "option_ids": {
+                        "maxItemsOne": false
+                    },
+                    "options": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            }
+        },
+        "datasources": {
+            "scaleway_account_project": {
+                "current": "scaleway:account/getProject:getProject"
+            },
+            "scaleway_account_ssh_key": {
+                "current": "scaleway:account/getSSHKey:getSSHKey"
+            },
+            "scaleway_availability_zones": {
+                "current": "scaleway:account/getAvailabilityZones:getAvailabilityZones",
+                "fields": {
+                    "zones": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_baremetal_offer": {
+                "current": "scaleway:elasticmetal/getBareMetalOffer:getBareMetalOffer",
+                "fields": {
+                    "cpu": {
+                        "maxItemsOne": false
+                    },
+                    "disk": {
+                        "maxItemsOne": false
+                    },
+                    "memory": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_baremetal_option": {
+                "current": "scaleway:elasticmetal/getBareMetalOption:getBareMetalOption"
+            },
+            "scaleway_baremetal_os": {
+                "current": "scaleway:elasticmetal/getBareMetalOS:getBareMetalOS"
+            },
+            "scaleway_baremetal_server": {
+                "current": "scaleway:elasticmetal/getBareMetalServer:getBareMetalServer",
+                "fields": {
+                    "ips": {
+                        "maxItemsOne": false
+                    },
+                    "ipv4": {
+                        "maxItemsOne": false
+                    },
+                    "ipv6": {
+                        "maxItemsOne": false
+                    },
+                    "options": {
+                        "maxItemsOne": false
+                    },
+                    "private_network": {
+                        "maxItemsOne": false
+                    },
+                    "ssh_key_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_billing_consumptions": {
+                "current": "scaleway:billing/getConsumptions:getConsumptions",
+                "fields": {
+                    "consumptions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_billing_invoices": {
+                "current": "scaleway:billing/getInvoices:getInvoices",
+                "fields": {
+                    "invoices": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_block_snapshot": {
+                "current": "scaleway:blockstorage/getSnapshot:getSnapshot",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_block_volume": {
+                "current": "scaleway:blockstorage/getVolume:getVolume",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_cockpit": {
+                "current": "scaleway:cockpit/getCockpit:getCockpit",
+                "fields": {
+                    "endpoints": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_cockpit_plan": {
+                "current": "scaleway:cockpit/getPlan:getPlan"
+            },
+            "scaleway_container": {
+                "current": "scaleway:serverless/getContainer:getContainer"
+            },
+            "scaleway_container_namespace": {
+                "current": "scaleway:serverless/getContainerNamespace:getContainerNamespace"
+            },
+            "scaleway_documentdb_database": {
+                "current": "scaleway:documentdb/getDatabase:getDatabase"
+            },
+            "scaleway_documentdb_instance": {
+                "current": "scaleway:documentdb/getInstance:getInstance",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_documentdb_load_balancer_endpoint": {
+                "current": "scaleway:documentdb/getLoadBalancerEndpoint:getLoadBalancerEndpoint"
+            },
+            "scaleway_domain_record": {
+                "current": "scaleway:dns/getRecord:getRecord",
+                "fields": {
+                    "geo_ip": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "matches": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "continents": {
+                                                "maxItemsOne": false
+                                            },
+                                            "countries": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "http_service": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "view": {
+                        "maxItemsOne": false
+                    },
+                    "weighted": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_domain_zone": {
+                "current": "scaleway:dns/getZone:getZone",
+                "fields": {
+                    "ns": {
+                        "maxItemsOne": false
+                    },
+                    "ns_default": {
+                        "maxItemsOne": false
+                    },
+                    "ns_master": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_flexible_ip": {
+                "current": "scaleway:elasticmetal/getFlexibleIP:getFlexibleIP",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_flexible_ips": {
+                "current": "scaleway:elasticmetal/getFlexibleIPs:getFlexibleIPs",
+                "fields": {
+                    "ips": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "mac_address": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "server_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_function": {
+                "current": "scaleway:serverless/getFunction:getFunction"
+            },
+            "scaleway_function_namespace": {
+                "current": "scaleway:serverless/getFunctionNamespace:getFunctionNamespace"
+            },
+            "scaleway_iam_application": {
+                "current": "scaleway:iam/getApplication:getApplication",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_iam_group": {
+                "current": "scaleway:iam/getGroup:getGroup",
+                "fields": {
+                    "application_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "user_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_iam_ssh_key": {
+                "current": "scaleway:iam/getSSHKey:getSSHKey"
+            },
+            "scaleway_iam_user": {
+                "current": "scaleway:iam/getUser:getUser"
+            },
+            "scaleway_instance_image": {
+                "current": "scaleway:instance/getImage:getImage",
+                "fields": {
+                    "additional_volume_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_ip": {
+                "current": "scaleway:instance/getIP:getIP",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_placement_group": {
+                "current": "scaleway:instance/getPlacementGroup:getPlacementGroup",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_private_nic": {
+                "current": "scaleway:instance/getPrivateNIC:getPrivateNIC",
+                "fields": {
+                    "ip_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_security_group": {
+                "current": "scaleway:instance/getSecurityGroup:getSecurityGroup",
+                "fields": {
+                    "inbound_rule": {
+                        "maxItemsOne": false
+                    },
+                    "outbound_rule": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_server": {
+                "current": "scaleway:instance/getServer:getServer",
+                "fields": {
+                    "additional_volume_ids": {
+                        "maxItemsOne": false
+                    },
+                    "ip_ids": {
+                        "maxItemsOne": false
+                    },
+                    "private_network": {
+                        "maxItemsOne": false
+                    },
+                    "public_ips": {
+                        "maxItemsOne": false
+                    },
+                    "root_volume": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_servers": {
+                "current": "scaleway:instance/getServers:getServers",
+                "fields": {
+                    "servers": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "public_ips": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_snapshot": {
+                "current": "scaleway:instance/getSnapshot:getSnapshot",
+                "fields": {
+                    "import": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_instance_volume": {
+                "current": "scaleway:instance/getVolume:getVolume",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_iot_device": {
+                "current": "scaleway:iot/getDevice:getDevice",
+                "fields": {
+                    "certificate": {
+                        "maxItemsOne": false
+                    },
+                    "message_filters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "publish": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "topics": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "subscribe": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "topics": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "scaleway_iot_hub": {
+                "current": "scaleway:iot/getHub:getHub"
+            },
+            "scaleway_ipam_ip": {
+                "current": "scaleway:ipam/getIP:getIP",
+                "fields": {
+                    "resource": {
+                        "maxItemsOne": true
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_ipam_ips": {
+                "current": "scaleway:ipam/getIPs:getIPs",
+                "fields": {
+                    "ips": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "resource": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "resource": {
+                        "maxItemsOne": true
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_k8s_cluster": {
+                "current": "scaleway:kubernetes/getCluster:getCluster",
+                "fields": {
+                    "admission_plugins": {
+                        "maxItemsOne": false
+                    },
+                    "apiserver_cert_sans": {
+                        "maxItemsOne": false
+                    },
+                    "auto_upgrade": {
+                        "maxItemsOne": false
+                    },
+                    "autoscaler_config": {
+                        "maxItemsOne": false
+                    },
+                    "feature_gates": {
+                        "maxItemsOne": false
+                    },
+                    "kubeconfig": {
+                        "maxItemsOne": false
+                    },
+                    "open_id_connect_config": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "groups_claim": {
+                                    "maxItemsOne": false
+                                },
+                                "required_claim": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_k8s_pool": {
+                "current": "scaleway:kubernetes/getPool:getPool",
+                "fields": {
+                    "nodes": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "upgrade_policy": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_k8s_version": {
+                "current": "scaleway:kubernetes/getVersion:getVersion",
+                "fields": {
+                    "available_cnis": {
+                        "maxItemsOne": false
+                    },
+                    "available_container_runtimes": {
+                        "maxItemsOne": false
+                    },
+                    "available_feature_gates": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lb": {
+                "current": "scaleway:loadbalancer/getLoadBalancer:getLoadBalancer",
+                "fields": {
+                    "private_network": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "static_config": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lb_acls": {
+                "current": "scaleway:loadbalancer/getACLs:getACLs",
+                "fields": {
+                    "acls": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "action": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "redirect": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "match": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "http_filter_value": {
+                                                "maxItemsOne": false
+                                            },
+                                            "ip_subnet": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "scaleway_lb_backend": {
+                "current": "scaleway:loadbalancer/getBackend:getBackend",
+                "fields": {
+                    "health_check_http": {
+                        "maxItemsOne": false
+                    },
+                    "health_check_https": {
+                        "maxItemsOne": false
+                    },
+                    "health_check_tcp": {
+                        "maxItemsOne": false
+                    },
+                    "server_ips": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lb_backends": {
+                "current": "scaleway:loadbalancer/getBackends:getBackends",
+                "fields": {
+                    "backends": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "health_check_http": {
+                                    "maxItemsOne": false
+                                },
+                                "health_check_https": {
+                                    "maxItemsOne": false
+                                },
+                                "health_check_tcp": {
+                                    "maxItemsOne": false
+                                },
+                                "server_ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "scaleway_lb_certificate": {
+                "current": "scaleway:loadbalancer/getCertificate:getCertificate",
+                "fields": {
+                    "custom_certificate": {
+                        "maxItemsOne": false
+                    },
+                    "letsencrypt": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "subject_alternative_name": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "subject_alternative_name": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lb_frontend": {
+                "current": "scaleway:loadbalancer/getFrontend:getFrontend",
+                "fields": {
+                    "acl": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "action": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "redirect": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "match": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "http_filter_value": {
+                                                "maxItemsOne": false
+                                            },
+                                            "ip_subnet": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "certificate_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lb_frontends": {
+                "current": "scaleway:loadbalancer/getFrontends:getFrontends",
+                "fields": {
+                    "frontends": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "certificate_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "scaleway_lb_ip": {
+                "current": "scaleway:loadbalancer/getIP:getIP"
+            },
+            "scaleway_lb_ips": {
+                "current": "scaleway:loadbalancer/getIPs:getIPs",
+                "fields": {
+                    "ips": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lb_route": {
+                "current": "scaleway:loadbalancer/getRoute:getRoute"
+            },
+            "scaleway_lb_routes": {
+                "current": "scaleway:loadbalancer/getRoutes:getRoutes",
+                "fields": {
+                    "routes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_lbs": {
+                "current": "scaleway:loadbalancer/getLoadBalancers:getLoadBalancers",
+                "fields": {
+                    "lbs": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "instances": {
+                                    "maxItemsOne": false
+                                },
+                                "ips": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "scaleway_marketplace_image": {
+                "current": "scaleway:instance/getMarketplaceImage:getMarketplaceImage"
+            },
+            "scaleway_mnq_sqs": {
+                "current": "scaleway:mnq/getSQS:getSQS"
+            },
+            "scaleway_object_bucket": {
+                "current": "scaleway:objectstorage/getBucket:getBucket",
+                "fields": {
+                    "cors_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_headers": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_methods": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_origins": {
+                                    "maxItemsOne": false
+                                },
+                                "expose_headers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "lifecycle_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "expiration": {
+                                    "maxItemsOne": false
+                                },
+                                "transition": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "versioning": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_object_bucket_policy": {
+                "current": "scaleway:objectstorage/getBucketPolicy:getBucketPolicy"
+            },
+            "scaleway_rdb_acl": {
+                "current": "scaleway:rdb/getACL:getACL",
+                "fields": {
+                    "acl_rules": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_rdb_database": {
+                "current": "scaleway:rdb/getDatabase:getDatabase"
+            },
+            "scaleway_rdb_database_backup": {
+                "current": "scaleway:rdb/getDatabaseBackup:getDatabaseBackup"
+            },
+            "scaleway_rdb_instance": {
+                "current": "scaleway:rdb/getInstance:getInstance",
+                "fields": {
+                    "load_balancer": {
+                        "maxItemsOne": false
+                    },
+                    "private_network": {
+                        "maxItemsOne": false
+                    },
+                    "read_replicas": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_rdb_privilege": {
+                "current": "scaleway:rdb/getPrivilege:getPrivilege"
+            },
+            "scaleway_redis_cluster": {
+                "current": "scaleway:redis/getCluster:getCluster",
+                "fields": {
+                    "acl": {
+                        "maxItemsOne": false
+                    },
+                    "private_network": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "service_ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "public_network": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_registry_image": {
+                "current": "scaleway:containerregistry/getImage:getImage",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_registry_namespace": {
+                "current": "scaleway:containerregistry/getNamespace:getNamespace"
+            },
+            "scaleway_secret": {
+                "current": "scaleway:secret/getSecret:getSecret",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_secret_version": {
+                "current": "scaleway:secret/getVersion:getVersion"
+            },
+            "scaleway_tem_domain": {
+                "current": "scaleway:tem/getDomain:getDomain",
+                "fields": {
+                    "reputation": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc": {
+                "current": "scaleway:vpc/getVPC:getVPC",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_gateway_network": {
+                "current": "scaleway:vpc/getGatewayNetwork:getGatewayNetwork",
+                "fields": {
+                    "ipam_config": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_private_network": {
+                "current": "scaleway:vpc/getPrivateNetwork:getPrivateNetwork",
+                "fields": {
+                    "ipv4_subnet": {
+                        "maxItemsOne": false
+                    },
+                    "ipv6_subnets": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_public_gateway": {
+                "current": "scaleway:vpc/getPublicGateway:getPublicGateway",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "upstream_dns_servers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_public_gateway_dhcp": {
+                "current": "scaleway:vpc/getPublicGatewayDHCP:getPublicGatewayDHCP",
+                "fields": {
+                    "dns_search": {
+                        "maxItemsOne": false
+                    },
+                    "dns_servers_override": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_public_gateway_dhcp_reservation": {
+                "current": "scaleway:vpc/getPublicGatewayDHCPReservation:getPublicGatewayDHCPReservation"
+            },
+            "scaleway_vpc_public_gateway_ip": {
+                "current": "scaleway:vpc/getPublicGatewayIP:getPublicGatewayIP",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_vpc_public_gateway_pat_rule": {
+                "current": "scaleway:vpc/getPublicGatewayPATRule:getPublicGatewayPATRule"
+            },
+            "scaleway_vpcs": {
+                "current": "scaleway:vpc/getVPCs:getVPCs",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "vpcs": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "tags": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "scaleway_webhosting": {
+                "current": "scaleway:webhosting/getWebHosting:getWebHosting",
+                "fields": {
+                    "cpanel_urls": {
+                        "maxItemsOne": false
+                    },
+                    "option_ids": {
+                        "maxItemsOne": false
+                    },
+                    "options": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "scaleway_webhosting_offer": {
+                "current": "scaleway:webhosting/getOffer:getOffer",
+                "fields": {
+                    "product": {
+                        "maxItemsOne": false
+                    }
+                }
+            }
+        }
+    },
+    "auto-settings": {},
+    "renames": {
+        "resources": {
+            "scaleway:account/project:Project": "scaleway_account_project",
+            "scaleway:account/sSHKey:SSHKey": "scaleway_account_ssh_key",
+            "scaleway:applesilicon/server:Server": "scaleway_apple_silicon_server",
+            "scaleway:blockstorage/snapshot:Snapshot": "scaleway_block_snapshot",
+            "scaleway:blockstorage/volume:Volume": "scaleway_block_volume",
+            "scaleway:cockpit/cockpit:Cockpit": "scaleway_cockpit",
+            "scaleway:cockpit/grafanaUser:GrafanaUser": "scaleway_cockpit_grafana_user",
+            "scaleway:cockpit/token:Token": "scaleway_cockpit_token",
+            "scaleway:containerregistry/namespace:Namespace": "scaleway_registry_namespace",
+            "scaleway:dns/record:Record": "scaleway_domain_record",
+            "scaleway:dns/zone:Zone": "scaleway_domain_zone",
+            "scaleway:documentdb/database:Database": "scaleway_documentdb_database",
+            "scaleway:documentdb/instance:Instance": "scaleway_documentdb_instance",
+            "scaleway:documentdb/privateNetworkEndpoint:PrivateNetworkEndpoint": "scaleway_documentdb_private_network_endpoint",
+            "scaleway:documentdb/privilege:Privilege": "scaleway_documentdb_privilege",
+            "scaleway:documentdb/readReplica:ReadReplica": "scaleway_documentdb_read_replica",
+            "scaleway:documentdb/user:User": "scaleway_documentdb_user",
+            "scaleway:elasticmetal/bareMetalServer:BareMetalServer": "scaleway_baremetal_server",
+            "scaleway:elasticmetal/flexibleIP:FlexibleIP": "scaleway_flexible_ip",
+            "scaleway:elasticmetal/flexibleIPMACAddress:FlexibleIPMACAddress": "scaleway_flexible_ip_mac_address",
+            "scaleway:iam/aPIKey:APIKey": "scaleway_iam_api_key",
+            "scaleway:iam/application:Application": "scaleway_iam_application",
+            "scaleway:iam/group:Group": "scaleway_iam_group",
+            "scaleway:iam/groupMembership:GroupMembership": "scaleway_iam_group_membership",
+            "scaleway:iam/policy:Policy": "scaleway_iam_policy",
+            "scaleway:iam/sSHKey:SSHKey": "scaleway_iam_ssh_key",
+            "scaleway:iam/user:User": "scaleway_iam_user",
+            "scaleway:instance/iP:IP": "scaleway_instance_ip",
+            "scaleway:instance/iPReverseDNS:IPReverseDNS": "scaleway_instance_ip_reverse_dns",
+            "scaleway:instance/image:Image": "scaleway_instance_image",
+            "scaleway:instance/placementGroup:PlacementGroup": "scaleway_instance_placement_group",
+            "scaleway:instance/privateNIC:PrivateNIC": "scaleway_instance_private_nic",
+            "scaleway:instance/securityGroup:SecurityGroup": "scaleway_instance_security_group",
+            "scaleway:instance/securityGroupRules:SecurityGroupRules": "scaleway_instance_security_group_rules",
+            "scaleway:instance/server:Server": "scaleway_instance_server",
+            "scaleway:instance/snapshot:Snapshot": "scaleway_instance_snapshot",
+            "scaleway:instance/userData:UserData": "scaleway_instance_user_data",
+            "scaleway:instance/volume:Volume": "scaleway_instance_volume",
+            "scaleway:iot/device:Device": "scaleway_iot_device",
+            "scaleway:iot/hub:Hub": "scaleway_iot_hub",
+            "scaleway:iot/network:Network": "scaleway_iot_network",
+            "scaleway:iot/route:Route": "scaleway_iot_route",
+            "scaleway:ipam/iP:IP": "scaleway_ipam_ip",
+            "scaleway:kubernetes/cluster:Cluster": "scaleway_k8s_cluster",
+            "scaleway:kubernetes/pool:Pool": "scaleway_k8s_pool",
+            "scaleway:loadbalancer/aCL:ACL": "scaleway_lb_acl",
+            "scaleway:loadbalancer/backend:Backend": "scaleway_lb_backend",
+            "scaleway:loadbalancer/certficate:Certficate": "scaleway_lb_certificate",
+            "scaleway:loadbalancer/frontend:Frontend": "scaleway_lb_frontend",
+            "scaleway:loadbalancer/iP:IP": "scaleway_lb_ip",
+            "scaleway:loadbalancer/loadBalancer:LoadBalancer": "scaleway_lb",
+            "scaleway:loadbalancer/route:Route": "scaleway_lb_route",
+            "scaleway:mnq/nATSAccount:NATSAccount": "scaleway_mnq_nats_account",
+            "scaleway:mnq/nATSCredentials:NATSCredentials": "scaleway_mnq_nats_credentials",
+            "scaleway:mnq/sNS:SNS": "scaleway_mnq_sns",
+            "scaleway:mnq/sNSCredentials:SNSCredentials": "scaleway_mnq_sns_credentials",
+            "scaleway:mnq/sNSTopic:SNSTopic": "scaleway_mnq_sns_topic",
+            "scaleway:mnq/sNSTopicSubscription:SNSTopicSubscription": "scaleway_mnq_sns_topic_subscription",
+            "scaleway:mnq/sQS:SQS": "scaleway_mnq_sqs",
+            "scaleway:mnq/sQSCredentials:SQSCredentials": "scaleway_mnq_sqs_credentials",
+            "scaleway:mnq/sQSQueue:SQSQueue": "scaleway_mnq_sqs_queue",
+            "scaleway:objectstorage/bucket:Bucket": "scaleway_object_bucket",
+            "scaleway:objectstorage/bucketACL:BucketACL": "scaleway_object_bucket_acl",
+            "scaleway:objectstorage/bucketLockConfiguration:BucketLockConfiguration": "scaleway_object_bucket_lock_configuration",
+            "scaleway:objectstorage/bucketPolicy:BucketPolicy": "scaleway_object_bucket_policy",
+            "scaleway:objectstorage/bucketWebsiteConfiguration:BucketWebsiteConfiguration": "scaleway_object_bucket_website_configuration",
+            "scaleway:objectstorage/item:Item": "scaleway_object",
+            "scaleway:rdb/aCL:ACL": "scaleway_rdb_acl",
+            "scaleway:rdb/database:Database": "scaleway_rdb_database",
+            "scaleway:rdb/databaseBackup:DatabaseBackup": "scaleway_rdb_database_backup",
+            "scaleway:rdb/instance:Instance": "scaleway_rdb_instance",
+            "scaleway:rdb/privilege:Privilege": "scaleway_rdb_privilege",
+            "scaleway:rdb/readReplica:ReadReplica": "scaleway_rdb_read_replica",
+            "scaleway:rdb/user:User": "scaleway_rdb_user",
+            "scaleway:redis/cluster:Cluster": "scaleway_redis_cluster",
+            "scaleway:secret/secret:Secret": "scaleway_secret",
+            "scaleway:secret/version:Version": "scaleway_secret_version",
+            "scaleway:serverless/container:Container": "scaleway_container",
+            "scaleway:serverless/containerCron:ContainerCron": "scaleway_container_cron",
+            "scaleway:serverless/containerDomain:ContainerDomain": "scaleway_container_domain",
+            "scaleway:serverless/containerNamespace:ContainerNamespace": "scaleway_container_namespace",
+            "scaleway:serverless/containerToken:ContainerToken": "scaleway_container_token",
+            "scaleway:serverless/containerTrigger:ContainerTrigger": "scaleway_container_trigger",
+            "scaleway:serverless/function:Function": "scaleway_function",
+            "scaleway:serverless/functionCron:FunctionCron": "scaleway_function_cron",
+            "scaleway:serverless/functionDomain:FunctionDomain": "scaleway_function_domain",
+            "scaleway:serverless/functionNamespace:FunctionNamespace": "scaleway_function_namespace",
+            "scaleway:serverless/functionToken:FunctionToken": "scaleway_function_token",
+            "scaleway:serverless/functionTrigger:FunctionTrigger": "scaleway_function_trigger",
+            "scaleway:serverless/jobDefinition:JobDefinition": "scaleway_job_definition",
+            "scaleway:serverless/sDBDatabase:SDBDatabase": "scaleway_sdb_sql_database",
+            "scaleway:tem/domain:Domain": "scaleway_tem_domain",
+            "scaleway:vpc/gatewayNetwork:GatewayNetwork": "scaleway_vpc_gateway_network",
+            "scaleway:vpc/privateNetwork:PrivateNetwork": "scaleway_vpc_private_network",
+            "scaleway:vpc/publicGateway:PublicGateway": "scaleway_vpc_public_gateway",
+            "scaleway:vpc/publicGatewayDHCP:PublicGatewayDHCP": "scaleway_vpc_public_gateway_dhcp",
+            "scaleway:vpc/publicGatewayDHCPReservation:PublicGatewayDHCPReservation": "scaleway_vpc_public_gateway_dhcp_reservation",
+            "scaleway:vpc/publicGatewayIP:PublicGatewayIP": "scaleway_vpc_public_gateway_ip",
+            "scaleway:vpc/publicGatewayIPReverseDNS:PublicGatewayIPReverseDNS": "scaleway_vpc_public_gateway_ip_reverse_dns",
+            "scaleway:vpc/publicGatewayPATRule:PublicGatewayPATRule": "scaleway_vpc_public_gateway_pat_rule",
+            "scaleway:vpc/vPC:VPC": "scaleway_vpc",
+            "scaleway:webhosting/webHosting:WebHosting": "scaleway_webhosting"
+        },
+        "functions": {
+            "scaleway:account/getAvailabilityZones:getAvailabilityZones": "scaleway_availability_zones",
+            "scaleway:account/getProject:getProject": "scaleway_account_project",
+            "scaleway:account/getSSHKey:getSSHKey": "scaleway_account_ssh_key",
+            "scaleway:billing/getConsumptions:getConsumptions": "scaleway_billing_consumptions",
+            "scaleway:billing/getInvoices:getInvoices": "scaleway_billing_invoices",
+            "scaleway:blockstorage/getSnapshot:getSnapshot": "scaleway_block_snapshot",
+            "scaleway:blockstorage/getVolume:getVolume": "scaleway_block_volume",
+            "scaleway:cockpit/getCockpit:getCockpit": "scaleway_cockpit",
+            "scaleway:cockpit/getPlan:getPlan": "scaleway_cockpit_plan",
+            "scaleway:containerregistry/getImage:getImage": "scaleway_registry_image",
+            "scaleway:containerregistry/getNamespace:getNamespace": "scaleway_registry_namespace",
+            "scaleway:dns/getRecord:getRecord": "scaleway_domain_record",
+            "scaleway:dns/getZone:getZone": "scaleway_domain_zone",
+            "scaleway:documentdb/getDatabase:getDatabase": "scaleway_documentdb_database",
+            "scaleway:documentdb/getInstance:getInstance": "scaleway_documentdb_instance",
+            "scaleway:documentdb/getLoadBalancerEndpoint:getLoadBalancerEndpoint": "scaleway_documentdb_load_balancer_endpoint",
+            "scaleway:elasticmetal/getBareMetalOS:getBareMetalOS": "scaleway_baremetal_os",
+            "scaleway:elasticmetal/getBareMetalOffer:getBareMetalOffer": "scaleway_baremetal_offer",
+            "scaleway:elasticmetal/getBareMetalOption:getBareMetalOption": "scaleway_baremetal_option",
+            "scaleway:elasticmetal/getBareMetalServer:getBareMetalServer": "scaleway_baremetal_server",
+            "scaleway:elasticmetal/getFlexibleIP:getFlexibleIP": "scaleway_flexible_ip",
+            "scaleway:elasticmetal/getFlexibleIPs:getFlexibleIPs": "scaleway_flexible_ips",
+            "scaleway:iam/getApplication:getApplication": "scaleway_iam_application",
+            "scaleway:iam/getGroup:getGroup": "scaleway_iam_group",
+            "scaleway:iam/getSSHKey:getSSHKey": "scaleway_iam_ssh_key",
+            "scaleway:iam/getUser:getUser": "scaleway_iam_user",
+            "scaleway:instance/getIP:getIP": "scaleway_instance_ip",
+            "scaleway:instance/getImage:getImage": "scaleway_instance_image",
+            "scaleway:instance/getMarketplaceImage:getMarketplaceImage": "scaleway_marketplace_image",
+            "scaleway:instance/getPlacementGroup:getPlacementGroup": "scaleway_instance_placement_group",
+            "scaleway:instance/getPrivateNIC:getPrivateNIC": "scaleway_instance_private_nic",
+            "scaleway:instance/getSecurityGroup:getSecurityGroup": "scaleway_instance_security_group",
+            "scaleway:instance/getServer:getServer": "scaleway_instance_server",
+            "scaleway:instance/getServers:getServers": "scaleway_instance_servers",
+            "scaleway:instance/getSnapshot:getSnapshot": "scaleway_instance_snapshot",
+            "scaleway:instance/getVolume:getVolume": "scaleway_instance_volume",
+            "scaleway:iot/getDevice:getDevice": "scaleway_iot_device",
+            "scaleway:iot/getHub:getHub": "scaleway_iot_hub",
+            "scaleway:ipam/getIP:getIP": "scaleway_ipam_ip",
+            "scaleway:ipam/getIPs:getIPs": "scaleway_ipam_ips",
+            "scaleway:kubernetes/getCluster:getCluster": "scaleway_k8s_cluster",
+            "scaleway:kubernetes/getPool:getPool": "scaleway_k8s_pool",
+            "scaleway:kubernetes/getVersion:getVersion": "scaleway_k8s_version",
+            "scaleway:loadbalancer/getACLs:getACLs": "scaleway_lb_acls",
+            "scaleway:loadbalancer/getBackend:getBackend": "scaleway_lb_backend",
+            "scaleway:loadbalancer/getBackends:getBackends": "scaleway_lb_backends",
+            "scaleway:loadbalancer/getCertificate:getCertificate": "scaleway_lb_certificate",
+            "scaleway:loadbalancer/getFrontend:getFrontend": "scaleway_lb_frontend",
+            "scaleway:loadbalancer/getFrontends:getFrontends": "scaleway_lb_frontends",
+            "scaleway:loadbalancer/getIP:getIP": "scaleway_lb_ip",
+            "scaleway:loadbalancer/getIPs:getIPs": "scaleway_lb_ips",
+            "scaleway:loadbalancer/getLoadBalancer:getLoadBalancer": "scaleway_lb",
+            "scaleway:loadbalancer/getLoadBalancers:getLoadBalancers": "scaleway_lbs",
+            "scaleway:loadbalancer/getRoute:getRoute": "scaleway_lb_route",
+            "scaleway:loadbalancer/getRoutes:getRoutes": "scaleway_lb_routes",
+            "scaleway:mnq/getSQS:getSQS": "scaleway_mnq_sqs",
+            "scaleway:objectstorage/getBucket:getBucket": "scaleway_object_bucket",
+            "scaleway:objectstorage/getBucketPolicy:getBucketPolicy": "scaleway_object_bucket_policy",
+            "scaleway:rdb/getACL:getACL": "scaleway_rdb_acl",
+            "scaleway:rdb/getDatabase:getDatabase": "scaleway_rdb_database",
+            "scaleway:rdb/getDatabaseBackup:getDatabaseBackup": "scaleway_rdb_database_backup",
+            "scaleway:rdb/getInstance:getInstance": "scaleway_rdb_instance",
+            "scaleway:rdb/getPrivilege:getPrivilege": "scaleway_rdb_privilege",
+            "scaleway:redis/getCluster:getCluster": "scaleway_redis_cluster",
+            "scaleway:secret/getSecret:getSecret": "scaleway_secret",
+            "scaleway:secret/getVersion:getVersion": "scaleway_secret_version",
+            "scaleway:serverless/getContainer:getContainer": "scaleway_container",
+            "scaleway:serverless/getContainerNamespace:getContainerNamespace": "scaleway_container_namespace",
+            "scaleway:serverless/getFunction:getFunction": "scaleway_function",
+            "scaleway:serverless/getFunctionNamespace:getFunctionNamespace": "scaleway_function_namespace",
+            "scaleway:tem/getDomain:getDomain": "scaleway_tem_domain",
+            "scaleway:vpc/getGatewayNetwork:getGatewayNetwork": "scaleway_vpc_gateway_network",
+            "scaleway:vpc/getPrivateNetwork:getPrivateNetwork": "scaleway_vpc_private_network",
+            "scaleway:vpc/getPublicGateway:getPublicGateway": "scaleway_vpc_public_gateway",
+            "scaleway:vpc/getPublicGatewayDHCP:getPublicGatewayDHCP": "scaleway_vpc_public_gateway_dhcp",
+            "scaleway:vpc/getPublicGatewayDHCPReservation:getPublicGatewayDHCPReservation": "scaleway_vpc_public_gateway_dhcp_reservation",
+            "scaleway:vpc/getPublicGatewayIP:getPublicGatewayIP": "scaleway_vpc_public_gateway_ip",
+            "scaleway:vpc/getPublicGatewayPATRule:getPublicGatewayPATRule": "scaleway_vpc_public_gateway_pat_rule",
+            "scaleway:vpc/getVPC:getVPC": "scaleway_vpc",
+            "scaleway:vpc/getVPCs:getVPCs": "scaleway_vpcs",
+            "scaleway:webhosting/getOffer:getOffer": "scaleway_webhosting_offer",
+            "scaleway:webhosting/getWebHosting:getWebHosting": "scaleway_webhosting"
+        },
+        "renamedProperties": {
+            "scaleway:account/getProject:getProject": {
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:account/getSSHKey:getSSHKey": {
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "publicKey": "public_key",
+                "sshKeyId": "ssh_key_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:account/project:Project": {
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:account/sSHKey:SSHKey": {
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "publicKey": "public_key",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:applesilicon/server:Server": {
+                "createdAt": "created_at",
+                "deletableAt": "deletable_at",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at",
+                "vncUrl": "vnc_url"
+            },
+            "scaleway:billing/getConsumptions:getConsumptions": {
+                "organizationId": "organization_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:billing/getConsumptionsConsumption:getConsumptionsConsumption": {
+                "operationPath": "operation_path",
+                "projectId": "project_id"
+            },
+            "scaleway:billing/getInvoices:getInvoices": {
+                "invoiceType": "invoice_type",
+                "organizationId": "organization_id",
+                "startedAfter": "started_after",
+                "startedBefore": "started_before"
+            },
+            "scaleway:billing/getInvoicesInvoice:getInvoicesInvoice": {
+                "dueDate": "due_date",
+                "invoiceType": "invoice_type",
+                "issuedDate": "issued_date",
+                "startDate": "start_date",
+                "totalTaxed": "total_taxed",
+                "totalUntaxed": "total_untaxed"
+            },
+            "scaleway:blockstorage/getSnapshot:getSnapshot": {
+                "projectId": "project_id",
+                "snapshotId": "snapshot_id",
+                "volumeId": "volume_id"
+            },
+            "scaleway:blockstorage/getVolume:getVolume": {
+                "projectId": "project_id",
+                "sizeInGb": "size_in_gb",
+                "snapshotId": "snapshot_id",
+                "volumeId": "volume_id"
+            },
+            "scaleway:blockstorage/snapshot:Snapshot": {
+                "projectId": "project_id",
+                "volumeId": "volume_id"
+            },
+            "scaleway:blockstorage/volume:Volume": {
+                "projectId": "project_id",
+                "sizeInGb": "size_in_gb",
+                "snapshotId": "snapshot_id"
+            },
+            "scaleway:cockpit/CockpitEndpoint:CockpitEndpoint": {
+                "alertmanagerUrl": "alertmanager_url",
+                "grafanaUrl": "grafana_url",
+                "logsUrl": "logs_url",
+                "metricsUrl": "metrics_url",
+                "tracesUrl": "traces_url"
+            },
+            "scaleway:cockpit/TokenScopes:TokenScopes": {
+                "queryLogs": "query_logs",
+                "queryMetrics": "query_metrics",
+                "queryTraces": "query_traces",
+                "setupAlerts": "setup_alerts",
+                "setupLogsRules": "setup_logs_rules",
+                "setupMetricsRules": "setup_metrics_rules",
+                "writeLogs": "write_logs",
+                "writeMetrics": "write_metrics",
+                "writeTraces": "write_traces"
+            },
+            "scaleway:cockpit/cockpit:Cockpit": {
+                "planId": "plan_id",
+                "projectId": "project_id"
+            },
+            "scaleway:cockpit/getCockpit:getCockpit": {
+                "planId": "plan_id",
+                "projectId": "project_id"
+            },
+            "scaleway:cockpit/getCockpitEndpoint:getCockpitEndpoint": {
+                "alertmanagerUrl": "alertmanager_url",
+                "grafanaUrl": "grafana_url",
+                "logsUrl": "logs_url",
+                "metricsUrl": "metrics_url",
+                "tracesUrl": "traces_url"
+            },
+            "scaleway:cockpit/grafanaUser:GrafanaUser": {
+                "projectId": "project_id"
+            },
+            "scaleway:cockpit/token:Token": {
+                "projectId": "project_id",
+                "secretKey": "secret_key"
+            },
+            "scaleway:containerregistry/getImage:getImage": {
+                "imageId": "image_id",
+                "namespaceId": "namespace_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:containerregistry/getNamespace:getNamespace": {
+                "isPublic": "is_public",
+                "namespaceId": "namespace_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:containerregistry/namespace:Namespace": {
+                "isPublic": "is_public",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:dns/RecordHttpService:RecordHttpService": {
+                "mustContain": "must_contain",
+                "userAgent": "user_agent"
+            },
+            "scaleway:dns/getRecord:getRecord": {
+                "dnsZone": "dns_zone",
+                "geoIps": "geo_ip",
+                "httpServices": "http_service",
+                "keepEmptyZone": "keep_empty_zone",
+                "projectId": "project_id",
+                "recordId": "record_id",
+                "rootZone": "root_zone",
+                "views": "view",
+                "weighteds": "weighted"
+            },
+            "scaleway:dns/getRecordHttpService:getRecordHttpService": {
+                "mustContain": "must_contain",
+                "userAgent": "user_agent"
+            },
+            "scaleway:dns/getZone:getZone": {
+                "nsDefaults": "ns_default",
+                "nsMasters": "ns_master",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:dns/record:Record": {
+                "dnsZone": "dns_zone",
+                "geoIp": "geo_ip",
+                "httpService": "http_service",
+                "keepEmptyZone": "keep_empty_zone",
+                "projectId": "project_id",
+                "rootZone": "root_zone",
+                "views": "view",
+                "weighteds": "weighted"
+            },
+            "scaleway:dns/zone:Zone": {
+                "nsDefaults": "ns_default",
+                "nsMasters": "ns_master",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:documentdb/ReadReplicaDirectAccess:ReadReplicaDirectAccess": {
+                "endpointId": "endpoint_id"
+            },
+            "scaleway:documentdb/ReadReplicaPrivateNetwork:ReadReplicaPrivateNetwork": {
+                "endpointId": "endpoint_id",
+                "privateNetworkId": "private_network_id",
+                "serviceIp": "service_ip"
+            },
+            "scaleway:documentdb/database:Database": {
+                "instanceId": "instance_id",
+                "projectId": "project_id"
+            },
+            "scaleway:documentdb/getDatabase:getDatabase": {
+                "instanceId": "instance_id",
+                "projectId": "project_id"
+            },
+            "scaleway:documentdb/getInstance:getInstance": {
+                "instanceId": "instance_id",
+                "isHaCluster": "is_ha_cluster",
+                "nodeType": "node_type",
+                "projectId": "project_id",
+                "telemetryEnabled": "telemetry_enabled",
+                "userName": "user_name",
+                "volumeSizeInGb": "volume_size_in_gb",
+                "volumeType": "volume_type"
+            },
+            "scaleway:documentdb/getLoadBalancerEndpoint:getLoadBalancerEndpoint": {
+                "instanceId": "instance_id",
+                "instanceName": "instance_name",
+                "projectId": "project_id"
+            },
+            "scaleway:documentdb/instance:Instance": {
+                "isHaCluster": "is_ha_cluster",
+                "nodeType": "node_type",
+                "projectId": "project_id",
+                "telemetryEnabled": "telemetry_enabled",
+                "userName": "user_name",
+                "volumeSizeInGb": "volume_size_in_gb",
+                "volumeType": "volume_type"
+            },
+            "scaleway:documentdb/privateNetworkEndpoint:PrivateNetworkEndpoint": {
+                "instanceId": "instance_id",
+                "ipNet": "ip_net",
+                "privateNetworkId": "private_network_id"
+            },
+            "scaleway:documentdb/privilege:Privilege": {
+                "databaseName": "database_name",
+                "instanceId": "instance_id",
+                "userName": "user_name"
+            },
+            "scaleway:documentdb/readReplica:ReadReplica": {
+                "directAccess": "direct_access",
+                "instanceId": "instance_id",
+                "privateNetwork": "private_network"
+            },
+            "scaleway:documentdb/user:User": {
+                "instanceId": "instance_id",
+                "isAdmin": "is_admin"
+            },
+            "scaleway:elasticmetal/BareMetalServerOption:BareMetalServerOption": {
+                "expiresAt": "expires_at"
+            },
+            "scaleway:elasticmetal/BareMetalServerPrivateNetwork:BareMetalServerPrivateNetwork": {
+                "createdAt": "created_at",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:elasticmetal/bareMetalServer:BareMetalServer": {
+                "installConfigAfterward": "install_config_afterward",
+                "ipv4s": "ipv4",
+                "ipv6s": "ipv6",
+                "offerId": "offer_id",
+                "offerName": "offer_name",
+                "organizationId": "organization_id",
+                "osName": "os_name",
+                "privateNetworks": "private_network",
+                "projectId": "project_id",
+                "reinstallOnConfigChanges": "reinstall_on_config_changes",
+                "servicePassword": "service_password",
+                "serviceUser": "service_user",
+                "sshKeyIds": "ssh_key_ids"
+            },
+            "scaleway:elasticmetal/flexibleIP:FlexibleIP": {
+                "createdAt": "created_at",
+                "ipAddress": "ip_address",
+                "isIpv6": "is_ipv6",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "serverId": "server_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:elasticmetal/flexibleIPMACAddress:FlexibleIPMACAddress": {
+                "createdAt": "created_at",
+                "flexibleIpId": "flexible_ip_id",
+                "flexibleIpIdsToDuplicates": "flexible_ip_ids_to_duplicate",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:elasticmetal/getBareMetalOS:getBareMetalOS": {
+                "osId": "os_id"
+            },
+            "scaleway:elasticmetal/getBareMetalOffer:getBareMetalOffer": {
+                "commercialRange": "commercial_range",
+                "cpus": "cpu",
+                "disks": "disk",
+                "includeDisabled": "include_disabled",
+                "memories": "memory",
+                "offerId": "offer_id",
+                "subscriptionPeriod": "subscription_period"
+            },
+            "scaleway:elasticmetal/getBareMetalOfferCpus:getBareMetalOfferCpus": {
+                "coreCount": "core_count",
+                "threadCount": "thread_count"
+            },
+            "scaleway:elasticmetal/getBareMetalOfferMemory:getBareMetalOfferMemory": {
+                "isEcc": "is_ecc"
+            },
+            "scaleway:elasticmetal/getBareMetalOption:getBareMetalOption": {
+                "optionId": "option_id"
+            },
+            "scaleway:elasticmetal/getBareMetalServer:getBareMetalServer": {
+                "installConfigAfterward": "install_config_afterward",
+                "ipv4s": "ipv4",
+                "ipv6s": "ipv6",
+                "offerId": "offer_id",
+                "offerName": "offer_name",
+                "organizationId": "organization_id",
+                "osName": "os_name",
+                "privateNetworks": "private_network",
+                "projectId": "project_id",
+                "reinstallOnConfigChanges": "reinstall_on_config_changes",
+                "serverId": "server_id",
+                "servicePassword": "service_password",
+                "serviceUser": "service_user",
+                "sshKeyIds": "ssh_key_ids"
+            },
+            "scaleway:elasticmetal/getBareMetalServerOption:getBareMetalServerOption": {
+                "expiresAt": "expires_at"
+            },
+            "scaleway:elasticmetal/getBareMetalServerPrivateNetwork:getBareMetalServerPrivateNetwork": {
+                "createdAt": "created_at",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:elasticmetal/getFlexibleIP:getFlexibleIP": {
+                "createdAt": "created_at",
+                "flexibleIpId": "flexible_ip_id",
+                "ipAddress": "ip_address",
+                "isIpv6": "is_ipv6",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "serverId": "server_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:elasticmetal/getFlexibleIPs:getFlexibleIPs": {
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "serverIds": "server_ids"
+            },
+            "scaleway:elasticmetal/getFlexibleIPsIp:getFlexibleIPsIp": {
+                "createdAt": "created_at",
+                "ipAddress": "ip_address",
+                "macAddresses": "mac_address",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:elasticmetal/getFlexibleIPsIpMacAddress:getFlexibleIPsIpMacAddress": {
+                "createdAt": "created_at",
+                "macAddress": "mac_address",
+                "macType": "mac_type",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:iam/PolicyRule:PolicyRule": {
+                "organizationId": "organization_id",
+                "permissionSetNames": "permission_set_names",
+                "projectIds": "project_ids"
+            },
+            "scaleway:iam/aPIKey:APIKey": {
+                "accessKey": "access_key",
+                "applicationId": "application_id",
+                "createdAt": "created_at",
+                "creationIp": "creation_ip",
+                "defaultProjectId": "default_project_id",
+                "expiresAt": "expires_at",
+                "secretKey": "secret_key",
+                "updatedAt": "updated_at",
+                "userId": "user_id"
+            },
+            "scaleway:iam/application:Application": {
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:iam/getApplication:getApplication": {
+                "applicationId": "application_id",
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:iam/getGroup:getGroup": {
+                "applicationIds": "application_ids",
+                "createdAt": "created_at",
+                "externalMembership": "external_membership",
+                "groupId": "group_id",
+                "organizationId": "organization_id",
+                "updatedAt": "updated_at",
+                "userIds": "user_ids"
+            },
+            "scaleway:iam/getSSHKey:getSSHKey": {
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "publicKey": "public_key",
+                "sshKeyId": "ssh_key_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:iam/getUser:getUser": {
+                "organizationId": "organization_id",
+                "userId": "user_id"
+            },
+            "scaleway:iam/group:Group": {
+                "applicationIds": "application_ids",
+                "createdAt": "created_at",
+                "externalMembership": "external_membership",
+                "organizationId": "organization_id",
+                "updatedAt": "updated_at",
+                "userIds": "user_ids"
+            },
+            "scaleway:iam/groupMembership:GroupMembership": {
+                "applicationId": "application_id",
+                "groupId": "group_id",
+                "userId": "user_id"
+            },
+            "scaleway:iam/policy:Policy": {
+                "applicationId": "application_id",
+                "createdAt": "created_at",
+                "groupId": "group_id",
+                "noPrincipal": "no_principal",
+                "organizationId": "organization_id",
+                "rules": "rule",
+                "updatedAt": "updated_at",
+                "userId": "user_id"
+            },
+            "scaleway:iam/sSHKey:SSHKey": {
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "publicKey": "public_key",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:iam/user:User": {
+                "accountRootUserId": "account_root_user_id",
+                "createdAt": "created_at",
+                "lastLoginAt": "last_login_at",
+                "organizationId": "organization_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:index:Provider": {
+                "accessKey": "access_key",
+                "apiUrl": "api_url",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "secretKey": "secret_key"
+            },
+            "scaleway:instance/ImageAdditionalVolume:ImageAdditionalVolume": {
+                "creationDate": "creation_date",
+                "exportUri": "export_uri",
+                "modificationDate": "modification_date",
+                "volumeType": "volume_type"
+            },
+            "scaleway:instance/SecurityGroupInboundRule:SecurityGroupInboundRule": {
+                "ipRange": "ip_range",
+                "portRange": "port_range"
+            },
+            "scaleway:instance/SecurityGroupOutboundRule:SecurityGroupOutboundRule": {
+                "ipRange": "ip_range",
+                "portRange": "port_range"
+            },
+            "scaleway:instance/SecurityGroupRulesInboundRule:SecurityGroupRulesInboundRule": {
+                "ipRange": "ip_range",
+                "portRange": "port_range"
+            },
+            "scaleway:instance/SecurityGroupRulesOutboundRule:SecurityGroupRulesOutboundRule": {
+                "ipRange": "ip_range",
+                "portRange": "port_range"
+            },
+            "scaleway:instance/ServerPrivateNetwork:ServerPrivateNetwork": {
+                "macAddress": "mac_address",
+                "pnId": "pn_id"
+            },
+            "scaleway:instance/ServerRootVolume:ServerRootVolume": {
+                "deleteOnTermination": "delete_on_termination",
+                "sizeInGb": "size_in_gb",
+                "volumeId": "volume_id",
+                "volumeType": "volume_type"
+            },
+            "scaleway:instance/getIP:getIP": {
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "serverId": "server_id"
+            },
+            "scaleway:instance/getImage:getImage": {
+                "additionalVolumeIds": "additional_volume_ids",
+                "creationDate": "creation_date",
+                "defaultBootscriptId": "default_bootscript_id",
+                "fromServerId": "from_server_id",
+                "imageId": "image_id",
+                "modificationDate": "modification_date",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "rootVolumeId": "root_volume_id"
+            },
+            "scaleway:instance/getMarketplaceImage:getMarketplaceImage": {
+                "instanceType": "instance_type"
+            },
+            "scaleway:instance/getPlacementGroup:getPlacementGroup": {
+                "organizationId": "organization_id",
+                "placementGroupId": "placement_group_id",
+                "policyMode": "policy_mode",
+                "policyRespected": "policy_respected",
+                "policyType": "policy_type",
+                "projectId": "project_id"
+            },
+            "scaleway:instance/getPrivateNIC:getPrivateNIC": {
+                "ipIds": "ip_ids",
+                "macAddress": "mac_address",
+                "privateNetworkId": "private_network_id",
+                "privateNicId": "private_nic_id",
+                "serverId": "server_id"
+            },
+            "scaleway:instance/getSecurityGroup:getSecurityGroup": {
+                "enableDefaultSecurity": "enable_default_security",
+                "externalRules": "external_rules",
+                "inboundDefaultPolicy": "inbound_default_policy",
+                "inboundRules": "inbound_rule",
+                "organizationId": "organization_id",
+                "outboundDefaultPolicy": "outbound_default_policy",
+                "outboundRules": "outbound_rule",
+                "projectId": "project_id",
+                "securityGroupId": "security_group_id"
+            },
+            "scaleway:instance/getSecurityGroupInboundRule:getSecurityGroupInboundRule": {
+                "ipRange": "ip_range",
+                "portRange": "port_range"
+            },
+            "scaleway:instance/getSecurityGroupOutboundRule:getSecurityGroupOutboundRule": {
+                "ipRange": "ip_range",
+                "portRange": "port_range"
+            },
+            "scaleway:instance/getServer:getServer": {
+                "additionalVolumeIds": "additional_volume_ids",
+                "bootType": "boot_type",
+                "bootscriptId": "bootscript_id",
+                "cloudInit": "cloud_init",
+                "enableDynamicIp": "enable_dynamic_ip",
+                "enableIpv6": "enable_ipv6",
+                "ipId": "ip_id",
+                "ipIds": "ip_ids",
+                "ipv6Address": "ipv6_address",
+                "ipv6Gateway": "ipv6_gateway",
+                "ipv6PrefixLength": "ipv6_prefix_length",
+                "organizationId": "organization_id",
+                "placementGroupId": "placement_group_id",
+                "placementGroupPolicyRespected": "placement_group_policy_respected",
+                "privateIp": "private_ip",
+                "privateNetworks": "private_network",
+                "projectId": "project_id",
+                "publicIp": "public_ip",
+                "publicIps": "public_ips",
+                "replaceOnTypeChange": "replace_on_type_change",
+                "rootVolumes": "root_volume",
+                "routedIpEnabled": "routed_ip_enabled",
+                "securityGroupId": "security_group_id",
+                "serverId": "server_id",
+                "userData": "user_data"
+            },
+            "scaleway:instance/getServerPrivateNetwork:getServerPrivateNetwork": {
+                "macAddress": "mac_address",
+                "pnId": "pn_id"
+            },
+            "scaleway:instance/getServerRootVolume:getServerRootVolume": {
+                "deleteOnTermination": "delete_on_termination",
+                "sizeInGb": "size_in_gb",
+                "volumeId": "volume_id",
+                "volumeType": "volume_type"
+            },
+            "scaleway:instance/getServers:getServers": {
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:instance/getServersServer:getServersServer": {
+                "bootType": "boot_type",
+                "bootscriptId": "bootscript_id",
+                "enableDynamicIp": "enable_dynamic_ip",
+                "enableIpv6": "enable_ipv6",
+                "ipv6Address": "ipv6_address",
+                "ipv6Gateway": "ipv6_gateway",
+                "ipv6PrefixLength": "ipv6_prefix_length",
+                "organizationId": "organization_id",
+                "placementGroupId": "placement_group_id",
+                "placementGroupPolicyRespected": "placement_group_policy_respected",
+                "privateIp": "private_ip",
+                "projectId": "project_id",
+                "publicIp": "public_ip",
+                "publicIps": "public_ips",
+                "routedIpEnabled": "routed_ip_enabled",
+                "securityGroupId": "security_group_id"
+            },
+            "scaleway:instance/getSnapshot:getSnapshot": {
+                "createdAt": "created_at",
+                "imports": "import",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "sizeInGb": "size_in_gb",
+                "snapshotId": "snapshot_id",
+                "volumeId": "volume_id"
+            },
+            "scaleway:instance/getVolume:getVolume": {
+                "fromSnapshotId": "from_snapshot_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "serverId": "server_id",
+                "sizeInGb": "size_in_gb",
+                "volumeId": "volume_id"
+            },
+            "scaleway:instance/iP:IP": {
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "serverId": "server_id"
+            },
+            "scaleway:instance/iPReverseDNS:IPReverseDNS": {
+                "ipId": "ip_id"
+            },
+            "scaleway:instance/image:Image": {
+                "additionalVolumeIds": "additional_volume_ids",
+                "additionalVolumes": "additional_volumes",
+                "creationDate": "creation_date",
+                "fromServerId": "from_server_id",
+                "modificationDate": "modification_date",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "rootVolumeId": "root_volume_id"
+            },
+            "scaleway:instance/placementGroup:PlacementGroup": {
+                "organizationId": "organization_id",
+                "policyMode": "policy_mode",
+                "policyRespected": "policy_respected",
+                "policyType": "policy_type",
+                "projectId": "project_id"
+            },
+            "scaleway:instance/privateNIC:PrivateNIC": {
+                "ipIds": "ip_ids",
+                "macAddress": "mac_address",
+                "privateNetworkId": "private_network_id",
+                "serverId": "server_id"
+            },
+            "scaleway:instance/securityGroup:SecurityGroup": {
+                "enableDefaultSecurity": "enable_default_security",
+                "externalRules": "external_rules",
+                "inboundDefaultPolicy": "inbound_default_policy",
+                "inboundRules": "inbound_rule",
+                "organizationId": "organization_id",
+                "outboundDefaultPolicy": "outbound_default_policy",
+                "outboundRules": "outbound_rule",
+                "projectId": "project_id"
+            },
+            "scaleway:instance/securityGroupRules:SecurityGroupRules": {
+                "inboundRules": "inbound_rule",
+                "outboundRules": "outbound_rule",
+                "securityGroupId": "security_group_id"
+            },
+            "scaleway:instance/server:Server": {
+                "additionalVolumeIds": "additional_volume_ids",
+                "bootType": "boot_type",
+                "bootscriptId": "bootscript_id",
+                "cloudInit": "cloud_init",
+                "enableDynamicIp": "enable_dynamic_ip",
+                "enableIpv6": "enable_ipv6",
+                "ipId": "ip_id",
+                "ipIds": "ip_ids",
+                "ipv6Address": "ipv6_address",
+                "ipv6Gateway": "ipv6_gateway",
+                "ipv6PrefixLength": "ipv6_prefix_length",
+                "organizationId": "organization_id",
+                "placementGroupId": "placement_group_id",
+                "placementGroupPolicyRespected": "placement_group_policy_respected",
+                "privateIp": "private_ip",
+                "privateNetworks": "private_network",
+                "projectId": "project_id",
+                "publicIp": "public_ip",
+                "publicIps": "public_ips",
+                "replaceOnTypeChange": "replace_on_type_change",
+                "rootVolume": "root_volume",
+                "routedIpEnabled": "routed_ip_enabled",
+                "securityGroupId": "security_group_id",
+                "userData": "user_data"
+            },
+            "scaleway:instance/snapshot:Snapshot": {
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "sizeInGb": "size_in_gb",
+                "volumeId": "volume_id"
+            },
+            "scaleway:instance/userData:UserData": {
+                "serverId": "server_id"
+            },
+            "scaleway:instance/volume:Volume": {
+                "fromSnapshotId": "from_snapshot_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "serverId": "server_id",
+                "sizeInGb": "size_in_gb"
+            },
+            "scaleway:iot/RouteS3:RouteS3": {
+                "bucketName": "bucket_name",
+                "bucketRegion": "bucket_region",
+                "objectPrefix": "object_prefix"
+            },
+            "scaleway:iot/device:Device": {
+                "allowInsecure": "allow_insecure",
+                "allowMultipleConnections": "allow_multiple_connections",
+                "createdAt": "created_at",
+                "hubId": "hub_id",
+                "isConnected": "is_connected",
+                "lastActivityAt": "last_activity_at",
+                "messageFilters": "message_filters",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:iot/getDevice:getDevice": {
+                "allowInsecure": "allow_insecure",
+                "allowMultipleConnections": "allow_multiple_connections",
+                "certificates": "certificate",
+                "createdAt": "created_at",
+                "deviceId": "device_id",
+                "hubId": "hub_id",
+                "isConnected": "is_connected",
+                "lastActivityAt": "last_activity_at",
+                "messageFilters": "message_filters",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:iot/getDeviceMessageFilter:getDeviceMessageFilter": {
+                "publishes": "publish",
+                "subscribes": "subscribe"
+            },
+            "scaleway:iot/getHub:getHub": {
+                "connectedDeviceCount": "connected_device_count",
+                "createdAt": "created_at",
+                "deviceAutoProvisioning": "device_auto_provisioning",
+                "deviceCount": "device_count",
+                "disableEvents": "disable_events",
+                "eventsTopicPrefix": "events_topic_prefix",
+                "hubCa": "hub_ca",
+                "hubCaChallenge": "hub_ca_challenge",
+                "hubId": "hub_id",
+                "organizationId": "organization_id",
+                "productPlan": "product_plan",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:iot/hub:Hub": {
+                "connectedDeviceCount": "connected_device_count",
+                "createdAt": "created_at",
+                "deviceAutoProvisioning": "device_auto_provisioning",
+                "deviceCount": "device_count",
+                "disableEvents": "disable_events",
+                "eventsTopicPrefix": "events_topic_prefix",
+                "hubCa": "hub_ca",
+                "hubCaChallenge": "hub_ca_challenge",
+                "organizationId": "organization_id",
+                "productPlan": "product_plan",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:iot/network:Network": {
+                "createdAt": "created_at",
+                "hubId": "hub_id",
+                "topicPrefix": "topic_prefix"
+            },
+            "scaleway:iot/route:Route": {
+                "createdAt": "created_at",
+                "hubId": "hub_id"
+            },
+            "scaleway:ipam/IPResource:IPResource": {
+                "macAddress": "mac_address"
+            },
+            "scaleway:ipam/IPSource:IPSource": {
+                "privateNetworkId": "private_network_id",
+                "subnetId": "subnet_id"
+            },
+            "scaleway:ipam/getIP:getIP": {
+                "addressCidr": "address_cidr",
+                "ipamIpId": "ipam_ip_id",
+                "macAddress": "mac_address",
+                "organizationId": "organization_id",
+                "privateNetworkId": "private_network_id",
+                "projectId": "project_id"
+            },
+            "scaleway:ipam/getIPs:getIPs": {
+                "macAddress": "mac_address",
+                "organizationId": "organization_id",
+                "privateNetworkId": "private_network_id",
+                "projectId": "project_id"
+            },
+            "scaleway:ipam/getIPsIp:getIPsIp": {
+                "createdAt": "created_at",
+                "projectId": "project_id",
+                "resources": "resource",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:ipam/getIPsIpResource:getIPsIpResource": {
+                "macAddress": "mac_address"
+            },
+            "scaleway:ipam/iP:IP": {
+                "createdAt": "created_at",
+                "isIpv6": "is_ipv6",
+                "projectId": "project_id",
+                "resources": "resource",
+                "sources": "source",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:kubernetes/ClusterAutoUpgrade:ClusterAutoUpgrade": {
+                "maintenanceWindowDay": "maintenance_window_day",
+                "maintenanceWindowStartHour": "maintenance_window_start_hour"
+            },
+            "scaleway:kubernetes/ClusterAutoscalerConfig:ClusterAutoscalerConfig": {
+                "balanceSimilarNodeGroups": "balance_similar_node_groups",
+                "disableScaleDown": "disable_scale_down",
+                "expendablePodsPriorityCutoff": "expendable_pods_priority_cutoff",
+                "ignoreDaemonsetsUtilization": "ignore_daemonsets_utilization",
+                "maxGracefulTerminationSec": "max_graceful_termination_sec",
+                "scaleDownDelayAfterAdd": "scale_down_delay_after_add",
+                "scaleDownUnneededTime": "scale_down_unneeded_time",
+                "scaleDownUtilizationThreshold": "scale_down_utilization_threshold"
+            },
+            "scaleway:kubernetes/ClusterKubeconfig:ClusterKubeconfig": {
+                "clusterCaCertificate": "cluster_ca_certificate",
+                "configFile": "config_file"
+            },
+            "scaleway:kubernetes/ClusterOpenIdConnectConfig:ClusterOpenIdConnectConfig": {
+                "clientId": "client_id",
+                "groupsClaims": "groups_claim",
+                "groupsPrefix": "groups_prefix",
+                "issuerUrl": "issuer_url",
+                "requiredClaims": "required_claim",
+                "usernameClaim": "username_claim",
+                "usernamePrefix": "username_prefix"
+            },
+            "scaleway:kubernetes/PoolNode:PoolNode": {
+                "publicIp": "public_ip",
+                "publicIpV6": "public_ip_v6"
+            },
+            "scaleway:kubernetes/PoolUpgradePolicy:PoolUpgradePolicy": {
+                "maxSurge": "max_surge",
+                "maxUnavailable": "max_unavailable"
+            },
+            "scaleway:kubernetes/cluster:Cluster": {
+                "admissionPlugins": "admission_plugins",
+                "apiserverCertSans": "apiserver_cert_sans",
+                "apiserverUrl": "apiserver_url",
+                "autoUpgrade": "auto_upgrade",
+                "autoscalerConfig": "autoscaler_config",
+                "createdAt": "created_at",
+                "deleteAdditionalResources": "delete_additional_resources",
+                "featureGates": "feature_gates",
+                "kubeconfigs": "kubeconfig",
+                "openIdConnectConfig": "open_id_connect_config",
+                "organizationId": "organization_id",
+                "privateNetworkId": "private_network_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at",
+                "upgradeAvailable": "upgrade_available",
+                "wildcardDns": "wildcard_dns"
+            },
+            "scaleway:kubernetes/getCluster:getCluster": {
+                "admissionPlugins": "admission_plugins",
+                "apiserverCertSans": "apiserver_cert_sans",
+                "apiserverUrl": "apiserver_url",
+                "autoUpgrades": "auto_upgrade",
+                "autoscalerConfigs": "autoscaler_config",
+                "clusterId": "cluster_id",
+                "createdAt": "created_at",
+                "featureGates": "feature_gates",
+                "kubeconfigs": "kubeconfig",
+                "openIdConnectConfigs": "open_id_connect_config",
+                "organizationId": "organization_id",
+                "privateNetworkId": "private_network_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at",
+                "upgradeAvailable": "upgrade_available",
+                "wildcardDns": "wildcard_dns"
+            },
+            "scaleway:kubernetes/getClusterAutoUpgrade:getClusterAutoUpgrade": {
+                "maintenanceWindowDay": "maintenance_window_day",
+                "maintenanceWindowStartHour": "maintenance_window_start_hour"
+            },
+            "scaleway:kubernetes/getClusterAutoscalerConfig:getClusterAutoscalerConfig": {
+                "balanceSimilarNodeGroups": "balance_similar_node_groups",
+                "disableScaleDown": "disable_scale_down",
+                "expendablePodsPriorityCutoff": "expendable_pods_priority_cutoff",
+                "ignoreDaemonsetsUtilization": "ignore_daemonsets_utilization",
+                "maxGracefulTerminationSec": "max_graceful_termination_sec",
+                "scaleDownDelayAfterAdd": "scale_down_delay_after_add",
+                "scaleDownUnneededTime": "scale_down_unneeded_time",
+                "scaleDownUtilizationThreshold": "scale_down_utilization_threshold"
+            },
+            "scaleway:kubernetes/getClusterKubeconfig:getClusterKubeconfig": {
+                "clusterCaCertificate": "cluster_ca_certificate",
+                "configFile": "config_file"
+            },
+            "scaleway:kubernetes/getClusterOpenIdConnectConfig:getClusterOpenIdConnectConfig": {
+                "clientId": "client_id",
+                "groupsClaims": "groups_claim",
+                "groupsPrefix": "groups_prefix",
+                "issuerUrl": "issuer_url",
+                "requiredClaims": "required_claim",
+                "usernameClaim": "username_claim",
+                "usernamePrefix": "username_prefix"
+            },
+            "scaleway:kubernetes/getPool:getPool": {
+                "clusterId": "cluster_id",
+                "containerRuntime": "container_runtime",
+                "createdAt": "created_at",
+                "currentSize": "current_size",
+                "kubeletArgs": "kubelet_args",
+                "maxSize": "max_size",
+                "minSize": "min_size",
+                "nodeType": "node_type",
+                "placementGroupId": "placement_group_id",
+                "poolId": "pool_id",
+                "publicIpDisabled": "public_ip_disabled",
+                "rootVolumeSizeInGb": "root_volume_size_in_gb",
+                "rootVolumeType": "root_volume_type",
+                "updatedAt": "updated_at",
+                "upgradePolicies": "upgrade_policy",
+                "waitForPoolReady": "wait_for_pool_ready"
+            },
+            "scaleway:kubernetes/getPoolNode:getPoolNode": {
+                "publicIp": "public_ip",
+                "publicIpV6": "public_ip_v6"
+            },
+            "scaleway:kubernetes/getPoolUpgradePolicy:getPoolUpgradePolicy": {
+                "maxSurge": "max_surge",
+                "maxUnavailable": "max_unavailable"
+            },
+            "scaleway:kubernetes/getVersion:getVersion": {
+                "availableCnis": "available_cnis",
+                "availableContainerRuntimes": "available_container_runtimes",
+                "availableFeatureGates": "available_feature_gates"
+            },
+            "scaleway:kubernetes/pool:Pool": {
+                "clusterId": "cluster_id",
+                "containerRuntime": "container_runtime",
+                "createdAt": "created_at",
+                "currentSize": "current_size",
+                "kubeletArgs": "kubelet_args",
+                "maxSize": "max_size",
+                "minSize": "min_size",
+                "nodeType": "node_type",
+                "placementGroupId": "placement_group_id",
+                "publicIpDisabled": "public_ip_disabled",
+                "rootVolumeSizeInGb": "root_volume_size_in_gb",
+                "rootVolumeType": "root_volume_type",
+                "updatedAt": "updated_at",
+                "upgradePolicy": "upgrade_policy",
+                "waitForPoolReady": "wait_for_pool_ready"
+            },
+            "scaleway:loadbalancer/ACLAction:ACLAction": {
+                "redirects": "redirect"
+            },
+            "scaleway:loadbalancer/ACLMatch:ACLMatch": {
+                "httpFilter": "http_filter",
+                "httpFilterOption": "http_filter_option",
+                "httpFilterValues": "http_filter_value",
+                "ipSubnets": "ip_subnet"
+            },
+            "scaleway:loadbalancer/BackendHealthCheckHttp:BackendHealthCheckHttp": {
+                "hostHeader": "host_header"
+            },
+            "scaleway:loadbalancer/BackendHealthCheckHttps:BackendHealthCheckHttps": {
+                "hostHeader": "host_header"
+            },
+            "scaleway:loadbalancer/CertficateCustomCertificate:CertficateCustomCertificate": {
+                "certificateChain": "certificate_chain"
+            },
+            "scaleway:loadbalancer/CertficateLetsencrypt:CertficateLetsencrypt": {
+                "commonName": "common_name",
+                "subjectAlternativeNames": "subject_alternative_name"
+            },
+            "scaleway:loadbalancer/FrontendAcl:FrontendAcl": {
+                "createdAt": "created_at",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:loadbalancer/FrontendAclAction:FrontendAclAction": {
+                "redirects": "redirect"
+            },
+            "scaleway:loadbalancer/FrontendAclMatch:FrontendAclMatch": {
+                "httpFilter": "http_filter",
+                "httpFilterOption": "http_filter_option",
+                "httpFilterValues": "http_filter_value",
+                "ipSubnets": "ip_subnet"
+            },
+            "scaleway:loadbalancer/LoadBalancerPrivateNetwork:LoadBalancerPrivateNetwork": {
+                "dhcpConfig": "dhcp_config",
+                "privateNetworkId": "private_network_id",
+                "staticConfig": "static_config"
+            },
+            "scaleway:loadbalancer/aCL:ACL": {
+                "createdAt": "created_at",
+                "frontendId": "frontend_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:loadbalancer/backend:Backend": {
+                "failoverHost": "failover_host",
+                "forwardPort": "forward_port",
+                "forwardPortAlgorithm": "forward_port_algorithm",
+                "forwardProtocol": "forward_protocol",
+                "healthCheckDelay": "health_check_delay",
+                "healthCheckHttp": "health_check_http",
+                "healthCheckHttps": "health_check_https",
+                "healthCheckMaxRetries": "health_check_max_retries",
+                "healthCheckPort": "health_check_port",
+                "healthCheckSendProxy": "health_check_send_proxy",
+                "healthCheckTcp": "health_check_tcp",
+                "healthCheckTimeout": "health_check_timeout",
+                "healthCheckTransientDelay": "health_check_transient_delay",
+                "ignoreSslServerVerify": "ignore_ssl_server_verify",
+                "lbId": "lb_id",
+                "maxConnections": "max_connections",
+                "maxRetries": "max_retries",
+                "onMarkedDownAction": "on_marked_down_action",
+                "proxyProtocol": "proxy_protocol",
+                "redispatchAttemptCount": "redispatch_attempt_count",
+                "sendProxyV2": "send_proxy_v2",
+                "serverIps": "server_ips",
+                "sslBridging": "ssl_bridging",
+                "stickySessions": "sticky_sessions",
+                "stickySessionsCookieName": "sticky_sessions_cookie_name",
+                "timeoutConnect": "timeout_connect",
+                "timeoutQueue": "timeout_queue",
+                "timeoutServer": "timeout_server",
+                "timeoutTunnel": "timeout_tunnel"
+            },
+            "scaleway:loadbalancer/certficate:Certficate": {
+                "commonName": "common_name",
+                "customCertificate": "custom_certificate",
+                "lbId": "lb_id",
+                "notValidAfter": "not_valid_after",
+                "notValidBefore": "not_valid_before",
+                "subjectAlternativeNames": "subject_alternative_name"
+            },
+            "scaleway:loadbalancer/frontend:Frontend": {
+                "acls": "acl",
+                "backendId": "backend_id",
+                "certificateId": "certificate_id",
+                "certificateIds": "certificate_ids",
+                "enableHttp3": "enable_http3",
+                "externalAcls": "external_acls",
+                "inboundPort": "inbound_port",
+                "lbId": "lb_id",
+                "timeoutClient": "timeout_client"
+            },
+            "scaleway:loadbalancer/getACLs:getACLs": {
+                "frontendId": "frontend_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:loadbalancer/getACLsAcl:getACLsAcl": {
+                "actions": "action",
+                "createdAt": "created_at",
+                "frontendId": "frontend_id",
+                "matches": "match",
+                "updateAt": "update_at"
+            },
+            "scaleway:loadbalancer/getACLsAclAction:getACLsAclAction": {
+                "redirects": "redirect"
+            },
+            "scaleway:loadbalancer/getACLsAclMatch:getACLsAclMatch": {
+                "httpFilter": "http_filter",
+                "httpFilterOption": "http_filter_option",
+                "httpFilterValues": "http_filter_value",
+                "ipSubnets": "ip_subnet"
+            },
+            "scaleway:loadbalancer/getBackend:getBackend": {
+                "backendId": "backend_id",
+                "failoverHost": "failover_host",
+                "forwardPort": "forward_port",
+                "forwardPortAlgorithm": "forward_port_algorithm",
+                "forwardProtocol": "forward_protocol",
+                "healthCheckDelay": "health_check_delay",
+                "healthCheckHttp": "health_check_http",
+                "healthCheckHttps": "health_check_https",
+                "healthCheckMaxRetries": "health_check_max_retries",
+                "healthCheckPort": "health_check_port",
+                "healthCheckSendProxy": "health_check_send_proxy",
+                "healthCheckTcps": "health_check_tcp",
+                "healthCheckTimeout": "health_check_timeout",
+                "healthCheckTransientDelay": "health_check_transient_delay",
+                "ignoreSslServerVerify": "ignore_ssl_server_verify",
+                "lbId": "lb_id",
+                "maxConnections": "max_connections",
+                "maxRetries": "max_retries",
+                "onMarkedDownAction": "on_marked_down_action",
+                "proxyProtocol": "proxy_protocol",
+                "redispatchAttemptCount": "redispatch_attempt_count",
+                "sendProxyV2": "send_proxy_v2",
+                "serverIps": "server_ips",
+                "sslBridging": "ssl_bridging",
+                "stickySessions": "sticky_sessions",
+                "stickySessionsCookieName": "sticky_sessions_cookie_name",
+                "timeoutConnect": "timeout_connect",
+                "timeoutQueue": "timeout_queue",
+                "timeoutServer": "timeout_server",
+                "timeoutTunnel": "timeout_tunnel"
+            },
+            "scaleway:loadbalancer/getBackendHealthCheckHttp:getBackendHealthCheckHttp": {
+                "hostHeader": "host_header"
+            },
+            "scaleway:loadbalancer/getBackends:getBackends": {
+                "lbId": "lb_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:loadbalancer/getBackendsBackend:getBackendsBackend": {
+                "createdAt": "created_at",
+                "failoverHost": "failover_host",
+                "forwardPort": "forward_port",
+                "forwardPortAlgorithm": "forward_port_algorithm",
+                "forwardProtocol": "forward_protocol",
+                "healthCheckDelay": "health_check_delay",
+                "healthCheckHttp": "health_check_http",
+                "healthCheckHttps": "health_check_https",
+                "healthCheckMaxRetries": "health_check_max_retries",
+                "healthCheckPort": "health_check_port",
+                "healthCheckTcps": "health_check_tcp",
+                "healthCheckTimeout": "health_check_timeout",
+                "ignoreSslServerVerify": "ignore_ssl_server_verify",
+                "lbId": "lb_id",
+                "onMarkedDownAction": "on_marked_down_action",
+                "proxyProtocol": "proxy_protocol",
+                "serverIps": "server_ips",
+                "sslBridging": "ssl_bridging",
+                "stickySessions": "sticky_sessions",
+                "stickySessionsCookieName": "sticky_sessions_cookie_name",
+                "timeoutConnect": "timeout_connect",
+                "timeoutServer": "timeout_server",
+                "timeoutTunnel": "timeout_tunnel",
+                "updateAt": "update_at"
+            },
+            "scaleway:loadbalancer/getBackendsBackendHealthCheckHttp:getBackendsBackendHealthCheckHttp": {
+                "hostHeader": "host_header"
+            },
+            "scaleway:loadbalancer/getCertificate:getCertificate": {
+                "certificateId": "certificate_id",
+                "commonName": "common_name",
+                "customCertificates": "custom_certificate",
+                "lbId": "lb_id",
+                "letsencrypts": "letsencrypt",
+                "notValidAfter": "not_valid_after",
+                "notValidBefore": "not_valid_before",
+                "subjectAlternativeNames": "subject_alternative_name"
+            },
+            "scaleway:loadbalancer/getCertificateCustomCertificate:getCertificateCustomCertificate": {
+                "certificateChain": "certificate_chain"
+            },
+            "scaleway:loadbalancer/getCertificateLetsencrypt:getCertificateLetsencrypt": {
+                "commonName": "common_name",
+                "subjectAlternativeNames": "subject_alternative_name"
+            },
+            "scaleway:loadbalancer/getFrontend:getFrontend": {
+                "acls": "acl",
+                "backendId": "backend_id",
+                "certificateId": "certificate_id",
+                "certificateIds": "certificate_ids",
+                "enableHttp3": "enable_http3",
+                "externalAcls": "external_acls",
+                "frontendId": "frontend_id",
+                "inboundPort": "inbound_port",
+                "lbId": "lb_id",
+                "timeoutClient": "timeout_client"
+            },
+            "scaleway:loadbalancer/getFrontendAcl:getFrontendAcl": {
+                "actions": "action",
+                "createdAt": "created_at",
+                "matches": "match",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:loadbalancer/getFrontendAclAction:getFrontendAclAction": {
+                "redirects": "redirect"
+            },
+            "scaleway:loadbalancer/getFrontendAclMatch:getFrontendAclMatch": {
+                "httpFilter": "http_filter",
+                "httpFilterOption": "http_filter_option",
+                "httpFilterValues": "http_filter_value",
+                "ipSubnets": "ip_subnet"
+            },
+            "scaleway:loadbalancer/getFrontends:getFrontends": {
+                "lbId": "lb_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:loadbalancer/getFrontendsFrontend:getFrontendsFrontend": {
+                "backendId": "backend_id",
+                "certificateIds": "certificate_ids",
+                "createdAt": "created_at",
+                "enableHttp3": "enable_http3",
+                "inboundPort": "inbound_port",
+                "lbId": "lb_id",
+                "timeoutClient": "timeout_client",
+                "updateAt": "update_at"
+            },
+            "scaleway:loadbalancer/getIP:getIP": {
+                "ipAddress": "ip_address",
+                "ipId": "ip_id",
+                "lbId": "lb_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:loadbalancer/getIPs:getIPs": {
+                "ipCidrRange": "ip_cidr_range",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:loadbalancer/getIPsIp:getIPsIp": {
+                "ipAddress": "ip_address",
+                "lbId": "lb_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:loadbalancer/getLoadBalancer:getLoadBalancer": {
+                "assignFlexibleIp": "assign_flexible_ip",
+                "ipAddress": "ip_address",
+                "ipId": "ip_id",
+                "lbId": "lb_id",
+                "organizationId": "organization_id",
+                "privateNetworks": "private_network",
+                "projectId": "project_id",
+                "releaseIp": "release_ip",
+                "sslCompatibilityLevel": "ssl_compatibility_level"
+            },
+            "scaleway:loadbalancer/getLoadBalancerPrivateNetwork:getLoadBalancerPrivateNetwork": {
+                "dhcpConfig": "dhcp_config",
+                "privateNetworkId": "private_network_id",
+                "staticConfigs": "static_config"
+            },
+            "scaleway:loadbalancer/getLoadBalancers:getLoadBalancers": {
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:loadbalancer/getLoadBalancersLb:getLoadBalancersLb": {
+                "backendCount": "backend_count",
+                "createdAt": "created_at",
+                "frontendCount": "frontend_count",
+                "organizationId": "organization_id",
+                "privateNetworkCount": "private_network_count",
+                "projectId": "project_id",
+                "routeCount": "route_count",
+                "sslCompatibilityLevel": "ssl_compatibility_level",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:loadbalancer/getLoadBalancersLbInstance:getLoadBalancersLbInstance": {
+                "createdAt": "created_at",
+                "ipAddress": "ip_address",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:loadbalancer/getLoadBalancersLbIp:getLoadBalancersLbIp": {
+                "ipAddress": "ip_address",
+                "lbId": "lb_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:loadbalancer/getRoute:getRoute": {
+                "backendId": "backend_id",
+                "createdAt": "created_at",
+                "frontendId": "frontend_id",
+                "matchHostHeader": "match_host_header",
+                "matchSni": "match_sni",
+                "routeId": "route_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:loadbalancer/getRoutes:getRoutes": {
+                "frontendId": "frontend_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:loadbalancer/getRoutesRoute:getRoutesRoute": {
+                "backendId": "backend_id",
+                "createdAt": "created_at",
+                "frontendId": "frontend_id",
+                "matchHostHeader": "match_host_header",
+                "matchSni": "match_sni",
+                "updateAt": "update_at"
+            },
+            "scaleway:loadbalancer/iP:IP": {
+                "ipAddress": "ip_address",
+                "lbId": "lb_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:loadbalancer/loadBalancer:LoadBalancer": {
+                "assignFlexibleIp": "assign_flexible_ip",
+                "ipAddress": "ip_address",
+                "ipId": "ip_id",
+                "organizationId": "organization_id",
+                "privateNetworks": "private_network",
+                "projectId": "project_id",
+                "releaseIp": "release_ip",
+                "sslCompatibilityLevel": "ssl_compatibility_level"
+            },
+            "scaleway:loadbalancer/route:Route": {
+                "backendId": "backend_id",
+                "createdAt": "created_at",
+                "frontendId": "frontend_id",
+                "matchHostHeader": "match_host_header",
+                "matchSni": "match_sni",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:mnq/SNSCredentialsPermissions:SNSCredentialsPermissions": {
+                "canManage": "can_manage",
+                "canPublish": "can_publish",
+                "canReceive": "can_receive"
+            },
+            "scaleway:mnq/SQSCredentialsPermissions:SQSCredentialsPermissions": {
+                "canManage": "can_manage",
+                "canPublish": "can_publish",
+                "canReceive": "can_receive"
+            },
+            "scaleway:mnq/getSQS:getSQS": {
+                "projectId": "project_id"
+            },
+            "scaleway:mnq/nATSAccount:NATSAccount": {
+                "projectId": "project_id"
+            },
+            "scaleway:mnq/nATSCredentials:NATSCredentials": {
+                "accountId": "account_id"
+            },
+            "scaleway:mnq/sNS:SNS": {
+                "projectId": "project_id"
+            },
+            "scaleway:mnq/sNSCredentials:SNSCredentials": {
+                "accessKey": "access_key",
+                "projectId": "project_id",
+                "secretKey": "secret_key"
+            },
+            "scaleway:mnq/sNSTopic:SNSTopic": {
+                "accessKey": "access_key",
+                "contentBasedDeduplication": "content_based_deduplication",
+                "fifoTopic": "fifo_topic",
+                "namePrefix": "name_prefix",
+                "projectId": "project_id",
+                "secretKey": "secret_key",
+                "snsEndpoint": "sns_endpoint"
+            },
+            "scaleway:mnq/sNSTopicSubscription:SNSTopicSubscription": {
+                "accessKey": "access_key",
+                "projectId": "project_id",
+                "redrivePolicy": "redrive_policy",
+                "secretKey": "secret_key",
+                "snsEndpoint": "sns_endpoint",
+                "topicArn": "topic_arn",
+                "topicId": "topic_id"
+            },
+            "scaleway:mnq/sQS:SQS": {
+                "projectId": "project_id"
+            },
+            "scaleway:mnq/sQSCredentials:SQSCredentials": {
+                "accessKey": "access_key",
+                "projectId": "project_id",
+                "secretKey": "secret_key"
+            },
+            "scaleway:mnq/sQSQueue:SQSQueue": {
+                "accessKey": "access_key",
+                "contentBasedDeduplication": "content_based_deduplication",
+                "fifoQueue": "fifo_queue",
+                "messageMaxAge": "message_max_age",
+                "messageMaxSize": "message_max_size",
+                "namePrefix": "name_prefix",
+                "projectId": "project_id",
+                "receiveWaitTimeSeconds": "receive_wait_time_seconds",
+                "secretKey": "secret_key",
+                "sqsEndpoint": "sqs_endpoint",
+                "visibilityTimeoutSeconds": "visibility_timeout_seconds"
+            },
+            "scaleway:objectstorage/BucketACLAccessControlPolicy:BucketACLAccessControlPolicy": {
+                "grants": "grant"
+            },
+            "scaleway:objectstorage/BucketACLAccessControlPolicyGrantGrantee:BucketACLAccessControlPolicyGrantGrantee": {
+                "displayName": "display_name"
+            },
+            "scaleway:objectstorage/BucketACLAccessControlPolicyOwner:BucketACLAccessControlPolicyOwner": {
+                "displayName": "display_name"
+            },
+            "scaleway:objectstorage/BucketCorsRule:BucketCorsRule": {
+                "allowedHeaders": "allowed_headers",
+                "allowedMethods": "allowed_methods",
+                "allowedOrigins": "allowed_origins",
+                "exposeHeaders": "expose_headers",
+                "maxAgeSeconds": "max_age_seconds"
+            },
+            "scaleway:objectstorage/BucketLifecycleRule:BucketLifecycleRule": {
+                "abortIncompleteMultipartUploadDays": "abort_incomplete_multipart_upload_days",
+                "transitions": "transition"
+            },
+            "scaleway:objectstorage/BucketLifecycleRuleTransition:BucketLifecycleRuleTransition": {
+                "storageClass": "storage_class"
+            },
+            "scaleway:objectstorage/BucketLockConfigurationRule:BucketLockConfigurationRule": {
+                "defaultRetention": "default_retention"
+            },
+            "scaleway:objectstorage/bucket:Bucket": {
+                "apiEndpoint": "api_endpoint",
+                "corsRules": "cors_rule",
+                "forceDestroy": "force_destroy",
+                "lifecycleRules": "lifecycle_rule",
+                "objectLockEnabled": "object_lock_enabled",
+                "projectId": "project_id"
+            },
+            "scaleway:objectstorage/bucketACL:BucketACL": {
+                "accessControlPolicy": "access_control_policy",
+                "expectedBucketOwner": "expected_bucket_owner",
+                "projectId": "project_id"
+            },
+            "scaleway:objectstorage/bucketLockConfiguration:BucketLockConfiguration": {
+                "projectId": "project_id"
+            },
+            "scaleway:objectstorage/bucketPolicy:BucketPolicy": {
+                "projectId": "project_id"
+            },
+            "scaleway:objectstorage/bucketWebsiteConfiguration:BucketWebsiteConfiguration": {
+                "errorDocument": "error_document",
+                "indexDocument": "index_document",
+                "projectId": "project_id",
+                "websiteDomain": "website_domain",
+                "websiteEndpoint": "website_endpoint"
+            },
+            "scaleway:objectstorage/getBucket:getBucket": {
+                "apiEndpoint": "api_endpoint",
+                "corsRules": "cors_rule",
+                "forceDestroy": "force_destroy",
+                "lifecycleRules": "lifecycle_rule",
+                "objectLockEnabled": "object_lock_enabled",
+                "projectId": "project_id",
+                "versionings": "versioning"
+            },
+            "scaleway:objectstorage/getBucketCorsRule:getBucketCorsRule": {
+                "allowedHeaders": "allowed_headers",
+                "allowedMethods": "allowed_methods",
+                "allowedOrigins": "allowed_origins",
+                "exposeHeaders": "expose_headers",
+                "maxAgeSeconds": "max_age_seconds"
+            },
+            "scaleway:objectstorage/getBucketLifecycleRule:getBucketLifecycleRule": {
+                "abortIncompleteMultipartUploadDays": "abort_incomplete_multipart_upload_days",
+                "expirations": "expiration",
+                "transitions": "transition"
+            },
+            "scaleway:objectstorage/getBucketLifecycleRuleTransition:getBucketLifecycleRuleTransition": {
+                "storageClass": "storage_class"
+            },
+            "scaleway:objectstorage/getBucketPolicy:getBucketPolicy": {
+                "projectId": "project_id"
+            },
+            "scaleway:objectstorage/item:Item": {
+                "contentBase64": "content_base64",
+                "projectId": "project_id",
+                "storageClass": "storage_class"
+            },
+            "scaleway:rdb/InstanceLoadBalancer:InstanceLoadBalancer": {
+                "endpointId": "endpoint_id"
+            },
+            "scaleway:rdb/InstancePrivateNetwork:InstancePrivateNetwork": {
+                "enableIpam": "enable_ipam",
+                "endpointId": "endpoint_id",
+                "ipNet": "ip_net",
+                "pnId": "pn_id"
+            },
+            "scaleway:rdb/ReadReplicaDirectAccess:ReadReplicaDirectAccess": {
+                "endpointId": "endpoint_id"
+            },
+            "scaleway:rdb/ReadReplicaPrivateNetwork:ReadReplicaPrivateNetwork": {
+                "enableIpam": "enable_ipam",
+                "endpointId": "endpoint_id",
+                "privateNetworkId": "private_network_id",
+                "serviceIp": "service_ip"
+            },
+            "scaleway:rdb/aCL:ACL": {
+                "aclRules": "acl_rules",
+                "instanceId": "instance_id"
+            },
+            "scaleway:rdb/database:Database": {
+                "instanceId": "instance_id"
+            },
+            "scaleway:rdb/databaseBackup:DatabaseBackup": {
+                "createdAt": "created_at",
+                "databaseName": "database_name",
+                "expiresAt": "expires_at",
+                "instanceId": "instance_id",
+                "instanceName": "instance_name",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:rdb/getACL:getACL": {
+                "aclRules": "acl_rules",
+                "instanceId": "instance_id"
+            },
+            "scaleway:rdb/getDatabase:getDatabase": {
+                "instanceId": "instance_id"
+            },
+            "scaleway:rdb/getDatabaseBackup:getDatabaseBackup": {
+                "backupId": "backup_id",
+                "createdAt": "created_at",
+                "databaseName": "database_name",
+                "expiresAt": "expires_at",
+                "instanceId": "instance_id",
+                "instanceName": "instance_name",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:rdb/getInstance:getInstance": {
+                "backupSameRegion": "backup_same_region",
+                "backupScheduleFrequency": "backup_schedule_frequency",
+                "backupScheduleRetention": "backup_schedule_retention",
+                "disableBackup": "disable_backup",
+                "endpointIp": "endpoint_ip",
+                "endpointPort": "endpoint_port",
+                "initSettings": "init_settings",
+                "instanceId": "instance_id",
+                "isHaCluster": "is_ha_cluster",
+                "loadBalancers": "load_balancer",
+                "nodeType": "node_type",
+                "organizationId": "organization_id",
+                "privateNetworks": "private_network",
+                "projectId": "project_id",
+                "readReplicas": "read_replicas",
+                "userName": "user_name",
+                "volumeSizeInGb": "volume_size_in_gb",
+                "volumeType": "volume_type"
+            },
+            "scaleway:rdb/getInstanceLoadBalancer:getInstanceLoadBalancer": {
+                "endpointId": "endpoint_id"
+            },
+            "scaleway:rdb/getInstancePrivateNetwork:getInstancePrivateNetwork": {
+                "enableIpam": "enable_ipam",
+                "endpointId": "endpoint_id",
+                "ipNet": "ip_net",
+                "pnId": "pn_id"
+            },
+            "scaleway:rdb/getPrivilege:getPrivilege": {
+                "databaseName": "database_name",
+                "instanceId": "instance_id",
+                "userName": "user_name"
+            },
+            "scaleway:rdb/instance:Instance": {
+                "backupSameRegion": "backup_same_region",
+                "backupScheduleFrequency": "backup_schedule_frequency",
+                "backupScheduleRetention": "backup_schedule_retention",
+                "disableBackup": "disable_backup",
+                "endpointIp": "endpoint_ip",
+                "endpointPort": "endpoint_port",
+                "initSettings": "init_settings",
+                "isHaCluster": "is_ha_cluster",
+                "loadBalancers": "load_balancer",
+                "nodeType": "node_type",
+                "organizationId": "organization_id",
+                "privateNetwork": "private_network",
+                "projectId": "project_id",
+                "readReplicas": "read_replicas",
+                "userName": "user_name",
+                "volumeSizeInGb": "volume_size_in_gb",
+                "volumeType": "volume_type"
+            },
+            "scaleway:rdb/privilege:Privilege": {
+                "databaseName": "database_name",
+                "instanceId": "instance_id",
+                "userName": "user_name"
+            },
+            "scaleway:rdb/readReplica:ReadReplica": {
+                "directAccess": "direct_access",
+                "instanceId": "instance_id",
+                "privateNetwork": "private_network",
+                "sameZone": "same_zone"
+            },
+            "scaleway:rdb/user:User": {
+                "instanceId": "instance_id",
+                "isAdmin": "is_admin"
+            },
+            "scaleway:redis/ClusterPrivateNetwork:ClusterPrivateNetwork": {
+                "endpointId": "endpoint_id",
+                "serviceIps": "service_ips"
+            },
+            "scaleway:redis/cluster:Cluster": {
+                "acls": "acl",
+                "clusterSize": "cluster_size",
+                "createdAt": "created_at",
+                "nodeType": "node_type",
+                "privateNetworks": "private_network",
+                "projectId": "project_id",
+                "publicNetwork": "public_network",
+                "tlsEnabled": "tls_enabled",
+                "updatedAt": "updated_at",
+                "userName": "user_name"
+            },
+            "scaleway:redis/getCluster:getCluster": {
+                "acls": "acl",
+                "clusterId": "cluster_id",
+                "clusterSize": "cluster_size",
+                "createdAt": "created_at",
+                "nodeType": "node_type",
+                "privateNetworks": "private_network",
+                "projectId": "project_id",
+                "publicNetworks": "public_network",
+                "tlsEnabled": "tls_enabled",
+                "updatedAt": "updated_at",
+                "userName": "user_name"
+            },
+            "scaleway:redis/getClusterPrivateNetwork:getClusterPrivateNetwork": {
+                "endpointId": "endpoint_id",
+                "serviceIps": "service_ips"
+            },
+            "scaleway:secret/getSecret:getSecret": {
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "secretId": "secret_id",
+                "updatedAt": "updated_at",
+                "versionCount": "version_count"
+            },
+            "scaleway:secret/getVersion:getVersion": {
+                "createdAt": "created_at",
+                "projectId": "project_id",
+                "secretId": "secret_id",
+                "secretName": "secret_name",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:secret/secret:Secret": {
+                "createdAt": "created_at",
+                "projectId": "project_id",
+                "updatedAt": "updated_at",
+                "versionCount": "version_count"
+            },
+            "scaleway:secret/version:Version": {
+                "createdAt": "created_at",
+                "secretId": "secret_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:serverless/ContainerTriggerNats:ContainerTriggerNats": {
+                "accountId": "account_id",
+                "projectId": "project_id"
+            },
+            "scaleway:serverless/ContainerTriggerSqs:ContainerTriggerSqs": {
+                "namespaceId": "namespace_id",
+                "projectId": "project_id"
+            },
+            "scaleway:serverless/FunctionTriggerNats:FunctionTriggerNats": {
+                "accountId": "account_id",
+                "projectId": "project_id"
+            },
+            "scaleway:serverless/FunctionTriggerSqs:FunctionTriggerSqs": {
+                "namespaceId": "namespace_id",
+                "projectId": "project_id"
+            },
+            "scaleway:serverless/container:Container": {
+                "cpuLimit": "cpu_limit",
+                "cronStatus": "cron_status",
+                "domainName": "domain_name",
+                "environmentVariables": "environment_variables",
+                "errorMessage": "error_message",
+                "httpOption": "http_option",
+                "maxConcurrency": "max_concurrency",
+                "maxScale": "max_scale",
+                "memoryLimit": "memory_limit",
+                "minScale": "min_scale",
+                "namespaceId": "namespace_id",
+                "registryImage": "registry_image",
+                "registrySha256": "registry_sha256",
+                "secretEnvironmentVariables": "secret_environment_variables"
+            },
+            "scaleway:serverless/containerCron:ContainerCron": {
+                "containerId": "container_id"
+            },
+            "scaleway:serverless/containerDomain:ContainerDomain": {
+                "containerId": "container_id"
+            },
+            "scaleway:serverless/containerNamespace:ContainerNamespace": {
+                "destroyRegistry": "destroy_registry",
+                "environmentVariables": "environment_variables",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "registryEndpoint": "registry_endpoint",
+                "registryNamespaceId": "registry_namespace_id",
+                "secretEnvironmentVariables": "secret_environment_variables"
+            },
+            "scaleway:serverless/containerToken:ContainerToken": {
+                "containerId": "container_id",
+                "expiresAt": "expires_at",
+                "namespaceId": "namespace_id"
+            },
+            "scaleway:serverless/containerTrigger:ContainerTrigger": {
+                "containerId": "container_id"
+            },
+            "scaleway:serverless/function:Function": {
+                "cpuLimit": "cpu_limit",
+                "domainName": "domain_name",
+                "environmentVariables": "environment_variables",
+                "httpOption": "http_option",
+                "maxScale": "max_scale",
+                "memoryLimit": "memory_limit",
+                "minScale": "min_scale",
+                "namespaceId": "namespace_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "secretEnvironmentVariables": "secret_environment_variables",
+                "zipFile": "zip_file",
+                "zipHash": "zip_hash"
+            },
+            "scaleway:serverless/functionCron:FunctionCron": {
+                "functionId": "function_id"
+            },
+            "scaleway:serverless/functionDomain:FunctionDomain": {
+                "functionId": "function_id"
+            },
+            "scaleway:serverless/functionNamespace:FunctionNamespace": {
+                "environmentVariables": "environment_variables",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "registryEndpoint": "registry_endpoint",
+                "registryNamespaceId": "registry_namespace_id",
+                "secretEnvironmentVariables": "secret_environment_variables"
+            },
+            "scaleway:serverless/functionToken:FunctionToken": {
+                "expiresAt": "expires_at",
+                "functionId": "function_id",
+                "namespaceId": "namespace_id"
+            },
+            "scaleway:serverless/functionTrigger:FunctionTrigger": {
+                "functionId": "function_id"
+            },
+            "scaleway:serverless/getContainer:getContainer": {
+                "containerId": "container_id",
+                "cpuLimit": "cpu_limit",
+                "cronStatus": "cron_status",
+                "domainName": "domain_name",
+                "environmentVariables": "environment_variables",
+                "errorMessage": "error_message",
+                "httpOption": "http_option",
+                "maxConcurrency": "max_concurrency",
+                "maxScale": "max_scale",
+                "memoryLimit": "memory_limit",
+                "minScale": "min_scale",
+                "namespaceId": "namespace_id",
+                "projectId": "project_id",
+                "registryImage": "registry_image",
+                "registrySha256": "registry_sha256",
+                "secretEnvironmentVariables": "secret_environment_variables"
+            },
+            "scaleway:serverless/getContainerNamespace:getContainerNamespace": {
+                "destroyRegistry": "destroy_registry",
+                "environmentVariables": "environment_variables",
+                "namespaceId": "namespace_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "registryEndpoint": "registry_endpoint",
+                "registryNamespaceId": "registry_namespace_id",
+                "secretEnvironmentVariables": "secret_environment_variables"
+            },
+            "scaleway:serverless/getFunction:getFunction": {
+                "cpuLimit": "cpu_limit",
+                "domainName": "domain_name",
+                "environmentVariables": "environment_variables",
+                "functionId": "function_id",
+                "httpOption": "http_option",
+                "maxScale": "max_scale",
+                "memoryLimit": "memory_limit",
+                "minScale": "min_scale",
+                "namespaceId": "namespace_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "secretEnvironmentVariables": "secret_environment_variables",
+                "zipFile": "zip_file",
+                "zipHash": "zip_hash"
+            },
+            "scaleway:serverless/getFunctionNamespace:getFunctionNamespace": {
+                "environmentVariables": "environment_variables",
+                "namespaceId": "namespace_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "registryEndpoint": "registry_endpoint",
+                "registryNamespaceId": "registry_namespace_id",
+                "secretEnvironmentVariables": "secret_environment_variables"
+            },
+            "scaleway:serverless/jobDefinition:JobDefinition": {
+                "cpuLimit": "cpu_limit",
+                "imageUri": "image_uri",
+                "memoryLimit": "memory_limit",
+                "projectId": "project_id"
+            },
+            "scaleway:serverless/sDBDatabase:SDBDatabase": {
+                "maxCpu": "max_cpu",
+                "minCpu": "min_cpu",
+                "projectId": "project_id"
+            },
+            "scaleway:tem/DomainReputation:DomainReputation": {
+                "previousScore": "previous_score",
+                "previousScoredAt": "previous_scored_at",
+                "scoredAt": "scored_at"
+            },
+            "scaleway:tem/domain:Domain": {
+                "acceptTos": "accept_tos",
+                "createdAt": "created_at",
+                "dkimConfig": "dkim_config",
+                "lastError": "last_error",
+                "lastValidAt": "last_valid_at",
+                "mxBlackhole": "mx_blackhole",
+                "nextCheckAt": "next_check_at",
+                "projectId": "project_id",
+                "reputations": "reputation",
+                "revokedAt": "revoked_at",
+                "smtpHost": "smtp_host",
+                "smtpPort": "smtp_port",
+                "smtpPortAlternative": "smtp_port_alternative",
+                "smtpPortUnsecure": "smtp_port_unsecure",
+                "smtpsPort": "smtps_port",
+                "smtpsPortAlternative": "smtps_port_alternative",
+                "spfConfig": "spf_config"
+            },
+            "scaleway:tem/getDomain:getDomain": {
+                "acceptTos": "accept_tos",
+                "createdAt": "created_at",
+                "dkimConfig": "dkim_config",
+                "domainId": "domain_id",
+                "lastError": "last_error",
+                "lastValidAt": "last_valid_at",
+                "mxBlackhole": "mx_blackhole",
+                "nextCheckAt": "next_check_at",
+                "projectId": "project_id",
+                "reputations": "reputation",
+                "revokedAt": "revoked_at",
+                "smtpHost": "smtp_host",
+                "smtpPort": "smtp_port",
+                "smtpPortAlternative": "smtp_port_alternative",
+                "smtpPortUnsecure": "smtp_port_unsecure",
+                "smtpsPort": "smtps_port",
+                "smtpsPortAlternative": "smtps_port_alternative",
+                "spfConfig": "spf_config"
+            },
+            "scaleway:tem/getDomainReputation:getDomainReputation": {
+                "previousScore": "previous_score",
+                "previousScoredAt": "previous_scored_at",
+                "scoredAt": "scored_at"
+            },
+            "scaleway:vpc/GatewayNetworkIpamConfig:GatewayNetworkIpamConfig": {
+                "ipamIpId": "ipam_ip_id",
+                "pushDefaultRoute": "push_default_route"
+            },
+            "scaleway:vpc/PrivateNetworkIpv4Subnet:PrivateNetworkIpv4Subnet": {
+                "createdAt": "created_at",
+                "prefixLength": "prefix_length",
+                "subnetMask": "subnet_mask",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/PrivateNetworkIpv6Subnet:PrivateNetworkIpv6Subnet": {
+                "createdAt": "created_at",
+                "prefixLength": "prefix_length",
+                "subnetMask": "subnet_mask",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/gatewayNetwork:GatewayNetwork": {
+                "cleanupDhcp": "cleanup_dhcp",
+                "createdAt": "created_at",
+                "dhcpId": "dhcp_id",
+                "enableDhcp": "enable_dhcp",
+                "enableMasquerade": "enable_masquerade",
+                "gatewayId": "gateway_id",
+                "ipamConfigs": "ipam_config",
+                "macAddress": "mac_address",
+                "privateNetworkId": "private_network_id",
+                "staticAddress": "static_address",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/getGatewayNetwork:getGatewayNetwork": {
+                "cleanupDhcp": "cleanup_dhcp",
+                "createdAt": "created_at",
+                "dhcpId": "dhcp_id",
+                "enableDhcp": "enable_dhcp",
+                "enableMasquerade": "enable_masquerade",
+                "gatewayId": "gateway_id",
+                "gatewayNetworkId": "gateway_network_id",
+                "ipamConfigs": "ipam_config",
+                "macAddress": "mac_address",
+                "privateNetworkId": "private_network_id",
+                "staticAddress": "static_address",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/getGatewayNetworkIpamConfig:getGatewayNetworkIpamConfig": {
+                "ipamIpId": "ipam_ip_id",
+                "pushDefaultRoute": "push_default_route"
+            },
+            "scaleway:vpc/getPrivateNetwork:getPrivateNetwork": {
+                "createdAt": "created_at",
+                "ipv4Subnets": "ipv4_subnet",
+                "ipv6Subnets": "ipv6_subnets",
+                "isRegional": "is_regional",
+                "organizationId": "organization_id",
+                "privateNetworkId": "private_network_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at",
+                "vpcId": "vpc_id"
+            },
+            "scaleway:vpc/getPrivateNetworkIpv4Subnet:getPrivateNetworkIpv4Subnet": {
+                "createdAt": "created_at",
+                "prefixLength": "prefix_length",
+                "subnetMask": "subnet_mask",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/getPrivateNetworkIpv6Subnet:getPrivateNetworkIpv6Subnet": {
+                "createdAt": "created_at",
+                "prefixLength": "prefix_length",
+                "subnetMask": "subnet_mask",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/getPublicGateway:getPublicGateway": {
+                "bastionEnabled": "bastion_enabled",
+                "bastionPort": "bastion_port",
+                "createdAt": "created_at",
+                "enableSmtp": "enable_smtp",
+                "ipId": "ip_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "publicGatewayId": "public_gateway_id",
+                "updatedAt": "updated_at",
+                "upstreamDnsServers": "upstream_dns_servers"
+            },
+            "scaleway:vpc/getPublicGatewayDHCP:getPublicGatewayDHCP": {
+                "createdAt": "created_at",
+                "dhcpId": "dhcp_id",
+                "dnsLocalName": "dns_local_name",
+                "dnsSearches": "dns_search",
+                "dnsServersOverrides": "dns_servers_override",
+                "enableDynamic": "enable_dynamic",
+                "organizationId": "organization_id",
+                "poolHigh": "pool_high",
+                "poolLow": "pool_low",
+                "projectId": "project_id",
+                "pushDefaultRoute": "push_default_route",
+                "pushDnsServer": "push_dns_server",
+                "rebindTimer": "rebind_timer",
+                "renewTimer": "renew_timer",
+                "updatedAt": "updated_at",
+                "validLifetime": "valid_lifetime"
+            },
+            "scaleway:vpc/getPublicGatewayDHCPReservation:getPublicGatewayDHCPReservation": {
+                "createdAt": "created_at",
+                "gatewayNetworkId": "gateway_network_id",
+                "ipAddress": "ip_address",
+                "macAddress": "mac_address",
+                "reservationId": "reservation_id",
+                "updatedAt": "updated_at",
+                "waitForDhcp": "wait_for_dhcp"
+            },
+            "scaleway:vpc/getPublicGatewayIP:getPublicGatewayIP": {
+                "createdAt": "created_at",
+                "ipId": "ip_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/getPublicGatewayPATRule:getPublicGatewayPATRule": {
+                "createdAt": "created_at",
+                "gatewayId": "gateway_id",
+                "organizationId": "organization_id",
+                "patRuleId": "pat_rule_id",
+                "privateIp": "private_ip",
+                "privatePort": "private_port",
+                "publicPort": "public_port",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/getVPC:getVPC": {
+                "createdAt": "created_at",
+                "isDefault": "is_default",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at",
+                "vpcId": "vpc_id"
+            },
+            "scaleway:vpc/getVPCs:getVPCs": {
+                "organizationId": "organization_id",
+                "projectId": "project_id"
+            },
+            "scaleway:vpc/getVPCsVpc:getVPCsVpc": {
+                "createdAt": "created_at",
+                "isDefault": "is_default",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updateAt": "update_at"
+            },
+            "scaleway:vpc/privateNetwork:PrivateNetwork": {
+                "createdAt": "created_at",
+                "ipv4Subnet": "ipv4_subnet",
+                "ipv6Subnets": "ipv6_subnets",
+                "isRegional": "is_regional",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at",
+                "vpcId": "vpc_id"
+            },
+            "scaleway:vpc/publicGateway:PublicGateway": {
+                "bastionEnabled": "bastion_enabled",
+                "bastionPort": "bastion_port",
+                "createdAt": "created_at",
+                "enableSmtp": "enable_smtp",
+                "ipId": "ip_id",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at",
+                "upstreamDnsServers": "upstream_dns_servers"
+            },
+            "scaleway:vpc/publicGatewayDHCP:PublicGatewayDHCP": {
+                "createdAt": "created_at",
+                "dnsLocalName": "dns_local_name",
+                "dnsSearches": "dns_search",
+                "dnsServersOverrides": "dns_servers_override",
+                "enableDynamic": "enable_dynamic",
+                "organizationId": "organization_id",
+                "poolHigh": "pool_high",
+                "poolLow": "pool_low",
+                "projectId": "project_id",
+                "pushDefaultRoute": "push_default_route",
+                "pushDnsServer": "push_dns_server",
+                "rebindTimer": "rebind_timer",
+                "renewTimer": "renew_timer",
+                "updatedAt": "updated_at",
+                "validLifetime": "valid_lifetime"
+            },
+            "scaleway:vpc/publicGatewayDHCPReservation:PublicGatewayDHCPReservation": {
+                "createdAt": "created_at",
+                "gatewayNetworkId": "gateway_network_id",
+                "ipAddress": "ip_address",
+                "macAddress": "mac_address",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/publicGatewayIP:PublicGatewayIP": {
+                "createdAt": "created_at",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/publicGatewayIPReverseDNS:PublicGatewayIPReverseDNS": {
+                "gatewayIpId": "gateway_ip_id"
+            },
+            "scaleway:vpc/publicGatewayPATRule:PublicGatewayPATRule": {
+                "createdAt": "created_at",
+                "gatewayId": "gateway_id",
+                "organizationId": "organization_id",
+                "privateIp": "private_ip",
+                "privatePort": "private_port",
+                "publicPort": "public_port",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:vpc/vPC:VPC": {
+                "createdAt": "created_at",
+                "isDefault": "is_default",
+                "organizationId": "organization_id",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            },
+            "scaleway:webhosting/getOffer:getOffer": {
+                "billingOperationPath": "billing_operation_path",
+                "offerId": "offer_id",
+                "products": "product"
+            },
+            "scaleway:webhosting/getOfferProduct:getOfferProduct": {
+                "databasesQuota": "databases_quota",
+                "emailAccountsQuota": "email_accounts_quota",
+                "emailStorageQuota": "email_storage_quota",
+                "hostingStorageQuota": "hosting_storage_quota",
+                "supportIncluded": "support_included",
+                "vCpu": "v_cpu"
+            },
+            "scaleway:webhosting/getWebHosting:getWebHosting": {
+                "cpanelUrls": "cpanel_urls",
+                "createdAt": "created_at",
+                "dnsStatus": "dns_status",
+                "offerId": "offer_id",
+                "offerName": "offer_name",
+                "optionIds": "option_ids",
+                "organizationId": "organization_id",
+                "platformHostname": "platform_hostname",
+                "platformNumber": "platform_number",
+                "projectId": "project_id",
+                "updatedAt": "updated_at",
+                "webhostingId": "webhosting_id"
+            },
+            "scaleway:webhosting/webHosting:WebHosting": {
+                "cpanelUrls": "cpanel_urls",
+                "createdAt": "created_at",
+                "dnsStatus": "dns_status",
+                "offerId": "offer_id",
+                "offerName": "offer_name",
+                "optionIds": "option_ids",
+                "organizationId": "organization_id",
+                "platformHostname": "platform_hostname",
+                "platformNumber": "platform_number",
+                "projectId": "project_id",
+                "updatedAt": "updated_at"
+            }
+        },
+        "renamedConfigProperties": {
+            "accessKey": "access_key",
+            "apiUrl": "api_url",
+            "organizationId": "organization_id",
+            "projectId": "project_id",
+            "secretKey": "secret_key"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+name: release
+on:
+  push:
+    tags:
+      - v*.*.*
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  publish_binary:
+    name: publish_binary
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
+      - name: Install Nix
+        uses: cachix/install-nix-action@6004951b182f8860210c8d6f0d808ec5b1a33d28 # v25
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set release version
+        run: echo "GORELEASER_CURRENT_TAG=v$(nix develop --command pulumictl get version --language generic)" >> $GITHUB_ENV
+      - name: Run goreleaser
+        run: nix develop --command goreleaser release --clean
+    strategy:
+      fail-fast: true

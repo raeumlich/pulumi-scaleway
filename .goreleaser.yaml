@@ -1,0 +1,41 @@
+archives:
+  - id: archive
+    name_template: "{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}"
+before:
+  hooks:
+    - make tfgen
+builds:
+  - binary: pulumi-resource-scaleway
+    dir: provider
+    env:
+      - CGO_ENABLED=0
+    goarch:
+      - amd64
+      - arm64
+    goos:
+      - darwin
+      - windows
+      - linux
+    ldflags:
+      - -X github.com/raeumlich/pulumi-scaleway/provider/pkg/version.Version={{.Tag}}
+    main: ./cmd/pulumi-resource-scaleway/
+signs:
+  - cmd: cosign
+    certificate: '${artifact}.pem'
+    args:
+      - sign-blob
+      - -y
+      - --output-certificate=${certificate}
+      - -bundle=${signature}
+      - ${artifact}
+    artifacts: all
+    output: true
+sboms:
+  - artifacts: archive
+  - id: source
+    artifacts: source
+release:
+  disable: false
+  prerelease: auto
+snapshot:
+  name_template: "{{ .Tag }}-SNAPSHOT"
