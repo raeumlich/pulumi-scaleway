@@ -173,12 +173,19 @@ class InstancePrivateNetwork(dict):
                  zone: Optional[str] = None):
         """
         :param str pn_id: The ID of the private network.
-        :param bool enable_ipam: Whether the endpoint should be configured with IPAM. Defaults to `false` if `ip_net` is defined, `true` otherwise.
+        :param bool enable_ipam: If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+               
+               > **NOTE:** Please calculate your host IP using cidrhost. Otherwise, let IPAM service
+               handle the host IP on the network.
+               
+               > **Important:** Updates to `private_network` will recreate the Instance's endpoint
         :param str endpoint_id: The ID of the endpoint.
         :param str hostname: Hostname of the endpoint.
         :param str ip: IPv4 address on the network.
+        :param str ip_net: The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
         :param str name: The name of the Database Instance.
         :param int port: Port in the Private Network.
+        :param str zone: The zone you want to attach the resource to
         """
         pulumi.set(__self__, "pn_id", pn_id)
         if enable_ipam is not None:
@@ -210,7 +217,12 @@ class InstancePrivateNetwork(dict):
     @pulumi.getter(name="enableIpam")
     def enable_ipam(self) -> Optional[bool]:
         """
-        Whether the endpoint should be configured with IPAM. Defaults to `false` if `ip_net` is defined, `true` otherwise.
+        If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+
+        > **NOTE:** Please calculate your host IP using cidrhost. Otherwise, let IPAM service
+        handle the host IP on the network.
+
+        > **Important:** Updates to `private_network` will recreate the Instance's endpoint
         """
         return pulumi.get(self, "enable_ipam")
 
@@ -241,6 +253,9 @@ class InstancePrivateNetwork(dict):
     @property
     @pulumi.getter(name="ipNet")
     def ip_net(self) -> Optional[str]:
+        """
+        The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+        """
         return pulumi.get(self, "ip_net")
 
     @property
@@ -262,6 +277,9 @@ class InstancePrivateNetwork(dict):
     @property
     @pulumi.getter
     def zone(self) -> Optional[str]:
+        """
+        The zone you want to attach the resource to
+        """
         return pulumi.get(self, "zone")
 
 
@@ -429,14 +447,14 @@ class ReadReplicaPrivateNetwork(dict):
                  zone: Optional[str] = None):
         """
         :param str private_network_id: UUID of the private network to be connected to the read replica.
+        :param bool enable_ipam: If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
         :param str endpoint_id: The ID of the endpoint of the read replica.
         :param str hostname: Hostname of the endpoint. Only one of ip and hostname may be set.
         :param str ip: IPv4 address of the endpoint (IP address). Only one of ip and hostname may be set.
         :param str name: Name of the endpoint.
         :param int port: TCP port of the endpoint.
-        :param str service_ip: The IP network address within the private subnet. This must be an IPv4 address with a
-               CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-               service if not set.
+        :param str service_ip: The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+        :param str zone: Private network zone
         """
         pulumi.set(__self__, "private_network_id", private_network_id)
         if enable_ipam is not None:
@@ -467,6 +485,9 @@ class ReadReplicaPrivateNetwork(dict):
     @property
     @pulumi.getter(name="enableIpam")
     def enable_ipam(self) -> Optional[bool]:
+        """
+        If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+        """
         return pulumi.get(self, "enable_ipam")
 
     @property
@@ -513,15 +534,16 @@ class ReadReplicaPrivateNetwork(dict):
     @pulumi.getter(name="serviceIp")
     def service_ip(self) -> Optional[str]:
         """
-        The IP network address within the private subnet. This must be an IPv4 address with a
-        CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-        service if not set.
+        The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
         """
         return pulumi.get(self, "service_ip")
 
     @property
     @pulumi.getter
     def zone(self) -> Optional[str]:
+        """
+        Private network zone
+        """
         return pulumi.get(self, "zone")
 
 
@@ -563,8 +585,12 @@ class GetInstanceLoadBalancerResult(dict):
                  name: str,
                  port: int):
         """
+        :param str endpoint_id: The endpoint ID
+        :param str hostname: The hostname of your endpoint
+        :param str ip: The IP of your load balancer service
         :param str name: The name of the RDB instance.
                Only one of `name` and `instance_id` should be specified.
+        :param int port: The port of your load balancer service
         """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
         pulumi.set(__self__, "hostname", hostname)
@@ -575,16 +601,25 @@ class GetInstanceLoadBalancerResult(dict):
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> str:
+        """
+        The endpoint ID
+        """
         return pulumi.get(self, "endpoint_id")
 
     @property
     @pulumi.getter
     def hostname(self) -> str:
+        """
+        The hostname of your endpoint
+        """
         return pulumi.get(self, "hostname")
 
     @property
     @pulumi.getter
     def ip(self) -> str:
+        """
+        The IP of your load balancer service
+        """
         return pulumi.get(self, "ip")
 
     @property
@@ -599,6 +634,9 @@ class GetInstanceLoadBalancerResult(dict):
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port of your load balancer service
+        """
         return pulumi.get(self, "port")
 
 
@@ -615,8 +653,16 @@ class GetInstancePrivateNetworkResult(dict):
                  port: int,
                  zone: str):
         """
+        :param bool enable_ipam: Whether or not the private network endpoint should be configured with IPAM
+        :param str endpoint_id: The endpoint ID
+        :param str hostname: The hostname of your endpoint
+        :param str ip: The IP of your Instance within the private service
+        :param str ip_net: The IP with the given mask within the private subnet
         :param str name: The name of the RDB instance.
                Only one of `name` and `instance_id` should be specified.
+        :param str pn_id: The private network ID
+        :param int port: The port of your private service
+        :param str zone: The zone you want to attach the resource to
         """
         pulumi.set(__self__, "enable_ipam", enable_ipam)
         pulumi.set(__self__, "endpoint_id", endpoint_id)
@@ -631,26 +677,41 @@ class GetInstancePrivateNetworkResult(dict):
     @property
     @pulumi.getter(name="enableIpam")
     def enable_ipam(self) -> bool:
+        """
+        Whether or not the private network endpoint should be configured with IPAM
+        """
         return pulumi.get(self, "enable_ipam")
 
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> str:
+        """
+        The endpoint ID
+        """
         return pulumi.get(self, "endpoint_id")
 
     @property
     @pulumi.getter
     def hostname(self) -> str:
+        """
+        The hostname of your endpoint
+        """
         return pulumi.get(self, "hostname")
 
     @property
     @pulumi.getter
     def ip(self) -> str:
+        """
+        The IP of your Instance within the private service
+        """
         return pulumi.get(self, "ip")
 
     @property
     @pulumi.getter(name="ipNet")
     def ip_net(self) -> str:
+        """
+        The IP with the given mask within the private subnet
+        """
         return pulumi.get(self, "ip_net")
 
     @property
@@ -665,16 +726,25 @@ class GetInstancePrivateNetworkResult(dict):
     @property
     @pulumi.getter(name="pnId")
     def pn_id(self) -> str:
+        """
+        The private network ID
+        """
         return pulumi.get(self, "pn_id")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port of your private service
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
     def zone(self) -> str:
+        """
+        The zone you want to attach the resource to
+        """
         return pulumi.get(self, "zone")
 
 
@@ -685,8 +755,10 @@ class GetInstanceReadReplicaResult(dict):
                  name: str,
                  port: int):
         """
+        :param str ip: IP of the replica
         :param str name: The name of the RDB instance.
                Only one of `name` and `instance_id` should be specified.
+        :param int port: Port of the replica
         """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "name", name)
@@ -695,6 +767,9 @@ class GetInstanceReadReplicaResult(dict):
     @property
     @pulumi.getter
     def ip(self) -> str:
+        """
+        IP of the replica
+        """
         return pulumi.get(self, "ip")
 
     @property
@@ -709,6 +784,9 @@ class GetInstanceReadReplicaResult(dict):
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        Port of the replica
+        """
         return pulumi.get(self, "port")
 
 

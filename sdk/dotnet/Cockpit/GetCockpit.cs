@@ -16,10 +16,9 @@ namespace Pulumi.Scaleway.Cockpit
         /// 
         /// For more information consult the [documentation](https://www.scaleway.com/en/docs/observability/cockpit/concepts/).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,9 @@ namespace Pulumi.Scaleway.Cockpit
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,8 +49,7 @@ namespace Pulumi.Scaleway.Cockpit
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCockpitResult> InvokeAsync(GetCockpitArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCockpitResult>("scaleway:cockpit/getCockpit:getCockpit", args ?? new GetCockpitArgs(), options.WithDefaults());
@@ -59,10 +59,9 @@ namespace Pulumi.Scaleway.Cockpit
         /// 
         /// For more information consult the [documentation](https://www.scaleway.com/en/docs/observability/cockpit/concepts/).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,7 +74,9 @@ namespace Pulumi.Scaleway.Cockpit
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -91,8 +92,7 @@ namespace Pulumi.Scaleway.Cockpit
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCockpitResult> Invoke(GetCockpitInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCockpitResult>("scaleway:cockpit/getCockpit:getCockpit", args ?? new GetCockpitInvokeArgs(), options.WithDefaults());
@@ -144,6 +144,7 @@ namespace Pulumi.Scaleway.Cockpit
         /// </summary>
         public readonly string PlanId;
         public readonly string? ProjectId;
+        public readonly ImmutableArray<Outputs.GetCockpitPushUrlResult> PushUrls;
 
         [OutputConstructor]
         private GetCockpitResult(
@@ -153,12 +154,15 @@ namespace Pulumi.Scaleway.Cockpit
 
             string planId,
 
-            string? projectId)
+            string? projectId,
+
+            ImmutableArray<Outputs.GetCockpitPushUrlResult> pushUrls)
         {
             Endpoints = endpoints;
             Id = id;
             PlanId = planId;
             ProjectId = projectId;
+            PushUrls = pushUrls;
         }
     }
 }

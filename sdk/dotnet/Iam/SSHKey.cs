@@ -16,6 +16,7 @@ namespace Pulumi.Scaleway.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,16 @@ namespace Pulumi.Scaleway.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// SSH keys can be imported using the `id`, e.g. bash
+    /// SSH keys can be imported using the `id`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:iam/sSHKey:SSHKey main 11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:iam/sSHKey:SSHKey main 11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:iam/sSHKey:SSHKey")]

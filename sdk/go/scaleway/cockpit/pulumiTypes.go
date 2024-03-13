@@ -146,6 +146,112 @@ func (o CockpitEndpointArrayOutput) Index(i pulumi.IntInput) CockpitEndpointOutp
 	}).(CockpitEndpointOutput)
 }
 
+type CockpitPushUrl struct {
+	// Push URL for logs (Grafana Loki)
+	PushLogsUrl *string `pulumi:"pushLogsUrl"`
+	// Push URL for metrics (Grafana Mimir)
+	PushMetricsUrl *string `pulumi:"pushMetricsUrl"`
+}
+
+// CockpitPushUrlInput is an input type that accepts CockpitPushUrlArgs and CockpitPushUrlOutput values.
+// You can construct a concrete instance of `CockpitPushUrlInput` via:
+//
+//	CockpitPushUrlArgs{...}
+type CockpitPushUrlInput interface {
+	pulumi.Input
+
+	ToCockpitPushUrlOutput() CockpitPushUrlOutput
+	ToCockpitPushUrlOutputWithContext(context.Context) CockpitPushUrlOutput
+}
+
+type CockpitPushUrlArgs struct {
+	// Push URL for logs (Grafana Loki)
+	PushLogsUrl pulumi.StringPtrInput `pulumi:"pushLogsUrl"`
+	// Push URL for metrics (Grafana Mimir)
+	PushMetricsUrl pulumi.StringPtrInput `pulumi:"pushMetricsUrl"`
+}
+
+func (CockpitPushUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CockpitPushUrl)(nil)).Elem()
+}
+
+func (i CockpitPushUrlArgs) ToCockpitPushUrlOutput() CockpitPushUrlOutput {
+	return i.ToCockpitPushUrlOutputWithContext(context.Background())
+}
+
+func (i CockpitPushUrlArgs) ToCockpitPushUrlOutputWithContext(ctx context.Context) CockpitPushUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CockpitPushUrlOutput)
+}
+
+// CockpitPushUrlArrayInput is an input type that accepts CockpitPushUrlArray and CockpitPushUrlArrayOutput values.
+// You can construct a concrete instance of `CockpitPushUrlArrayInput` via:
+//
+//	CockpitPushUrlArray{ CockpitPushUrlArgs{...} }
+type CockpitPushUrlArrayInput interface {
+	pulumi.Input
+
+	ToCockpitPushUrlArrayOutput() CockpitPushUrlArrayOutput
+	ToCockpitPushUrlArrayOutputWithContext(context.Context) CockpitPushUrlArrayOutput
+}
+
+type CockpitPushUrlArray []CockpitPushUrlInput
+
+func (CockpitPushUrlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CockpitPushUrl)(nil)).Elem()
+}
+
+func (i CockpitPushUrlArray) ToCockpitPushUrlArrayOutput() CockpitPushUrlArrayOutput {
+	return i.ToCockpitPushUrlArrayOutputWithContext(context.Background())
+}
+
+func (i CockpitPushUrlArray) ToCockpitPushUrlArrayOutputWithContext(ctx context.Context) CockpitPushUrlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CockpitPushUrlArrayOutput)
+}
+
+type CockpitPushUrlOutput struct{ *pulumi.OutputState }
+
+func (CockpitPushUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CockpitPushUrl)(nil)).Elem()
+}
+
+func (o CockpitPushUrlOutput) ToCockpitPushUrlOutput() CockpitPushUrlOutput {
+	return o
+}
+
+func (o CockpitPushUrlOutput) ToCockpitPushUrlOutputWithContext(ctx context.Context) CockpitPushUrlOutput {
+	return o
+}
+
+// Push URL for logs (Grafana Loki)
+func (o CockpitPushUrlOutput) PushLogsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CockpitPushUrl) *string { return v.PushLogsUrl }).(pulumi.StringPtrOutput)
+}
+
+// Push URL for metrics (Grafana Mimir)
+func (o CockpitPushUrlOutput) PushMetricsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CockpitPushUrl) *string { return v.PushMetricsUrl }).(pulumi.StringPtrOutput)
+}
+
+type CockpitPushUrlArrayOutput struct{ *pulumi.OutputState }
+
+func (CockpitPushUrlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CockpitPushUrl)(nil)).Elem()
+}
+
+func (o CockpitPushUrlArrayOutput) ToCockpitPushUrlArrayOutput() CockpitPushUrlArrayOutput {
+	return o
+}
+
+func (o CockpitPushUrlArrayOutput) ToCockpitPushUrlArrayOutputWithContext(ctx context.Context) CockpitPushUrlArrayOutput {
+	return o
+}
+
+func (o CockpitPushUrlArrayOutput) Index(i pulumi.IntInput) CockpitPushUrlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CockpitPushUrl {
+		return vs[0].([]CockpitPushUrl)[vs[1].(int)]
+	}).(CockpitPushUrlOutput)
+}
+
 type TokenScopes struct {
 	// Query logs.
 	QueryLogs *bool `pulumi:"queryLogs"`
@@ -444,7 +550,8 @@ type GetCockpitEndpoint struct {
 	LogsUrl string `pulumi:"logsUrl"`
 	// The metrics URL
 	MetricsUrl string `pulumi:"metricsUrl"`
-	TracesUrl  string `pulumi:"tracesUrl"`
+	// The traces URL
+	TracesUrl string `pulumi:"tracesUrl"`
 }
 
 // GetCockpitEndpointInput is an input type that accepts GetCockpitEndpointArgs and GetCockpitEndpointOutput values.
@@ -467,7 +574,8 @@ type GetCockpitEndpointArgs struct {
 	LogsUrl pulumi.StringInput `pulumi:"logsUrl"`
 	// The metrics URL
 	MetricsUrl pulumi.StringInput `pulumi:"metricsUrl"`
-	TracesUrl  pulumi.StringInput `pulumi:"tracesUrl"`
+	// The traces URL
+	TracesUrl pulumi.StringInput `pulumi:"tracesUrl"`
 }
 
 func (GetCockpitEndpointArgs) ElementType() reflect.Type {
@@ -541,6 +649,7 @@ func (o GetCockpitEndpointOutput) MetricsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCockpitEndpoint) string { return v.MetricsUrl }).(pulumi.StringOutput)
 }
 
+// The traces URL
 func (o GetCockpitEndpointOutput) TracesUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCockpitEndpoint) string { return v.TracesUrl }).(pulumi.StringOutput)
 }
@@ -565,17 +674,131 @@ func (o GetCockpitEndpointArrayOutput) Index(i pulumi.IntInput) GetCockpitEndpoi
 	}).(GetCockpitEndpointOutput)
 }
 
+type GetCockpitPushUrl struct {
+	// Push URL for logs (Grafana Loki)
+	PushLogsUrl string `pulumi:"pushLogsUrl"`
+	// Push URL for metrics (Grafana Mimir)
+	PushMetricsUrl string `pulumi:"pushMetricsUrl"`
+}
+
+// GetCockpitPushUrlInput is an input type that accepts GetCockpitPushUrlArgs and GetCockpitPushUrlOutput values.
+// You can construct a concrete instance of `GetCockpitPushUrlInput` via:
+//
+//	GetCockpitPushUrlArgs{...}
+type GetCockpitPushUrlInput interface {
+	pulumi.Input
+
+	ToGetCockpitPushUrlOutput() GetCockpitPushUrlOutput
+	ToGetCockpitPushUrlOutputWithContext(context.Context) GetCockpitPushUrlOutput
+}
+
+type GetCockpitPushUrlArgs struct {
+	// Push URL for logs (Grafana Loki)
+	PushLogsUrl pulumi.StringInput `pulumi:"pushLogsUrl"`
+	// Push URL for metrics (Grafana Mimir)
+	PushMetricsUrl pulumi.StringInput `pulumi:"pushMetricsUrl"`
+}
+
+func (GetCockpitPushUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCockpitPushUrl)(nil)).Elem()
+}
+
+func (i GetCockpitPushUrlArgs) ToGetCockpitPushUrlOutput() GetCockpitPushUrlOutput {
+	return i.ToGetCockpitPushUrlOutputWithContext(context.Background())
+}
+
+func (i GetCockpitPushUrlArgs) ToGetCockpitPushUrlOutputWithContext(ctx context.Context) GetCockpitPushUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCockpitPushUrlOutput)
+}
+
+// GetCockpitPushUrlArrayInput is an input type that accepts GetCockpitPushUrlArray and GetCockpitPushUrlArrayOutput values.
+// You can construct a concrete instance of `GetCockpitPushUrlArrayInput` via:
+//
+//	GetCockpitPushUrlArray{ GetCockpitPushUrlArgs{...} }
+type GetCockpitPushUrlArrayInput interface {
+	pulumi.Input
+
+	ToGetCockpitPushUrlArrayOutput() GetCockpitPushUrlArrayOutput
+	ToGetCockpitPushUrlArrayOutputWithContext(context.Context) GetCockpitPushUrlArrayOutput
+}
+
+type GetCockpitPushUrlArray []GetCockpitPushUrlInput
+
+func (GetCockpitPushUrlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCockpitPushUrl)(nil)).Elem()
+}
+
+func (i GetCockpitPushUrlArray) ToGetCockpitPushUrlArrayOutput() GetCockpitPushUrlArrayOutput {
+	return i.ToGetCockpitPushUrlArrayOutputWithContext(context.Background())
+}
+
+func (i GetCockpitPushUrlArray) ToGetCockpitPushUrlArrayOutputWithContext(ctx context.Context) GetCockpitPushUrlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCockpitPushUrlArrayOutput)
+}
+
+type GetCockpitPushUrlOutput struct{ *pulumi.OutputState }
+
+func (GetCockpitPushUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCockpitPushUrl)(nil)).Elem()
+}
+
+func (o GetCockpitPushUrlOutput) ToGetCockpitPushUrlOutput() GetCockpitPushUrlOutput {
+	return o
+}
+
+func (o GetCockpitPushUrlOutput) ToGetCockpitPushUrlOutputWithContext(ctx context.Context) GetCockpitPushUrlOutput {
+	return o
+}
+
+// Push URL for logs (Grafana Loki)
+func (o GetCockpitPushUrlOutput) PushLogsUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCockpitPushUrl) string { return v.PushLogsUrl }).(pulumi.StringOutput)
+}
+
+// Push URL for metrics (Grafana Mimir)
+func (o GetCockpitPushUrlOutput) PushMetricsUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCockpitPushUrl) string { return v.PushMetricsUrl }).(pulumi.StringOutput)
+}
+
+type GetCockpitPushUrlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCockpitPushUrlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCockpitPushUrl)(nil)).Elem()
+}
+
+func (o GetCockpitPushUrlArrayOutput) ToGetCockpitPushUrlArrayOutput() GetCockpitPushUrlArrayOutput {
+	return o
+}
+
+func (o GetCockpitPushUrlArrayOutput) ToGetCockpitPushUrlArrayOutputWithContext(ctx context.Context) GetCockpitPushUrlArrayOutput {
+	return o
+}
+
+func (o GetCockpitPushUrlArrayOutput) Index(i pulumi.IntInput) GetCockpitPushUrlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCockpitPushUrl {
+		return vs[0].([]GetCockpitPushUrl)[vs[1].(int)]
+	}).(GetCockpitPushUrlOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CockpitEndpointInput)(nil)).Elem(), CockpitEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CockpitEndpointArrayInput)(nil)).Elem(), CockpitEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CockpitPushUrlInput)(nil)).Elem(), CockpitPushUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CockpitPushUrlArrayInput)(nil)).Elem(), CockpitPushUrlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TokenScopesInput)(nil)).Elem(), TokenScopesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TokenScopesPtrInput)(nil)).Elem(), TokenScopesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCockpitEndpointInput)(nil)).Elem(), GetCockpitEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCockpitEndpointArrayInput)(nil)).Elem(), GetCockpitEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCockpitPushUrlInput)(nil)).Elem(), GetCockpitPushUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCockpitPushUrlArrayInput)(nil)).Elem(), GetCockpitPushUrlArray{})
 	pulumi.RegisterOutputType(CockpitEndpointOutput{})
 	pulumi.RegisterOutputType(CockpitEndpointArrayOutput{})
+	pulumi.RegisterOutputType(CockpitPushUrlOutput{})
+	pulumi.RegisterOutputType(CockpitPushUrlArrayOutput{})
 	pulumi.RegisterOutputType(TokenScopesOutput{})
 	pulumi.RegisterOutputType(TokenScopesPtrOutput{})
 	pulumi.RegisterOutputType(GetCockpitEndpointOutput{})
 	pulumi.RegisterOutputType(GetCockpitEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetCockpitPushUrlOutput{})
+	pulumi.RegisterOutputType(GetCockpitPushUrlArrayOutput{})
 }

@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Instance
         /// <summary>
         /// Gets information about an instance private NIC.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -49,8 +48,7 @@ namespace Pulumi.Scaleway.Instance
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrivateNICResult> InvokeAsync(GetPrivateNICArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateNICResult>("scaleway:instance/getPrivateNIC:getPrivateNIC", args ?? new GetPrivateNICArgs(), options.WithDefaults());
@@ -58,10 +56,9 @@ namespace Pulumi.Scaleway.Instance
         /// <summary>
         /// Gets information about an instance private NIC.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -93,8 +90,7 @@ namespace Pulumi.Scaleway.Instance
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrivateNICResult> Invoke(GetPrivateNICInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateNICResult>("scaleway:instance/getPrivateNIC:getPrivateNIC", args ?? new GetPrivateNICInvokeArgs(), options.WithDefaults());

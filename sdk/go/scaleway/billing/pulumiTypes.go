@@ -14,14 +14,18 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetConsumptionsConsumption struct {
-	// The category of the consumption.
-	Category string `pulumi:"category"`
-	// The description of the consumption.
-	Description string `pulumi:"description"`
-	// The unique identifier of the product.
-	OperationPath string `pulumi:"operationPath"`
-	// The project ID of the consumption.
+	// The consumed quantity.
+	BilledQuantity string `pulumi:"billedQuantity"`
+	// The name of the consumption category.
+	CategoryName string `pulumi:"categoryName"`
+	// The product name.
+	ProductName string `pulumi:"productName"`
+	// `projectId`) The ID of the project the consumption list is associated with.
 	ProjectId string `pulumi:"projectId"`
+	// The unique identifier of the product.
+	Sku string `pulumi:"sku"`
+	// The unit of consumed quantity.
+	Unit string `pulumi:"unit"`
 	// The monetary value of the consumption.
 	Value string `pulumi:"value"`
 }
@@ -38,14 +42,18 @@ type GetConsumptionsConsumptionInput interface {
 }
 
 type GetConsumptionsConsumptionArgs struct {
-	// The category of the consumption.
-	Category pulumi.StringInput `pulumi:"category"`
-	// The description of the consumption.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The unique identifier of the product.
-	OperationPath pulumi.StringInput `pulumi:"operationPath"`
-	// The project ID of the consumption.
+	// The consumed quantity.
+	BilledQuantity pulumi.StringInput `pulumi:"billedQuantity"`
+	// The name of the consumption category.
+	CategoryName pulumi.StringInput `pulumi:"categoryName"`
+	// The product name.
+	ProductName pulumi.StringInput `pulumi:"productName"`
+	// `projectId`) The ID of the project the consumption list is associated with.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
+	// The unique identifier of the product.
+	Sku pulumi.StringInput `pulumi:"sku"`
+	// The unit of consumed quantity.
+	Unit pulumi.StringInput `pulumi:"unit"`
 	// The monetary value of the consumption.
 	Value pulumi.StringInput `pulumi:"value"`
 }
@@ -101,24 +109,34 @@ func (o GetConsumptionsConsumptionOutput) ToGetConsumptionsConsumptionOutputWith
 	return o
 }
 
-// The category of the consumption.
-func (o GetConsumptionsConsumptionOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConsumptionsConsumption) string { return v.Category }).(pulumi.StringOutput)
+// The consumed quantity.
+func (o GetConsumptionsConsumptionOutput) BilledQuantity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConsumptionsConsumption) string { return v.BilledQuantity }).(pulumi.StringOutput)
 }
 
-// The description of the consumption.
-func (o GetConsumptionsConsumptionOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConsumptionsConsumption) string { return v.Description }).(pulumi.StringOutput)
+// The name of the consumption category.
+func (o GetConsumptionsConsumptionOutput) CategoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConsumptionsConsumption) string { return v.CategoryName }).(pulumi.StringOutput)
+}
+
+// The product name.
+func (o GetConsumptionsConsumptionOutput) ProductName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConsumptionsConsumption) string { return v.ProductName }).(pulumi.StringOutput)
+}
+
+// `projectId`) The ID of the project the consumption list is associated with.
+func (o GetConsumptionsConsumptionOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConsumptionsConsumption) string { return v.ProjectId }).(pulumi.StringOutput)
 }
 
 // The unique identifier of the product.
-func (o GetConsumptionsConsumptionOutput) OperationPath() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConsumptionsConsumption) string { return v.OperationPath }).(pulumi.StringOutput)
+func (o GetConsumptionsConsumptionOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConsumptionsConsumption) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-// The project ID of the consumption.
-func (o GetConsumptionsConsumptionOutput) ProjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConsumptionsConsumption) string { return v.ProjectId }).(pulumi.StringOutput)
+// The unit of consumed quantity.
+func (o GetConsumptionsConsumptionOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConsumptionsConsumption) string { return v.Unit }).(pulumi.StringOutput)
 }
 
 // The monetary value of the consumption.
@@ -147,6 +165,8 @@ func (o GetConsumptionsConsumptionArrayOutput) Index(i pulumi.IntInput) GetConsu
 }
 
 type GetInvoicesInvoice struct {
+	// The billing period of the invoice in the YYYY-MM format.
+	BillingPeriod string `pulumi:"billingPeriod"`
 	// The payment time limit, set according to the Organization's payment conditions (RFC 3339 format).
 	DueDate string `pulumi:"dueDate"`
 	// The associated invoice ID.
@@ -157,10 +177,24 @@ type GetInvoicesInvoice struct {
 	IssuedDate string `pulumi:"issuedDate"`
 	// The invoice number.
 	Number int `pulumi:"number"`
+	// The organization name.
+	OrganizationName string `pulumi:"organizationName"`
+	// The name of the seller (Scaleway).
+	SellerName string `pulumi:"sellerName"`
 	// The start date of the billing period (RFC 3339 format).
 	StartDate string `pulumi:"startDate"`
+	// The state of the invoice.
+	State string `pulumi:"state"`
+	// The end date of the billing period (RFC 3339 format).
+	StopDate string `pulumi:"stopDate"`
+	// The total discount amount of the invoice.
+	TotalDiscount string `pulumi:"totalDiscount"`
+	// The total tax amount of the invoice.
+	TotalTax string `pulumi:"totalTax"`
 	// The total amount, taxed.
 	TotalTaxed string `pulumi:"totalTaxed"`
+	// The total amount of the invoice before applying the discount.
+	TotalUndiscount string `pulumi:"totalUndiscount"`
 	// The total amount, untaxed.
 	TotalUntaxed string `pulumi:"totalUntaxed"`
 }
@@ -177,6 +211,8 @@ type GetInvoicesInvoiceInput interface {
 }
 
 type GetInvoicesInvoiceArgs struct {
+	// The billing period of the invoice in the YYYY-MM format.
+	BillingPeriod pulumi.StringInput `pulumi:"billingPeriod"`
 	// The payment time limit, set according to the Organization's payment conditions (RFC 3339 format).
 	DueDate pulumi.StringInput `pulumi:"dueDate"`
 	// The associated invoice ID.
@@ -187,10 +223,24 @@ type GetInvoicesInvoiceArgs struct {
 	IssuedDate pulumi.StringInput `pulumi:"issuedDate"`
 	// The invoice number.
 	Number pulumi.IntInput `pulumi:"number"`
+	// The organization name.
+	OrganizationName pulumi.StringInput `pulumi:"organizationName"`
+	// The name of the seller (Scaleway).
+	SellerName pulumi.StringInput `pulumi:"sellerName"`
 	// The start date of the billing period (RFC 3339 format).
 	StartDate pulumi.StringInput `pulumi:"startDate"`
+	// The state of the invoice.
+	State pulumi.StringInput `pulumi:"state"`
+	// The end date of the billing period (RFC 3339 format).
+	StopDate pulumi.StringInput `pulumi:"stopDate"`
+	// The total discount amount of the invoice.
+	TotalDiscount pulumi.StringInput `pulumi:"totalDiscount"`
+	// The total tax amount of the invoice.
+	TotalTax pulumi.StringInput `pulumi:"totalTax"`
 	// The total amount, taxed.
 	TotalTaxed pulumi.StringInput `pulumi:"totalTaxed"`
+	// The total amount of the invoice before applying the discount.
+	TotalUndiscount pulumi.StringInput `pulumi:"totalUndiscount"`
 	// The total amount, untaxed.
 	TotalUntaxed pulumi.StringInput `pulumi:"totalUntaxed"`
 }
@@ -246,6 +296,11 @@ func (o GetInvoicesInvoiceOutput) ToGetInvoicesInvoiceOutputWithContext(ctx cont
 	return o
 }
 
+// The billing period of the invoice in the YYYY-MM format.
+func (o GetInvoicesInvoiceOutput) BillingPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.BillingPeriod }).(pulumi.StringOutput)
+}
+
 // The payment time limit, set according to the Organization's payment conditions (RFC 3339 format).
 func (o GetInvoicesInvoiceOutput) DueDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.DueDate }).(pulumi.StringOutput)
@@ -271,14 +326,49 @@ func (o GetInvoicesInvoiceOutput) Number() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInvoicesInvoice) int { return v.Number }).(pulumi.IntOutput)
 }
 
+// The organization name.
+func (o GetInvoicesInvoiceOutput) OrganizationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.OrganizationName }).(pulumi.StringOutput)
+}
+
+// The name of the seller (Scaleway).
+func (o GetInvoicesInvoiceOutput) SellerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.SellerName }).(pulumi.StringOutput)
+}
+
 // The start date of the billing period (RFC 3339 format).
 func (o GetInvoicesInvoiceOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.StartDate }).(pulumi.StringOutput)
 }
 
+// The state of the invoice.
+func (o GetInvoicesInvoiceOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The end date of the billing period (RFC 3339 format).
+func (o GetInvoicesInvoiceOutput) StopDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.StopDate }).(pulumi.StringOutput)
+}
+
+// The total discount amount of the invoice.
+func (o GetInvoicesInvoiceOutput) TotalDiscount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.TotalDiscount }).(pulumi.StringOutput)
+}
+
+// The total tax amount of the invoice.
+func (o GetInvoicesInvoiceOutput) TotalTax() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.TotalTax }).(pulumi.StringOutput)
+}
+
 // The total amount, taxed.
 func (o GetInvoicesInvoiceOutput) TotalTaxed() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.TotalTaxed }).(pulumi.StringOutput)
+}
+
+// The total amount of the invoice before applying the discount.
+func (o GetInvoicesInvoiceOutput) TotalUndiscount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInvoicesInvoice) string { return v.TotalUndiscount }).(pulumi.StringOutput)
 }
 
 // The total amount, untaxed.

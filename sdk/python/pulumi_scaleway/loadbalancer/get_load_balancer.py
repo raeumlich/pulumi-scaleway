@@ -203,6 +203,7 @@ def get_load_balancer(lb_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -210,6 +211,7 @@ def get_load_balancer(lb_id: Optional[str] = None,
     by_name = scaleway.loadbalancer.get_load_balancer(name="foobar")
     by_id = scaleway.loadbalancer.get_load_balancer(lb_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The load balancer name.
@@ -256,6 +258,7 @@ def get_load_balancer_output(lb_id: Optional[pulumi.Input[Optional[str]]] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -263,6 +266,7 @@ def get_load_balancer_output(lb_id: Optional[pulumi.Input[Optional[str]]] = None
     by_name = scaleway.loadbalancer.get_load_balancer(name="foobar")
     by_id = scaleway.loadbalancer.get_load_balancer(lb_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The load balancer name.

@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Rdb
     /// For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,8 +50,11 @@ namespace Pulumi.Scaleway.Rdb
     /// 
     /// });
     /// ```
-    /// ### Private network
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// ### Private network with static endpoint
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,13 +87,53 @@ namespace Pulumi.Scaleway.Rdb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Private network with IPAM
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Scaleway = Pulumi.Scaleway;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var instance = new Scaleway.Rdb.Instance("instance", new()
+    ///     {
+    ///         NodeType = "db-dev-s",
+    ///         Engine = "PostgreSQL-14",
+    ///         IsHaCluster = false,
+    ///         DisableBackup = true,
+    ///         UserName = "my_initial_user",
+    ///         Password = "thiZ_is_v&amp;ry_s3cret",
+    ///     });
+    /// 
+    ///     var pn = new Scaleway.Vpc.PrivateNetwork("pn");
+    /// 
+    ///     var replica = new Scaleway.Rdb.ReadReplica("replica", new()
+    ///     {
+    ///         InstanceId = instance.Id,
+    ///         PrivateNetwork = new Scaleway.Rdb.Inputs.ReadReplicaPrivateNetworkArgs
+    ///         {
+    ///             PrivateNetworkId = pn.Id,
+    ///             EnableIpam = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Database Read replica can be imported using the `{region}/{id}`, e.g. bash
+    /// Database Read replica can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:rdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:rdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:rdb/readReplica:ReadReplica")]

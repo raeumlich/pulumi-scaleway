@@ -12,9 +12,15 @@ namespace Pulumi.Scaleway.Objectstorage.Inputs
 
     public sealed class BucketACLAccessControlPolicyGrantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block for the project being granted permissions.
+        /// </summary>
         [Input("grantee")]
         public Input<Inputs.BucketACLAccessControlPolicyGrantGranteeArgs>? Grantee { get; set; }
 
+        /// <summary>
+        /// Logging permissions assigned to the grantee for the bucket.
+        /// </summary>
         [Input("permission", required: true)]
         public Input<string> Permission { get; set; } = null!;
 

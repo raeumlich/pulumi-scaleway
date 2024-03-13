@@ -11,16 +11,21 @@ import * as utilities from "../utilities";
  * For more information see [the documentation](https://developers.scaleway.com/en/products/transactional_email/api/).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
  *
  * const main = new scaleway.tem.Domain("main", {acceptTos: true});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Add the required records to your DNS zone
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -44,13 +49,16 @@ import * as utilities from "../utilities";
  *     data: ".",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Domains can be imported using the `{region}/{id}`, e.g. bash
+ * Domains can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:tem/domain:Domain main fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:tem/domain:Domain main fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Domain extends pulumi.CustomResource {
@@ -148,6 +156,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly smtpPortUnsecure!: pulumi.Output<number>;
     /**
+     * SMTPS auth user refers to the identifier for a user authorized to send emails via SMTPS, ensuring secure email transmission.
+     */
+    public /*out*/ readonly smtpsAuthUser!: pulumi.Output<string>;
+    /**
      * The SMTPS port to use to send emails over TLS Wrapper.
      */
     public /*out*/ readonly smtpsPort!: pulumi.Output<number>;
@@ -193,6 +205,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["smtpPort"] = state ? state.smtpPort : undefined;
             resourceInputs["smtpPortAlternative"] = state ? state.smtpPortAlternative : undefined;
             resourceInputs["smtpPortUnsecure"] = state ? state.smtpPortUnsecure : undefined;
+            resourceInputs["smtpsAuthUser"] = state ? state.smtpsAuthUser : undefined;
             resourceInputs["smtpsPort"] = state ? state.smtpsPort : undefined;
             resourceInputs["smtpsPortAlternative"] = state ? state.smtpsPortAlternative : undefined;
             resourceInputs["spfConfig"] = state ? state.spfConfig : undefined;
@@ -218,6 +231,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["smtpPort"] = undefined /*out*/;
             resourceInputs["smtpPortAlternative"] = undefined /*out*/;
             resourceInputs["smtpPortUnsecure"] = undefined /*out*/;
+            resourceInputs["smtpsAuthUser"] = undefined /*out*/;
             resourceInputs["smtpsPort"] = undefined /*out*/;
             resourceInputs["smtpsPortAlternative"] = undefined /*out*/;
             resourceInputs["spfConfig"] = undefined /*out*/;
@@ -298,6 +312,10 @@ export interface DomainState {
      * The SMTP port to use to send emails.
      */
     smtpPortUnsecure?: pulumi.Input<number>;
+    /**
+     * SMTPS auth user refers to the identifier for a user authorized to send emails via SMTPS, ensuring secure email transmission.
+     */
+    smtpsAuthUser?: pulumi.Input<string>;
     /**
      * The SMTPS port to use to send emails over TLS Wrapper.
      */

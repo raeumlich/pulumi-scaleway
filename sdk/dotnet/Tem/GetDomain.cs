@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Tem
         /// <summary>
         /// Gets information about a transactional email domain.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Scaleway.Tem
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("scaleway:tem/getDomain:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Scaleway.Tem
         /// <summary>
         /// Gets information about a transactional email domain.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Scaleway.Tem
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("scaleway:tem/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
@@ -162,6 +158,7 @@ namespace Pulumi.Scaleway.Tem
         public readonly int SmtpPort;
         public readonly int SmtpPortAlternative;
         public readonly int SmtpPortUnsecure;
+        public readonly string SmtpsAuthUser;
         public readonly int SmtpsPort;
         public readonly int SmtpsPortAlternative;
         public readonly string SpfConfig;
@@ -205,6 +202,8 @@ namespace Pulumi.Scaleway.Tem
 
             int smtpPortUnsecure,
 
+            string smtpsAuthUser,
+
             int smtpsPort,
 
             int smtpsPortAlternative,
@@ -231,6 +230,7 @@ namespace Pulumi.Scaleway.Tem
             SmtpPort = smtpPort;
             SmtpPortAlternative = smtpPortAlternative;
             SmtpPortUnsecure = smtpPortUnsecure;
+            SmtpsAuthUser = smtpsAuthUser;
             SmtpsPort = smtpsPort;
             SmtpsPortAlternative = smtpsPortAlternative;
             SpfConfig = spfConfig;

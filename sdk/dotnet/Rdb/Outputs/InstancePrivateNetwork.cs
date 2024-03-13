@@ -14,7 +14,12 @@ namespace Pulumi.Scaleway.Rdb.Outputs
     public sealed class InstancePrivateNetwork
     {
         /// <summary>
-        /// Whether the endpoint should be configured with IPAM. Defaults to `false` if `ip_net` is defined, `true` otherwise.
+        /// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+        /// 
+        /// &gt; **NOTE:** Please calculate your host IP using cidrhost. Otherwise, let IPAM service
+        /// handle the host IP on the network.
+        /// 
+        /// &gt; **Important:** Updates to `private_network` will recreate the Instance's endpoint
         /// </summary>
         public readonly bool? EnableIpam;
         /// <summary>
@@ -29,6 +34,9 @@ namespace Pulumi.Scaleway.Rdb.Outputs
         /// IPv4 address on the network.
         /// </summary>
         public readonly string? Ip;
+        /// <summary>
+        /// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+        /// </summary>
         public readonly string? IpNet;
         /// <summary>
         /// The name of the Database Instance.
@@ -42,6 +50,9 @@ namespace Pulumi.Scaleway.Rdb.Outputs
         /// Port in the Private Network.
         /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// The zone you want to attach the resource to
+        /// </summary>
         public readonly string? Zone;
 
         [OutputConstructor]

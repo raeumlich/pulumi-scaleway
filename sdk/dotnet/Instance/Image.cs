@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Instance
     /// For more information, see [the documentation](https://developers.scaleway.com/en/products/instance/api/#images-41389b).
     /// 
     /// ## Example Usage
+    /// 
     /// ### From a volume
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,8 +44,11 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### From a server
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,13 +75,16 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Images can be imported using the `{zone}/{id}`, e.g. bash
+    /// Images can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:instance/image:Image main fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:instance/image:Image main fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:instance/image:Image")]

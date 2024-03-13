@@ -15,8 +15,10 @@ import (
 // For more information, see [the documentation](https://developers.scaleway.com/en/products/iam/api/v1alpha1/#groups-f592eb).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With applications
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,15 +79,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// IAM groups can be imported using the `{id}`, e.g. bash
+// IAM groups can be imported using the `{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:iam/group:Group basic 11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:iam/group:Group basic 11111111-1111-1111-1111-111111111111
 // ```
 type Group struct {
 	pulumi.CustomResourceState

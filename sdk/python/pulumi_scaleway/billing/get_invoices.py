@@ -105,12 +105,14 @@ def get_invoices(invoice_type: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     my_invoices = scaleway.billing.get_invoices(invoice_type="periodic")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str invoice_type: Invoices with the given type are listed. Valid values are `periodic` and `purchase`.
@@ -143,12 +145,14 @@ def get_invoices_output(invoice_type: Optional[pulumi.Input[Optional[str]]] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     my_invoices = scaleway.billing.get_invoices(invoice_type="periodic")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str invoice_type: Invoices with the given type are listed. Valid values are `periodic` and `purchase`.

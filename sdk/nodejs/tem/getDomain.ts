@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     domainId: "11111111-1111-1111-1111-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDomain(args?: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     args = args || {};
@@ -81,6 +83,7 @@ export interface GetDomainResult {
     readonly smtpPort: number;
     readonly smtpPortAlternative: number;
     readonly smtpPortUnsecure: number;
+    readonly smtpsAuthUser: string;
     readonly smtpsPort: number;
     readonly smtpsPortAlternative: number;
     readonly spfConfig: string;
@@ -91,6 +94,7 @@ export interface GetDomainResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -99,6 +103,7 @@ export interface GetDomainResult {
  *     domainId: "11111111-1111-1111-1111-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDomainOutput(args?: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))

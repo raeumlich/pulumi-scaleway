@@ -168,8 +168,10 @@ class BucketPolicy(pulumi.CustomResource):
         For more information, see [the documentation](https://www.scaleway.com/en/docs/storage/object/api-cli/bucket-policy/).
 
         ## Example Usage
+
         ### Example Usage with an IAM user
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -187,7 +189,7 @@ class BucketPolicy(pulumi.CustomResource):
         bucket = scaleway.objectstorage.Bucket("bucket")
         policy_bucket_policy = scaleway.objectstorage.BucketPolicy("policyBucketPolicy",
             bucket=bucket.name,
-            policy=pulumi.Output.all(bucket.name, bucket.name).apply(lambda bucketName, bucketName1: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2023-04-17",
                 "Id": "MyBucketPolicy",
                 "Statement": [{
@@ -197,15 +199,19 @@ class BucketPolicy(pulumi.CustomResource):
                         "SCW": f"user_id:{user.id}",
                     },
                     "Resource": [
-                        bucket_name,
-                        f"{bucket_name1}/*",
+                        bucket.name,
+                        bucket.name.apply(lambda name: f"{name}/*"),
                     ],
                 }],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with an IAM application
+
         ### Creating a bucket and delegating read access to an application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -224,27 +230,30 @@ class BucketPolicy(pulumi.CustomResource):
         bucket = scaleway.objectstorage.Bucket("bucket")
         policy_bucket_policy = scaleway.objectstorage.BucketPolicy("policyBucketPolicy",
             bucket=bucket.id,
-            policy=pulumi.Output.all(reading_app.id, bucket.name, bucket.name).apply(lambda id, bucketName, bucketName1: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2023-04-17",
                 "Statement": [{
                     "Sid": "Delegate read access",
                     "Effect": "Allow",
                     "Principal": {
-                        "SCW": f"application_id:{id}",
+                        "SCW": reading_app.id.apply(lambda id: f"application_id:{id}"),
                     },
                     "Action": [
                         "s3:ListBucket",
                         "s3:GetObject",
                     ],
                     "Resource": [
-                        bucket_name,
-                        f"{bucket_name1}/*",
+                        bucket.name,
+                        bucket.name.apply(lambda name: f"{name}/*"),
                     ],
                 }],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Reading the bucket with the application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -256,8 +265,11 @@ class BucketPolicy(pulumi.CustomResource):
             secret_key=reading_api_key.secret_key)
         bucket = scaleway.objectstorage.get_bucket(name="some-unique-name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with AWS provider
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,8 +296,11 @@ class BucketPolicy(pulumi.CustomResource):
             bucket=bucket.id,
             policy=policy.json)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with deprecated version 2012-10-17
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -296,7 +311,7 @@ class BucketPolicy(pulumi.CustomResource):
         bucket = scaleway.objectstorage.Bucket("bucket", region="fr-par")
         policy = scaleway.objectstorage.BucketPolicy("policy",
             bucket=bucket.name,
-            policy=pulumi.Output.all(bucket.name, bucket.name).apply(lambda bucketName, bucketName1: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Effect": "Allow",
@@ -308,27 +323,34 @@ class BucketPolicy(pulumi.CustomResource):
                         "SCW": f"project_id:{default.id}",
                     },
                     "Resource": [
-                        bucket_name,
-                        f"{bucket_name1}/*",
+                        bucket.name,
+                        bucket.name.apply(lambda name: f"{name}/*"),
                     ],
                 }],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         **NB:** To configure the AWS provider with Scaleway credentials, please visit this [tutorial](https://www.scaleway.com/en/docs/storage/object/api-cli/object-storage-aws-cli/).
 
         ## Import
 
-        Bucket policies can be imported using the `{region}/{bucketName}` identifier, e.g. bash
+        Bucket policies can be imported using the `{region}/{bucketName}` identifier, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket
+        $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket
         ```
 
-         ~> **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project. If you are using a project different from the default one, you have to specify the project ID at the end of the import command. bash
+        ~> **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project.
+
+        If you are using a project different from the default one, you have to specify the project ID at the end of the import command.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
+        $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -349,8 +371,10 @@ class BucketPolicy(pulumi.CustomResource):
         For more information, see [the documentation](https://www.scaleway.com/en/docs/storage/object/api-cli/bucket-policy/).
 
         ## Example Usage
+
         ### Example Usage with an IAM user
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -368,7 +392,7 @@ class BucketPolicy(pulumi.CustomResource):
         bucket = scaleway.objectstorage.Bucket("bucket")
         policy_bucket_policy = scaleway.objectstorage.BucketPolicy("policyBucketPolicy",
             bucket=bucket.name,
-            policy=pulumi.Output.all(bucket.name, bucket.name).apply(lambda bucketName, bucketName1: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2023-04-17",
                 "Id": "MyBucketPolicy",
                 "Statement": [{
@@ -378,15 +402,19 @@ class BucketPolicy(pulumi.CustomResource):
                         "SCW": f"user_id:{user.id}",
                     },
                     "Resource": [
-                        bucket_name,
-                        f"{bucket_name1}/*",
+                        bucket.name,
+                        bucket.name.apply(lambda name: f"{name}/*"),
                     ],
                 }],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with an IAM application
+
         ### Creating a bucket and delegating read access to an application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -405,27 +433,30 @@ class BucketPolicy(pulumi.CustomResource):
         bucket = scaleway.objectstorage.Bucket("bucket")
         policy_bucket_policy = scaleway.objectstorage.BucketPolicy("policyBucketPolicy",
             bucket=bucket.id,
-            policy=pulumi.Output.all(reading_app.id, bucket.name, bucket.name).apply(lambda id, bucketName, bucketName1: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2023-04-17",
                 "Statement": [{
                     "Sid": "Delegate read access",
                     "Effect": "Allow",
                     "Principal": {
-                        "SCW": f"application_id:{id}",
+                        "SCW": reading_app.id.apply(lambda id: f"application_id:{id}"),
                     },
                     "Action": [
                         "s3:ListBucket",
                         "s3:GetObject",
                     ],
                     "Resource": [
-                        bucket_name,
-                        f"{bucket_name1}/*",
+                        bucket.name,
+                        bucket.name.apply(lambda name: f"{name}/*"),
                     ],
                 }],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Reading the bucket with the application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -437,8 +468,11 @@ class BucketPolicy(pulumi.CustomResource):
             secret_key=reading_api_key.secret_key)
         bucket = scaleway.objectstorage.get_bucket(name="some-unique-name")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with AWS provider
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -465,8 +499,11 @@ class BucketPolicy(pulumi.CustomResource):
             bucket=bucket.id,
             policy=policy.json)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with deprecated version 2012-10-17
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -477,7 +514,7 @@ class BucketPolicy(pulumi.CustomResource):
         bucket = scaleway.objectstorage.Bucket("bucket", region="fr-par")
         policy = scaleway.objectstorage.BucketPolicy("policy",
             bucket=bucket.name,
-            policy=pulumi.Output.all(bucket.name, bucket.name).apply(lambda bucketName, bucketName1: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Effect": "Allow",
@@ -489,27 +526,34 @@ class BucketPolicy(pulumi.CustomResource):
                         "SCW": f"project_id:{default.id}",
                     },
                     "Resource": [
-                        bucket_name,
-                        f"{bucket_name1}/*",
+                        bucket.name,
+                        bucket.name.apply(lambda name: f"{name}/*"),
                     ],
                 }],
-            })))
+            }))
         ```
+        <!--End PulumiCodeChooser -->
 
         **NB:** To configure the AWS provider with Scaleway credentials, please visit this [tutorial](https://www.scaleway.com/en/docs/storage/object/api-cli/object-storage-aws-cli/).
 
         ## Import
 
-        Bucket policies can be imported using the `{region}/{bucketName}` identifier, e.g. bash
+        Bucket policies can be imported using the `{region}/{bucketName}` identifier, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket
+        $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket
         ```
 
-         ~> **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project. If you are using a project different from the default one, you have to specify the project ID at the end of the import command. bash
+        ~> **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project.
+
+        If you are using a project different from the default one, you have to specify the project ID at the end of the import command.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
+        $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.

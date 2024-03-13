@@ -1286,11 +1286,13 @@ type GetClusterAutoscalerConfig struct {
 	ExpendablePodsPriorityCutoff int `pulumi:"expendablePodsPriorityCutoff"`
 	// True if ignoring DaemonSet pods when calculating resource utilization for scaling down is enabled.
 	IgnoreDaemonsetsUtilization bool `pulumi:"ignoreDaemonsetsUtilization"`
-	MaxGracefulTerminationSec   int  `pulumi:"maxGracefulTerminationSec"`
+	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node
+	MaxGracefulTerminationSec int `pulumi:"maxGracefulTerminationSec"`
 	// The duration after scale up that scale down evaluation resumes.
 	ScaleDownDelayAfterAdd string `pulumi:"scaleDownDelayAfterAdd"`
 	// The duration a node should be unneeded before it is eligible for scale down.
-	ScaleDownUnneededTime         string  `pulumi:"scaleDownUnneededTime"`
+	ScaleDownUnneededTime string `pulumi:"scaleDownUnneededTime"`
+	// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down
 	ScaleDownUtilizationThreshold float64 `pulumi:"scaleDownUtilizationThreshold"`
 }
 
@@ -1318,11 +1320,13 @@ type GetClusterAutoscalerConfigArgs struct {
 	ExpendablePodsPriorityCutoff pulumi.IntInput `pulumi:"expendablePodsPriorityCutoff"`
 	// True if ignoring DaemonSet pods when calculating resource utilization for scaling down is enabled.
 	IgnoreDaemonsetsUtilization pulumi.BoolInput `pulumi:"ignoreDaemonsetsUtilization"`
-	MaxGracefulTerminationSec   pulumi.IntInput  `pulumi:"maxGracefulTerminationSec"`
+	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node
+	MaxGracefulTerminationSec pulumi.IntInput `pulumi:"maxGracefulTerminationSec"`
 	// The duration after scale up that scale down evaluation resumes.
 	ScaleDownDelayAfterAdd pulumi.StringInput `pulumi:"scaleDownDelayAfterAdd"`
 	// The duration a node should be unneeded before it is eligible for scale down.
-	ScaleDownUnneededTime         pulumi.StringInput  `pulumi:"scaleDownUnneededTime"`
+	ScaleDownUnneededTime pulumi.StringInput `pulumi:"scaleDownUnneededTime"`
+	// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down
 	ScaleDownUtilizationThreshold pulumi.Float64Input `pulumi:"scaleDownUtilizationThreshold"`
 }
 
@@ -1407,6 +1411,7 @@ func (o GetClusterAutoscalerConfigOutput) IgnoreDaemonsetsUtilization() pulumi.B
 	return o.ApplyT(func(v GetClusterAutoscalerConfig) bool { return v.IgnoreDaemonsetsUtilization }).(pulumi.BoolOutput)
 }
 
+// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node
 func (o GetClusterAutoscalerConfigOutput) MaxGracefulTerminationSec() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterAutoscalerConfig) int { return v.MaxGracefulTerminationSec }).(pulumi.IntOutput)
 }
@@ -1421,6 +1426,7 @@ func (o GetClusterAutoscalerConfigOutput) ScaleDownUnneededTime() pulumi.StringO
 	return o.ApplyT(func(v GetClusterAutoscalerConfig) string { return v.ScaleDownUnneededTime }).(pulumi.StringOutput)
 }
 
+// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down
 func (o GetClusterAutoscalerConfigOutput) ScaleDownUtilizationThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v GetClusterAutoscalerConfig) float64 { return v.ScaleDownUtilizationThreshold }).(pulumi.Float64Output)
 }
@@ -1570,13 +1576,20 @@ func (o GetClusterKubeconfigArrayOutput) Index(i pulumi.IntInput) GetClusterKube
 }
 
 type GetClusterOpenIdConnectConfig struct {
-	ClientId       string   `pulumi:"clientId"`
-	GroupsClaims   []string `pulumi:"groupsClaims"`
-	GroupsPrefix   string   `pulumi:"groupsPrefix"`
-	IssuerUrl      string   `pulumi:"issuerUrl"`
+	// A client id that all tokens must be issued for
+	ClientId string `pulumi:"clientId"`
+	// JWT claim to use as the user's group
+	GroupsClaims []string `pulumi:"groupsClaims"`
+	// Prefix prepended to group claims
+	GroupsPrefix string `pulumi:"groupsPrefix"`
+	// URL of the provider which allows the API server to discover public signing keys
+	IssuerUrl string `pulumi:"issuerUrl"`
+	// Multiple key=value pairs that describes a required claim in the ID Token
 	RequiredClaims []string `pulumi:"requiredClaims"`
-	UsernameClaim  string   `pulumi:"usernameClaim"`
-	UsernamePrefix string   `pulumi:"usernamePrefix"`
+	// JWT claim to use as the user name
+	UsernameClaim string `pulumi:"usernameClaim"`
+	// Prefix prepended to username
+	UsernamePrefix string `pulumi:"usernamePrefix"`
 }
 
 // GetClusterOpenIdConnectConfigInput is an input type that accepts GetClusterOpenIdConnectConfigArgs and GetClusterOpenIdConnectConfigOutput values.
@@ -1591,13 +1604,20 @@ type GetClusterOpenIdConnectConfigInput interface {
 }
 
 type GetClusterOpenIdConnectConfigArgs struct {
-	ClientId       pulumi.StringInput      `pulumi:"clientId"`
-	GroupsClaims   pulumi.StringArrayInput `pulumi:"groupsClaims"`
-	GroupsPrefix   pulumi.StringInput      `pulumi:"groupsPrefix"`
-	IssuerUrl      pulumi.StringInput      `pulumi:"issuerUrl"`
+	// A client id that all tokens must be issued for
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// JWT claim to use as the user's group
+	GroupsClaims pulumi.StringArrayInput `pulumi:"groupsClaims"`
+	// Prefix prepended to group claims
+	GroupsPrefix pulumi.StringInput `pulumi:"groupsPrefix"`
+	// URL of the provider which allows the API server to discover public signing keys
+	IssuerUrl pulumi.StringInput `pulumi:"issuerUrl"`
+	// Multiple key=value pairs that describes a required claim in the ID Token
 	RequiredClaims pulumi.StringArrayInput `pulumi:"requiredClaims"`
-	UsernameClaim  pulumi.StringInput      `pulumi:"usernameClaim"`
-	UsernamePrefix pulumi.StringInput      `pulumi:"usernamePrefix"`
+	// JWT claim to use as the user name
+	UsernameClaim pulumi.StringInput `pulumi:"usernameClaim"`
+	// Prefix prepended to username
+	UsernamePrefix pulumi.StringInput `pulumi:"usernamePrefix"`
 }
 
 func (GetClusterOpenIdConnectConfigArgs) ElementType() reflect.Type {
@@ -1651,30 +1671,37 @@ func (o GetClusterOpenIdConnectConfigOutput) ToGetClusterOpenIdConnectConfigOutp
 	return o
 }
 
+// A client id that all tokens must be issued for
 func (o GetClusterOpenIdConnectConfigOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterOpenIdConnectConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// JWT claim to use as the user's group
 func (o GetClusterOpenIdConnectConfigOutput) GroupsClaims() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterOpenIdConnectConfig) []string { return v.GroupsClaims }).(pulumi.StringArrayOutput)
 }
 
+// Prefix prepended to group claims
 func (o GetClusterOpenIdConnectConfigOutput) GroupsPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterOpenIdConnectConfig) string { return v.GroupsPrefix }).(pulumi.StringOutput)
 }
 
+// URL of the provider which allows the API server to discover public signing keys
 func (o GetClusterOpenIdConnectConfigOutput) IssuerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterOpenIdConnectConfig) string { return v.IssuerUrl }).(pulumi.StringOutput)
 }
 
+// Multiple key=value pairs that describes a required claim in the ID Token
 func (o GetClusterOpenIdConnectConfigOutput) RequiredClaims() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterOpenIdConnectConfig) []string { return v.RequiredClaims }).(pulumi.StringArrayOutput)
 }
 
+// JWT claim to use as the user name
 func (o GetClusterOpenIdConnectConfigOutput) UsernameClaim() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterOpenIdConnectConfig) string { return v.UsernameClaim }).(pulumi.StringOutput)
 }
 
+// Prefix prepended to username
 func (o GetClusterOpenIdConnectConfigOutput) UsernamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterOpenIdConnectConfig) string { return v.UsernamePrefix }).(pulumi.StringOutput)
 }
@@ -1824,7 +1851,9 @@ func (o GetPoolNodeArrayOutput) Index(i pulumi.IntInput) GetPoolNodeOutput {
 }
 
 type GetPoolUpgradePolicy struct {
-	MaxSurge       int `pulumi:"maxSurge"`
+	// The maximum number of nodes to be created during the upgrade
+	MaxSurge int `pulumi:"maxSurge"`
+	// The maximum number of nodes that can be not ready at the same time
 	MaxUnavailable int `pulumi:"maxUnavailable"`
 }
 
@@ -1840,7 +1869,9 @@ type GetPoolUpgradePolicyInput interface {
 }
 
 type GetPoolUpgradePolicyArgs struct {
-	MaxSurge       pulumi.IntInput `pulumi:"maxSurge"`
+	// The maximum number of nodes to be created during the upgrade
+	MaxSurge pulumi.IntInput `pulumi:"maxSurge"`
+	// The maximum number of nodes that can be not ready at the same time
 	MaxUnavailable pulumi.IntInput `pulumi:"maxUnavailable"`
 }
 
@@ -1895,10 +1926,12 @@ func (o GetPoolUpgradePolicyOutput) ToGetPoolUpgradePolicyOutputWithContext(ctx 
 	return o
 }
 
+// The maximum number of nodes to be created during the upgrade
 func (o GetPoolUpgradePolicyOutput) MaxSurge() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPoolUpgradePolicy) int { return v.MaxSurge }).(pulumi.IntOutput)
 }
 
+// The maximum number of nodes that can be not ready at the same time
 func (o GetPoolUpgradePolicyOutput) MaxUnavailable() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPoolUpgradePolicy) int { return v.MaxUnavailable }).(pulumi.IntOutput)
 }

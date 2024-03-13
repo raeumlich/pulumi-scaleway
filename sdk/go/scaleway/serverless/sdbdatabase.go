@@ -14,8 +14,10 @@ import (
 // Creates and manages Scaleway Serverless SQL Databases. For more information, see [the documentation](https://www.scaleway.com/en/developers/api/serverless-databases/).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +42,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Serverless SQL Database can be imported using the `{region}/{id}`, e.g. bash
+// Serverless SQL Database can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:serverless/sDBDatabase:SDBDatabase database fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:serverless/sDBDatabase:SDBDatabase database fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type SDBDatabase struct {
 	pulumi.CustomResourceState

@@ -9,8 +9,10 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://www.scaleway.com/en/developers/api/document_db/).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as random from "@pulumi/random";
@@ -26,13 +28,16 @@ import * as utilities from "../utilities";
  *     isAdmin: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Database User can be imported using `{region}/{instance_id}/{user_name}`, e.g. bash
+ * Database User can be imported using `{region}/{instance_id}/{user_name}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:documentdb/user:User admin fr-par/11111111-1111-1111-1111-111111111111/admin
+ * $ pulumi import scaleway:documentdb/user:User admin fr-par/11111111-1111-1111-1111-111111111111/admin
  * ```
  */
 export class User extends pulumi.CustomResource {

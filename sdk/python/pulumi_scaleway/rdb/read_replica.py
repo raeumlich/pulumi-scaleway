@@ -216,8 +216,10 @@ class ReadReplica(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -238,8 +240,11 @@ class ReadReplica(pulumi.CustomResource):
             instance_id=instance.id,
             direct_access=scaleway.rdb.ReadReplicaDirectAccessArgs())
         ```
-        ### Private network
+        <!--End PulumiCodeChooser -->
 
+        ### Private network with static endpoint
+
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -259,13 +264,40 @@ class ReadReplica(pulumi.CustomResource):
                 service_ip="192.168.1.254/24",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Private network with IPAM
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_scaleway as scaleway
+
+        instance = scaleway.rdb.Instance("instance",
+            node_type="db-dev-s",
+            engine="PostgreSQL-14",
+            is_ha_cluster=False,
+            disable_backup=True,
+            user_name="my_initial_user",
+            password="thiZ_is_v&ry_s3cret")
+        pn = scaleway.vpc.PrivateNetwork("pn")
+        replica = scaleway.rdb.ReadReplica("replica",
+            instance_id=instance.id,
+            private_network=scaleway.rdb.ReadReplicaPrivateNetworkArgs(
+                private_network_id=pn.id,
+                enable_ipam=True,
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Database Read replica can be imported using the `{region}/{id}`, e.g. bash
+        Database Read replica can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:rdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:rdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -290,8 +322,10 @@ class ReadReplica(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -312,8 +346,11 @@ class ReadReplica(pulumi.CustomResource):
             instance_id=instance.id,
             direct_access=scaleway.rdb.ReadReplicaDirectAccessArgs())
         ```
-        ### Private network
+        <!--End PulumiCodeChooser -->
 
+        ### Private network with static endpoint
+
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -333,13 +370,40 @@ class ReadReplica(pulumi.CustomResource):
                 service_ip="192.168.1.254/24",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Private network with IPAM
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_scaleway as scaleway
+
+        instance = scaleway.rdb.Instance("instance",
+            node_type="db-dev-s",
+            engine="PostgreSQL-14",
+            is_ha_cluster=False,
+            disable_backup=True,
+            user_name="my_initial_user",
+            password="thiZ_is_v&ry_s3cret")
+        pn = scaleway.vpc.PrivateNetwork("pn")
+        replica = scaleway.rdb.ReadReplica("replica",
+            instance_id=instance.id,
+            private_network=scaleway.rdb.ReadReplicaPrivateNetworkArgs(
+                private_network_id=pn.id,
+                enable_ipam=True,
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Database Read replica can be imported using the `{region}/{id}`, e.g. bash
+        Database Read replica can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:rdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:rdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

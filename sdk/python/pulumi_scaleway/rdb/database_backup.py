@@ -281,8 +281,10 @@ class DatabaseBackup(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -291,8 +293,11 @@ class DatabaseBackup(pulumi.CustomResource):
             instance_id=data["scaleway_rdb_instance"]["main"]["id"],
             database_name=data["scaleway_rdb_database"]["main"]["name"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With expiration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -302,13 +307,16 @@ class DatabaseBackup(pulumi.CustomResource):
             database_name=data["scaleway_rdb_database"]["main"]["name"],
             expires_at="2022-06-16T07:48:44Z")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        RDB Database can be imported using the `{region}/{id}`, e.g. bash
+        RDB Database can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:rdb/databaseBackup:DatabaseBackup mybackup fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:rdb/databaseBackup:DatabaseBackup mybackup fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -334,8 +342,10 @@ class DatabaseBackup(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -344,8 +354,11 @@ class DatabaseBackup(pulumi.CustomResource):
             instance_id=data["scaleway_rdb_instance"]["main"]["id"],
             database_name=data["scaleway_rdb_database"]["main"]["name"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With expiration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -355,13 +368,16 @@ class DatabaseBackup(pulumi.CustomResource):
             database_name=data["scaleway_rdb_database"]["main"]["name"],
             expires_at="2022-06-16T07:48:44Z")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        RDB Database can be imported using the `{region}/{id}`, e.g. bash
+        RDB Database can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:rdb/databaseBackup:DatabaseBackup mybackup fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:rdb/databaseBackup:DatabaseBackup mybackup fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,6 +14,7 @@ __all__ = [
     'ContainerTriggerSqsArgs',
     'FunctionTriggerNatsArgs',
     'FunctionTriggerSqsArgs',
+    'JobDefinitionCronArgs',
 ]
 
 @pulumi.input_type
@@ -294,5 +295,32 @@ class FunctionTriggerSqsArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region", value)
+
+
+@pulumi.input_type
+class JobDefinitionCronArgs:
+    def __init__(__self__, *,
+                 schedule: pulumi.Input[str],
+                 timezone: pulumi.Input[str]):
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "timezone", value)
 
 

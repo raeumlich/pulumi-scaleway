@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -19,13 +20,16 @@ import * as utilities from "../utilities";
  *     sizeInGb: 20,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Block Volumes can be imported using the `{zone}/{id}`, e.g. bash
+ * Block Volumes can be imported using the `{zone}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:blockstorage/volume:Volume block_volume fr-par-1/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:blockstorage/volume:Volume block_volume fr-par-1/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Volume extends pulumi.CustomResource {

@@ -17,8 +17,10 @@ import (
 // our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/how-to/create-manage-queues/)
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,6 +62,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type SQSQueue struct {
 	pulumi.CustomResourceState
 

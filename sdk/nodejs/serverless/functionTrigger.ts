@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * For more information see [the documentation](https://www.scaleway.com/en/developers/api/serverless-functions/#path-triggers).
  *
  * ## Example Usage
+ *
  * ### SQS
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -26,13 +28,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Function Triggers can be imported using the `{region}/{id}`, e.g. bash
+ * Function Triggers can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:serverless/functionTrigger:FunctionTrigger main fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:serverless/functionTrigger:FunctionTrigger main fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class FunctionTrigger extends pulumi.CustomResource {

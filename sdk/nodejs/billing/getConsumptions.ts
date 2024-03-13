@@ -9,11 +9,23 @@ import * as utilities from "../utilities";
 /**
  * Gets information about your Consumptions.
  */
-export function getConsumptions(opts?: pulumi.InvokeOptions): Promise<GetConsumptionsResult> {
+export function getConsumptions(args?: GetConsumptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumptionsResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway:billing/getConsumptions:getConsumptions", {
+        "projectId": args.projectId,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getConsumptions.
+ */
+export interface GetConsumptionsArgs {
+    /**
+     * `projectId`) The ID of the project the consumption list is associated with.
+     */
+    projectId?: string;
 }
 
 /**
@@ -30,6 +42,10 @@ export interface GetConsumptionsResult {
     readonly id: string;
     readonly organizationId: string;
     /**
+     * The project ID of the consumption.
+     */
+    readonly projectId: string;
+    /**
      * The last consumption update date.
      */
     readonly updatedAt: string;
@@ -37,6 +53,16 @@ export interface GetConsumptionsResult {
 /**
  * Gets information about your Consumptions.
  */
-export function getConsumptionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumptionsResult> {
-    return pulumi.output(getConsumptions(opts))
+export function getConsumptionsOutput(args?: GetConsumptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumptionsResult> {
+    return pulumi.output(args).apply((a: any) => getConsumptions(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getConsumptions.
+ */
+export interface GetConsumptionsOutputArgs {
+    /**
+     * `projectId`) The ID of the project the consumption list is associated with.
+     */
+    projectId?: pulumi.Input<string>;
 }

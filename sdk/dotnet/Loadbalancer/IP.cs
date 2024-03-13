@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// For more information, see [the documentation](https://www.scaleway.com/en/developers/api/load-balancer/zoned-api/#path-ip-addresses).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +33,16 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// IPs can be imported using the `{zone}/{id}`, e.g. bash
+    /// IPs can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:loadbalancer/iP:IP ip01 fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:loadbalancer/iP:IP ip01 fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:loadbalancer/iP:IP")]

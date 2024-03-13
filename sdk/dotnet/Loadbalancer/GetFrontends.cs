@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// <summary>
         /// Gets information about multiple Load Balancer Frontends.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFrontendsResult> InvokeAsync(GetFrontendsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontendsResult>("scaleway:loadbalancer/getFrontends:getFrontends", args ?? new GetFrontendsArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// <summary>
         /// Gets information about multiple Load Balancer Frontends.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFrontendsResult> Invoke(GetFrontendsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontendsResult>("scaleway:loadbalancer/getFrontends:getFrontends", args ?? new GetFrontendsInvokeArgs(), options.WithDefaults());

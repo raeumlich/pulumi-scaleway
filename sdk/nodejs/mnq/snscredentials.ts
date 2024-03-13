@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -28,13 +30,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * SNS credentials can be imported using the `{region}/{id}`, e.g. bash
+ * SNS credentials can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:mnq/sNSCredentials:SNSCredentials main fr-par/11111111111111111111111111111111
+ * $ pulumi import scaleway:mnq/sNSCredentials:SNSCredentials main fr-par/11111111111111111111111111111111
  * ```
  */
 export class SNSCredentials extends pulumi.CustomResource {

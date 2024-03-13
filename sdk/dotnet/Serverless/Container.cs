@@ -20,6 +20,7 @@ namespace Pulumi.Scaleway.Serverless
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,6 +61,8 @@ namespace Pulumi.Scaleway.Serverless
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Protocols
     /// 
     /// The supported protocols are:
@@ -98,10 +101,12 @@ namespace Pulumi.Scaleway.Serverless
     /// 
     /// ## Import
     /// 
-    /// Container can be imported using the `{region}/{id}`, e.g. bash
+    /// Container can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:serverless/container:Container main fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:serverless/container:Container main fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:serverless/container:Container")]

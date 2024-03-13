@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -17,8 +19,11 @@ import * as utilities from "../utilities";
  * const mainHub = new scaleway.iot.Hub("mainHub", {productPlan: "plan_shared"});
  * const mainDevice = new scaleway.iot.Device("mainDevice", {hubId: mainHub.id});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With custom certificate
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as local from "@pulumi/local";
@@ -35,13 +40,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * IoT devices can be imported using the `{region}/{id}`, e.g. bash
+ * IoT devices can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:iot/device:Device device01 fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:iot/device:Device device01 fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Device extends pulumi.CustomResource {

@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Rdb
         /// <summary>
         /// Gets information about an RDB backup.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,8 +43,7 @@ namespace Pulumi.Scaleway.Rdb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDatabaseBackupResult> InvokeAsync(GetDatabaseBackupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseBackupResult>("scaleway:rdb/getDatabaseBackup:getDatabaseBackup", args ?? new GetDatabaseBackupArgs(), options.WithDefaults());
@@ -53,10 +51,9 @@ namespace Pulumi.Scaleway.Rdb
         /// <summary>
         /// Gets information about an RDB backup.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -83,8 +80,7 @@ namespace Pulumi.Scaleway.Rdb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDatabaseBackupResult> Invoke(GetDatabaseBackupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseBackupResult>("scaleway:rdb/getDatabaseBackup:getDatabaseBackup", args ?? new GetDatabaseBackupInvokeArgs(), options.WithDefaults());

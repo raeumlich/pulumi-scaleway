@@ -11,9 +11,127 @@ namespace Pulumi.Scaleway.Secret
 {
     public static class GetVersion
     {
+        /// <summary>
+        /// Gets information about Scaleway a Secret Version.
+        /// For more information, see [the documentation](https://developers.scaleway.com/en/products/secret_manager/api/v1alpha1/#secret-versions-079501).
+        /// 
+        /// ## Examples
+        /// 
+        /// ### Basic
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Scaleway = Pulumi.Scaleway;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var mainSecret = new Scaleway.Secret.Secret("mainSecret", new()
+        ///     {
+        ///         Description = "barr",
+        ///     });
+        /// 
+        ///     var mainVersion = new Scaleway.Secret.Version("mainVersion", new()
+        ///     {
+        ///         Description = "your description",
+        ///         SecretId = mainSecret.Id,
+        ///         Data = "your_secret",
+        ///     });
+        /// 
+        ///     var dataBySecretId = Scaleway.Secret.GetVersion.Invoke(new()
+        ///     {
+        ///         SecretId = mainSecret.Id,
+        ///         Revision = "1",
+        ///     });
+        /// 
+        ///     var dataBySecretName = Scaleway.Secret.GetVersion.Invoke(new()
+        ///     {
+        ///         SecretName = mainSecret.Name,
+        ///         Revision = "1",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["scalewaySecretAccessPayload"] = dataBySecretName.Apply(getVersionResult =&gt; getVersionResult.Data),
+        ///         ["scalewaySecretAccessPayloadById"] = dataBySecretId.Apply(getVersionResult =&gt; getVersionResult.Data),
+        ///     };
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// ## Data
+        /// 
+        /// Note: This Data Source give you **access** to the secret payload encoded en base64.
+        /// 
+        /// Be aware that this is a sensitive attribute. For more information,
+        /// see Sensitive Data in State.
+        /// 
+        /// &gt; **Important:**  This property is sensitive and will not be displayed in the plan.
+        /// </summary>
         public static Task<GetVersionResult> InvokeAsync(GetVersionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVersionResult>("scaleway:secret/getVersion:getVersion", args ?? new GetVersionArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Gets information about Scaleway a Secret Version.
+        /// For more information, see [the documentation](https://developers.scaleway.com/en/products/secret_manager/api/v1alpha1/#secret-versions-079501).
+        /// 
+        /// ## Examples
+        /// 
+        /// ### Basic
+        /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Scaleway = Pulumi.Scaleway;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var mainSecret = new Scaleway.Secret.Secret("mainSecret", new()
+        ///     {
+        ///         Description = "barr",
+        ///     });
+        /// 
+        ///     var mainVersion = new Scaleway.Secret.Version("mainVersion", new()
+        ///     {
+        ///         Description = "your description",
+        ///         SecretId = mainSecret.Id,
+        ///         Data = "your_secret",
+        ///     });
+        /// 
+        ///     var dataBySecretId = Scaleway.Secret.GetVersion.Invoke(new()
+        ///     {
+        ///         SecretId = mainSecret.Id,
+        ///         Revision = "1",
+        ///     });
+        /// 
+        ///     var dataBySecretName = Scaleway.Secret.GetVersion.Invoke(new()
+        ///     {
+        ///         SecretName = mainSecret.Name,
+        ///         Revision = "1",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["scalewaySecretAccessPayload"] = dataBySecretName.Apply(getVersionResult =&gt; getVersionResult.Data),
+        ///         ["scalewaySecretAccessPayloadById"] = dataBySecretId.Apply(getVersionResult =&gt; getVersionResult.Data),
+        ///     };
+        /// });
+        /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// ## Data
+        /// 
+        /// Note: This Data Source give you **access** to the secret payload encoded en base64.
+        /// 
+        /// Be aware that this is a sensitive attribute. For more information,
+        /// see Sensitive Data in State.
+        /// 
+        /// &gt; **Important:**  This property is sensitive and will not be displayed in the plan.
+        /// </summary>
         public static Output<GetVersionResult> Invoke(GetVersionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVersionResult>("scaleway:secret/getVersion:getVersion", args ?? new GetVersionInvokeArgs(), options.WithDefaults());
     }

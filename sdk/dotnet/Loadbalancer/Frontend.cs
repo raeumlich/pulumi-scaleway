@@ -13,8 +13,10 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// Creates and manages Scaleway Load-Balancer Frontends. For more information, see [the documentation](https://www.scaleway.com/en/developers/api/load-balancer/zoned-api/#path-frontends).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,8 +34,11 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## With ACLs
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -164,13 +169,16 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Load-Balancer frontend can be imported using the `{zone}/{id}`, e.g. bash
+    /// Load-Balancer frontend can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:loadbalancer/frontend:Frontend frontend01 fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:loadbalancer/frontend:Frontend frontend01 fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:loadbalancer/frontend:Frontend")]

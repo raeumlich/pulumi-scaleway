@@ -18,7 +18,7 @@ type ClusterAcl struct {
 	//
 	// > The `acl` conflict with `privateNetwork`. Only one should be specified.
 	Description *string `pulumi:"description"`
-	// The UUID of the private network resource.
+	// The UUID of the Private Network resource.
 	Id *string `pulumi:"id"`
 	// The ip range to whitelist
 	// in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)
@@ -41,7 +41,7 @@ type ClusterAclArgs struct {
 	//
 	// > The `acl` conflict with `privateNetwork`. Only one should be specified.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The UUID of the private network resource.
+	// The UUID of the Private Network resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The ip range to whitelist
 	// in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)
@@ -106,7 +106,7 @@ func (o ClusterAclOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterAcl) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The UUID of the private network resource.
+// The UUID of the Private Network resource.
 func (o ClusterAclOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterAcl) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -140,14 +140,43 @@ func (o ClusterAclArrayOutput) Index(i pulumi.IntInput) ClusterAclOutput {
 type ClusterPrivateNetwork struct {
 	// The ID of the endpoint.
 	EndpointId *string `pulumi:"endpointId"`
-	// The UUID of the private network resource.
+	// The UUID of the Private Network resource.
 	Id string `pulumi:"id"`
-	// Endpoint IPv4 addresses
-	// in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You must provide at
-	// least one IP per node or The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-	// service if not set.
+	// Endpoint IPv4 addresses in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You must provide at least one IP per node.
+	// Keep in mind that in Cluster mode you cannot edit your Private Network after its creation so if you want to be able to
+	// scale your Cluster horizontally (adding nodes) later, you should provide more IPs than nodes.
+	// If not set, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 	//
-	// > The `privateNetwork` conflict with `acl`. Only one should be specified.
+	// > The `privateNetwork` conflicts with `acl`. Only one should be specified.
+	//
+	// > **Important:** The way to use private networks differs whether you are using Redis in Standalone or Cluster mode.
+	//
+	// - Standalone mode (`clusterSize` = 1) : you can attach as many Private Networks as you want (each must be a separate
+	// block). If you detach your only private network, your cluster won't be reachable until you define a new Private or
+	// Public Network. You can modify your `privateNetwork` and its specs, you can have both a Private and Public Network side
+	// by side.
+	//
+	// - Cluster mode (`clusterSize` > 2) : you can define a single Private Network as you create your Cluster, you won't be
+	// able to edit or detach it afterward, unless you create another Cluster. This also means that, if you are using a static
+	// configuration (`serviceIps`), you won't be able to scale your Cluster horizontally (add more nodes) since it would
+	// require updating the private network to add IPs.
+	// Your `serviceIps` must be listed as follows:
+	//
+	// <!--Start PulumiCodeChooser -->
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	// <!--End PulumiCodeChooser -->
 	ServiceIps []string `pulumi:"serviceIps"`
 	// `zone`) The zone in which the
 	// Redis Cluster should be created.
@@ -168,14 +197,43 @@ type ClusterPrivateNetworkInput interface {
 type ClusterPrivateNetworkArgs struct {
 	// The ID of the endpoint.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
-	// The UUID of the private network resource.
+	// The UUID of the Private Network resource.
 	Id pulumi.StringInput `pulumi:"id"`
-	// Endpoint IPv4 addresses
-	// in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You must provide at
-	// least one IP per node or The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-	// service if not set.
+	// Endpoint IPv4 addresses in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You must provide at least one IP per node.
+	// Keep in mind that in Cluster mode you cannot edit your Private Network after its creation so if you want to be able to
+	// scale your Cluster horizontally (adding nodes) later, you should provide more IPs than nodes.
+	// If not set, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 	//
-	// > The `privateNetwork` conflict with `acl`. Only one should be specified.
+	// > The `privateNetwork` conflicts with `acl`. Only one should be specified.
+	//
+	// > **Important:** The way to use private networks differs whether you are using Redis in Standalone or Cluster mode.
+	//
+	// - Standalone mode (`clusterSize` = 1) : you can attach as many Private Networks as you want (each must be a separate
+	// block). If you detach your only private network, your cluster won't be reachable until you define a new Private or
+	// Public Network. You can modify your `privateNetwork` and its specs, you can have both a Private and Public Network side
+	// by side.
+	//
+	// - Cluster mode (`clusterSize` > 2) : you can define a single Private Network as you create your Cluster, you won't be
+	// able to edit or detach it afterward, unless you create another Cluster. This also means that, if you are using a static
+	// configuration (`serviceIps`), you won't be able to scale your Cluster horizontally (add more nodes) since it would
+	// require updating the private network to add IPs.
+	// Your `serviceIps` must be listed as follows:
+	//
+	// <!--Start PulumiCodeChooser -->
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	// <!--End PulumiCodeChooser -->
 	ServiceIps pulumi.StringArrayInput `pulumi:"serviceIps"`
 	// `zone`) The zone in which the
 	// Redis Cluster should be created.
@@ -238,17 +296,49 @@ func (o ClusterPrivateNetworkOutput) EndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterPrivateNetwork) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
 
-// The UUID of the private network resource.
+// The UUID of the Private Network resource.
 func (o ClusterPrivateNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterPrivateNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Endpoint IPv4 addresses
-// in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You must provide at
-// least one IP per node or The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-// service if not set.
+// Endpoint IPv4 addresses in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You must provide at least one IP per node.
+// Keep in mind that in Cluster mode you cannot edit your Private Network after its creation so if you want to be able to
+// scale your Cluster horizontally (adding nodes) later, you should provide more IPs than nodes.
+// If not set, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 //
-// > The `privateNetwork` conflict with `acl`. Only one should be specified.
+// > The `privateNetwork` conflicts with `acl`. Only one should be specified.
+//
+// > **Important:** The way to use private networks differs whether you are using Redis in Standalone or Cluster mode.
+//
+// - Standalone mode (`clusterSize` = 1) : you can attach as many Private Networks as you want (each must be a separate
+// block). If you detach your only private network, your cluster won't be reachable until you define a new Private or
+// Public Network. You can modify your `privateNetwork` and its specs, you can have both a Private and Public Network side
+// by side.
+//
+// - Cluster mode (`clusterSize` > 2) : you can define a single Private Network as you create your Cluster, you won't be
+// able to edit or detach it afterward, unless you create another Cluster. This also means that, if you are using a static
+// configuration (`serviceIps`), you won't be able to scale your Cluster horizontally (add more nodes) since it would
+// require updating the private network to add IPs.
+// Your `serviceIps` must be listed as follows:
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 func (o ClusterPrivateNetworkOutput) ServiceIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterPrivateNetwork) []string { return v.ServiceIps }).(pulumi.StringArrayOutput)
 }
@@ -280,7 +370,7 @@ func (o ClusterPrivateNetworkArrayOutput) Index(i pulumi.IntInput) ClusterPrivat
 }
 
 type ClusterPublicNetwork struct {
-	// The UUID of the private network resource.
+	// The UUID of the Private Network resource.
 	Id *string `pulumi:"id"`
 	// Lis of IPv4 address of the endpoint (IP address).
 	Ips []string `pulumi:"ips"`
@@ -300,7 +390,7 @@ type ClusterPublicNetworkInput interface {
 }
 
 type ClusterPublicNetworkArgs struct {
-	// The UUID of the private network resource.
+	// The UUID of the Private Network resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Lis of IPv4 address of the endpoint (IP address).
 	Ips pulumi.StringArrayInput `pulumi:"ips"`
@@ -385,7 +475,7 @@ func (o ClusterPublicNetworkOutput) ToClusterPublicNetworkPtrOutputWithContext(c
 	}).(ClusterPublicNetworkPtrOutput)
 }
 
-// The UUID of the private network resource.
+// The UUID of the Private Network resource.
 func (o ClusterPublicNetworkOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterPublicNetwork) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -424,7 +514,7 @@ func (o ClusterPublicNetworkPtrOutput) Elem() ClusterPublicNetworkOutput {
 	}).(ClusterPublicNetworkOutput)
 }
 
-// The UUID of the private network resource.
+// The UUID of the Private Network resource.
 func (o ClusterPublicNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterPublicNetwork) *string {
 		if v == nil {
@@ -455,9 +545,11 @@ func (o ClusterPublicNetworkPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type GetClusterAcl struct {
+	// Description of the rule.
 	Description string `pulumi:"description"`
 	// The ID of the Redis cluster.
 	Id string `pulumi:"id"`
+	// IPv4 network address of the rule (IP network in a CIDR format).
 	Ip string `pulumi:"ip"`
 }
 
@@ -473,9 +565,11 @@ type GetClusterAclInput interface {
 }
 
 type GetClusterAclArgs struct {
+	// Description of the rule.
 	Description pulumi.StringInput `pulumi:"description"`
 	// The ID of the Redis cluster.
 	Id pulumi.StringInput `pulumi:"id"`
+	// IPv4 network address of the rule (IP network in a CIDR format).
 	Ip pulumi.StringInput `pulumi:"ip"`
 }
 
@@ -530,6 +624,7 @@ func (o GetClusterAclOutput) ToGetClusterAclOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Description of the rule.
 func (o GetClusterAclOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterAcl) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -539,6 +634,7 @@ func (o GetClusterAclOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterAcl) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// IPv4 network address of the rule (IP network in a CIDR format).
 func (o GetClusterAclOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterAcl) string { return v.Ip }).(pulumi.StringOutput)
 }
@@ -564,9 +660,11 @@ func (o GetClusterAclArrayOutput) Index(i pulumi.IntInput) GetClusterAclOutput {
 }
 
 type GetClusterPrivateNetwork struct {
+	// UUID of the endpoint to be connected to the cluster
 	EndpointId string `pulumi:"endpointId"`
 	// The ID of the Redis cluster.
-	Id         string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// List of IPv4 addresses of the private network with a CIDR notation
 	ServiceIps []string `pulumi:"serviceIps"`
 	// `region`) The zone in which the server exists.
 	Zone string `pulumi:"zone"`
@@ -584,9 +682,11 @@ type GetClusterPrivateNetworkInput interface {
 }
 
 type GetClusterPrivateNetworkArgs struct {
+	// UUID of the endpoint to be connected to the cluster
 	EndpointId pulumi.StringInput `pulumi:"endpointId"`
 	// The ID of the Redis cluster.
-	Id         pulumi.StringInput      `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// List of IPv4 addresses of the private network with a CIDR notation
 	ServiceIps pulumi.StringArrayInput `pulumi:"serviceIps"`
 	// `region`) The zone in which the server exists.
 	Zone pulumi.StringInput `pulumi:"zone"`
@@ -643,6 +743,7 @@ func (o GetClusterPrivateNetworkOutput) ToGetClusterPrivateNetworkOutputWithCont
 	return o
 }
 
+// UUID of the endpoint to be connected to the cluster
 func (o GetClusterPrivateNetworkOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterPrivateNetwork) string { return v.EndpointId }).(pulumi.StringOutput)
 }
@@ -652,6 +753,7 @@ func (o GetClusterPrivateNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterPrivateNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// List of IPv4 addresses of the private network with a CIDR notation
 func (o GetClusterPrivateNetworkOutput) ServiceIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterPrivateNetwork) []string { return v.ServiceIps }).(pulumi.StringArrayOutput)
 }
@@ -683,9 +785,10 @@ func (o GetClusterPrivateNetworkArrayOutput) Index(i pulumi.IntInput) GetCluster
 
 type GetClusterPublicNetwork struct {
 	// The ID of the Redis cluster.
-	Id   string   `pulumi:"id"`
-	Ips  []string `pulumi:"ips"`
-	Port int      `pulumi:"port"`
+	Id  string   `pulumi:"id"`
+	Ips []string `pulumi:"ips"`
+	// TCP port of the endpoint
+	Port int `pulumi:"port"`
 }
 
 // GetClusterPublicNetworkInput is an input type that accepts GetClusterPublicNetworkArgs and GetClusterPublicNetworkOutput values.
@@ -701,9 +804,10 @@ type GetClusterPublicNetworkInput interface {
 
 type GetClusterPublicNetworkArgs struct {
 	// The ID of the Redis cluster.
-	Id   pulumi.StringInput      `pulumi:"id"`
-	Ips  pulumi.StringArrayInput `pulumi:"ips"`
-	Port pulumi.IntInput         `pulumi:"port"`
+	Id  pulumi.StringInput      `pulumi:"id"`
+	Ips pulumi.StringArrayInput `pulumi:"ips"`
+	// TCP port of the endpoint
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (GetClusterPublicNetworkArgs) ElementType() reflect.Type {
@@ -766,6 +870,7 @@ func (o GetClusterPublicNetworkOutput) Ips() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterPublicNetwork) []string { return v.Ips }).(pulumi.StringArrayOutput)
 }
 
+// TCP port of the endpoint
 func (o GetClusterPublicNetworkOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterPublicNetwork) int { return v.Port }).(pulumi.IntOutput)
 }

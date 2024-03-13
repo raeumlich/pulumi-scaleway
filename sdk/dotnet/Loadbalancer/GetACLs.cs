@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// <summary>
         /// Gets information about multiple Load Balancer ACLs.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetACLsResult> InvokeAsync(GetACLsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetACLsResult>("scaleway:loadbalancer/getACLs:getACLs", args ?? new GetACLsArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// <summary>
         /// Gets information about multiple Load Balancer ACLs.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetACLsResult> Invoke(GetACLsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetACLsResult>("scaleway:loadbalancer/getACLs:getACLs", args ?? new GetACLsInvokeArgs(), options.WithDefaults());

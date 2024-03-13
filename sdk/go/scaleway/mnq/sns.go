@@ -16,10 +16,12 @@ import (
 // our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
 //
 // ## Example Usage
+//
 // ### Basic
 //
 // # Activate SNS for default project
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,9 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Activate SNS for a specific project
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,6 +67,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// For specific project in default region
 //			_, err = mnq.NewSNS(ctx, "forProject", &mnq.SNSArgs{
 //				ProjectId: *pulumi.String(project.Id),
 //			})
@@ -74,15 +79,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// SNS status can be imported using the `{region}/{project_id}`, e.g. bash
+// SNS status can be imported using the `{region}/{project_id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:mnq/sNS:SNS main fr-par/11111111111111111111111111111111
-//
+// $ pulumi import scaleway:mnq/sNS:SNS main fr-par/11111111111111111111111111111111
 // ```
 type SNS struct {
 	pulumi.CustomResourceState

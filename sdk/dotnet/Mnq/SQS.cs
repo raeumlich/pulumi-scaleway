@@ -15,10 +15,12 @@ namespace Pulumi.Scaleway.Mnq
     /// our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sqs-overview/)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
     /// Activate SQS for default project
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,9 +33,11 @@ namespace Pulumi.Scaleway.Mnq
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Activate SQS for a specific project
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +58,16 @@ namespace Pulumi.Scaleway.Mnq
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// SQS status can be imported using the `{region}/{project_id}`, e.g. bash
+    /// SQS status can be imported using the `{region}/{project_id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:mnq/sQS:SQS main fr-par/11111111111111111111111111111111
+    /// $ pulumi import scaleway:mnq/sQS:SQS main fr-par/11111111111111111111111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:mnq/sQS:SQS")]

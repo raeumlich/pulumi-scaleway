@@ -13,6 +13,9 @@ namespace Pulumi.Scaleway.Rdb.Outputs
     [OutputType]
     public sealed class ReadReplicaPrivateNetwork
     {
+        /// <summary>
+        /// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+        /// </summary>
         public readonly bool? EnableIpam;
         /// <summary>
         /// The ID of the endpoint of the read replica.
@@ -39,11 +42,12 @@ namespace Pulumi.Scaleway.Rdb.Outputs
         /// </summary>
         public readonly string PrivateNetworkId;
         /// <summary>
-        /// The IP network address within the private subnet. This must be an IPv4 address with a
-        /// CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-        /// service if not set.
+        /// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
         /// </summary>
         public readonly string? ServiceIp;
+        /// <summary>
+        /// Private network zone
+        /// </summary>
         public readonly string? Zone;
 
         [OutputConstructor]

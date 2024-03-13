@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     zone: "fr-par-2",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIPs(args?: GetIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetIPsResult> {
     args = args || {};
@@ -81,6 +83,7 @@ export interface GetIPsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -90,6 +93,7 @@ export interface GetIPsResult {
  *     zone: "fr-par-2",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIPsOutput(args?: GetIPsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPsResult> {
     return pulumi.output(args).apply((a: any) => getIPs(a, opts))

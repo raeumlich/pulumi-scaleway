@@ -13,11 +13,17 @@ namespace Pulumi.Scaleway.Redis.Outputs
     [OutputType]
     public sealed class GetClusterAclResult
     {
+        /// <summary>
+        /// Description of the rule.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The ID of the Redis cluster.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// IPv4 network address of the rule (IP network in a CIDR format).
+        /// </summary>
         public readonly string Ip;
 
         [OutputConstructor]

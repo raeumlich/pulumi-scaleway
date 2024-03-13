@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://developers.scaleway.com/en/products/vpc/api/#private-networks-ac2df4).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -22,8 +24,11 @@ import * as utilities from "../utilities";
  *     "terraform",
  * ]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With subnets
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -46,13 +51,16 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Private networks can be imported using the `{region}/{id}`, e.g. bash
+ * Private networks can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:vpc/privateNetwork:PrivateNetwork vpc_demo fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:vpc/privateNetwork:PrivateNetwork vpc_demo fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class PrivateNetwork extends pulumi.CustomResource {

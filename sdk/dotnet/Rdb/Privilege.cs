@@ -15,6 +15,7 @@ namespace Pulumi.Scaleway.Rdb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,27 +49,23 @@ namespace Pulumi.Scaleway.Rdb
     ///     var mainPrivilege = new Scaleway.Rdb.Privilege("mainPrivilege", new()
     ///     {
     ///         InstanceId = mainInstance.Id,
-    ///         UserName = "my-db-user",
-    ///         DatabaseName = "my-db-name",
+    ///         UserName = mainUser.Name,
+    ///         DatabaseName = mainDatabase.Name,
     ///         Permission = "all",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             mainUser,
-    ///             mainDatabase,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// The user privileges can be imported using the `{region}/{instance_id}/{database_name}/{user_name}`, e.g. bash
+    /// The user privileges can be imported using the `{region}/{instance_id}/{database_name}/{user_name}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:rdb/privilege:Privilege o fr-par/11111111-1111-1111-1111-111111111111/database_name/foo
+    /// $ pulumi import scaleway:rdb/privilege:Privilege o fr-par/11111111-1111-1111-1111-111111111111/database_name/foo
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:rdb/privilege:Privilege")]

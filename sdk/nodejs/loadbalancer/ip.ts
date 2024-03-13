@@ -9,21 +9,26 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://www.scaleway.com/en/developers/api/load-balancer/zoned-api/#path-ip-addresses).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
  *
  * const ip = new scaleway.loadbalancer.IP("ip", {reverse: "my-reverse.com"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * IPs can be imported using the `{zone}/{id}`, e.g. bash
+ * IPs can be imported using the `{zone}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:loadbalancer/iP:IP ip01 fr-par-1/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:loadbalancer/iP:IP ip01 fr-par-1/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class IP extends pulumi.CustomResource {

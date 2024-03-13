@@ -9,8 +9,10 @@ import * as utilities from "../utilities";
  * For more information see [the documentation](https://developers.scaleway.com/en/products/containers/api/#tokens-26b085).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -25,13 +27,16 @@ import * as utilities from "../utilities";
  * // Container Token
  * const container = new scaleway.serverless.ContainerToken("container", {containerId: mainContainer.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Tokens can be imported using the `{region}/{id}`, e.g. bash
+ * Tokens can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:serverless/containerToken:ContainerToken main fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:serverless/containerToken:ContainerToken main fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class ContainerToken extends pulumi.CustomResource {

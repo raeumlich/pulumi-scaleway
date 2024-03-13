@@ -225,21 +225,26 @@ class Database(pulumi.CustomResource):
         For more information, see [the documentation](https://www.scaleway.com/en/developers/api/document_db).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         main = scaleway.documentdb.Database("main", instance_id="11111111-1111-1111-1111-111111111111")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        DocumentDB Database can be imported using the `{region}/{id}/{DBNAME}`, e.g. bash
+        DocumentDB Database can be imported using the `{region}/{id}/{DBNAME}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:documentdb/database:Database mydb fr-par/11111111-1111-1111-1111-111111111111/mydb
+        $ pulumi import scaleway:documentdb/database:Database mydb fr-par/11111111-1111-1111-1111-111111111111/mydb
         ```
 
         :param str resource_name: The name of the resource.
@@ -262,21 +267,26 @@ class Database(pulumi.CustomResource):
         For more information, see [the documentation](https://www.scaleway.com/en/developers/api/document_db).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         main = scaleway.documentdb.Database("main", instance_id="11111111-1111-1111-1111-111111111111")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        DocumentDB Database can be imported using the `{region}/{id}/{DBNAME}`, e.g. bash
+        DocumentDB Database can be imported using the `{region}/{id}/{DBNAME}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:documentdb/database:Database mydb fr-par/11111111-1111-1111-1111-111111111111/mydb
+        $ pulumi import scaleway:documentdb/database:Database mydb fr-par/11111111-1111-1111-1111-111111111111/mydb
         ```
 
         :param str resource_name: The name of the resource.

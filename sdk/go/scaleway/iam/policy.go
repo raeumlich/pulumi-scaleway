@@ -17,8 +17,10 @@ import (
 // > You can find a detailed list of all permission sets available at Scaleway in the permission sets [reference page](https://www.scaleway.com/en/docs/identity-and-access-management/iam/reference-content/permission-sets/).
 //
 // ## Example Usage
+//
 // ### Create a policy for an organization's project
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,8 +66,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create a policy for all current and future projects in an organization
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,15 +107,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Policies can be imported using the `{id}`, e.g. bash
+// Policies can be imported using the `{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:iam/policy:Policy main 11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:iam/policy:Policy main 11111111-1111-1111-1111-111111111111
 // ```
 type Policy struct {
 	pulumi.CustomResourceState

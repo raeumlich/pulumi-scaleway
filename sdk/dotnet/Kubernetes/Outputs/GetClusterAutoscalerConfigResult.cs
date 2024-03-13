@@ -37,6 +37,9 @@ namespace Pulumi.Scaleway.Kubernetes.Outputs
         /// True if ignoring DaemonSet pods when calculating resource utilization for scaling down is enabled.
         /// </summary>
         public readonly bool IgnoreDaemonsetsUtilization;
+        /// <summary>
+        /// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node
+        /// </summary>
         public readonly int MaxGracefulTerminationSec;
         /// <summary>
         /// The duration after scale up that scale down evaluation resumes.
@@ -46,6 +49,9 @@ namespace Pulumi.Scaleway.Kubernetes.Outputs
         /// The duration a node should be unneeded before it is eligible for scale down.
         /// </summary>
         public readonly string ScaleDownUnneededTime;
+        /// <summary>
+        /// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down
+        /// </summary>
         public readonly double ScaleDownUtilizationThreshold;
 
         [OutputConstructor]

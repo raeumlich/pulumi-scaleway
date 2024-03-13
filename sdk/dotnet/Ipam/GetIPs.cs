@@ -18,6 +18,7 @@ namespace Pulumi.Scaleway.Ipam
         /// 
         /// ### By tag
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,9 +37,11 @@ namespace Pulumi.Scaleway.Ipam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### By type and resource
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -86,6 +89,7 @@ namespace Pulumi.Scaleway.Ipam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIPsResult> InvokeAsync(GetIPsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPsResult>("scaleway:ipam/getIPs:getIPs", args ?? new GetIPsArgs(), options.WithDefaults());
@@ -97,6 +101,7 @@ namespace Pulumi.Scaleway.Ipam
         /// 
         /// ### By tag
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -115,9 +120,11 @@ namespace Pulumi.Scaleway.Ipam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### By type and resource
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -165,6 +172,7 @@ namespace Pulumi.Scaleway.Ipam
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIPsResult> Invoke(GetIPsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIPsResult>("scaleway:ipam/getIPs:getIPs", args ?? new GetIPsInvokeArgs(), options.WithDefaults());

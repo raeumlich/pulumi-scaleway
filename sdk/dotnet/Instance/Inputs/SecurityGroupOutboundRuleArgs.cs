@@ -36,6 +36,9 @@ namespace Pulumi.Scaleway.Instance.Inputs
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Computed port range for this rule (e.g: 1-1024, 22-22)
+        /// </summary>
         [Input("portRange")]
         public Input<string>? PortRange { get; set; }
 

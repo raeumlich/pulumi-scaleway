@@ -15,10 +15,9 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// Gets information about a baremetal server.
         /// For more information, see [the documentation](https://developers.scaleway.com/en/products/baremetal/api).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,8 +39,7 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBareMetalServerResult> InvokeAsync(GetBareMetalServerArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBareMetalServerResult>("scaleway:elasticmetal/getBareMetalServer:getBareMetalServer", args ?? new GetBareMetalServerArgs(), options.WithDefaults());
@@ -50,10 +48,9 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// Gets information about a baremetal server.
         /// For more information, see [the documentation](https://developers.scaleway.com/en/products/baremetal/api).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,8 +72,7 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBareMetalServerResult> Invoke(GetBareMetalServerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalServerResult>("scaleway:elasticmetal/getBareMetalServer:getBareMetalServer", args ?? new GetBareMetalServerInvokeArgs(), options.WithDefaults());

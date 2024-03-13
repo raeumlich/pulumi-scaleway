@@ -11,8 +11,10 @@ from .. import _utilities
 
 __all__ = [
     'CockpitEndpoint',
+    'CockpitPushUrl',
     'TokenScopes',
     'GetCockpitEndpointResult',
+    'GetCockpitPushUrlResult',
 ]
 
 @pulumi.output_type
@@ -105,6 +107,56 @@ class CockpitEndpoint(dict):
         The traces URL.
         """
         return pulumi.get(self, "traces_url")
+
+
+@pulumi.output_type
+class CockpitPushUrl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pushLogsUrl":
+            suggest = "push_logs_url"
+        elif key == "pushMetricsUrl":
+            suggest = "push_metrics_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CockpitPushUrl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CockpitPushUrl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CockpitPushUrl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 push_logs_url: Optional[str] = None,
+                 push_metrics_url: Optional[str] = None):
+        """
+        :param str push_logs_url: Push URL for logs (Grafana Loki)
+        :param str push_metrics_url: Push URL for metrics (Grafana Mimir)
+        """
+        if push_logs_url is not None:
+            pulumi.set(__self__, "push_logs_url", push_logs_url)
+        if push_metrics_url is not None:
+            pulumi.set(__self__, "push_metrics_url", push_metrics_url)
+
+    @property
+    @pulumi.getter(name="pushLogsUrl")
+    def push_logs_url(self) -> Optional[str]:
+        """
+        Push URL for logs (Grafana Loki)
+        """
+        return pulumi.get(self, "push_logs_url")
+
+    @property
+    @pulumi.getter(name="pushMetricsUrl")
+    def push_metrics_url(self) -> Optional[str]:
+        """
+        Push URL for metrics (Grafana Mimir)
+        """
+        return pulumi.get(self, "push_metrics_url")
 
 
 @pulumi.output_type
@@ -268,6 +320,7 @@ class GetCockpitEndpointResult(dict):
         :param str grafana_url: The grafana URL
         :param str logs_url: The logs URL
         :param str metrics_url: The metrics URL
+        :param str traces_url: The traces URL
         """
         pulumi.set(__self__, "alertmanager_url", alertmanager_url)
         pulumi.set(__self__, "grafana_url", grafana_url)
@@ -310,6 +363,38 @@ class GetCockpitEndpointResult(dict):
     @property
     @pulumi.getter(name="tracesUrl")
     def traces_url(self) -> str:
+        """
+        The traces URL
+        """
         return pulumi.get(self, "traces_url")
+
+
+@pulumi.output_type
+class GetCockpitPushUrlResult(dict):
+    def __init__(__self__, *,
+                 push_logs_url: str,
+                 push_metrics_url: str):
+        """
+        :param str push_logs_url: Push URL for logs (Grafana Loki)
+        :param str push_metrics_url: Push URL for metrics (Grafana Mimir)
+        """
+        pulumi.set(__self__, "push_logs_url", push_logs_url)
+        pulumi.set(__self__, "push_metrics_url", push_metrics_url)
+
+    @property
+    @pulumi.getter(name="pushLogsUrl")
+    def push_logs_url(self) -> str:
+        """
+        Push URL for logs (Grafana Loki)
+        """
+        return pulumi.get(self, "push_logs_url")
+
+    @property
+    @pulumi.getter(name="pushMetricsUrl")
+    def push_metrics_url(self) -> str:
+        """
+        Push URL for metrics (Grafana Mimir)
+        """
+        return pulumi.get(self, "push_metrics_url")
 
 

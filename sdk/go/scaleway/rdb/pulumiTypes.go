@@ -253,21 +253,28 @@ func (o InstanceLoadBalancerArrayOutput) Index(i pulumi.IntInput) InstanceLoadBa
 }
 
 type InstancePrivateNetwork struct {
-	// Whether the endpoint should be configured with IPAM. Defaults to `false` if `ipNet` is defined, `true` otherwise.
+	// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+	//
+	// > **NOTE:** Please calculate your host IP using cidrhost. Otherwise, let IPAM service
+	// handle the host IP on the network.
+	//
+	// > **Important:** Updates to `privateNetwork` will recreate the Instance's endpoint
 	EnableIpam *bool `pulumi:"enableIpam"`
 	// The ID of the endpoint.
 	EndpointId *string `pulumi:"endpointId"`
 	// Hostname of the endpoint.
 	Hostname *string `pulumi:"hostname"`
 	// IPv4 address on the network.
-	Ip    *string `pulumi:"ip"`
+	Ip *string `pulumi:"ip"`
+	// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 	IpNet *string `pulumi:"ipNet"`
 	// The name of the Database Instance.
 	Name *string `pulumi:"name"`
 	// The ID of the private network.
 	PnId string `pulumi:"pnId"`
 	// Port in the Private Network.
-	Port *int    `pulumi:"port"`
+	Port *int `pulumi:"port"`
+	// The zone you want to attach the resource to
 	Zone *string `pulumi:"zone"`
 }
 
@@ -283,21 +290,28 @@ type InstancePrivateNetworkInput interface {
 }
 
 type InstancePrivateNetworkArgs struct {
-	// Whether the endpoint should be configured with IPAM. Defaults to `false` if `ipNet` is defined, `true` otherwise.
+	// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+	//
+	// > **NOTE:** Please calculate your host IP using cidrhost. Otherwise, let IPAM service
+	// handle the host IP on the network.
+	//
+	// > **Important:** Updates to `privateNetwork` will recreate the Instance's endpoint
 	EnableIpam pulumi.BoolPtrInput `pulumi:"enableIpam"`
 	// The ID of the endpoint.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
 	// Hostname of the endpoint.
 	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
 	// IPv4 address on the network.
-	Ip    pulumi.StringPtrInput `pulumi:"ip"`
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 	IpNet pulumi.StringPtrInput `pulumi:"ipNet"`
 	// The name of the Database Instance.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The ID of the private network.
 	PnId pulumi.StringInput `pulumi:"pnId"`
 	// Port in the Private Network.
-	Port pulumi.IntPtrInput    `pulumi:"port"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The zone you want to attach the resource to
 	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
@@ -378,7 +392,12 @@ func (o InstancePrivateNetworkOutput) ToInstancePrivateNetworkPtrOutputWithConte
 	}).(InstancePrivateNetworkPtrOutput)
 }
 
-// Whether the endpoint should be configured with IPAM. Defaults to `false` if `ipNet` is defined, `true` otherwise.
+// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+//
+// > **NOTE:** Please calculate your host IP using cidrhost. Otherwise, let IPAM service
+// handle the host IP on the network.
+//
+// > **Important:** Updates to `privateNetwork` will recreate the Instance's endpoint
 func (o InstancePrivateNetworkOutput) EnableIpam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstancePrivateNetwork) *bool { return v.EnableIpam }).(pulumi.BoolPtrOutput)
 }
@@ -398,6 +417,7 @@ func (o InstancePrivateNetworkOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstancePrivateNetwork) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
+// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 func (o InstancePrivateNetworkOutput) IpNet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstancePrivateNetwork) *string { return v.IpNet }).(pulumi.StringPtrOutput)
 }
@@ -417,6 +437,7 @@ func (o InstancePrivateNetworkOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstancePrivateNetwork) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The zone you want to attach the resource to
 func (o InstancePrivateNetworkOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstancePrivateNetwork) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
@@ -445,7 +466,12 @@ func (o InstancePrivateNetworkPtrOutput) Elem() InstancePrivateNetworkOutput {
 	}).(InstancePrivateNetworkOutput)
 }
 
-// Whether the endpoint should be configured with IPAM. Defaults to `false` if `ipNet` is defined, `true` otherwise.
+// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+//
+// > **NOTE:** Please calculate your host IP using cidrhost. Otherwise, let IPAM service
+// handle the host IP on the network.
+//
+// > **Important:** Updates to `privateNetwork` will recreate the Instance's endpoint
 func (o InstancePrivateNetworkPtrOutput) EnableIpam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstancePrivateNetwork) *bool {
 		if v == nil {
@@ -485,6 +511,7 @@ func (o InstancePrivateNetworkPtrOutput) Ip() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 func (o InstancePrivateNetworkPtrOutput) IpNet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstancePrivateNetwork) *string {
 		if v == nil {
@@ -524,6 +551,7 @@ func (o InstancePrivateNetworkPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The zone you want to attach the resource to
 func (o InstancePrivateNetworkPtrOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstancePrivateNetwork) *string {
 		if v == nil {
@@ -862,6 +890,7 @@ func (o ReadReplicaDirectAccessPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type ReadReplicaPrivateNetwork struct {
+	// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 	EnableIpam *bool `pulumi:"enableIpam"`
 	// The ID of the endpoint of the read replica.
 	EndpointId *string `pulumi:"endpointId"`
@@ -875,11 +904,10 @@ type ReadReplicaPrivateNetwork struct {
 	Port *int `pulumi:"port"`
 	// UUID of the private network to be connected to the read replica.
 	PrivateNetworkId string `pulumi:"privateNetworkId"`
-	// The IP network address within the private subnet. This must be an IPv4 address with a
-	// CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-	// service if not set.
+	// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 	ServiceIp *string `pulumi:"serviceIp"`
-	Zone      *string `pulumi:"zone"`
+	// Private network zone
+	Zone *string `pulumi:"zone"`
 }
 
 // ReadReplicaPrivateNetworkInput is an input type that accepts ReadReplicaPrivateNetworkArgs and ReadReplicaPrivateNetworkOutput values.
@@ -894,6 +922,7 @@ type ReadReplicaPrivateNetworkInput interface {
 }
 
 type ReadReplicaPrivateNetworkArgs struct {
+	// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 	EnableIpam pulumi.BoolPtrInput `pulumi:"enableIpam"`
 	// The ID of the endpoint of the read replica.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
@@ -907,11 +936,10 @@ type ReadReplicaPrivateNetworkArgs struct {
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// UUID of the private network to be connected to the read replica.
 	PrivateNetworkId pulumi.StringInput `pulumi:"privateNetworkId"`
-	// The IP network address within the private subnet. This must be an IPv4 address with a
-	// CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-	// service if not set.
+	// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 	ServiceIp pulumi.StringPtrInput `pulumi:"serviceIp"`
-	Zone      pulumi.StringPtrInput `pulumi:"zone"`
+	// Private network zone
+	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
 func (ReadReplicaPrivateNetworkArgs) ElementType() reflect.Type {
@@ -991,6 +1019,7 @@ func (o ReadReplicaPrivateNetworkOutput) ToReadReplicaPrivateNetworkPtrOutputWit
 	}).(ReadReplicaPrivateNetworkPtrOutput)
 }
 
+// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 func (o ReadReplicaPrivateNetworkOutput) EnableIpam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ReadReplicaPrivateNetwork) *bool { return v.EnableIpam }).(pulumi.BoolPtrOutput)
 }
@@ -1025,13 +1054,12 @@ func (o ReadReplicaPrivateNetworkOutput) PrivateNetworkId() pulumi.StringOutput 
 	return o.ApplyT(func(v ReadReplicaPrivateNetwork) string { return v.PrivateNetworkId }).(pulumi.StringOutput)
 }
 
-// The IP network address within the private subnet. This must be an IPv4 address with a
-// CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-// service if not set.
+// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 func (o ReadReplicaPrivateNetworkOutput) ServiceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReadReplicaPrivateNetwork) *string { return v.ServiceIp }).(pulumi.StringPtrOutput)
 }
 
+// Private network zone
 func (o ReadReplicaPrivateNetworkOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReadReplicaPrivateNetwork) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
@@ -1060,6 +1088,7 @@ func (o ReadReplicaPrivateNetworkPtrOutput) Elem() ReadReplicaPrivateNetworkOutp
 	}).(ReadReplicaPrivateNetworkOutput)
 }
 
+// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 func (o ReadReplicaPrivateNetworkPtrOutput) EnableIpam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReadReplicaPrivateNetwork) *bool {
 		if v == nil {
@@ -1129,9 +1158,7 @@ func (o ReadReplicaPrivateNetworkPtrOutput) PrivateNetworkId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP network address within the private subnet. This must be an IPv4 address with a
-// CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-// service if not set.
+// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 func (o ReadReplicaPrivateNetworkPtrOutput) ServiceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReadReplicaPrivateNetwork) *string {
 		if v == nil {
@@ -1141,6 +1168,7 @@ func (o ReadReplicaPrivateNetworkPtrOutput) ServiceIp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Private network zone
 func (o ReadReplicaPrivateNetworkPtrOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReadReplicaPrivateNetwork) *string {
 		if v == nil {
@@ -1257,13 +1285,17 @@ func (o GetACLAclRuleArrayOutput) Index(i pulumi.IntInput) GetACLAclRuleOutput {
 }
 
 type GetInstanceLoadBalancer struct {
+	// The endpoint ID
 	EndpointId string `pulumi:"endpointId"`
-	Hostname   string `pulumi:"hostname"`
-	Ip         string `pulumi:"ip"`
+	// The hostname of your endpoint
+	Hostname string `pulumi:"hostname"`
+	// The IP of your load balancer service
+	Ip string `pulumi:"ip"`
 	// The name of the RDB instance.
 	// Only one of `name` and `instanceId` should be specified.
 	Name string `pulumi:"name"`
-	Port int    `pulumi:"port"`
+	// The port of your load balancer service
+	Port int `pulumi:"port"`
 }
 
 // GetInstanceLoadBalancerInput is an input type that accepts GetInstanceLoadBalancerArgs and GetInstanceLoadBalancerOutput values.
@@ -1278,13 +1310,17 @@ type GetInstanceLoadBalancerInput interface {
 }
 
 type GetInstanceLoadBalancerArgs struct {
+	// The endpoint ID
 	EndpointId pulumi.StringInput `pulumi:"endpointId"`
-	Hostname   pulumi.StringInput `pulumi:"hostname"`
-	Ip         pulumi.StringInput `pulumi:"ip"`
+	// The hostname of your endpoint
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	// The IP of your load balancer service
+	Ip pulumi.StringInput `pulumi:"ip"`
 	// The name of the RDB instance.
 	// Only one of `name` and `instanceId` should be specified.
 	Name pulumi.StringInput `pulumi:"name"`
-	Port pulumi.IntInput    `pulumi:"port"`
+	// The port of your load balancer service
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (GetInstanceLoadBalancerArgs) ElementType() reflect.Type {
@@ -1338,14 +1374,17 @@ func (o GetInstanceLoadBalancerOutput) ToGetInstanceLoadBalancerOutputWithContex
 	return o
 }
 
+// The endpoint ID
 func (o GetInstanceLoadBalancerOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceLoadBalancer) string { return v.EndpointId }).(pulumi.StringOutput)
 }
 
+// The hostname of your endpoint
 func (o GetInstanceLoadBalancerOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceLoadBalancer) string { return v.Hostname }).(pulumi.StringOutput)
 }
 
+// The IP of your load balancer service
 func (o GetInstanceLoadBalancerOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceLoadBalancer) string { return v.Ip }).(pulumi.StringOutput)
 }
@@ -1356,6 +1395,7 @@ func (o GetInstanceLoadBalancerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceLoadBalancer) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The port of your load balancer service
 func (o GetInstanceLoadBalancerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceLoadBalancer) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1381,16 +1421,24 @@ func (o GetInstanceLoadBalancerArrayOutput) Index(i pulumi.IntInput) GetInstance
 }
 
 type GetInstancePrivateNetwork struct {
-	EnableIpam bool   `pulumi:"enableIpam"`
+	// Whether or not the private network endpoint should be configured with IPAM
+	EnableIpam bool `pulumi:"enableIpam"`
+	// The endpoint ID
 	EndpointId string `pulumi:"endpointId"`
-	Hostname   string `pulumi:"hostname"`
-	Ip         string `pulumi:"ip"`
-	IpNet      string `pulumi:"ipNet"`
+	// The hostname of your endpoint
+	Hostname string `pulumi:"hostname"`
+	// The IP of your Instance within the private service
+	Ip string `pulumi:"ip"`
+	// The IP with the given mask within the private subnet
+	IpNet string `pulumi:"ipNet"`
 	// The name of the RDB instance.
 	// Only one of `name` and `instanceId` should be specified.
 	Name string `pulumi:"name"`
+	// The private network ID
 	PnId string `pulumi:"pnId"`
-	Port int    `pulumi:"port"`
+	// The port of your private service
+	Port int `pulumi:"port"`
+	// The zone you want to attach the resource to
 	Zone string `pulumi:"zone"`
 }
 
@@ -1406,16 +1454,24 @@ type GetInstancePrivateNetworkInput interface {
 }
 
 type GetInstancePrivateNetworkArgs struct {
-	EnableIpam pulumi.BoolInput   `pulumi:"enableIpam"`
+	// Whether or not the private network endpoint should be configured with IPAM
+	EnableIpam pulumi.BoolInput `pulumi:"enableIpam"`
+	// The endpoint ID
 	EndpointId pulumi.StringInput `pulumi:"endpointId"`
-	Hostname   pulumi.StringInput `pulumi:"hostname"`
-	Ip         pulumi.StringInput `pulumi:"ip"`
-	IpNet      pulumi.StringInput `pulumi:"ipNet"`
+	// The hostname of your endpoint
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	// The IP of your Instance within the private service
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// The IP with the given mask within the private subnet
+	IpNet pulumi.StringInput `pulumi:"ipNet"`
 	// The name of the RDB instance.
 	// Only one of `name` and `instanceId` should be specified.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The private network ID
 	PnId pulumi.StringInput `pulumi:"pnId"`
-	Port pulumi.IntInput    `pulumi:"port"`
+	// The port of your private service
+	Port pulumi.IntInput `pulumi:"port"`
+	// The zone you want to attach the resource to
 	Zone pulumi.StringInput `pulumi:"zone"`
 }
 
@@ -1470,22 +1526,27 @@ func (o GetInstancePrivateNetworkOutput) ToGetInstancePrivateNetworkOutputWithCo
 	return o
 }
 
+// Whether or not the private network endpoint should be configured with IPAM
 func (o GetInstancePrivateNetworkOutput) EnableIpam() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetInstancePrivateNetwork) bool { return v.EnableIpam }).(pulumi.BoolOutput)
 }
 
+// The endpoint ID
 func (o GetInstancePrivateNetworkOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancePrivateNetwork) string { return v.EndpointId }).(pulumi.StringOutput)
 }
 
+// The hostname of your endpoint
 func (o GetInstancePrivateNetworkOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancePrivateNetwork) string { return v.Hostname }).(pulumi.StringOutput)
 }
 
+// The IP of your Instance within the private service
 func (o GetInstancePrivateNetworkOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancePrivateNetwork) string { return v.Ip }).(pulumi.StringOutput)
 }
 
+// The IP with the given mask within the private subnet
 func (o GetInstancePrivateNetworkOutput) IpNet() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancePrivateNetwork) string { return v.IpNet }).(pulumi.StringOutput)
 }
@@ -1496,14 +1557,17 @@ func (o GetInstancePrivateNetworkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancePrivateNetwork) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The private network ID
 func (o GetInstancePrivateNetworkOutput) PnId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancePrivateNetwork) string { return v.PnId }).(pulumi.StringOutput)
 }
 
+// The port of your private service
 func (o GetInstancePrivateNetworkOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstancePrivateNetwork) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The zone you want to attach the resource to
 func (o GetInstancePrivateNetworkOutput) Zone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancePrivateNetwork) string { return v.Zone }).(pulumi.StringOutput)
 }
@@ -1529,11 +1593,13 @@ func (o GetInstancePrivateNetworkArrayOutput) Index(i pulumi.IntInput) GetInstan
 }
 
 type GetInstanceReadReplica struct {
+	// IP of the replica
 	Ip string `pulumi:"ip"`
 	// The name of the RDB instance.
 	// Only one of `name` and `instanceId` should be specified.
 	Name string `pulumi:"name"`
-	Port int    `pulumi:"port"`
+	// Port of the replica
+	Port int `pulumi:"port"`
 }
 
 // GetInstanceReadReplicaInput is an input type that accepts GetInstanceReadReplicaArgs and GetInstanceReadReplicaOutput values.
@@ -1548,11 +1614,13 @@ type GetInstanceReadReplicaInput interface {
 }
 
 type GetInstanceReadReplicaArgs struct {
+	// IP of the replica
 	Ip pulumi.StringInput `pulumi:"ip"`
 	// The name of the RDB instance.
 	// Only one of `name` and `instanceId` should be specified.
 	Name pulumi.StringInput `pulumi:"name"`
-	Port pulumi.IntInput    `pulumi:"port"`
+	// Port of the replica
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (GetInstanceReadReplicaArgs) ElementType() reflect.Type {
@@ -1606,6 +1674,7 @@ func (o GetInstanceReadReplicaOutput) ToGetInstanceReadReplicaOutputWithContext(
 	return o
 }
 
+// IP of the replica
 func (o GetInstanceReadReplicaOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceReadReplica) string { return v.Ip }).(pulumi.StringOutput)
 }
@@ -1616,6 +1685,7 @@ func (o GetInstanceReadReplicaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceReadReplica) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Port of the replica
 func (o GetInstanceReadReplicaOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceReadReplica) int { return v.Port }).(pulumi.IntOutput)
 }

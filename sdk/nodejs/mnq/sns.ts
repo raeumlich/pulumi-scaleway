@@ -10,19 +10,23 @@ import * as utilities from "../utilities";
  * our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
  *
  * ## Example Usage
+ *
  * ### Basic
  *
  * Activate SNS for default project
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
  *
  * const main = new scaleway.mnq.SNS("main", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Activate SNS for a specific project
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -33,13 +37,16 @@ import * as utilities from "../utilities";
  * // For specific project in default region
  * const forProject = new scaleway.mnq.SNS("forProject", {projectId: project.then(project => project.id)});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * SNS status can be imported using the `{region}/{project_id}`, e.g. bash
+ * SNS status can be imported using the `{region}/{project_id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:mnq/sNS:SNS main fr-par/11111111111111111111111111111111
+ * $ pulumi import scaleway:mnq/sNS:SNS main fr-par/11111111111111111111111111111111
  * ```
  */
 export class SNS extends pulumi.CustomResource {

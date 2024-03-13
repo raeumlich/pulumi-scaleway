@@ -7,10 +7,12 @@ import * as utilities from "../utilities";
 /**
  * ## Import
  *
- * Projects can be imported using the `id`, e.g. bash
+ * Projects can be imported using the `id`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:account/project:Project project 11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:account/project:Project project 11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Project extends pulumi.CustomResource {

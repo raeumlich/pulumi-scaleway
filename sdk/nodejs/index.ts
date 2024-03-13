@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export { IpamIpReverseDnsArgs, IpamIpReverseDnsState } from "./ipamIpReverseDns";
+export type IpamIpReverseDns = import("./ipamIpReverseDns").IpamIpReverseDns;
+export const IpamIpReverseDns: typeof import("./ipamIpReverseDns").IpamIpReverseDns = null as any;
+utilities.lazyLoad(exports, ["IpamIpReverseDns"], () => require("./ipamIpReverseDns"));
+
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
@@ -67,6 +72,19 @@ export {
     vpc,
     webhosting,
 };
+
+const _module = {
+    version: utilities.getVersion(),
+    construct: (name: string, type: string, urn: string): pulumi.Resource => {
+        switch (type) {
+            case "scaleway:index/ipamIpReverseDns:IpamIpReverseDns":
+                return new IpamIpReverseDns(name, <any>undefined, { urn })
+            default:
+                throw new Error(`unknown resource type ${type}`);
+        }
+    },
+};
+pulumi.runtime.registerResourceModule("scaleway", "index/ipamIpReverseDns", _module)
 pulumi.runtime.registerResourcePackage("scaleway", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://www.scaleway.com/en/docs/storage/object/api-cli/bucket-policy/).
 //
 // ## Example Usage
+//
 // ### Example Usage with an IAM user
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,6 +65,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Object storage configuration
 //			bucket, err := objectstorage.NewBucket(ctx, "bucket", nil)
 //			if err != nil {
 //				return err
@@ -107,9 +110,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with an IAM application
+//
 // ### Creating a bucket and delegating read access to an application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,6 +140,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// IAM configuration
 //			_, err = iam.NewApplication(ctx, "reading-app", nil)
 //			if err != nil {
 //				return err
@@ -153,6 +161,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Object storage configuration
 //			bucket, err := objectstorage.NewBucket(ctx, "bucket", nil)
 //			if err != nil {
 //				return err
@@ -199,8 +208,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Reading the bucket with the application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -245,8 +257,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with AWS provider
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -269,6 +284,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Object storage configuration
 //			bucket, err := objectstorage.NewBucket(ctx, "bucket", nil)
 //			if err != nil {
 //				return err
@@ -313,8 +329,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with deprecated version 2012-10-17
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -337,6 +356,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Object storage configuration
 //			bucket, err := objectstorage.NewBucket(ctx, "bucket", &objectstorage.BucketArgs{
 //				Region: pulumi.String("fr-par"),
 //			})
@@ -383,25 +403,28 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // **NB:** To configure the AWS provider with Scaleway credentials, please visit this [tutorial](https://www.scaleway.com/en/docs/storage/object/api-cli/object-storage-aws-cli/).
 //
 // ## Import
 //
-// Bucket policies can be imported using the `{region}/{bucketName}` identifier, e.g. bash
+// Bucket policies can be imported using the `{region}/{bucketName}` identifier, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket
-//
+// $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket
 // ```
 //
-//	~> **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project. If you are using a project different from the default one, you have to specify the project ID at the end of the import command. bash
+// ~> **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project.
+//
+// If you are using a project different from the default one, you have to specify the project ID at the end of the import command.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
-//
+// $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 // ```
 type BucketPolicy struct {
 	pulumi.CustomResourceState

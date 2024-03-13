@@ -17,8 +17,10 @@ import (
 // our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,15 +59,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// SNS topic can be imported using the `{region}/{project-id}/{topic-name}`, e.g. bash
+// SNS topic can be imported using the `{region}/{project-id}/{topic-name}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:mnq/sNSTopic:SNSTopic main fr-par/11111111111111111111111111111111/my-topic
-//
+// $ pulumi import scaleway:mnq/sNSTopic:SNSTopic main fr-par/11111111111111111111111111111111/my-topic
 // ```
 type SNSTopic struct {
 	pulumi.CustomResourceState

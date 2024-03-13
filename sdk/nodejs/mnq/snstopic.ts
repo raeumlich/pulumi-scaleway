@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -29,13 +31,16 @@ import * as utilities from "../utilities";
  *     secretKey: mainSNSCredentials.secretKey,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * SNS topic can be imported using the `{region}/{project-id}/{topic-name}`, e.g. bash
+ * SNS topic can be imported using the `{region}/{project-id}/{topic-name}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:mnq/sNSTopic:SNSTopic main fr-par/11111111111111111111111111111111/my-topic
+ * $ pulumi import scaleway:mnq/sNSTopic:SNSTopic main fr-par/11111111111111111111111111111111/my-topic
  * ```
  */
 export class SNSTopic extends pulumi.CustomResource {

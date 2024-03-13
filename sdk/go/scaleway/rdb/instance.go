@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 //
 // ## Example Usage
+//
 // ### Example Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with Settings
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with backup schedule
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,11 +121,98 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Examples of endpoints configuration
 //
 // RDB Instances can have a maximum of 1 public endpoint and 1 private endpoint. It can have both, or none.
+//
+// ### 1 static private network endpoint
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/rdb"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/vpc"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pn, err := vpc.NewPrivateNetwork(ctx, "pn", &vpc.PrivateNetworkArgs{
+//				Ipv4Subnet: &vpc.PrivateNetworkIpv4SubnetArgs{
+//					Subnet: pulumi.String("172.16.20.0/22"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rdb.NewInstance(ctx, "main", &rdb.InstanceArgs{
+//				NodeType: pulumi.String("db-dev-s"),
+//				Engine:   pulumi.String("PostgreSQL-11"),
+//				PrivateNetwork: &rdb.InstancePrivateNetworkArgs{
+//					PnId:  pn.ID(),
+//					IpNet: pulumi.String("172.16.20.4/22"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### 1 IPAM private network endpoint + 1 public endpoint
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/rdb"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/vpc"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pn, err := vpc.NewPrivateNetwork(ctx, "pn", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rdb.NewInstance(ctx, "main", &rdb.InstanceArgs{
+//				NodeType: pulumi.String("DB-DEV-S"),
+//				Engine:   pulumi.String("PostgreSQL-11"),
+//				PrivateNetwork: &rdb.InstancePrivateNetworkArgs{
+//					PnId:       pn.ID(),
+//					EnableIpam: pulumi.Bool(true),
+//				},
+//				LoadBalancers: rdb.InstanceLoadBalancerArray{
+//					nil,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Default: 1 public endpoint
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,8 +237,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > If nothing is defined, your instance will have a default public load-balancer endpoint
+//
 // ## Limitations
 //
 // The Managed Database product is only compliant with the private network in the default availability zone (AZ).
@@ -152,12 +249,12 @@ import (
 //
 // ## Import
 //
-// Database Instance can be imported using the `{region}/{id}`, e.g. bash
+// Database Instance can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:rdb/instance:Instance rdb01 fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:rdb/instance:Instance rdb01 fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type Instance struct {
 	pulumi.CustomResourceState
@@ -227,11 +324,11 @@ type Instance struct {
 	//
 	// > **Important:** Updates to `userName` will recreate the Database Instance.
 	UserName pulumi.StringOutput `pulumi:"userName"`
-	// Volume size (in GB) when `volumeType` is set to `bssd`.
+	// Volume size (in GB). Cannot be used when `volumeType` is set to `lssd`.
 	//
 	// > **Important:** Once your instance reaches `diskFull` status, you should increase the volume size before making any other change to your instance.
 	VolumeSizeInGb pulumi.IntOutput `pulumi:"volumeSizeInGb"`
-	// Type of volume where data are stored (`bssd` or `lssd`).
+	// Type of volume where data are stored (`bssd`, `lssd` or `sbs5k`).
 	VolumeType pulumi.StringPtrOutput `pulumi:"volumeType"`
 }
 
@@ -343,11 +440,11 @@ type instanceState struct {
 	//
 	// > **Important:** Updates to `userName` will recreate the Database Instance.
 	UserName *string `pulumi:"userName"`
-	// Volume size (in GB) when `volumeType` is set to `bssd`.
+	// Volume size (in GB). Cannot be used when `volumeType` is set to `lssd`.
 	//
 	// > **Important:** Once your instance reaches `diskFull` status, you should increase the volume size before making any other change to your instance.
 	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
-	// Type of volume where data are stored (`bssd` or `lssd`).
+	// Type of volume where data are stored (`bssd`, `lssd` or `sbs5k`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -417,11 +514,11 @@ type InstanceState struct {
 	//
 	// > **Important:** Updates to `userName` will recreate the Database Instance.
 	UserName pulumi.StringPtrInput
-	// Volume size (in GB) when `volumeType` is set to `bssd`.
+	// Volume size (in GB). Cannot be used when `volumeType` is set to `lssd`.
 	//
 	// > **Important:** Once your instance reaches `diskFull` status, you should increase the volume size before making any other change to your instance.
 	VolumeSizeInGb pulumi.IntPtrInput
-	// Type of volume where data are stored (`bssd` or `lssd`).
+	// Type of volume where data are stored (`bssd`, `lssd` or `sbs5k`).
 	VolumeType pulumi.StringPtrInput
 }
 
@@ -483,11 +580,11 @@ type instanceArgs struct {
 	//
 	// > **Important:** Updates to `userName` will recreate the Database Instance.
 	UserName *string `pulumi:"userName"`
-	// Volume size (in GB) when `volumeType` is set to `bssd`.
+	// Volume size (in GB). Cannot be used when `volumeType` is set to `lssd`.
 	//
 	// > **Important:** Once your instance reaches `diskFull` status, you should increase the volume size before making any other change to your instance.
 	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
-	// Type of volume where data are stored (`bssd` or `lssd`).
+	// Type of volume where data are stored (`bssd`, `lssd` or `sbs5k`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -546,11 +643,11 @@ type InstanceArgs struct {
 	//
 	// > **Important:** Updates to `userName` will recreate the Database Instance.
 	UserName pulumi.StringPtrInput
-	// Volume size (in GB) when `volumeType` is set to `bssd`.
+	// Volume size (in GB). Cannot be used when `volumeType` is set to `lssd`.
 	//
 	// > **Important:** Once your instance reaches `diskFull` status, you should increase the volume size before making any other change to your instance.
 	VolumeSizeInGb pulumi.IntPtrInput
-	// Type of volume where data are stored (`bssd` or `lssd`).
+	// Type of volume where data are stored (`bssd`, `lssd` or `sbs5k`).
 	VolumeType pulumi.StringPtrInput
 }
 
@@ -772,14 +869,14 @@ func (o InstanceOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }
 
-// Volume size (in GB) when `volumeType` is set to `bssd`.
+// Volume size (in GB). Cannot be used when `volumeType` is set to `lssd`.
 //
 // > **Important:** Once your instance reaches `diskFull` status, you should increase the volume size before making any other change to your instance.
 func (o InstanceOutput) VolumeSizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.VolumeSizeInGb }).(pulumi.IntOutput)
 }
 
-// Type of volume where data are stored (`bssd` or `lssd`).
+// Type of volume where data are stored (`bssd`, `lssd` or `sbs5k`).
 func (o InstanceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.VolumeType }).(pulumi.StringPtrOutput)
 }

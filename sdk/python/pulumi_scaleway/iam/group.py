@@ -301,8 +301,10 @@ class Group(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/iam/api/v1alpha1/#groups-f592eb).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -312,8 +314,11 @@ class Group(pulumi.CustomResource):
             description="basic description",
             user_ids=[])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With applications
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -323,13 +328,16 @@ class Group(pulumi.CustomResource):
             application_ids=[app.id],
             user_ids=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IAM groups can be imported using the `{id}`, e.g. bash
+        IAM groups can be imported using the `{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/group:Group basic 11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/group:Group basic 11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -353,8 +361,10 @@ class Group(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/iam/api/v1alpha1/#groups-f592eb).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -364,8 +374,11 @@ class Group(pulumi.CustomResource):
             description="basic description",
             user_ids=[])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With applications
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -375,13 +388,16 @@ class Group(pulumi.CustomResource):
             application_ids=[app.id],
             user_ids=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IAM groups can be imported using the `{id}`, e.g. bash
+        IAM groups can be imported using the `{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/group:Group basic 11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/group:Group basic 11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

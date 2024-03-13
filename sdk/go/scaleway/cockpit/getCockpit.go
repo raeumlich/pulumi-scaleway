@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,7 +39,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,6 +65,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupCockpit(ctx *pulumi.Context, args *LookupCockpitArgs, opts ...pulumi.InvokeOption) (*LookupCockpitResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCockpitResult
@@ -85,8 +89,9 @@ type LookupCockpitResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the current plan
-	PlanId    string  `pulumi:"planId"`
-	ProjectId *string `pulumi:"projectId"`
+	PlanId    string              `pulumi:"planId"`
+	ProjectId *string             `pulumi:"projectId"`
+	PushUrls  []GetCockpitPushUrl `pulumi:"pushUrls"`
 }
 
 func LookupCockpitOutput(ctx *pulumi.Context, args LookupCockpitOutputArgs, opts ...pulumi.InvokeOption) LookupCockpitResultOutput {
@@ -144,6 +149,10 @@ func (o LookupCockpitResultOutput) PlanId() pulumi.StringOutput {
 
 func (o LookupCockpitResultOutput) ProjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCockpitResult) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCockpitResultOutput) PushUrls() GetCockpitPushUrlArrayOutput {
+	return o.ApplyT(func(v LookupCockpitResult) []GetCockpitPushUrl { return v.PushUrls }).(GetCockpitPushUrlArrayOutput)
 }
 
 func init() {

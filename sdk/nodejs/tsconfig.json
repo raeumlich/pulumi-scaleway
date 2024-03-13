@@ -112,6 +112,7 @@
         "ipam/getIPs.ts",
         "ipam/index.ts",
         "ipam/ip.ts",
+        "ipamIpReverseDns.ts",
         "kubernetes/cluster.ts",
         "kubernetes/getCluster.ts",
         "kubernetes/getPool.ts",

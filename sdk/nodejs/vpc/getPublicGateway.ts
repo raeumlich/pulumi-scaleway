@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -25,6 +26,7 @@ import * as utilities from "../utilities";
  *     publicGatewayId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicGateway(args?: GetPublicGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicGatewayResult> {
     args = args || {};
@@ -87,6 +89,7 @@ export interface GetPublicGatewayResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -103,6 +106,7 @@ export interface GetPublicGatewayResult {
  *     publicGatewayId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicGatewayOutput(args?: GetPublicGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicGatewayResult> {
     return pulumi.output(args).apply((a: any) => getPublicGateway(a, opts))

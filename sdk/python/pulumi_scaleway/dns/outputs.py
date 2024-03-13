@@ -227,11 +227,17 @@ class RecordWeighted(dict):
 class GetRecordGeoIpResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetRecordGeoIpMatchResult']):
+        """
+        :param Sequence['GetRecordGeoIpMatchArgs'] matches: The list of matches
+        """
         pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
     def matches(self) -> Sequence['outputs.GetRecordGeoIpMatchResult']:
+        """
+        The list of matches
+        """
         return pulumi.get(self, "matches")
 
 
@@ -242,6 +248,8 @@ class GetRecordGeoIpMatchResult(dict):
                  countries: Sequence[str],
                  data: str):
         """
+        :param Sequence[str] continents: List of continents (eg: EU for Europe, NA for North America, AS for Asia...). List of all continents code: https://api.scaleway.com/domain-private/v2beta1/continents
+        :param Sequence[str] countries: List of countries (eg: FR for France, US for the United States, GB for Great Britain...). List of all countries code: https://api.scaleway.com/domain-private/v2beta1/countries
         :param str data: The content of the record (an IPv4 for an `A`, a string for a `TXT`...).
                Cannot be used with `record_id`.
         """
@@ -252,11 +260,17 @@ class GetRecordGeoIpMatchResult(dict):
     @property
     @pulumi.getter
     def continents(self) -> Sequence[str]:
+        """
+        List of continents (eg: EU for Europe, NA for North America, AS for Asia...). List of all continents code: https://api.scaleway.com/domain-private/v2beta1/continents
+        """
         return pulumi.get(self, "continents")
 
     @property
     @pulumi.getter
     def countries(self) -> Sequence[str]:
+        """
+        List of countries (eg: FR for France, US for the United States, GB for Great Britain...). List of all countries code: https://api.scaleway.com/domain-private/v2beta1/countries
+        """
         return pulumi.get(self, "countries")
 
     @property
@@ -277,6 +291,13 @@ class GetRecordHttpServiceResult(dict):
                  strategy: str,
                  url: str,
                  user_agent: str):
+        """
+        :param Sequence[str] ips: IPs to check
+        :param str must_contain: Text to search
+        :param str strategy: Strategy to return an IP from the IPs list
+        :param str url: URL to match the must_contain text to validate an IP
+        :param str user_agent: User-agent used when checking the URL
+        """
         pulumi.set(__self__, "ips", ips)
         pulumi.set(__self__, "must_contain", must_contain)
         pulumi.set(__self__, "strategy", strategy)
@@ -286,26 +307,41 @@ class GetRecordHttpServiceResult(dict):
     @property
     @pulumi.getter
     def ips(self) -> Sequence[str]:
+        """
+        IPs to check
+        """
         return pulumi.get(self, "ips")
 
     @property
     @pulumi.getter(name="mustContain")
     def must_contain(self) -> str:
+        """
+        Text to search
+        """
         return pulumi.get(self, "must_contain")
 
     @property
     @pulumi.getter
     def strategy(self) -> str:
+        """
+        Strategy to return an IP from the IPs list
+        """
         return pulumi.get(self, "strategy")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        URL to match the must_contain text to validate an IP
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="userAgent")
     def user_agent(self) -> str:
+        """
+        User-agent used when checking the URL
+        """
         return pulumi.get(self, "user_agent")
 
 
@@ -317,6 +353,7 @@ class GetRecordViewResult(dict):
         """
         :param str data: The content of the record (an IPv4 for an `A`, a string for a `TXT`...).
                Cannot be used with `record_id`.
+        :param str subnet: The subnet of the view
         """
         pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "subnet", subnet)
@@ -333,6 +370,9 @@ class GetRecordViewResult(dict):
     @property
     @pulumi.getter
     def subnet(self) -> str:
+        """
+        The subnet of the view
+        """
         return pulumi.get(self, "subnet")
 
 
@@ -341,17 +381,27 @@ class GetRecordWeightedResult(dict):
     def __init__(__self__, *,
                  ip: str,
                  weight: int):
+        """
+        :param str ip: The weighted IP
+        :param int weight: The weight of the IP
+        """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
     def ip(self) -> str:
+        """
+        The weighted IP
+        """
         return pulumi.get(self, "ip")
 
     @property
     @pulumi.getter
     def weight(self) -> int:
+        """
+        The weight of the IP
+        """
         return pulumi.get(self, "weight")
 
 

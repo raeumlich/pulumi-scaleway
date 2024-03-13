@@ -73,10 +73,10 @@ class InstanceArgs:
         :param pulumi.Input[str] user_name: Identifier for the first user of the database instance.
                
                > **Important:** Updates to `user_name` will recreate the Database Instance.
-        :param pulumi.Input[int] volume_size_in_gb: Volume size (in GB) when `volume_type` is set to `bssd`.
+        :param pulumi.Input[int] volume_size_in_gb: Volume size (in GB). Cannot be used when `volume_type` is set to `lssd`.
                
                > **Important:** Once your instance reaches `disk_full` status, you should increase the volume size before making any other change to your instance.
-        :param pulumi.Input[str] volume_type: Type of volume where data are stored (`bssd` or `lssd`).
+        :param pulumi.Input[str] volume_type: Type of volume where data are stored (`bssd`, `lssd` or `sbs_5k`).
         """
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "node_type", node_type)
@@ -342,7 +342,7 @@ class InstanceArgs:
     @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
-        Volume size (in GB) when `volume_type` is set to `bssd`.
+        Volume size (in GB). Cannot be used when `volume_type` is set to `lssd`.
 
         > **Important:** Once your instance reaches `disk_full` status, you should increase the volume size before making any other change to your instance.
         """
@@ -356,7 +356,7 @@ class InstanceArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of volume where data are stored (`bssd` or `lssd`).
+        Type of volume where data are stored (`bssd`, `lssd` or `sbs_5k`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -435,10 +435,10 @@ class _InstanceState:
         :param pulumi.Input[str] user_name: Identifier for the first user of the database instance.
                
                > **Important:** Updates to `user_name` will recreate the Database Instance.
-        :param pulumi.Input[int] volume_size_in_gb: Volume size (in GB) when `volume_type` is set to `bssd`.
+        :param pulumi.Input[int] volume_size_in_gb: Volume size (in GB). Cannot be used when `volume_type` is set to `lssd`.
                
                > **Important:** Once your instance reaches `disk_full` status, you should increase the volume size before making any other change to your instance.
-        :param pulumi.Input[str] volume_type: Type of volume where data are stored (`bssd` or `lssd`).
+        :param pulumi.Input[str] volume_type: Type of volume where data are stored (`bssd`, `lssd` or `sbs_5k`).
         """
         if backup_same_region is not None:
             pulumi.set(__self__, "backup_same_region", backup_same_region)
@@ -782,7 +782,7 @@ class _InstanceState:
     @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
-        Volume size (in GB) when `volume_type` is set to `bssd`.
+        Volume size (in GB). Cannot be used when `volume_type` is set to `lssd`.
 
         > **Important:** Once your instance reaches `disk_full` status, you should increase the volume size before making any other change to your instance.
         """
@@ -796,7 +796,7 @@ class _InstanceState:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of volume where data are stored (`bssd` or `lssd`).
+        Type of volume where data are stored (`bssd`, `lssd` or `sbs_5k`).
         """
         return pulumi.get(self, "volume_type")
 
@@ -835,8 +835,10 @@ class Instance(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 
         ## Example Usage
+
         ### Example Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -849,8 +851,11 @@ class Instance(pulumi.CustomResource):
             password="thiZ_is_v&ry_s3cret",
             user_name="my_initial_user")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with Settings
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -868,8 +873,11 @@ class Instance(pulumi.CustomResource):
             },
             user_name="my_initial_user")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with backup schedule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -884,11 +892,54 @@ class Instance(pulumi.CustomResource):
             password="thiZ_is_v&ry_s3cret",
             user_name="my_initial_user")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Examples of endpoints configuration
 
         RDB Instances can have a maximum of 1 public endpoint and 1 private endpoint. It can have both, or none.
+
+        ### 1 static private network endpoint
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_scaleway as scaleway
+
+        pn = scaleway.vpc.PrivateNetwork("pn", ipv4_subnet=scaleway.vpc.PrivateNetworkIpv4SubnetArgs(
+            subnet="172.16.20.0/22",
+        ))
+        main = scaleway.rdb.Instance("main",
+            node_type="db-dev-s",
+            engine="PostgreSQL-11",
+            private_network=scaleway.rdb.InstancePrivateNetworkArgs(
+                pn_id=pn.id,
+                ip_net="172.16.20.4/22",
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### 1 IPAM private network endpoint + 1 public endpoint
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_scaleway as scaleway
+
+        pn = scaleway.vpc.PrivateNetwork("pn")
+        main = scaleway.rdb.Instance("main",
+            node_type="DB-DEV-S",
+            engine="PostgreSQL-11",
+            private_network=scaleway.rdb.InstancePrivateNetworkArgs(
+                pn_id=pn.id,
+                enable_ipam=True,
+            ),
+            load_balancers=[scaleway.rdb.InstanceLoadBalancerArgs()])
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Default: 1 public endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -897,8 +948,10 @@ class Instance(pulumi.CustomResource):
             engine="PostgreSQL-11",
             node_type="db-dev-s")
         ```
+        <!--End PulumiCodeChooser -->
 
         > If nothing is defined, your instance will have a default public load-balancer endpoint
+
         ## Limitations
 
         The Managed Database product is only compliant with the private network in the default availability zone (AZ).
@@ -907,10 +960,12 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        Database Instance can be imported using the `{region}/{id}`, e.g. bash
+        Database Instance can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:rdb/instance:Instance rdb01 fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:rdb/instance:Instance rdb01 fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -951,10 +1006,10 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] user_name: Identifier for the first user of the database instance.
                
                > **Important:** Updates to `user_name` will recreate the Database Instance.
-        :param pulumi.Input[int] volume_size_in_gb: Volume size (in GB) when `volume_type` is set to `bssd`.
+        :param pulumi.Input[int] volume_size_in_gb: Volume size (in GB). Cannot be used when `volume_type` is set to `lssd`.
                
                > **Important:** Once your instance reaches `disk_full` status, you should increase the volume size before making any other change to your instance.
-        :param pulumi.Input[str] volume_type: Type of volume where data are stored (`bssd` or `lssd`).
+        :param pulumi.Input[str] volume_type: Type of volume where data are stored (`bssd`, `lssd` or `sbs_5k`).
         """
         ...
     @overload
@@ -967,8 +1022,10 @@ class Instance(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 
         ## Example Usage
+
         ### Example Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -981,8 +1038,11 @@ class Instance(pulumi.CustomResource):
             password="thiZ_is_v&ry_s3cret",
             user_name="my_initial_user")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with Settings
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1000,8 +1060,11 @@ class Instance(pulumi.CustomResource):
             },
             user_name="my_initial_user")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with backup schedule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1016,11 +1079,54 @@ class Instance(pulumi.CustomResource):
             password="thiZ_is_v&ry_s3cret",
             user_name="my_initial_user")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Examples of endpoints configuration
 
         RDB Instances can have a maximum of 1 public endpoint and 1 private endpoint. It can have both, or none.
+
+        ### 1 static private network endpoint
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_scaleway as scaleway
+
+        pn = scaleway.vpc.PrivateNetwork("pn", ipv4_subnet=scaleway.vpc.PrivateNetworkIpv4SubnetArgs(
+            subnet="172.16.20.0/22",
+        ))
+        main = scaleway.rdb.Instance("main",
+            node_type="db-dev-s",
+            engine="PostgreSQL-11",
+            private_network=scaleway.rdb.InstancePrivateNetworkArgs(
+                pn_id=pn.id,
+                ip_net="172.16.20.4/22",
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### 1 IPAM private network endpoint + 1 public endpoint
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_scaleway as scaleway
+
+        pn = scaleway.vpc.PrivateNetwork("pn")
+        main = scaleway.rdb.Instance("main",
+            node_type="DB-DEV-S",
+            engine="PostgreSQL-11",
+            private_network=scaleway.rdb.InstancePrivateNetworkArgs(
+                pn_id=pn.id,
+                enable_ipam=True,
+            ),
+            load_balancers=[scaleway.rdb.InstanceLoadBalancerArgs()])
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Default: 1 public endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1029,8 +1135,10 @@ class Instance(pulumi.CustomResource):
             engine="PostgreSQL-11",
             node_type="db-dev-s")
         ```
+        <!--End PulumiCodeChooser -->
 
         > If nothing is defined, your instance will have a default public load-balancer endpoint
+
         ## Limitations
 
         The Managed Database product is only compliant with the private network in the default availability zone (AZ).
@@ -1039,10 +1147,12 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        Database Instance can be imported using the `{region}/{id}`, e.g. bash
+        Database Instance can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:rdb/instance:Instance rdb01 fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:rdb/instance:Instance rdb01 fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -1200,10 +1310,10 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] user_name: Identifier for the first user of the database instance.
                
                > **Important:** Updates to `user_name` will recreate the Database Instance.
-        :param pulumi.Input[int] volume_size_in_gb: Volume size (in GB) when `volume_type` is set to `bssd`.
+        :param pulumi.Input[int] volume_size_in_gb: Volume size (in GB). Cannot be used when `volume_type` is set to `lssd`.
                
                > **Important:** Once your instance reaches `disk_full` status, you should increase the volume size before making any other change to your instance.
-        :param pulumi.Input[str] volume_type: Type of volume where data are stored (`bssd` or `lssd`).
+        :param pulumi.Input[str] volume_type: Type of volume where data are stored (`bssd`, `lssd` or `sbs_5k`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1437,7 +1547,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> pulumi.Output[int]:
         """
-        Volume size (in GB) when `volume_type` is set to `bssd`.
+        Volume size (in GB). Cannot be used when `volume_type` is set to `lssd`.
 
         > **Important:** Once your instance reaches `disk_full` status, you should increase the volume size before making any other change to your instance.
         """
@@ -1447,7 +1557,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Type of volume where data are stored (`bssd` or `lssd`).
+        Type of volume where data are stored (`bssd`, `lssd` or `sbs_5k`).
         """
         return pulumi.get(self, "volume_type")
 

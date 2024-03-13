@@ -19,6 +19,7 @@ namespace Pulumi.Scaleway.Secret
         /// 
         /// ### Basic
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,6 +45,7 @@ namespace Pulumi.Scaleway.Secret
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("scaleway:secret/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
@@ -56,6 +58,7 @@ namespace Pulumi.Scaleway.Secret
         /// 
         /// ### Basic
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -81,6 +84,7 @@ namespace Pulumi.Scaleway.Secret
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("scaleway:secret/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
@@ -102,6 +106,13 @@ namespace Pulumi.Scaleway.Secret
         /// </summary>
         [Input("organizationId")]
         public string? OrganizationId { get; set; }
+
+        /// <summary>
+        /// The secret path.
+        /// Conflicts with `secret_id`.
+        /// </summary>
+        [Input("path")]
+        public string? Path { get; set; }
 
         /// <summary>
         /// `project_id`) The ID of the
@@ -146,6 +157,13 @@ namespace Pulumi.Scaleway.Secret
         public Input<string>? OrganizationId { get; set; }
 
         /// <summary>
+        /// The secret path.
+        /// Conflicts with `secret_id`.
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
         /// `project_id`) The ID of the
         /// project the secret is associated with.
         /// </summary>
@@ -183,6 +201,7 @@ namespace Pulumi.Scaleway.Secret
         public readonly string Id;
         public readonly string? Name;
         public readonly string OrganizationId;
+        public readonly string? Path;
         public readonly string? ProjectId;
         public readonly string? Region;
         public readonly string? SecretId;
@@ -203,6 +222,8 @@ namespace Pulumi.Scaleway.Secret
 
             string organizationId,
 
+            string? path,
+
             string? projectId,
 
             string? region,
@@ -222,6 +243,7 @@ namespace Pulumi.Scaleway.Secret
             Id = id;
             Name = name;
             OrganizationId = organizationId;
+            Path = path;
             ProjectId = projectId;
             Region = region;
             SecretId = secretId;

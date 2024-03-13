@@ -243,7 +243,8 @@ type ReadReplicaPrivateNetwork struct {
 	// CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
 	// service if not set.
 	ServiceIp *string `pulumi:"serviceIp"`
-	Zone      *string `pulumi:"zone"`
+	// Private network zone
+	Zone *string `pulumi:"zone"`
 }
 
 // ReadReplicaPrivateNetworkInput is an input type that accepts ReadReplicaPrivateNetworkArgs and ReadReplicaPrivateNetworkOutput values.
@@ -274,7 +275,8 @@ type ReadReplicaPrivateNetworkArgs struct {
 	// CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
 	// service if not set.
 	ServiceIp pulumi.StringPtrInput `pulumi:"serviceIp"`
-	Zone      pulumi.StringPtrInput `pulumi:"zone"`
+	// Private network zone
+	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
 func (ReadReplicaPrivateNetworkArgs) ElementType() reflect.Type {
@@ -391,6 +393,7 @@ func (o ReadReplicaPrivateNetworkOutput) ServiceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReadReplicaPrivateNetwork) *string { return v.ServiceIp }).(pulumi.StringPtrOutput)
 }
 
+// Private network zone
 func (o ReadReplicaPrivateNetworkOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReadReplicaPrivateNetwork) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
@@ -491,6 +494,7 @@ func (o ReadReplicaPrivateNetworkPtrOutput) ServiceIp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Private network zone
 func (o ReadReplicaPrivateNetworkPtrOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReadReplicaPrivateNetwork) *string {
 		if v == nil {

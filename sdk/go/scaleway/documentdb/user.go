@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://www.scaleway.com/en/developers/api/document_db/).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,15 +53,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Database User can be imported using `{region}/{instance_id}/{user_name}`, e.g. bash
+// Database User can be imported using `{region}/{instance_id}/{user_name}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:documentdb/user:User admin fr-par/11111111-1111-1111-1111-111111111111/admin
-//
+// $ pulumi import scaleway:documentdb/user:User admin fr-par/11111111-1111-1111-1111-111111111111/admin
 // ```
 type User struct {
 	pulumi.CustomResourceState

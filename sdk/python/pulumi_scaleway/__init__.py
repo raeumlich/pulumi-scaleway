@@ -5,6 +5,7 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .ipam_ip_reverse_dns import *
 from .provider import *
 
 # Make subpackages available:
@@ -303,6 +304,14 @@ _utilities.register(
   "fqn": "pulumi_scaleway.iam",
   "classes": {
    "scaleway:iam/user:User": "User"
+  }
+ },
+ {
+  "pkg": "scaleway",
+  "mod": "index/ipamIpReverseDns",
+  "fqn": "pulumi_scaleway",
+  "classes": {
+   "scaleway:index/ipamIpReverseDns:IpamIpReverseDns": "IpamIpReverseDns"
   }
  },
  {

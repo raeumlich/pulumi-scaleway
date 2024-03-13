@@ -16,8 +16,10 @@ import (
 // For more information see [the documentation](https://developers.scaleway.com/en/products/transactional_email/api/).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Add the required records to your DNS zone
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,15 +103,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Domains can be imported using the `{region}/{id}`, e.g. bash
+// Domains can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:tem/domain:Domain main fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:tem/domain:Domain main fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type Domain struct {
 	pulumi.CustomResourceState
@@ -145,6 +151,8 @@ type Domain struct {
 	SmtpPortAlternative pulumi.IntOutput `pulumi:"smtpPortAlternative"`
 	// The SMTP port to use to send emails.
 	SmtpPortUnsecure pulumi.IntOutput `pulumi:"smtpPortUnsecure"`
+	// SMTPS auth user refers to the identifier for a user authorized to send emails via SMTPS, ensuring secure email transmission.
+	SmtpsAuthUser pulumi.StringOutput `pulumi:"smtpsAuthUser"`
 	// The SMTPS port to use to send emails over TLS Wrapper.
 	SmtpsPort pulumi.IntOutput `pulumi:"smtpsPort"`
 	// The SMTPS port to use to send emails over TLS Wrapper.
@@ -222,6 +230,8 @@ type domainState struct {
 	SmtpPortAlternative *int `pulumi:"smtpPortAlternative"`
 	// The SMTP port to use to send emails.
 	SmtpPortUnsecure *int `pulumi:"smtpPortUnsecure"`
+	// SMTPS auth user refers to the identifier for a user authorized to send emails via SMTPS, ensuring secure email transmission.
+	SmtpsAuthUser *string `pulumi:"smtpsAuthUser"`
 	// The SMTPS port to use to send emails over TLS Wrapper.
 	SmtpsPort *int `pulumi:"smtpsPort"`
 	// The SMTPS port to use to send emails over TLS Wrapper.
@@ -267,6 +277,8 @@ type DomainState struct {
 	SmtpPortAlternative pulumi.IntPtrInput
 	// The SMTP port to use to send emails.
 	SmtpPortUnsecure pulumi.IntPtrInput
+	// SMTPS auth user refers to the identifier for a user authorized to send emails via SMTPS, ensuring secure email transmission.
+	SmtpsAuthUser pulumi.StringPtrInput
 	// The SMTPS port to use to send emails over TLS Wrapper.
 	SmtpsPort pulumi.IntPtrInput
 	// The SMTPS port to use to send emails over TLS Wrapper.
@@ -475,6 +487,11 @@ func (o DomainOutput) SmtpPortAlternative() pulumi.IntOutput {
 // The SMTP port to use to send emails.
 func (o DomainOutput) SmtpPortUnsecure() pulumi.IntOutput {
 	return o.ApplyT(func(v *Domain) pulumi.IntOutput { return v.SmtpPortUnsecure }).(pulumi.IntOutput)
+}
+
+// SMTPS auth user refers to the identifier for a user authorized to send emails via SMTPS, ensuring secure email transmission.
+func (o DomainOutput) SmtpsAuthUser() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SmtpsAuthUser }).(pulumi.StringOutput)
 }
 
 // The SMTPS port to use to send emails over TLS Wrapper.

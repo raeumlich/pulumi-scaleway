@@ -14,6 +14,7 @@ __all__ = [
     'ContainerTriggerSqs',
     'FunctionTriggerNats',
     'FunctionTriggerSqs',
+    'JobDefinitionCron',
 ]
 
 @pulumi.output_type
@@ -306,5 +307,24 @@ class FunctionTriggerSqs(dict):
         `region`). The region in which the namespace should be created.
         """
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class JobDefinitionCron(dict):
+    def __init__(__self__, *,
+                 schedule: str,
+                 timezone: str):
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> str:
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> str:
+        return pulumi.get(self, "timezone")
 
 

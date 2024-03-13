@@ -166,6 +166,7 @@ def get_bucket(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -175,8 +176,11 @@ def get_bucket(name: Optional[str] = None,
     })
     selected = scaleway.objectstorage.get_bucket_output(name=main.id)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Fetching the bucket from a specific project
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -184,6 +188,7 @@ def get_bucket(name: Optional[str] = None,
     selected = scaleway.objectstorage.get_bucket(name="bucket.test.com",
         project_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str project_id: `project_id`) The ID of the project the bucket is associated with.
@@ -223,6 +228,7 @@ def get_bucket_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -232,8 +238,11 @@ def get_bucket_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     })
     selected = scaleway.objectstorage.get_bucket_output(name=main.id)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Fetching the bucket from a specific project
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -241,6 +250,7 @@ def get_bucket_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     selected = scaleway.objectstorage.get_bucket(name="bucket.test.com",
         project_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str project_id: `project_id`) The ID of the project the bucket is associated with.

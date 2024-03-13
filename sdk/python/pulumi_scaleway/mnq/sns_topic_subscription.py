@@ -386,8 +386,10 @@ class SNSTopicSubscription(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -413,13 +415,16 @@ class SNSTopicSubscription(pulumi.CustomResource):
             protocol="http",
             endpoint="http://example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        SNS topic subscriptions can be imported using the `{region}/{project-id}/{topic-name}/{subscription-id}`, e.g. bash
+        SNS topic subscriptions can be imported using the `{region}/{project-id}/{topic-name}/{subscription-id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:mnq/sNSTopicSubscription:SNSTopicSubscription main fr-par/11111111111111111111111111111111/my-topic/11111111111111111111111111111111
+        $ pulumi import scaleway:mnq/sNSTopicSubscription:SNSTopicSubscription main fr-par/11111111111111111111111111111111/my-topic/11111111111111111111111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -448,8 +453,10 @@ class SNSTopicSubscription(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -475,13 +482,16 @@ class SNSTopicSubscription(pulumi.CustomResource):
             protocol="http",
             endpoint="http://example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        SNS topic subscriptions can be imported using the `{region}/{project-id}/{topic-name}/{subscription-id}`, e.g. bash
+        SNS topic subscriptions can be imported using the `{region}/{project-id}/{topic-name}/{subscription-id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:mnq/sNSTopicSubscription:SNSTopicSubscription main fr-par/11111111111111111111111111111111/my-topic/11111111111111111111111111111111
+        $ pulumi import scaleway:mnq/sNSTopicSubscription:SNSTopicSubscription main fr-par/11111111111111111111111111111111/my-topic/11111111111111111111111111111111
         ```
 
         :param str resource_name: The name of the resource.

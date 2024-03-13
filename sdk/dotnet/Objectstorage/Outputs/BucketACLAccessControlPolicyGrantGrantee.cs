@@ -18,6 +18,9 @@ namespace Pulumi.Scaleway.Objectstorage.Outputs
         /// The `region`,`bucket` and `acl` separated by (`/`).
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Type of grantee. Valid values: `CanonicalUser`
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     invoiceType: "periodic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getInvoices(args?: GetInvoicesArgs, opts?: pulumi.InvokeOptions): Promise<GetInvoicesResult> {
     args = args || {};
@@ -74,6 +76,7 @@ export interface GetInvoicesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -82,6 +85,7 @@ export interface GetInvoicesResult {
  *     invoiceType: "periodic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getInvoicesOutput(args?: GetInvoicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvoicesResult> {
     return pulumi.output(args).apply((a: any) => getInvoices(a, opts))

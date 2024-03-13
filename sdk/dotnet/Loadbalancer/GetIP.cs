@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// <summary>
         /// Gets information about a Load Balancer IP.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIPResult> InvokeAsync(GetIPArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPResult>("scaleway:loadbalancer/getIP:getIP", args ?? new GetIPArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// <summary>
         /// Gets information about a Load Balancer IP.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIPResult> Invoke(GetIPInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIPResult>("scaleway:loadbalancer/getIP:getIP", args ?? new GetIPInvokeArgs(), options.WithDefaults());

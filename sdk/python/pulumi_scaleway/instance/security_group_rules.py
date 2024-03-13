@@ -141,8 +141,10 @@ class SecurityGroupRules(pulumi.CustomResource):
         > **Warning:** In order to guaranty rules order in a given security group only one instance.SecurityGroupRules is allowed per security group.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -156,13 +158,16 @@ class SecurityGroupRules(pulumi.CustomResource):
                 ip_range="0.0.0.0/0",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Instance security group rules can be imported using the `{zone}/{id}`, e.g. bash
+        Instance security group rules can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:instance/securityGroupRules:SecurityGroupRules web fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:instance/securityGroupRules:SecurityGroupRules web fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -185,8 +190,10 @@ class SecurityGroupRules(pulumi.CustomResource):
         > **Warning:** In order to guaranty rules order in a given security group only one instance.SecurityGroupRules is allowed per security group.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -200,13 +207,16 @@ class SecurityGroupRules(pulumi.CustomResource):
                 ip_range="0.0.0.0/0",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Instance security group rules can be imported using the `{zone}/{id}`, e.g. bash
+        Instance security group rules can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:instance/securityGroupRules:SecurityGroupRules web fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:instance/securityGroupRules:SecurityGroupRules web fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

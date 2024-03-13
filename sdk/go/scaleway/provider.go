@@ -43,6 +43,36 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
+	if args.AccessKey == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SCW_ACCESS_KEY"); d != nil {
+			args.AccessKey = pulumi.StringPtr(d.(string))
+		}
+	}
+	if args.OrganizationId == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SCW_DEFAULT_ORGANIZATION_ID"); d != nil {
+			args.OrganizationId = pulumi.StringPtr(d.(string))
+		}
+	}
+	if args.ProjectId == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SCW_DEFAULT_PROJECT_ID"); d != nil {
+			args.ProjectId = pulumi.StringPtr(d.(string))
+		}
+	}
+	if args.Region == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SCW_DEFAULT_REGION"); d != nil {
+			args.Region = pulumi.StringPtr(d.(string))
+		}
+	}
+	if args.SecretKey == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SCW_SECRET_KEY"); d != nil {
+			args.SecretKey = pulumi.StringPtr(d.(string))
+		}
+	}
+	if args.Zone == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SCW_DEFAULT_ZONE"); d != nil {
+			args.Zone = pulumi.StringPtr(d.(string))
+		}
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:scaleway", name, args, &resource, opts...)

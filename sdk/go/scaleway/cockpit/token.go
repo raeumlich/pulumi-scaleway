@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,6 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a token for the cockpit that can write metrics and logs
 //			_, err = cockpit.NewToken(ctx, "mainToken", &cockpit.TokenArgs{
 //				ProjectId: *pulumi.String(mainCockpit.ProjectId),
 //			})
@@ -44,7 +46,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,6 +65,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a token for the cockpit that can read metrics and logs but not write
 //			_, err = cockpit.NewToken(ctx, "mainToken", &cockpit.TokenArgs{
 //				ProjectId: *pulumi.String(mainCockpit.ProjectId),
 //				Scopes: &cockpit.TokenScopesArgs{
@@ -78,15 +83,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Cockpits can be imported using the token ID, e.g. bash
+// Cockpits can be imported using the token ID, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:cockpit/token:Token main 11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:cockpit/token:Token main 11111111-1111-1111-1111-111111111111
 // ```
 type Token struct {
 	pulumi.CustomResourceState

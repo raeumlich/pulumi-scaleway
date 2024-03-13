@@ -14,6 +14,9 @@ namespace Pulumi.Scaleway.Objectstorage.Outputs
     public sealed class BucketACLAccessControlPolicy
     {
         public readonly ImmutableArray<Outputs.BucketACLAccessControlPolicyGrant> Grants;
+        /// <summary>
+        /// Configuration block of the bucket project owner's display organization ID.
+        /// </summary>
         public readonly Outputs.BucketACLAccessControlPolicyOwner Owner;
 
         [OutputConstructor]

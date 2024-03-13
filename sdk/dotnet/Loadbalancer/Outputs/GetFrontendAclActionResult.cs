@@ -13,7 +13,13 @@ namespace Pulumi.Scaleway.Loadbalancer.Outputs
     [OutputType]
     public sealed class GetFrontendAclActionResult
     {
+        /// <summary>
+        /// Redirect parameters when using an ACL with `redirect` action
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFrontendAclActionRedirectResult> Redirects;
+        /// <summary>
+        /// The action type
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

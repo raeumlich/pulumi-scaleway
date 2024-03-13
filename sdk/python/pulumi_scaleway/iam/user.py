@@ -231,21 +231,26 @@ class User(pulumi.CustomResource):
         For more information, see [the documentation](https://www.scaleway.com/en/developers/api/iam/#path-users-list-users-of-an-organization).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         basic = scaleway.iam.User("basic", email="test@test.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IAM users can be imported using the `{id}`, e.g. bash
+        IAM users can be imported using the `{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/user:User basic 11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/user:User basic 11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -264,21 +269,26 @@ class User(pulumi.CustomResource):
         For more information, see [the documentation](https://www.scaleway.com/en/developers/api/iam/#path-users-list-users-of-an-organization).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         basic = scaleway.iam.User("basic", email="test@test.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IAM users can be imported using the `{id}`, e.g. bash
+        IAM users can be imported using the `{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/user:User basic 11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/user:User basic 11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

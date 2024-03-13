@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// For more information, see [the documentation](https://www.scaleway.com/en/developers/api/load-balancer/zoned-api).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,8 +40,11 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Private LB
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,61 +63,7 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// 
     /// });
     /// ```
-    /// ### IP for Public Gateway
-    /// resource "scaleway_vpc_public_gateway_ip" "main" {
-    /// }
-    /// 
-    /// ### Scaleway Private Network
-    /// resource scaleway_vpc_private_network main {
-    /// }
-    /// 
-    /// ### VPC Public Gateway Network
-    /// resource "scaleway_vpc_public_gateway" "main" {
-    ///     name  = "tf-test-public-gw"
-    ///     type  = "VPC-GW-S"
-    ///     ip_id = scaleway_vpc_public_gateway_ip.main.id
-    /// }
-    /// 
-    /// ### VPC Public Gateway Network DHCP config
-    /// resource "scaleway_vpc_public_gateway_dhcp" "main" {
-    ///     subnet = "10.0.0.0/24"
-    /// }
-    /// 
-    /// ### VPC Gateway Network
-    /// resource "scaleway_vpc_gateway_network" "main" {
-    ///     gateway_id         = scaleway_vpc_public_gateway.main.id
-    ///     private_network_id = scaleway_vpc_private_network.main.id
-    ///     dhcp_id            = scaleway_vpc_public_gateway_dhcp.main.id
-    ///     cleanup_dhcp       = true
-    ///     enable_masquerade  = true
-    /// }
-    /// 
-    /// ### Scaleway Instance
-    /// resource "scaleway_instance_server" "main" {
-    ///     name        = "Scaleway Terraform Provider"
-    ///     type        = "DEV1-S"
-    ///     image       = "debian_bullseye"
-    ///     enable_ipv6 = false
-    /// 
-    ///     private_network {
-    ///         pn_id = scaleway_vpc_private_network.main.id
-    ///     }
-    /// }
-    /// 
-    /// ### IP for LB IP
-    /// resource scaleway_lb_ip main {
-    /// }
-    /// 
-    /// ### Scaleway Private Network
-    /// resource scaleway_vpc_private_network "main" {
-    ///     name = "private network with static config"
-    /// }
-    /// ## Migration
-    /// 
-    /// In order to migrate to other types you can check the migration up or down via our CLI `scw lb lb-types list`.
-    /// this change will not recreate your Load Balancer.
-    /// 
-    /// Please check our [documentation](https://www.scaleway.com/en/developers/api/load-balancer/zoned-api/#path-load-balancer-migrate-a-load-balancer) for further details
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## IP ID
     /// 
@@ -122,6 +73,7 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// 
     /// For instance, if you had the following:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -138,9 +90,11 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// You will need to update it to:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -161,16 +115,19 @@ namespace Pulumi.Scaleway.Loadbalancer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Load-Balancer can be imported using the `{zone}/{id}`, e.g. bash
+    /// Load-Balancer can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:loadbalancer/loadBalancer:LoadBalancer main fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:loadbalancer/loadBalancer:LoadBalancer main fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// 
-    ///  Be aware that you will also need to import the `scaleway_lb_ip` resource.
+    /// Be aware that you will also need to import the `scaleway_lb_ip` resource.
     /// </summary>
     [ScalewayResourceType("scaleway:loadbalancer/loadBalancer:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource

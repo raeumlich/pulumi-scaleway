@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// <summary>
         /// Gets information about multiple Load Balancer Routes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRoutesResult> InvokeAsync(GetRoutesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoutesResult>("scaleway:loadbalancer/getRoutes:getRoutes", args ?? new GetRoutesArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// <summary>
         /// Gets information about multiple Load Balancer Routes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Scaleway.Loadbalancer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRoutesResult> Invoke(GetRoutesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutesResult>("scaleway:loadbalancer/getRoutes:getRoutes", args ?? new GetRoutesInvokeArgs(), options.WithDefaults());

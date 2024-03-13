@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupPublicGatewayDHCP(ctx *pulumi.Context, args *LookupPublicGatewayDHCPArgs, opts ...pulumi.InvokeOption) (*LookupPublicGatewayDHCPResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPublicGatewayDHCPResult

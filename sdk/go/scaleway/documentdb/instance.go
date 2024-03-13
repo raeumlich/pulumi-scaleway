@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://www.scaleway.com/en/developers/api/document_db/).
 //
 // ## Example Usage
+//
 // ### Example Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,15 +52,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Database Instance can be imported using the `{region}/{id}`, e.g. bash
+// Database Instance can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:documentdb/instance:Instance db fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:documentdb/instance:Instance db fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type Instance struct {
 	pulumi.CustomResourceState

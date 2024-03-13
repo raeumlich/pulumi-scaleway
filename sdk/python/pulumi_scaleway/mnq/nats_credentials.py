@@ -157,8 +157,10 @@ class NATSCredentials(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/nats-overview/)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -166,13 +168,16 @@ class NATSCredentials(pulumi.CustomResource):
         main_nats_account = scaleway.mnq.NATSAccount("mainNATSAccount")
         main_nats_credentials = scaleway.mnq.NATSCredentials("mainNATSCredentials", account_id=main_nats_account.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Namespaces can be imported using the `{region}/{id}`, e.g. bash
+        Namespaces can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:mnq/nATSCredentials:NATSCredentials main fr-par/11111111111111111111111111111111
+        $ pulumi import scaleway:mnq/nATSCredentials:NATSCredentials main fr-par/11111111111111111111111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -194,8 +199,10 @@ class NATSCredentials(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/nats-overview/)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -203,13 +210,16 @@ class NATSCredentials(pulumi.CustomResource):
         main_nats_account = scaleway.mnq.NATSAccount("mainNATSAccount")
         main_nats_credentials = scaleway.mnq.NATSCredentials("mainNATSCredentials", account_id=main_nats_account.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Namespaces can be imported using the `{region}/{id}`, e.g. bash
+        Namespaces can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:mnq/nATSCredentials:NATSCredentials main fr-par/11111111111111111111111111111111
+        $ pulumi import scaleway:mnq/nATSCredentials:NATSCredentials main fr-par/11111111111111111111111111111111
         ```
 
         :param str resource_name: The name of the resource.

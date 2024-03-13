@@ -200,6 +200,7 @@ class Privilege(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -218,21 +219,20 @@ class Privilege(pulumi.CustomResource):
             is_admin=False)
         main_privilege = scaleway.rdb.Privilege("mainPrivilege",
             instance_id=main_instance.id,
-            user_name="my-db-user",
-            database_name="my-db-name",
-            permission="all",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    main_user,
-                    main_database,
-                ]))
+            user_name=main_user.name,
+            database_name=main_database.name,
+            permission="all")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        The user privileges can be imported using the `{region}/{instance_id}/{database_name}/{user_name}`, e.g. bash
+        The user privileges can be imported using the `{region}/{instance_id}/{database_name}/{user_name}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:rdb/privilege:Privilege o fr-par/11111111-1111-1111-1111-111111111111/database_name/foo
+        $ pulumi import scaleway:rdb/privilege:Privilege o fr-par/11111111-1111-1111-1111-111111111111/database_name/foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -255,6 +255,7 @@ class Privilege(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -273,21 +274,20 @@ class Privilege(pulumi.CustomResource):
             is_admin=False)
         main_privilege = scaleway.rdb.Privilege("mainPrivilege",
             instance_id=main_instance.id,
-            user_name="my-db-user",
-            database_name="my-db-name",
-            permission="all",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    main_user,
-                    main_database,
-                ]))
+            user_name=main_user.name,
+            database_name=main_database.name,
+            permission="all")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        The user privileges can be imported using the `{region}/{instance_id}/{database_name}/{user_name}`, e.g. bash
+        The user privileges can be imported using the `{region}/{instance_id}/{database_name}/{user_name}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:rdb/privilege:Privilege o fr-par/11111111-1111-1111-1111-111111111111/database_name/foo
+        $ pulumi import scaleway:rdb/privilege:Privilege o fr-par/11111111-1111-1111-1111-111111111111/database_name/foo
         ```
 
         :param str resource_name: The name of the resource.

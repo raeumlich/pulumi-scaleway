@@ -221,12 +221,14 @@ def get_image(architecture: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     my_image = scaleway.instance.get_image(image_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str architecture: The architecture the image is compatible with. Possible values are: `x86_64` or `arm`.
@@ -278,12 +280,14 @@ def get_image_output(architecture: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     my_image = scaleway.instance.get_image(image_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str architecture: The architecture the image is compatible with. Possible values are: `x86_64` or `arm`.

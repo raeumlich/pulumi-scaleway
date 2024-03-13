@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -30,23 +31,21 @@ import * as utilities from "../utilities";
  * });
  * const mainPrivilege = new scaleway.rdb.Privilege("mainPrivilege", {
  *     instanceId: mainInstance.id,
- *     userName: "my-db-user",
- *     databaseName: "my-db-name",
+ *     userName: mainUser.name,
+ *     databaseName: mainDatabase.name,
  *     permission: "all",
- * }, {
- *     dependsOn: [
- *         mainUser,
- *         mainDatabase,
- *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * The user privileges can be imported using the `{region}/{instance_id}/{database_name}/{user_name}`, e.g. bash
+ * The user privileges can be imported using the `{region}/{instance_id}/{database_name}/{user_name}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:rdb/privilege:Privilege o fr-par/11111111-1111-1111-1111-111111111111/database_name/foo
+ * $ pulumi import scaleway:rdb/privilege:Privilege o fr-par/11111111-1111-1111-1111-111111111111/database_name/foo
  * ```
  */
 export class Privilege extends pulumi.CustomResource {

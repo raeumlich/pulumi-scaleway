@@ -232,6 +232,7 @@ class Zone(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -240,13 +241,16 @@ class Zone(pulumi.CustomResource):
             domain="scaleway-terraform.com",
             subdomain="test")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Zone can be imported using the `{subdomain}.{domain}`, e.g. bash
+        Zone can be imported using the `{subdomain}.{domain}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:dns/zone:Zone test test.scaleway-terraform.com
+        $ pulumi import scaleway:dns/zone:Zone test test.scaleway-terraform.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,6 +271,7 @@ class Zone(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -275,13 +280,16 @@ class Zone(pulumi.CustomResource):
             domain="scaleway-terraform.com",
             subdomain="test")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Zone can be imported using the `{subdomain}.{domain}`, e.g. bash
+        Zone can be imported using the `{subdomain}.{domain}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:dns/zone:Zone test test.scaleway-terraform.com
+        $ pulumi import scaleway:dns/zone:Zone test test.scaleway-terraform.com
         ```
 
         :param str resource_name: The name of the resource.

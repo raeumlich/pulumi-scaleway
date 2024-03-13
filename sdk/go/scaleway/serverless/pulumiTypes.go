@@ -789,6 +789,154 @@ func (o FunctionTriggerSqsPtrOutput) Region() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobDefinitionCron struct {
+	Schedule string `pulumi:"schedule"`
+	Timezone string `pulumi:"timezone"`
+}
+
+// JobDefinitionCronInput is an input type that accepts JobDefinitionCronArgs and JobDefinitionCronOutput values.
+// You can construct a concrete instance of `JobDefinitionCronInput` via:
+//
+//	JobDefinitionCronArgs{...}
+type JobDefinitionCronInput interface {
+	pulumi.Input
+
+	ToJobDefinitionCronOutput() JobDefinitionCronOutput
+	ToJobDefinitionCronOutputWithContext(context.Context) JobDefinitionCronOutput
+}
+
+type JobDefinitionCronArgs struct {
+	Schedule pulumi.StringInput `pulumi:"schedule"`
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (JobDefinitionCronArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionCron)(nil)).Elem()
+}
+
+func (i JobDefinitionCronArgs) ToJobDefinitionCronOutput() JobDefinitionCronOutput {
+	return i.ToJobDefinitionCronOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionCronArgs) ToJobDefinitionCronOutputWithContext(ctx context.Context) JobDefinitionCronOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionCronOutput)
+}
+
+func (i JobDefinitionCronArgs) ToJobDefinitionCronPtrOutput() JobDefinitionCronPtrOutput {
+	return i.ToJobDefinitionCronPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionCronArgs) ToJobDefinitionCronPtrOutputWithContext(ctx context.Context) JobDefinitionCronPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionCronOutput).ToJobDefinitionCronPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionCronPtrInput is an input type that accepts JobDefinitionCronArgs, JobDefinitionCronPtr and JobDefinitionCronPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionCronPtrInput` via:
+//
+//	        JobDefinitionCronArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionCronPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionCronPtrOutput() JobDefinitionCronPtrOutput
+	ToJobDefinitionCronPtrOutputWithContext(context.Context) JobDefinitionCronPtrOutput
+}
+
+type jobDefinitionCronPtrType JobDefinitionCronArgs
+
+func JobDefinitionCronPtr(v *JobDefinitionCronArgs) JobDefinitionCronPtrInput {
+	return (*jobDefinitionCronPtrType)(v)
+}
+
+func (*jobDefinitionCronPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionCron)(nil)).Elem()
+}
+
+func (i *jobDefinitionCronPtrType) ToJobDefinitionCronPtrOutput() JobDefinitionCronPtrOutput {
+	return i.ToJobDefinitionCronPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionCronPtrType) ToJobDefinitionCronPtrOutputWithContext(ctx context.Context) JobDefinitionCronPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionCronPtrOutput)
+}
+
+type JobDefinitionCronOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionCronOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionCron)(nil)).Elem()
+}
+
+func (o JobDefinitionCronOutput) ToJobDefinitionCronOutput() JobDefinitionCronOutput {
+	return o
+}
+
+func (o JobDefinitionCronOutput) ToJobDefinitionCronOutputWithContext(ctx context.Context) JobDefinitionCronOutput {
+	return o
+}
+
+func (o JobDefinitionCronOutput) ToJobDefinitionCronPtrOutput() JobDefinitionCronPtrOutput {
+	return o.ToJobDefinitionCronPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionCronOutput) ToJobDefinitionCronPtrOutputWithContext(ctx context.Context) JobDefinitionCronPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionCron) *JobDefinitionCron {
+		return &v
+	}).(JobDefinitionCronPtrOutput)
+}
+
+func (o JobDefinitionCronOutput) Schedule() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionCron) string { return v.Schedule }).(pulumi.StringOutput)
+}
+
+func (o JobDefinitionCronOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionCron) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type JobDefinitionCronPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionCronPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionCron)(nil)).Elem()
+}
+
+func (o JobDefinitionCronPtrOutput) ToJobDefinitionCronPtrOutput() JobDefinitionCronPtrOutput {
+	return o
+}
+
+func (o JobDefinitionCronPtrOutput) ToJobDefinitionCronPtrOutputWithContext(ctx context.Context) JobDefinitionCronPtrOutput {
+	return o
+}
+
+func (o JobDefinitionCronPtrOutput) Elem() JobDefinitionCronOutput {
+	return o.ApplyT(func(v *JobDefinitionCron) JobDefinitionCron {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionCron
+		return ret
+	}).(JobDefinitionCronOutput)
+}
+
+func (o JobDefinitionCronPtrOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionCron) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Schedule
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionCronPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionCron) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTriggerNatsInput)(nil)).Elem(), ContainerTriggerNatsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTriggerNatsPtrInput)(nil)).Elem(), ContainerTriggerNatsArgs{})
@@ -798,6 +946,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTriggerNatsPtrInput)(nil)).Elem(), FunctionTriggerNatsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTriggerSqsInput)(nil)).Elem(), FunctionTriggerSqsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTriggerSqsPtrInput)(nil)).Elem(), FunctionTriggerSqsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionCronInput)(nil)).Elem(), JobDefinitionCronArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionCronPtrInput)(nil)).Elem(), JobDefinitionCronArgs{})
 	pulumi.RegisterOutputType(ContainerTriggerNatsOutput{})
 	pulumi.RegisterOutputType(ContainerTriggerNatsPtrOutput{})
 	pulumi.RegisterOutputType(ContainerTriggerSqsOutput{})
@@ -806,4 +956,6 @@ func init() {
 	pulumi.RegisterOutputType(FunctionTriggerNatsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTriggerSqsOutput{})
 	pulumi.RegisterOutputType(FunctionTriggerSqsPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionCronOutput{})
+	pulumi.RegisterOutputType(JobDefinitionCronPtrOutput{})
 }

@@ -16,10 +16,9 @@ namespace Pulumi.Scaleway.Vpc
         /// 
         /// For further information please check the API [documentation](https://developers.scaleway.com/en/products/vpc-gw/api/v1/#get-66f0c0)
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Scaleway.Vpc
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPublicGatewayIPResult> InvokeAsync(GetPublicGatewayIPArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicGatewayIPResult>("scaleway:vpc/getPublicGatewayIP:getPublicGatewayIP", args ?? new GetPublicGatewayIPArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Scaleway.Vpc
         /// 
         /// For further information please check the API [documentation](https://developers.scaleway.com/en/products/vpc-gw/api/v1/#get-66f0c0)
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Scaleway.Vpc
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPublicGatewayIPResult> Invoke(GetPublicGatewayIPInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicGatewayIPResult>("scaleway:vpc/getPublicGatewayIP:getPublicGatewayIP", args ?? new GetPublicGatewayIPInvokeArgs(), options.WithDefaults());

@@ -482,8 +482,10 @@ class SQSQueue(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/how-to/create-manage-queues/)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -502,6 +504,7 @@ class SQSQueue(pulumi.CustomResource):
             access_key=main_sqs_credentials.access_key,
             secret_key=main_sqs_credentials.secret_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -531,8 +534,10 @@ class SQSQueue(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/how-to/create-manage-queues/)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -551,6 +556,7 @@ class SQSQueue(pulumi.CustomResource):
             access_key=main_sqs_credentials.access_key,
             secret_key=main_sqs_credentials.secret_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SQSQueueArgs args: The arguments to use to populate this resource's properties.

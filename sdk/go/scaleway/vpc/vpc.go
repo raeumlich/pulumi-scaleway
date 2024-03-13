@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// VPCs can be imported using the `{region}/{id}`, e.g. bash
+// VPCs can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:vpc/vPC:VPC vpc_demo fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:vpc/vPC:VPC vpc_demo fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type VPC struct {
 	pulumi.CustomResourceState

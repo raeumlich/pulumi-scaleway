@@ -13,14 +13,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
  *
  * const main = new scaleway.instance.Snapshot("main", {volumeId: "11111111-1111-1111-1111-111111111111"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with Unified type snapshot
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -45,8 +49,11 @@ import * as utilities from "../utilities";
  *     dependsOn: [mainServer],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example importing a local qcow2 file
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -65,13 +72,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Snapshots can be imported using the `{zone}/{id}`, e.g. bash
+ * Snapshots can be imported using the `{zone}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:instance/snapshot:Snapshot main fr-par-1/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:instance/snapshot:Snapshot main fr-par-1/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Snapshot extends pulumi.CustomResource {

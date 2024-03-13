@@ -15,6 +15,7 @@ namespace Pulumi.Scaleway.Vpc
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,16 @@ namespace Pulumi.Scaleway.Vpc
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Public gateway can be imported using the `{zone}/{id}`, e.g. bash
+    /// Public gateway can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:vpc/publicGateway:PublicGateway main fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:vpc/publicGateway:PublicGateway main fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:vpc/publicGateway:PublicGateway")]

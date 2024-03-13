@@ -153,6 +153,7 @@ class GrafanaUser(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -164,13 +165,16 @@ class GrafanaUser(pulumi.CustomResource):
             login="my-awesome-user",
             role="editor")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Cockpits Grafana Users can be imported using the project ID and the grafana user ID formatted `{project_id}/{grafana_user_id}`, e.g. bash
+        Cockpits Grafana Users can be imported using the project ID and the grafana user ID formatted `{project_id}/{grafana_user_id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:cockpit/grafanaUser:GrafanaUser main 11111111-1111-1111-1111-111111111111/2
+        $ pulumi import scaleway:cockpit/grafanaUser:GrafanaUser main 11111111-1111-1111-1111-111111111111/2
         ```
 
         :param str resource_name: The name of the resource.
@@ -192,6 +196,7 @@ class GrafanaUser(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -203,13 +208,16 @@ class GrafanaUser(pulumi.CustomResource):
             login="my-awesome-user",
             role="editor")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Cockpits Grafana Users can be imported using the project ID and the grafana user ID formatted `{project_id}/{grafana_user_id}`, e.g. bash
+        Cockpits Grafana Users can be imported using the project ID and the grafana user ID formatted `{project_id}/{grafana_user_id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:cockpit/grafanaUser:GrafanaUser main 11111111-1111-1111-1111-111111111111/2
+        $ pulumi import scaleway:cockpit/grafanaUser:GrafanaUser main 11111111-1111-1111-1111-111111111111/2
         ```
 
         :param str resource_name: The name of the resource.

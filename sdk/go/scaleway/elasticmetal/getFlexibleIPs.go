@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,6 +79,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetFlexibleIPs(ctx *pulumi.Context, args *GetFlexibleIPsArgs, opts ...pulumi.InvokeOption) (*GetFlexibleIPsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFlexibleIPsResult

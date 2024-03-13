@@ -1051,8 +1051,10 @@ class Backend(pulumi.CustomResource):
         For more information, see [the documentation](https://www.scaleway.com/en/developers/api/load-balancer/zoned-api/#path-backends).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1062,8 +1064,11 @@ class Backend(pulumi.CustomResource):
             forward_protocol="http",
             forward_port=80)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With HTTP Health Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1076,13 +1081,16 @@ class Backend(pulumi.CustomResource):
                 uri="www.test.com/health",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Load-Balancer backend can be imported using the `{zone}/{id}`, e.g. bash
+        Load-Balancer backend can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:loadbalancer/backend:Backend backend01 fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:loadbalancer/backend:Backend backend01 fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -1132,8 +1140,10 @@ class Backend(pulumi.CustomResource):
         For more information, see [the documentation](https://www.scaleway.com/en/developers/api/load-balancer/zoned-api/#path-backends).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1143,8 +1153,11 @@ class Backend(pulumi.CustomResource):
             forward_protocol="http",
             forward_port=80)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With HTTP Health Check
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1157,13 +1170,16 @@ class Backend(pulumi.CustomResource):
                 uri="www.test.com/health",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Load-Balancer backend can be imported using the `{zone}/{id}`, e.g. bash
+        Load-Balancer backend can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:loadbalancer/backend:Backend backend01 fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:loadbalancer/backend:Backend backend01 fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

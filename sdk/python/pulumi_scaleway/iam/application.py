@@ -218,19 +218,23 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         main = scaleway.iam.Application("main", description="a description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Applications can be imported using the `{id}`, e.g. bash
+        Applications can be imported using the `{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/application:Application main 11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/application:Application main 11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,19 +255,23 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         main = scaleway.iam.Application("main", description="a description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Applications can be imported using the `{id}`, e.g. bash
+        Applications can be imported using the `{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/application:Application main 11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/application:Application main 11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

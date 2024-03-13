@@ -32,7 +32,7 @@ namespace Pulumi.Scaleway
 
         private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("scaleway");
 
-        private static readonly __Value<string?> _accessKey = new __Value<string?>(() => __config.Get("accessKey"));
+        private static readonly __Value<string?> _accessKey = new __Value<string?>(() => __config.Get("accessKey") ?? Utilities.GetEnv("SCW_ACCESS_KEY"));
         /// <summary>
         /// The Scaleway access key.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.Scaleway
             set => _apiUrl.Set(value);
         }
 
-        private static readonly __Value<string?> _organizationId = new __Value<string?>(() => __config.Get("organizationId"));
+        private static readonly __Value<string?> _organizationId = new __Value<string?>(() => __config.Get("organizationId") ?? Utilities.GetEnv("SCW_DEFAULT_ORGANIZATION_ID"));
         /// <summary>
         /// The Scaleway organization ID.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.Scaleway
             set => _profile.Set(value);
         }
 
-        private static readonly __Value<string?> _projectId = new __Value<string?>(() => __config.Get("projectId"));
+        private static readonly __Value<string?> _projectId = new __Value<string?>(() => __config.Get("projectId") ?? Utilities.GetEnv("SCW_DEFAULT_PROJECT_ID"));
         /// <summary>
         /// The Scaleway project ID.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.Scaleway
             set => _projectId.Set(value);
         }
 
-        private static readonly __Value<string?> _region = new __Value<string?>(() => __config.Get("region"));
+        private static readonly __Value<string?> _region = new __Value<string?>(() => __config.Get("region") ?? Utilities.GetEnv("SCW_DEFAULT_REGION"));
         /// <summary>
         /// The region you want to attach the resource to
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.Scaleway
             set => _region.Set(value);
         }
 
-        private static readonly __Value<string?> _secretKey = new __Value<string?>(() => __config.Get("secretKey"));
+        private static readonly __Value<string?> _secretKey = new __Value<string?>(() => __config.Get("secretKey") ?? Utilities.GetEnv("SCW_SECRET_KEY"));
         /// <summary>
         /// The Scaleway secret Key.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Scaleway
             set => _secretKey.Set(value);
         }
 
-        private static readonly __Value<string?> _zone = new __Value<string?>(() => __config.Get("zone"));
+        private static readonly __Value<string?> _zone = new __Value<string?>(() => __config.Get("zone") ?? Utilities.GetEnv("SCW_DEFAULT_ZONE"));
         /// <summary>
         /// The zone you want to attach the resource to
         /// </summary>

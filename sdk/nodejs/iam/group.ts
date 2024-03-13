@@ -9,8 +9,10 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://developers.scaleway.com/en/products/iam/api/v1alpha1/#groups-f592eb).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -21,8 +23,11 @@ import * as utilities from "../utilities";
  *     userIds: [],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With applications
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -33,13 +38,16 @@ import * as utilities from "../utilities";
  *     userIds: [],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * IAM groups can be imported using the `{id}`, e.g. bash
+ * IAM groups can be imported using the `{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:iam/group:Group basic 11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:iam/group:Group basic 11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Group extends pulumi.CustomResource {

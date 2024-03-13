@@ -13,6 +13,9 @@ namespace Pulumi.Scaleway.Elasticmetal.Outputs
     [OutputType]
     public sealed class GetBareMetalServerOptionResult
     {
+        /// <summary>
+        /// Auto expire the option after this date
+        /// </summary>
         public readonly string ExpiresAt;
         /// <summary>
         /// The ID of the server.

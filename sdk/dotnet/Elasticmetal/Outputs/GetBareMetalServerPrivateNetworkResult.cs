@@ -13,13 +13,25 @@ namespace Pulumi.Scaleway.Elasticmetal.Outputs
     [OutputType]
     public sealed class GetBareMetalServerPrivateNetworkResult
     {
+        /// <summary>
+        /// The date and time of the creation of the private network
+        /// </summary>
         public readonly string CreatedAt;
         /// <summary>
         /// The ID of the server.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The private network status
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// The date and time of the last update of the private network
+        /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// The VLAN ID associated to the private network
+        /// </summary>
         public readonly int Vlan;
 
         [OutputConstructor]

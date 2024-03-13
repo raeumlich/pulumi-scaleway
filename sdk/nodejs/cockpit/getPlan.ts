@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  * });
  * const main = new scaleway.cockpit.Cockpit("main", {plan: premium.then(premium => premium.id)});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
 
@@ -52,6 +54,7 @@ export interface GetPlanResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -61,6 +64,7 @@ export interface GetPlanResult {
  * });
  * const main = new scaleway.cockpit.Cockpit("main", {plan: premium.then(premium => premium.id)});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
     return pulumi.output(args).apply((a: any) => getPlan(a, opts))

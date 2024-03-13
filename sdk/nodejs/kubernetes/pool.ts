@@ -9,10 +9,12 @@ import * as utilities from "../utilities";
 /**
  * ## Import
  *
- * Kubernetes pools can be imported using the `{region}/{id}`, e.g. bash
+ * Kubernetes pools can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:kubernetes/pool:Pool mypool fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:kubernetes/pool:Pool mypool fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Pool extends pulumi.CustomResource {

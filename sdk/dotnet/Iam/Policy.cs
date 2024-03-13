@@ -15,8 +15,10 @@ namespace Pulumi.Scaleway.Iam
     /// &gt; You can find a detailed list of all permission sets available at Scaleway in the permission sets [reference page](https://www.scaleway.com/en/docs/identity-and-access-management/iam/reference-content/permission-sets/).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Create a policy for an organization's project
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,8 +56,11 @@ namespace Pulumi.Scaleway.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create a policy for all current and future projects in an organization
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,13 +90,16 @@ namespace Pulumi.Scaleway.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Policies can be imported using the `{id}`, e.g. bash
+    /// Policies can be imported using the `{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:iam/policy:Policy main 11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:iam/policy:Policy main 11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:iam/policy:Policy")]

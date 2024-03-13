@@ -12,10 +12,12 @@ namespace Pulumi.Scaleway.Cockpit
     /// <summary>
     /// ## Import
     /// 
-    /// Cockpits can be imported using the `{project_id}`, e.g. bash
+    /// Cockpits can be imported using the `{project_id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:cockpit/cockpit:Cockpit main 11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:cockpit/cockpit:Cockpit main 11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:cockpit/cockpit:Cockpit")]
@@ -44,6 +46,12 @@ namespace Pulumi.Scaleway.Cockpit
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// Push_url
+        /// </summary>
+        [Output("pushUrls")]
+        public Output<ImmutableArray<Outputs.CockpitPushUrl>> PushUrls { get; private set; } = null!;
 
 
         /// <summary>
@@ -141,6 +149,18 @@ namespace Pulumi.Scaleway.Cockpit
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
+
+        [Input("pushUrls")]
+        private InputList<Inputs.CockpitPushUrlGetArgs>? _pushUrls;
+
+        /// <summary>
+        /// Push_url
+        /// </summary>
+        public InputList<Inputs.CockpitPushUrlGetArgs> PushUrls
+        {
+            get => _pushUrls ?? (_pushUrls = new InputList<Inputs.CockpitPushUrlGetArgs>());
+            set => _pushUrls = value;
+        }
 
         public CockpitState()
         {

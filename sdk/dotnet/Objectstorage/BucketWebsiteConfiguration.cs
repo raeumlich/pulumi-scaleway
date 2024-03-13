@@ -15,6 +15,7 @@ namespace Pulumi.Scaleway.Objectstorage
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,8 +40,11 @@ namespace Pulumi.Scaleway.Objectstorage
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With `Policy`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,19 +97,26 @@ namespace Pulumi.Scaleway.Objectstorage
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Bucket website configurations can be imported using the `{region}/{bucketName}` identifier, e.g. bash
+    /// Bucket website configurations can be imported using the `{region}/{bucketName}` identifier, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:objectstorage/bucketWebsiteConfiguration:BucketWebsiteConfiguration some_bucket fr-par/some-bucket
+    /// $ pulumi import scaleway:objectstorage/bucketWebsiteConfiguration:BucketWebsiteConfiguration some_bucket fr-par/some-bucket
     /// ```
     /// 
-    ///  ~&gt; **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project. If you are using a project different from the default one, you have to specify the project ID at the end of the import command. bash
+    /// ~&gt; **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project.
+    /// 
+    /// If you are using a project different from the default one, you have to specify the project ID at the end of the import command.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:objectstorage/bucketWebsiteConfiguration:BucketWebsiteConfiguration some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
+    /// $ pulumi import scaleway:objectstorage/bucketWebsiteConfiguration:BucketWebsiteConfiguration some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:objectstorage/bucketWebsiteConfiguration:BucketWebsiteConfiguration")]

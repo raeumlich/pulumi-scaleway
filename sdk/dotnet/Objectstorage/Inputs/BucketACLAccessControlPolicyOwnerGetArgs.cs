@@ -12,6 +12,9 @@ namespace Pulumi.Scaleway.Objectstorage.Inputs
 
     public sealed class BucketACLAccessControlPolicyOwnerGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The project ID of the grantee.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 

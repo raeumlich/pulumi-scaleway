@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * Books and manages Scaleway IPAM IPs.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -27,8 +29,11 @@ import * as utilities from "../utilities";
  *     privateNetworkId: pn01.id,
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Request a specific IPv4
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -41,14 +46,17 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const ip01 = new scaleway.ipam.IP("ip01", {
- *     address: "172.16.32.7/22",
+ *     address: "172.16.32.7",
  *     sources: [{
  *         privateNetworkId: pn01.id,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Request an IPv6
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -67,13 +75,16 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * IPAM IPs can be imported using the `{region}/{id}`, e.g. bash
+ * IPAM IPs can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:ipam/iP:IP ip_demo fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:ipam/iP:IP ip_demo fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class IP extends pulumi.CustomResource {
@@ -129,6 +140,10 @@ export class IP extends pulumi.CustomResource {
      */
     public /*out*/ readonly resources!: pulumi.Output<outputs.ipam.IPResource[]>;
     /**
+     * The reverses DNS for this IP.
+     */
+    public /*out*/ readonly reverses!: pulumi.Output<outputs.ipam.IPReverse[]>;
+    /**
      * The source in which to book the IP.
      */
     public readonly sources!: pulumi.Output<outputs.ipam.IPSource[]>;
@@ -164,6 +179,7 @@ export class IP extends pulumi.CustomResource {
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["reverses"] = state ? state.reverses : undefined;
             resourceInputs["sources"] = state ? state.sources : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
@@ -181,6 +197,7 @@ export class IP extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["reverses"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["zone"] = undefined /*out*/;
         }
@@ -217,6 +234,10 @@ export interface IPState {
      * The IP resource.
      */
     resources?: pulumi.Input<pulumi.Input<inputs.ipam.IPResource>[]>;
+    /**
+     * The reverses DNS for this IP.
+     */
+    reverses?: pulumi.Input<pulumi.Input<inputs.ipam.IPReverse>[]>;
     /**
      * The source in which to book the IP.
      */

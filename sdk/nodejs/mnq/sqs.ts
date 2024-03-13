@@ -10,19 +10,23 @@ import * as utilities from "../utilities";
  * our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sqs-overview/)
  *
  * ## Example Usage
+ *
  * ### Basic
  *
  * Activate SQS for default project
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
  *
  * const main = new scaleway.mnq.SQS("main", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Activate SQS for a specific project
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -32,13 +36,16 @@ import * as utilities from "../utilities";
  * });
  * const forProject = new scaleway.mnq.SQS("forProject", {projectId: project.then(project => project.id)});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * SQS status can be imported using the `{region}/{project_id}`, e.g. bash
+ * SQS status can be imported using the `{region}/{project_id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:mnq/sQS:SQS main fr-par/11111111111111111111111111111111
+ * $ pulumi import scaleway:mnq/sQS:SQS main fr-par/11111111111111111111111111111111
  * ```
  */
 export class SQS extends pulumi.CustomResource {

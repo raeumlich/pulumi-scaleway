@@ -235,6 +235,7 @@ class VPC(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -244,13 +245,16 @@ class VPC(pulumi.CustomResource):
             "terraform",
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        VPCs can be imported using the `{region}/{id}`, e.g. bash
+        VPCs can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:vpc/vPC:VPC vpc_demo fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:vpc/vPC:VPC vpc_demo fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,6 +276,7 @@ class VPC(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -281,13 +286,16 @@ class VPC(pulumi.CustomResource):
             "terraform",
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        VPCs can be imported using the `{region}/{id}`, e.g. bash
+        VPCs can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:vpc/vPC:VPC vpc_demo fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:vpc/vPC:VPC vpc_demo fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

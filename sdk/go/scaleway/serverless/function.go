@@ -16,8 +16,10 @@ import (
 // For more information see [the documentation](https://developers.scaleway.com/en/products/functions/api/).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,15 +52,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Functions can be imported using the `{region}/{id}`, e.g. bash
+// Functions can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:serverless/function:Function main fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:serverless/function:Function main fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type Function struct {
 	pulumi.CustomResourceState

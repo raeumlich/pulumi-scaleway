@@ -522,8 +522,10 @@ func (o PrivateNetworkIpv6SubnetArrayOutput) Index(i pulumi.IntInput) PrivateNet
 }
 
 type GetGatewayNetworkIpamConfig struct {
-	IpamIpId         string `pulumi:"ipamIpId"`
-	PushDefaultRoute bool   `pulumi:"pushDefaultRoute"`
+	// Use this IPAM-booked IP ID as the Gateway's IP in this Private Network
+	IpamIpId string `pulumi:"ipamIpId"`
+	// Defines whether the default route is enabled on that Gateway Network
+	PushDefaultRoute bool `pulumi:"pushDefaultRoute"`
 }
 
 // GetGatewayNetworkIpamConfigInput is an input type that accepts GetGatewayNetworkIpamConfigArgs and GetGatewayNetworkIpamConfigOutput values.
@@ -538,8 +540,10 @@ type GetGatewayNetworkIpamConfigInput interface {
 }
 
 type GetGatewayNetworkIpamConfigArgs struct {
-	IpamIpId         pulumi.StringInput `pulumi:"ipamIpId"`
-	PushDefaultRoute pulumi.BoolInput   `pulumi:"pushDefaultRoute"`
+	// Use this IPAM-booked IP ID as the Gateway's IP in this Private Network
+	IpamIpId pulumi.StringInput `pulumi:"ipamIpId"`
+	// Defines whether the default route is enabled on that Gateway Network
+	PushDefaultRoute pulumi.BoolInput `pulumi:"pushDefaultRoute"`
 }
 
 func (GetGatewayNetworkIpamConfigArgs) ElementType() reflect.Type {
@@ -593,10 +597,12 @@ func (o GetGatewayNetworkIpamConfigOutput) ToGetGatewayNetworkIpamConfigOutputWi
 	return o
 }
 
+// Use this IPAM-booked IP ID as the Gateway's IP in this Private Network
 func (o GetGatewayNetworkIpamConfigOutput) IpamIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGatewayNetworkIpamConfig) string { return v.IpamIpId }).(pulumi.StringOutput)
 }
 
+// Defines whether the default route is enabled on that Gateway Network
 func (o GetGatewayNetworkIpamConfigOutput) PushDefaultRoute() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGatewayNetworkIpamConfig) bool { return v.PushDefaultRoute }).(pulumi.BoolOutput)
 }
@@ -622,14 +628,20 @@ func (o GetGatewayNetworkIpamConfigArrayOutput) Index(i pulumi.IntInput) GetGate
 }
 
 type GetPrivateNetworkIpv4Subnet struct {
-	Address   string `pulumi:"address"`
+	// The network address of the subnet in dotted decimal notation, e.g., '192.168.0.0' for a '192.168.0.0/24' subnet
+	Address string `pulumi:"address"`
+	// The date and time of the creation of the subnet
 	CreatedAt string `pulumi:"createdAt"`
 	// The ID of the private network.
-	Id           string `pulumi:"id"`
-	PrefixLength int    `pulumi:"prefixLength"`
-	Subnet       string `pulumi:"subnet"`
-	SubnetMask   string `pulumi:"subnetMask"`
-	UpdatedAt    string `pulumi:"updatedAt"`
+	Id string `pulumi:"id"`
+	// The length of the network prefix, e.g., 24 for a 255.255.255.0 mask
+	PrefixLength int `pulumi:"prefixLength"`
+	// The subnet CIDR
+	Subnet string `pulumi:"subnet"`
+	// The subnet mask expressed in dotted decimal notation, e.g., '255.255.255.0' for a /24 subnet
+	SubnetMask string `pulumi:"subnetMask"`
+	// The date and time of the last update of the subnet
+	UpdatedAt string `pulumi:"updatedAt"`
 }
 
 // GetPrivateNetworkIpv4SubnetInput is an input type that accepts GetPrivateNetworkIpv4SubnetArgs and GetPrivateNetworkIpv4SubnetOutput values.
@@ -644,14 +656,20 @@ type GetPrivateNetworkIpv4SubnetInput interface {
 }
 
 type GetPrivateNetworkIpv4SubnetArgs struct {
-	Address   pulumi.StringInput `pulumi:"address"`
+	// The network address of the subnet in dotted decimal notation, e.g., '192.168.0.0' for a '192.168.0.0/24' subnet
+	Address pulumi.StringInput `pulumi:"address"`
+	// The date and time of the creation of the subnet
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
 	// The ID of the private network.
-	Id           pulumi.StringInput `pulumi:"id"`
-	PrefixLength pulumi.IntInput    `pulumi:"prefixLength"`
-	Subnet       pulumi.StringInput `pulumi:"subnet"`
-	SubnetMask   pulumi.StringInput `pulumi:"subnetMask"`
-	UpdatedAt    pulumi.StringInput `pulumi:"updatedAt"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The length of the network prefix, e.g., 24 for a 255.255.255.0 mask
+	PrefixLength pulumi.IntInput `pulumi:"prefixLength"`
+	// The subnet CIDR
+	Subnet pulumi.StringInput `pulumi:"subnet"`
+	// The subnet mask expressed in dotted decimal notation, e.g., '255.255.255.0' for a /24 subnet
+	SubnetMask pulumi.StringInput `pulumi:"subnetMask"`
+	// The date and time of the last update of the subnet
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
 }
 
 func (GetPrivateNetworkIpv4SubnetArgs) ElementType() reflect.Type {
@@ -705,10 +723,12 @@ func (o GetPrivateNetworkIpv4SubnetOutput) ToGetPrivateNetworkIpv4SubnetOutputWi
 	return o
 }
 
+// The network address of the subnet in dotted decimal notation, e.g., '192.168.0.0' for a '192.168.0.0/24' subnet
 func (o GetPrivateNetworkIpv4SubnetOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv4Subnet) string { return v.Address }).(pulumi.StringOutput)
 }
 
+// The date and time of the creation of the subnet
 func (o GetPrivateNetworkIpv4SubnetOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv4Subnet) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -718,18 +738,22 @@ func (o GetPrivateNetworkIpv4SubnetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv4Subnet) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The length of the network prefix, e.g., 24 for a 255.255.255.0 mask
 func (o GetPrivateNetworkIpv4SubnetOutput) PrefixLength() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv4Subnet) int { return v.PrefixLength }).(pulumi.IntOutput)
 }
 
+// The subnet CIDR
 func (o GetPrivateNetworkIpv4SubnetOutput) Subnet() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv4Subnet) string { return v.Subnet }).(pulumi.StringOutput)
 }
 
+// The subnet mask expressed in dotted decimal notation, e.g., '255.255.255.0' for a /24 subnet
 func (o GetPrivateNetworkIpv4SubnetOutput) SubnetMask() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv4Subnet) string { return v.SubnetMask }).(pulumi.StringOutput)
 }
 
+// The date and time of the last update of the subnet
 func (o GetPrivateNetworkIpv4SubnetOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv4Subnet) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
@@ -755,14 +779,20 @@ func (o GetPrivateNetworkIpv4SubnetArrayOutput) Index(i pulumi.IntInput) GetPriv
 }
 
 type GetPrivateNetworkIpv6Subnet struct {
-	Address   string `pulumi:"address"`
+	// The network address of the subnet in dotted decimal notation, e.g., '192.168.0.0' for a '192.168.0.0/24' subnet
+	Address string `pulumi:"address"`
+	// The date and time of the creation of the subnet
 	CreatedAt string `pulumi:"createdAt"`
 	// The ID of the private network.
-	Id           string `pulumi:"id"`
-	PrefixLength int    `pulumi:"prefixLength"`
-	Subnet       string `pulumi:"subnet"`
-	SubnetMask   string `pulumi:"subnetMask"`
-	UpdatedAt    string `pulumi:"updatedAt"`
+	Id string `pulumi:"id"`
+	// The length of the network prefix, e.g., 24 for a 255.255.255.0 mask
+	PrefixLength int `pulumi:"prefixLength"`
+	// The subnet CIDR
+	Subnet string `pulumi:"subnet"`
+	// The subnet mask expressed in dotted decimal notation, e.g., '255.255.255.0' for a /24 subnet
+	SubnetMask string `pulumi:"subnetMask"`
+	// The date and time of the last update of the subnet
+	UpdatedAt string `pulumi:"updatedAt"`
 }
 
 // GetPrivateNetworkIpv6SubnetInput is an input type that accepts GetPrivateNetworkIpv6SubnetArgs and GetPrivateNetworkIpv6SubnetOutput values.
@@ -777,14 +807,20 @@ type GetPrivateNetworkIpv6SubnetInput interface {
 }
 
 type GetPrivateNetworkIpv6SubnetArgs struct {
-	Address   pulumi.StringInput `pulumi:"address"`
+	// The network address of the subnet in dotted decimal notation, e.g., '192.168.0.0' for a '192.168.0.0/24' subnet
+	Address pulumi.StringInput `pulumi:"address"`
+	// The date and time of the creation of the subnet
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
 	// The ID of the private network.
-	Id           pulumi.StringInput `pulumi:"id"`
-	PrefixLength pulumi.IntInput    `pulumi:"prefixLength"`
-	Subnet       pulumi.StringInput `pulumi:"subnet"`
-	SubnetMask   pulumi.StringInput `pulumi:"subnetMask"`
-	UpdatedAt    pulumi.StringInput `pulumi:"updatedAt"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The length of the network prefix, e.g., 24 for a 255.255.255.0 mask
+	PrefixLength pulumi.IntInput `pulumi:"prefixLength"`
+	// The subnet CIDR
+	Subnet pulumi.StringInput `pulumi:"subnet"`
+	// The subnet mask expressed in dotted decimal notation, e.g., '255.255.255.0' for a /24 subnet
+	SubnetMask pulumi.StringInput `pulumi:"subnetMask"`
+	// The date and time of the last update of the subnet
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
 }
 
 func (GetPrivateNetworkIpv6SubnetArgs) ElementType() reflect.Type {
@@ -838,10 +874,12 @@ func (o GetPrivateNetworkIpv6SubnetOutput) ToGetPrivateNetworkIpv6SubnetOutputWi
 	return o
 }
 
+// The network address of the subnet in dotted decimal notation, e.g., '192.168.0.0' for a '192.168.0.0/24' subnet
 func (o GetPrivateNetworkIpv6SubnetOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv6Subnet) string { return v.Address }).(pulumi.StringOutput)
 }
 
+// The date and time of the creation of the subnet
 func (o GetPrivateNetworkIpv6SubnetOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv6Subnet) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -851,18 +889,22 @@ func (o GetPrivateNetworkIpv6SubnetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv6Subnet) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The length of the network prefix, e.g., 24 for a 255.255.255.0 mask
 func (o GetPrivateNetworkIpv6SubnetOutput) PrefixLength() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv6Subnet) int { return v.PrefixLength }).(pulumi.IntOutput)
 }
 
+// The subnet CIDR
 func (o GetPrivateNetworkIpv6SubnetOutput) Subnet() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv6Subnet) string { return v.Subnet }).(pulumi.StringOutput)
 }
 
+// The subnet mask expressed in dotted decimal notation, e.g., '255.255.255.0' for a /24 subnet
 func (o GetPrivateNetworkIpv6SubnetOutput) SubnetMask() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv6Subnet) string { return v.SubnetMask }).(pulumi.StringOutput)
 }
 
+// The date and time of the last update of the subnet
 func (o GetPrivateNetworkIpv6SubnetOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateNetworkIpv6Subnet) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     projectId: scaleway_account_project.main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSQS(args?: GetSQSArgs, opts?: pulumi.InvokeOptions): Promise<GetSQSResult> {
     args = args || {};
@@ -67,6 +69,7 @@ export interface GetSQSResult {
  *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -76,6 +79,7 @@ export interface GetSQSResult {
  *     projectId: scaleway_account_project.main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSQSOutput(args?: GetSQSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSQSResult> {
     return pulumi.output(args).apply((a: any) => getSQS(a, opts))

@@ -11,10 +11,12 @@ import * as utilities from "../utilities";
  * For more information, see [Setting up object lock](https://www.scaleway.com/en/docs/storage/object/api-cli/object-lock/).
  *
  * ## Example Usage
+ *
  * ### Configure an Object Lock for a new bucket
  *
  * Please note that `objectLockEnabled` must be set to `true` before configuring the lock.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -33,22 +35,30 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Configure an Object Lock for an existing bucket
  *
  * You should [contact Scaleway support](https://console.scaleway.com/support/tickets/create) to enable object lock on an existing bucket.
  *
  * ## Import
  *
- * Bucket lock configurations can be imported using the `{region}/{bucketName}` identifier, e.g. bash
+ * Bucket lock configurations can be imported using the `{region}/{bucketName}` identifier, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:objectstorage/bucketLockConfiguration:BucketLockConfiguration some_bucket fr-par/some-bucket
+ * $ pulumi import scaleway:objectstorage/bucketLockConfiguration:BucketLockConfiguration some_bucket fr-par/some-bucket
  * ```
  *
- *  ~> **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project. If you are using a project different from the default one, you have to specify the project ID at the end of the import command. bash
+ * ~> **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project.
+ *
+ * If you are using a project different from the default one, you have to specify the project ID at the end of the import command.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:objectstorage/bucketLockConfiguration:BucketLockConfiguration some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
+ * $ pulumi import scaleway:objectstorage/bucketLockConfiguration:BucketLockConfiguration some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
  * ```
  */
 export class BucketLockConfiguration extends pulumi.CustomResource {

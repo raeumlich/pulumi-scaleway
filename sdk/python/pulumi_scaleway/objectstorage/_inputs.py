@@ -30,6 +30,9 @@ class BucketACLAccessControlPolicyArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input['BucketACLAccessControlPolicyOwnerArgs'],
                  grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketACLAccessControlPolicyGrantArgs']]]] = None):
+        """
+        :param pulumi.Input['BucketACLAccessControlPolicyOwnerArgs'] owner: Configuration block of the bucket project owner's display organization ID.
+        """
         pulumi.set(__self__, "owner", owner)
         if grants is not None:
             pulumi.set(__self__, "grants", grants)
@@ -37,6 +40,9 @@ class BucketACLAccessControlPolicyArgs:
     @property
     @pulumi.getter
     def owner(self) -> pulumi.Input['BucketACLAccessControlPolicyOwnerArgs']:
+        """
+        Configuration block of the bucket project owner's display organization ID.
+        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -58,6 +64,10 @@ class BucketACLAccessControlPolicyGrantArgs:
     def __init__(__self__, *,
                  permission: pulumi.Input[str],
                  grantee: Optional[pulumi.Input['BucketACLAccessControlPolicyGrantGranteeArgs']] = None):
+        """
+        :param pulumi.Input[str] permission: Logging permissions assigned to the grantee for the bucket.
+        :param pulumi.Input['BucketACLAccessControlPolicyGrantGranteeArgs'] grantee: Configuration block for the project being granted permissions.
+        """
         pulumi.set(__self__, "permission", permission)
         if grantee is not None:
             pulumi.set(__self__, "grantee", grantee)
@@ -65,6 +75,9 @@ class BucketACLAccessControlPolicyGrantArgs:
     @property
     @pulumi.getter
     def permission(self) -> pulumi.Input[str]:
+        """
+        Logging permissions assigned to the grantee for the bucket.
+        """
         return pulumi.get(self, "permission")
 
     @permission.setter
@@ -74,6 +87,9 @@ class BucketACLAccessControlPolicyGrantArgs:
     @property
     @pulumi.getter
     def grantee(self) -> Optional[pulumi.Input['BucketACLAccessControlPolicyGrantGranteeArgs']]:
+        """
+        Configuration block for the project being granted permissions.
+        """
         return pulumi.get(self, "grantee")
 
     @grantee.setter
@@ -89,6 +105,7 @@ class BucketACLAccessControlPolicyGrantGranteeArgs:
                  display_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] id: The `region`,`bucket` and `acl` separated by (`/`).
+        :param pulumi.Input[str] type: Type of grantee. Valid values: `CanonicalUser`
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -110,6 +127,9 @@ class BucketACLAccessControlPolicyGrantGranteeArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Type of grantee. Valid values: `CanonicalUser`
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -133,6 +153,7 @@ class BucketACLAccessControlPolicyOwnerArgs:
                  display_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] id: The `region`,`bucket` and `acl` separated by (`/`).
+        :param pulumi.Input[str] display_name: The project ID of the grantee.
         """
         pulumi.set(__self__, "id", id)
         if display_name is not None:
@@ -153,6 +174,9 @@ class BucketACLAccessControlPolicyOwnerArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project ID of the grantee.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter

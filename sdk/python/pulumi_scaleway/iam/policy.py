@@ -393,8 +393,10 @@ class Policy(pulumi.CustomResource):
         > You can find a detailed list of all permission sets available at Scaleway in the permission sets [reference page](https://www.scaleway.com/en/docs/identity-and-access-management/iam/reference-content/permission-sets/).
 
         ## Example Usage
+
         ### Create a policy for an organization's project
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -409,8 +411,11 @@ class Policy(pulumi.CustomResource):
                 permission_set_names=["ObjectStorageReadOnly"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a policy for all current and future projects in an organization
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -424,13 +429,16 @@ class Policy(pulumi.CustomResource):
                 permission_set_names=["ObjectStorageReadOnly"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Policies can be imported using the `{id}`, e.g. bash
+        Policies can be imported using the `{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/policy:Policy main 11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/policy:Policy main 11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -459,8 +467,10 @@ class Policy(pulumi.CustomResource):
         > You can find a detailed list of all permission sets available at Scaleway in the permission sets [reference page](https://www.scaleway.com/en/docs/identity-and-access-management/iam/reference-content/permission-sets/).
 
         ## Example Usage
+
         ### Create a policy for an organization's project
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -475,8 +485,11 @@ class Policy(pulumi.CustomResource):
                 permission_set_names=["ObjectStorageReadOnly"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a policy for all current and future projects in an organization
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -490,13 +503,16 @@ class Policy(pulumi.CustomResource):
                 permission_set_names=["ObjectStorageReadOnly"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Policies can be imported using the `{id}`, e.g. bash
+        Policies can be imported using the `{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/policy:Policy main 11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/policy:Policy main 11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

@@ -18,9 +18,15 @@ namespace Pulumi.Scaleway.Loadbalancer.Inputs
         [Input("action", required: true)]
         public Input<Inputs.FrontendAclActionArgs> Action { get; set; } = null!;
 
+        /// <summary>
+        /// Date and time of ACL's creation (RFC 3339 format)
+        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// Description of the ACL
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -36,6 +42,9 @@ namespace Pulumi.Scaleway.Loadbalancer.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Date and time of ACL's update (RFC 3339 format)
+        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 

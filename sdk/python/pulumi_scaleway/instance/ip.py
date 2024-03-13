@@ -258,19 +258,23 @@ class IP(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         server_ip = scaleway.instance.IP("serverIp")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IPs can be imported using the `{zone}/{id}`, e.g. bash
+        IPs can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:instance/iP:IP server_ip fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:instance/iP:IP server_ip fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -293,19 +297,23 @@ class IP(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         server_ip = scaleway.instance.IP("serverIp")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IPs can be imported using the `{zone}/{id}`, e.g. bash
+        IPs can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:instance/iP:IP server_ip fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:instance/iP:IP server_ip fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

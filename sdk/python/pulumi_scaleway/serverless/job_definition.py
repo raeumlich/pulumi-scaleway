@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['JobDefinitionArgs', 'JobDefinition']
 
@@ -17,6 +19,7 @@ class JobDefinitionArgs:
                  cpu_limit: pulumi.Input[int],
                  memory_limit: pulumi.Input[int],
                  command: Optional[pulumi.Input[str]] = None,
+                 cron: Optional[pulumi.Input['JobDefinitionCronArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  env: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  image_uri: Optional[pulumi.Input[str]] = None,
@@ -41,6 +44,8 @@ class JobDefinitionArgs:
         pulumi.set(__self__, "memory_limit", memory_limit)
         if command is not None:
             pulumi.set(__self__, "command", command)
+        if cron is not None:
+            pulumi.set(__self__, "cron", cron)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if env is not None:
@@ -91,6 +96,15 @@ class JobDefinitionArgs:
     @command.setter
     def command(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter
+    def cron(self) -> Optional[pulumi.Input['JobDefinitionCronArgs']]:
+        return pulumi.get(self, "cron")
+
+    @cron.setter
+    def cron(self, value: Optional[pulumi.Input['JobDefinitionCronArgs']]):
+        pulumi.set(self, "cron", value)
 
     @property
     @pulumi.getter
@@ -182,6 +196,7 @@ class _JobDefinitionState:
     def __init__(__self__, *,
                  command: Optional[pulumi.Input[str]] = None,
                  cpu_limit: Optional[pulumi.Input[int]] = None,
+                 cron: Optional[pulumi.Input['JobDefinitionCronArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  env: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  image_uri: Optional[pulumi.Input[str]] = None,
@@ -207,6 +222,8 @@ class _JobDefinitionState:
             pulumi.set(__self__, "command", command)
         if cpu_limit is not None:
             pulumi.set(__self__, "cpu_limit", cpu_limit)
+        if cron is not None:
+            pulumi.set(__self__, "cron", cron)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if env is not None:
@@ -247,6 +264,15 @@ class _JobDefinitionState:
     @cpu_limit.setter
     def cpu_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cpu_limit", value)
+
+    @property
+    @pulumi.getter
+    def cron(self) -> Optional[pulumi.Input['JobDefinitionCronArgs']]:
+        return pulumi.get(self, "cron")
+
+    @cron.setter
+    def cron(self, value: Optional[pulumi.Input['JobDefinitionCronArgs']]):
+        pulumi.set(self, "cron", value)
 
     @property
     @pulumi.getter
@@ -352,6 +378,7 @@ class JobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  command: Optional[pulumi.Input[str]] = None,
                  cpu_limit: Optional[pulumi.Input[int]] = None,
+                 cron: Optional[pulumi.Input[pulumi.InputType['JobDefinitionCronArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  env: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  image_uri: Optional[pulumi.Input[str]] = None,
@@ -365,8 +392,10 @@ class JobDefinition(pulumi.CustomResource):
         Creates and manages a Scaleway Serverless Job Definition. For more information, see [the documentation](https://pkg.go.dev/github.com/scaleway/scaleway-sdk-go@master/api/jobs/v1alpha1).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -381,13 +410,16 @@ class JobDefinition(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Serverless Jobs can be imported using the `{region}/{id}`, e.g. bash
+        Serverless Jobs can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:serverless/jobDefinition:JobDefinition job fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:serverless/jobDefinition:JobDefinition job fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -413,8 +445,10 @@ class JobDefinition(pulumi.CustomResource):
         Creates and manages a Scaleway Serverless Job Definition. For more information, see [the documentation](https://pkg.go.dev/github.com/scaleway/scaleway-sdk-go@master/api/jobs/v1alpha1).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -429,13 +463,16 @@ class JobDefinition(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Serverless Jobs can be imported using the `{region}/{id}`, e.g. bash
+        Serverless Jobs can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:serverless/jobDefinition:JobDefinition job fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:serverless/jobDefinition:JobDefinition job fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -455,6 +492,7 @@ class JobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  command: Optional[pulumi.Input[str]] = None,
                  cpu_limit: Optional[pulumi.Input[int]] = None,
+                 cron: Optional[pulumi.Input[pulumi.InputType['JobDefinitionCronArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  env: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  image_uri: Optional[pulumi.Input[str]] = None,
@@ -476,6 +514,7 @@ class JobDefinition(pulumi.CustomResource):
             if cpu_limit is None and not opts.urn:
                 raise TypeError("Missing required property 'cpu_limit'")
             __props__.__dict__["cpu_limit"] = cpu_limit
+            __props__.__dict__["cron"] = cron
             __props__.__dict__["description"] = description
             __props__.__dict__["env"] = env
             __props__.__dict__["image_uri"] = image_uri
@@ -498,6 +537,7 @@ class JobDefinition(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             command: Optional[pulumi.Input[str]] = None,
             cpu_limit: Optional[pulumi.Input[int]] = None,
+            cron: Optional[pulumi.Input[pulumi.InputType['JobDefinitionCronArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             env: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             image_uri: Optional[pulumi.Input[str]] = None,
@@ -530,6 +570,7 @@ class JobDefinition(pulumi.CustomResource):
 
         __props__.__dict__["command"] = command
         __props__.__dict__["cpu_limit"] = cpu_limit
+        __props__.__dict__["cron"] = cron
         __props__.__dict__["description"] = description
         __props__.__dict__["env"] = env
         __props__.__dict__["image_uri"] = image_uri
@@ -555,6 +596,11 @@ class JobDefinition(pulumi.CustomResource):
         The amount of vCPU computing resources to allocate to each container running the job.
         """
         return pulumi.get(self, "cpu_limit")
+
+    @property
+    @pulumi.getter
+    def cron(self) -> pulumi.Output[Optional['outputs.JobDefinitionCron']]:
+        return pulumi.get(self, "cron")
 
     @property
     @pulumi.getter

@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://developers.scaleway.com/en/products/instance/api/#images-41389b).
 //
 // ## Example Usage
+//
 // ### From a volume
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,8 +56,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### From a server
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,15 +97,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Images can be imported using the `{zone}/{id}`, e.g. bash
+// Images can be imported using the `{zone}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:instance/image:Image main fr-par-1/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:instance/image:Image main fr-par-1/11111111-1111-1111-1111-111111111111
 // ```
 type Image struct {
 	pulumi.CustomResourceState

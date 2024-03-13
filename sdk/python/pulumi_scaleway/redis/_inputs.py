@@ -27,7 +27,7 @@ class ClusterAclArgs:
         :param pulumi.Input[str] description: A text describing this rule. Default description: `Allow IP`
                
                > The `acl` conflict with `private_network`. Only one should be specified.
-        :param pulumi.Input[str] id: The UUID of the private network resource.
+        :param pulumi.Input[str] id: The UUID of the Private Network resource.
         """
         pulumi.set(__self__, "ip", ip)
         if description is not None:
@@ -66,7 +66,7 @@ class ClusterAclArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The UUID of the private network resource.
+        The UUID of the Private Network resource.
         """
         return pulumi.get(self, "id")
 
@@ -83,14 +83,33 @@ class ClusterPrivateNetworkArgs:
                  service_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: The UUID of the private network resource.
+        :param pulumi.Input[str] id: The UUID of the Private Network resource.
         :param pulumi.Input[str] endpoint_id: The ID of the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_ips: Endpoint IPv4 addresses
-               in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You must provide at
-               least one IP per node or The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-               service if not set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_ips: Endpoint IPv4 addresses in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You must provide at least one IP per node.
+               Keep in mind that in Cluster mode you cannot edit your Private Network after its creation so if you want to be able to
+               scale your Cluster horizontally (adding nodes) later, you should provide more IPs than nodes.
+               If not set, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
                
-               > The `private_network` conflict with `acl`. Only one should be specified.
+               > The `private_network` conflicts with `acl`. Only one should be specified.
+               
+               > **Important:** The way to use private networks differs whether you are using Redis in Standalone or Cluster mode.
+               
+               - Standalone mode (`cluster_size` = 1) : you can attach as many Private Networks as you want (each must be a separate
+               block). If you detach your only private network, your cluster won't be reachable until you define a new Private or
+               Public Network. You can modify your `private_network` and its specs, you can have both a Private and Public Network side
+               by side.
+               
+               - Cluster mode (`cluster_size` > 2) : you can define a single Private Network as you create your Cluster, you won't be
+               able to edit or detach it afterward, unless you create another Cluster. This also means that, if you are using a static
+               configuration (`service_ips`), you won't be able to scale your Cluster horizontally (add more nodes) since it would
+               require updating the private network to add IPs.
+               Your `service_ips` must be listed as follows:
+               
+               <!--Start PulumiCodeChooser -->
+               ```python
+               import pulumi
+               ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] zone: `zone`) The zone in which the
                Redis Cluster should be created.
         """
@@ -106,7 +125,7 @@ class ClusterPrivateNetworkArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The UUID of the private network resource.
+        The UUID of the Private Network resource.
         """
         return pulumi.get(self, "id")
 
@@ -130,12 +149,31 @@ class ClusterPrivateNetworkArgs:
     @pulumi.getter(name="serviceIps")
     def service_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Endpoint IPv4 addresses
-        in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You must provide at
-        least one IP per node or The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-        service if not set.
+        Endpoint IPv4 addresses in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). You must provide at least one IP per node.
+        Keep in mind that in Cluster mode you cannot edit your Private Network after its creation so if you want to be able to
+        scale your Cluster horizontally (adding nodes) later, you should provide more IPs than nodes.
+        If not set, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
 
-        > The `private_network` conflict with `acl`. Only one should be specified.
+        > The `private_network` conflicts with `acl`. Only one should be specified.
+
+        > **Important:** The way to use private networks differs whether you are using Redis in Standalone or Cluster mode.
+
+        - Standalone mode (`cluster_size` = 1) : you can attach as many Private Networks as you want (each must be a separate
+        block). If you detach your only private network, your cluster won't be reachable until you define a new Private or
+        Public Network. You can modify your `private_network` and its specs, you can have both a Private and Public Network side
+        by side.
+
+        - Cluster mode (`cluster_size` > 2) : you can define a single Private Network as you create your Cluster, you won't be
+        able to edit or detach it afterward, unless you create another Cluster. This also means that, if you are using a static
+        configuration (`service_ips`), you won't be able to scale your Cluster horizontally (add more nodes) since it would
+        require updating the private network to add IPs.
+        Your `service_ips` must be listed as follows:
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "service_ips")
 
@@ -164,7 +202,7 @@ class ClusterPublicNetworkArgs:
                  ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  port: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] id: The UUID of the private network resource.
+        :param pulumi.Input[str] id: The UUID of the Private Network resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ips: Lis of IPv4 address of the endpoint (IP address).
         :param pulumi.Input[int] port: TCP port of the endpoint.
         """
@@ -179,7 +217,7 @@ class ClusterPublicNetworkArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The UUID of the private network resource.
+        The UUID of the Private Network resource.
         """
         return pulumi.get(self, "id")
 

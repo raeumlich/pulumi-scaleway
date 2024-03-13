@@ -621,8 +621,10 @@ class GetClusterAutoscalerConfigResult(dict):
         :param str expander: The type of node group expander be used in scale up.
         :param int expendable_pods_priority_cutoff: Pods with priority below cutoff will be expendable. They can be killed without any consideration during scale down and they don't cause scale up. Pods with null priority (PodPriority disabled) are non expendable.
         :param bool ignore_daemonsets_utilization: True if ignoring DaemonSet pods when calculating resource utilization for scaling down is enabled.
+        :param int max_graceful_termination_sec: Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node
         :param str scale_down_delay_after_add: The duration after scale up that scale down evaluation resumes.
         :param str scale_down_unneeded_time: The duration a node should be unneeded before it is eligible for scale down.
+        :param float scale_down_utilization_threshold: Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down
         """
         pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
         pulumi.set(__self__, "disable_scale_down", disable_scale_down)
@@ -686,6 +688,9 @@ class GetClusterAutoscalerConfigResult(dict):
     @property
     @pulumi.getter(name="maxGracefulTerminationSec")
     def max_graceful_termination_sec(self) -> int:
+        """
+        Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node
+        """
         return pulumi.get(self, "max_graceful_termination_sec")
 
     @property
@@ -707,6 +712,9 @@ class GetClusterAutoscalerConfigResult(dict):
     @property
     @pulumi.getter(name="scaleDownUtilizationThreshold")
     def scale_down_utilization_threshold(self) -> float:
+        """
+        Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down
+        """
         return pulumi.get(self, "scale_down_utilization_threshold")
 
 
@@ -771,6 +779,15 @@ class GetClusterOpenIdConnectConfigResult(dict):
                  required_claims: Sequence[str],
                  username_claim: str,
                  username_prefix: str):
+        """
+        :param str client_id: A client id that all tokens must be issued for
+        :param Sequence[str] groups_claims: JWT claim to use as the user's group
+        :param str groups_prefix: Prefix prepended to group claims
+        :param str issuer_url: URL of the provider which allows the API server to discover public signing keys
+        :param Sequence[str] required_claims: Multiple key=value pairs that describes a required claim in the ID Token
+        :param str username_claim: JWT claim to use as the user name
+        :param str username_prefix: Prefix prepended to username
+        """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "groups_claims", groups_claims)
         pulumi.set(__self__, "groups_prefix", groups_prefix)
@@ -782,36 +799,57 @@ class GetClusterOpenIdConnectConfigResult(dict):
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
+        """
+        A client id that all tokens must be issued for
+        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="groupsClaims")
     def groups_claims(self) -> Sequence[str]:
+        """
+        JWT claim to use as the user's group
+        """
         return pulumi.get(self, "groups_claims")
 
     @property
     @pulumi.getter(name="groupsPrefix")
     def groups_prefix(self) -> str:
+        """
+        Prefix prepended to group claims
+        """
         return pulumi.get(self, "groups_prefix")
 
     @property
     @pulumi.getter(name="issuerUrl")
     def issuer_url(self) -> str:
+        """
+        URL of the provider which allows the API server to discover public signing keys
+        """
         return pulumi.get(self, "issuer_url")
 
     @property
     @pulumi.getter(name="requiredClaims")
     def required_claims(self) -> Sequence[str]:
+        """
+        Multiple key=value pairs that describes a required claim in the ID Token
+        """
         return pulumi.get(self, "required_claims")
 
     @property
     @pulumi.getter(name="usernameClaim")
     def username_claim(self) -> str:
+        """
+        JWT claim to use as the user name
+        """
         return pulumi.get(self, "username_claim")
 
     @property
     @pulumi.getter(name="usernamePrefix")
     def username_prefix(self) -> str:
+        """
+        Prefix prepended to username
+        """
         return pulumi.get(self, "username_prefix")
 
 
@@ -871,17 +909,27 @@ class GetPoolUpgradePolicyResult(dict):
     def __init__(__self__, *,
                  max_surge: int,
                  max_unavailable: int):
+        """
+        :param int max_surge: The maximum number of nodes to be created during the upgrade
+        :param int max_unavailable: The maximum number of nodes that can be not ready at the same time
+        """
         pulumi.set(__self__, "max_surge", max_surge)
         pulumi.set(__self__, "max_unavailable", max_unavailable)
 
     @property
     @pulumi.getter(name="maxSurge")
     def max_surge(self) -> int:
+        """
+        The maximum number of nodes to be created during the upgrade
+        """
         return pulumi.get(self, "max_surge")
 
     @property
     @pulumi.getter(name="maxUnavailable")
     def max_unavailable(self) -> int:
+        """
+        The maximum number of nodes that can be not ready at the same time
+        """
         return pulumi.get(self, "max_unavailable")
 
 

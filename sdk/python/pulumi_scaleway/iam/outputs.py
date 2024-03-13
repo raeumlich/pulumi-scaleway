@@ -44,6 +44,10 @@ class PolicyRule(dict):
         :param Sequence[str] permission_set_names: Names of permission sets bound to the rule.
                
                **_TIP:_**  You can use the Scaleway CLI to list the permissions details. e.g:
+               
+               ```shell
+               $ scw iam permission-set list
+               ```
         :param str organization_id: ID of organization scoped to the rule, this can be used to create a rule for all projects in an organization.
         :param Sequence[str] project_ids: List of project IDs scoped to the rule.
                
@@ -62,6 +66,10 @@ class PolicyRule(dict):
         Names of permission sets bound to the rule.
 
         **_TIP:_**  You can use the Scaleway CLI to list the permissions details. e.g:
+
+        ```shell
+        $ scw iam permission-set list
+        ```
         """
         return pulumi.get(self, "permission_set_names")
 

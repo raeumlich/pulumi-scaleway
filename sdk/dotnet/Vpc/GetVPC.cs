@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Vpc
         /// <summary>
         /// Gets information about a Scaleway Virtual Private Cloud.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,8 +42,7 @@ namespace Pulumi.Scaleway.Vpc
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVPCResult> InvokeAsync(GetVPCArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPCResult>("scaleway:vpc/getVPC:getVPC", args ?? new GetVPCArgs(), options.WithDefaults());
@@ -52,10 +50,9 @@ namespace Pulumi.Scaleway.Vpc
         /// <summary>
         /// Gets information about a Scaleway Virtual Private Cloud.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -81,8 +78,7 @@ namespace Pulumi.Scaleway.Vpc
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVPCResult> Invoke(GetVPCInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVPCResult>("scaleway:vpc/getVPC:getVPC", args ?? new GetVPCInvokeArgs(), options.WithDefaults());

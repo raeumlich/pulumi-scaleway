@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -21,7 +22,9 @@ import * as utilities from "../utilities";
  * // Create a token for the cockpit that can write metrics and logs
  * const mainToken = new scaleway.cockpit.Token("mainToken", {projectId: mainCockpit.then(mainCockpit => mainCockpit.projectId)});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -38,13 +41,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Cockpits can be imported using the token ID, e.g. bash
+ * Cockpits can be imported using the token ID, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:cockpit/token:Token main 11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:cockpit/token:Token main 11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Token extends pulumi.CustomResource {

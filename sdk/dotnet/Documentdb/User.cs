@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Documentdb
     /// For more information, see [the documentation](https://www.scaleway.com/en/developers/api/document_db/).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +42,16 @@ namespace Pulumi.Scaleway.Documentdb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Database User can be imported using `{region}/{instance_id}/{user_name}`, e.g. bash
+    /// Database User can be imported using `{region}/{instance_id}/{user_name}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:documentdb/user:User admin fr-par/11111111-1111-1111-1111-111111111111/admin
+    /// $ pulumi import scaleway:documentdb/user:User admin fr-par/11111111-1111-1111-1111-111111111111/admin
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:documentdb/user:User")]

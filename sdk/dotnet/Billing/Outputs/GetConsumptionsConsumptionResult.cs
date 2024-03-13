@@ -14,21 +14,29 @@ namespace Pulumi.Scaleway.Billing.Outputs
     public sealed class GetConsumptionsConsumptionResult
     {
         /// <summary>
-        /// The category of the consumption.
+        /// The consumed quantity.
         /// </summary>
-        public readonly string Category;
+        public readonly string BilledQuantity;
         /// <summary>
-        /// The description of the consumption.
+        /// The name of the consumption category.
         /// </summary>
-        public readonly string Description;
+        public readonly string CategoryName;
+        /// <summary>
+        /// The product name.
+        /// </summary>
+        public readonly string ProductName;
+        /// <summary>
+        /// `project_id`) The ID of the project the consumption list is associated with.
+        /// </summary>
+        public readonly string ProjectId;
         /// <summary>
         /// The unique identifier of the product.
         /// </summary>
-        public readonly string OperationPath;
+        public readonly string Sku;
         /// <summary>
-        /// The project ID of the consumption.
+        /// The unit of consumed quantity.
         /// </summary>
-        public readonly string ProjectId;
+        public readonly string Unit;
         /// <summary>
         /// The monetary value of the consumption.
         /// </summary>
@@ -36,20 +44,26 @@ namespace Pulumi.Scaleway.Billing.Outputs
 
         [OutputConstructor]
         private GetConsumptionsConsumptionResult(
-            string category,
+            string billedQuantity,
 
-            string description,
+            string categoryName,
 
-            string operationPath,
+            string productName,
 
             string projectId,
 
+            string sku,
+
+            string unit,
+
             string value)
         {
-            Category = category;
-            Description = description;
-            OperationPath = operationPath;
+            BilledQuantity = billedQuantity;
+            CategoryName = categoryName;
+            ProductName = productName;
             ProjectId = projectId;
+            Sku = sku;
+            Unit = unit;
             Value = value;
         }
     }

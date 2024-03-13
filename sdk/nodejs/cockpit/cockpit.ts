@@ -9,10 +9,12 @@ import * as utilities from "../utilities";
 /**
  * ## Import
  *
- * Cockpits can be imported using the `{project_id}`, e.g. bash
+ * Cockpits can be imported using the `{project_id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:cockpit/cockpit:Cockpit main 11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:cockpit/cockpit:Cockpit main 11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Cockpit extends pulumi.CustomResource {
@@ -59,6 +61,10 @@ export class Cockpit extends pulumi.CustomResource {
      * `projectId`) The ID of the project the cockpit is associated with.
      */
     public readonly projectId!: pulumi.Output<string>;
+    /**
+     * Push_url
+     */
+    public /*out*/ readonly pushUrls!: pulumi.Output<outputs.cockpit.CockpitPushUrl[]>;
 
     /**
      * Create a Cockpit resource with the given unique name, arguments, and options.
@@ -77,12 +83,14 @@ export class Cockpit extends pulumi.CustomResource {
             resourceInputs["plan"] = state ? state.plan : undefined;
             resourceInputs["planId"] = state ? state.planId : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["pushUrls"] = state ? state.pushUrls : undefined;
         } else {
             const args = argsOrState as CockpitArgs | undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["planId"] = undefined /*out*/;
+            resourceInputs["pushUrls"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Cockpit.__pulumiType, name, resourceInputs, opts);
@@ -109,6 +117,10 @@ export interface CockpitState {
      * `projectId`) The ID of the project the cockpit is associated with.
      */
     projectId?: pulumi.Input<string>;
+    /**
+     * Push_url
+     */
+    pushUrls?: pulumi.Input<pulumi.Input<inputs.cockpit.CockpitPushUrl>[]>;
 }
 
 /**

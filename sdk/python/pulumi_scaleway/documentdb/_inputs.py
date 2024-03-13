@@ -122,6 +122,7 @@ class ReadReplicaPrivateNetworkArgs:
         :param pulumi.Input[str] service_ip: The IP network address within the private subnet. This must be an IPv4 address with a
                CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
                service if not set.
+        :param pulumi.Input[str] zone: Private network zone
         """
         pulumi.set(__self__, "private_network_id", private_network_id)
         if endpoint_id is not None:
@@ -228,6 +229,9 @@ class ReadReplicaPrivateNetworkArgs:
     @property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private network zone
+        """
         return pulumi.get(self, "zone")
 
     @zone.setter

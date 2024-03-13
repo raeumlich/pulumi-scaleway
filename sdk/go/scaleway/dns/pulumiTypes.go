@@ -691,6 +691,7 @@ func (o RecordWeightedArrayOutput) Index(i pulumi.IntInput) RecordWeightedOutput
 }
 
 type GetRecordGeoIp struct {
+	// The list of matches
 	Matches []GetRecordGeoIpMatch `pulumi:"matches"`
 }
 
@@ -706,6 +707,7 @@ type GetRecordGeoIpInput interface {
 }
 
 type GetRecordGeoIpArgs struct {
+	// The list of matches
 	Matches GetRecordGeoIpMatchArrayInput `pulumi:"matches"`
 }
 
@@ -760,6 +762,7 @@ func (o GetRecordGeoIpOutput) ToGetRecordGeoIpOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The list of matches
 func (o GetRecordGeoIpOutput) Matches() GetRecordGeoIpMatchArrayOutput {
 	return o.ApplyT(func(v GetRecordGeoIp) []GetRecordGeoIpMatch { return v.Matches }).(GetRecordGeoIpMatchArrayOutput)
 }
@@ -785,8 +788,10 @@ func (o GetRecordGeoIpArrayOutput) Index(i pulumi.IntInput) GetRecordGeoIpOutput
 }
 
 type GetRecordGeoIpMatch struct {
+	// List of continents (eg: EU for Europe, NA for North America, AS for Asia...). List of all continents code: https://api.scaleway.com/domain-private/v2beta1/continents
 	Continents []string `pulumi:"continents"`
-	Countries  []string `pulumi:"countries"`
+	// List of countries (eg: FR for France, US for the United States, GB for Great Britain...). List of all countries code: https://api.scaleway.com/domain-private/v2beta1/countries
+	Countries []string `pulumi:"countries"`
 	// The content of the record (an IPv4 for an `A`, a string for a `TXT`...).
 	// Cannot be used with `recordId`.
 	Data string `pulumi:"data"`
@@ -804,8 +809,10 @@ type GetRecordGeoIpMatchInput interface {
 }
 
 type GetRecordGeoIpMatchArgs struct {
+	// List of continents (eg: EU for Europe, NA for North America, AS for Asia...). List of all continents code: https://api.scaleway.com/domain-private/v2beta1/continents
 	Continents pulumi.StringArrayInput `pulumi:"continents"`
-	Countries  pulumi.StringArrayInput `pulumi:"countries"`
+	// List of countries (eg: FR for France, US for the United States, GB for Great Britain...). List of all countries code: https://api.scaleway.com/domain-private/v2beta1/countries
+	Countries pulumi.StringArrayInput `pulumi:"countries"`
 	// The content of the record (an IPv4 for an `A`, a string for a `TXT`...).
 	// Cannot be used with `recordId`.
 	Data pulumi.StringInput `pulumi:"data"`
@@ -862,10 +869,12 @@ func (o GetRecordGeoIpMatchOutput) ToGetRecordGeoIpMatchOutputWithContext(ctx co
 	return o
 }
 
+// List of continents (eg: EU for Europe, NA for North America, AS for Asia...). List of all continents code: https://api.scaleway.com/domain-private/v2beta1/continents
 func (o GetRecordGeoIpMatchOutput) Continents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRecordGeoIpMatch) []string { return v.Continents }).(pulumi.StringArrayOutput)
 }
 
+// List of countries (eg: FR for France, US for the United States, GB for Great Britain...). List of all countries code: https://api.scaleway.com/domain-private/v2beta1/countries
 func (o GetRecordGeoIpMatchOutput) Countries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRecordGeoIpMatch) []string { return v.Countries }).(pulumi.StringArrayOutput)
 }
@@ -897,11 +906,16 @@ func (o GetRecordGeoIpMatchArrayOutput) Index(i pulumi.IntInput) GetRecordGeoIpM
 }
 
 type GetRecordHttpService struct {
-	Ips         []string `pulumi:"ips"`
-	MustContain string   `pulumi:"mustContain"`
-	Strategy    string   `pulumi:"strategy"`
-	Url         string   `pulumi:"url"`
-	UserAgent   string   `pulumi:"userAgent"`
+	// IPs to check
+	Ips []string `pulumi:"ips"`
+	// Text to search
+	MustContain string `pulumi:"mustContain"`
+	// Strategy to return an IP from the IPs list
+	Strategy string `pulumi:"strategy"`
+	// URL to match the mustContain text to validate an IP
+	Url string `pulumi:"url"`
+	// User-agent used when checking the URL
+	UserAgent string `pulumi:"userAgent"`
 }
 
 // GetRecordHttpServiceInput is an input type that accepts GetRecordHttpServiceArgs and GetRecordHttpServiceOutput values.
@@ -916,11 +930,16 @@ type GetRecordHttpServiceInput interface {
 }
 
 type GetRecordHttpServiceArgs struct {
-	Ips         pulumi.StringArrayInput `pulumi:"ips"`
-	MustContain pulumi.StringInput      `pulumi:"mustContain"`
-	Strategy    pulumi.StringInput      `pulumi:"strategy"`
-	Url         pulumi.StringInput      `pulumi:"url"`
-	UserAgent   pulumi.StringInput      `pulumi:"userAgent"`
+	// IPs to check
+	Ips pulumi.StringArrayInput `pulumi:"ips"`
+	// Text to search
+	MustContain pulumi.StringInput `pulumi:"mustContain"`
+	// Strategy to return an IP from the IPs list
+	Strategy pulumi.StringInput `pulumi:"strategy"`
+	// URL to match the mustContain text to validate an IP
+	Url pulumi.StringInput `pulumi:"url"`
+	// User-agent used when checking the URL
+	UserAgent pulumi.StringInput `pulumi:"userAgent"`
 }
 
 func (GetRecordHttpServiceArgs) ElementType() reflect.Type {
@@ -974,22 +993,27 @@ func (o GetRecordHttpServiceOutput) ToGetRecordHttpServiceOutputWithContext(ctx 
 	return o
 }
 
+// IPs to check
 func (o GetRecordHttpServiceOutput) Ips() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRecordHttpService) []string { return v.Ips }).(pulumi.StringArrayOutput)
 }
 
+// Text to search
 func (o GetRecordHttpServiceOutput) MustContain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRecordHttpService) string { return v.MustContain }).(pulumi.StringOutput)
 }
 
+// Strategy to return an IP from the IPs list
 func (o GetRecordHttpServiceOutput) Strategy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRecordHttpService) string { return v.Strategy }).(pulumi.StringOutput)
 }
 
+// URL to match the mustContain text to validate an IP
 func (o GetRecordHttpServiceOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRecordHttpService) string { return v.Url }).(pulumi.StringOutput)
 }
 
+// User-agent used when checking the URL
 func (o GetRecordHttpServiceOutput) UserAgent() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRecordHttpService) string { return v.UserAgent }).(pulumi.StringOutput)
 }
@@ -1017,7 +1041,8 @@ func (o GetRecordHttpServiceArrayOutput) Index(i pulumi.IntInput) GetRecordHttpS
 type GetRecordView struct {
 	// The content of the record (an IPv4 for an `A`, a string for a `TXT`...).
 	// Cannot be used with `recordId`.
-	Data   string `pulumi:"data"`
+	Data string `pulumi:"data"`
+	// The subnet of the view
 	Subnet string `pulumi:"subnet"`
 }
 
@@ -1035,7 +1060,8 @@ type GetRecordViewInput interface {
 type GetRecordViewArgs struct {
 	// The content of the record (an IPv4 for an `A`, a string for a `TXT`...).
 	// Cannot be used with `recordId`.
-	Data   pulumi.StringInput `pulumi:"data"`
+	Data pulumi.StringInput `pulumi:"data"`
+	// The subnet of the view
 	Subnet pulumi.StringInput `pulumi:"subnet"`
 }
 
@@ -1096,6 +1122,7 @@ func (o GetRecordViewOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRecordView) string { return v.Data }).(pulumi.StringOutput)
 }
 
+// The subnet of the view
 func (o GetRecordViewOutput) Subnet() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRecordView) string { return v.Subnet }).(pulumi.StringOutput)
 }
@@ -1121,8 +1148,10 @@ func (o GetRecordViewArrayOutput) Index(i pulumi.IntInput) GetRecordViewOutput {
 }
 
 type GetRecordWeighted struct {
-	Ip     string `pulumi:"ip"`
-	Weight int    `pulumi:"weight"`
+	// The weighted IP
+	Ip string `pulumi:"ip"`
+	// The weight of the IP
+	Weight int `pulumi:"weight"`
 }
 
 // GetRecordWeightedInput is an input type that accepts GetRecordWeightedArgs and GetRecordWeightedOutput values.
@@ -1137,8 +1166,10 @@ type GetRecordWeightedInput interface {
 }
 
 type GetRecordWeightedArgs struct {
-	Ip     pulumi.StringInput `pulumi:"ip"`
-	Weight pulumi.IntInput    `pulumi:"weight"`
+	// The weighted IP
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// The weight of the IP
+	Weight pulumi.IntInput `pulumi:"weight"`
 }
 
 func (GetRecordWeightedArgs) ElementType() reflect.Type {
@@ -1192,10 +1223,12 @@ func (o GetRecordWeightedOutput) ToGetRecordWeightedOutputWithContext(ctx contex
 	return o
 }
 
+// The weighted IP
 func (o GetRecordWeightedOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRecordWeighted) string { return v.Ip }).(pulumi.StringOutput)
 }
 
+// The weight of the IP
 func (o GetRecordWeightedOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v GetRecordWeighted) int { return v.Weight }).(pulumi.IntOutput)
 }

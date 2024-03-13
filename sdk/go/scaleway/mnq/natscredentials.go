@@ -17,8 +17,10 @@ import (
 // our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/nats-overview/)
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +48,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Namespaces can be imported using the `{region}/{id}`, e.g. bash
+// Namespaces can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:mnq/nATSCredentials:NATSCredentials main fr-par/11111111111111111111111111111111
-//
+// $ pulumi import scaleway:mnq/nATSCredentials:NATSCredentials main fr-par/11111111111111111111111111111111
 // ```
 type NATSCredentials struct {
 	pulumi.CustomResourceState

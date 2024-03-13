@@ -13,6 +13,9 @@ namespace Pulumi.Scaleway.Objectstorage.Outputs
     [OutputType]
     public sealed class GetBucketLifecycleRuleExpirationResult
     {
+        /// <summary>
+        /// Specifies the number of days after object creation when the specific rule action takes effect
+        /// </summary>
         public readonly int Days;
 
         [OutputConstructor]

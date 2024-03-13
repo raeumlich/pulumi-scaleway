@@ -13,7 +13,13 @@ namespace Pulumi.Scaleway.Dns.Outputs
     [OutputType]
     public sealed class GetRecordWeightedResult
     {
+        /// <summary>
+        /// The weighted IP
+        /// </summary>
         public readonly string Ip;
+        /// <summary>
+        /// The weight of the IP
+        /// </summary>
         public readonly int Weight;
 
         [OutputConstructor]

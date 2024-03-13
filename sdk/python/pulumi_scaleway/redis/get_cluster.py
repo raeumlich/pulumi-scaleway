@@ -217,12 +217,14 @@ def get_cluster(cluster_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     my_cluster = scaleway.redis.get_cluster(cluster_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_id: The Redis cluster ID.
@@ -273,12 +275,14 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     my_cluster = scaleway.redis.get_cluster(cluster_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_id: The Redis cluster ID.

@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// For more information, see [the documentation](https://developers.scaleway.com/en/products/flexible-ip/api).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,8 +36,11 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Duplicate on many other flexible IPs
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -83,13 +88,16 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Flexible IP Mac Addresses can be imported using the `{zone}/{id}`, e.g. bash
+    /// Flexible IP Mac Addresses can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:elasticmetal/flexibleIPMACAddress:FlexibleIPMACAddress main fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:elasticmetal/flexibleIPMACAddress:FlexibleIPMACAddress main fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:elasticmetal/flexibleIPMACAddress:FlexibleIPMACAddress")]

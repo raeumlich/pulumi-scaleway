@@ -13,8 +13,10 @@ namespace Pulumi.Scaleway.Serverless
     /// Creates and manages a Scaleway Serverless Job Definition. For more information, see [the documentation](https://pkg.go.dev/github.com/scaleway/scaleway-sdk-go@master/api/jobs/v1alpha1).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,13 +40,16 @@ namespace Pulumi.Scaleway.Serverless
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Serverless Jobs can be imported using the `{region}/{id}`, e.g. bash
+    /// Serverless Jobs can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:serverless/jobDefinition:JobDefinition job fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:serverless/jobDefinition:JobDefinition job fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:serverless/jobDefinition:JobDefinition")]
@@ -61,6 +66,9 @@ namespace Pulumi.Scaleway.Serverless
         /// </summary>
         [Output("cpuLimit")]
         public Output<int> CpuLimit { get; private set; } = null!;
+
+        [Output("cron")]
+        public Output<Outputs.JobDefinitionCron?> Cron { get; private set; } = null!;
 
         /// <summary>
         /// The description of the job
@@ -169,6 +177,9 @@ namespace Pulumi.Scaleway.Serverless
         [Input("cpuLimit", required: true)]
         public Input<int> CpuLimit { get; set; } = null!;
 
+        [Input("cron")]
+        public Input<Inputs.JobDefinitionCronArgs>? Cron { get; set; }
+
         /// <summary>
         /// The description of the job
         /// </summary>
@@ -242,6 +253,9 @@ namespace Pulumi.Scaleway.Serverless
         /// </summary>
         [Input("cpuLimit")]
         public Input<int>? CpuLimit { get; set; }
+
+        [Input("cron")]
+        public Input<Inputs.JobDefinitionCronGetArgs>? Cron { get; set; }
 
         /// <summary>
         /// The description of the job

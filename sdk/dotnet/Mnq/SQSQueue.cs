@@ -15,8 +15,10 @@ namespace Pulumi.Scaleway.Mnq
     /// our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/how-to/create-manage-queues/)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,6 +50,7 @@ namespace Pulumi.Scaleway.Mnq
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [ScalewayResourceType("scaleway:mnq/sQSQueue:SQSQueue")]
     public partial class SQSQueue : global::Pulumi.CustomResource

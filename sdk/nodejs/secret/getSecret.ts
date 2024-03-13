@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -24,6 +25,7 @@ import * as utilities from "../utilities";
  *     name: "your_secret_name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     args = args || {};
@@ -32,6 +34,7 @@ export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("scaleway:secret/getSecret:getSecret", {
         "name": args.name,
         "organizationId": args.organizationId,
+        "path": args.path,
         "projectId": args.projectId,
         "region": args.region,
         "secretId": args.secretId,
@@ -52,6 +55,11 @@ export interface GetSecretArgs {
      * If no default organizationId is set, one must be set explicitly in this datasource
      */
     organizationId?: string;
+    /**
+     * The secret path.
+     * Conflicts with `secretId`.
+     */
+    path?: string;
     /**
      * `projectId`) The ID of the
      * project the secret is associated with.
@@ -80,6 +88,7 @@ export interface GetSecretResult {
     readonly id: string;
     readonly name?: string;
     readonly organizationId: string;
+    readonly path?: string;
     readonly projectId?: string;
     readonly region?: string;
     readonly secretId?: string;
@@ -96,6 +105,7 @@ export interface GetSecretResult {
  *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -108,6 +118,7 @@ export interface GetSecretResult {
  *     name: "your_secret_name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecretOutput(args?: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))
@@ -127,6 +138,11 @@ export interface GetSecretOutputArgs {
      * If no default organizationId is set, one must be set explicitly in this datasource
      */
     organizationId?: pulumi.Input<string>;
+    /**
+     * The secret path.
+     * Conflicts with `secretId`.
+     */
+    path?: pulumi.Input<string>;
     /**
      * `projectId`) The ID of the
      * project the secret is associated with.

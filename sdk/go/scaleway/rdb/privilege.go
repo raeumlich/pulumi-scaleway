@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,13 +57,10 @@ import (
 //			}
 //			_, err = rdb.NewPrivilege(ctx, "mainPrivilege", &rdb.PrivilegeArgs{
 //				InstanceId:   mainInstance.ID(),
-//				UserName:     pulumi.String("my-db-user"),
-//				DatabaseName: pulumi.String("my-db-name"),
+//				UserName:     mainUser.Name,
+//				DatabaseName: mainDatabase.Name,
 //				Permission:   pulumi.String("all"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				mainUser,
-//				mainDatabase,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -71,15 +69,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// The user privileges can be imported using the `{region}/{instance_id}/{database_name}/{user_name}`, e.g. bash
+// The user privileges can be imported using the `{region}/{instance_id}/{database_name}/{user_name}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:rdb/privilege:Privilege o fr-par/11111111-1111-1111-1111-111111111111/database_name/foo
-//
+// $ pulumi import scaleway:rdb/privilege:Privilege o fr-par/11111111-1111-1111-1111-111111111111/database_name/foo
 // ```
 type Privilege struct {
 	pulumi.CustomResourceState

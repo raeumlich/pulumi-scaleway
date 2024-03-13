@@ -235,8 +235,10 @@ class ContainerToken(pulumi.CustomResource):
         For more information see [the documentation](https://developers.scaleway.com/en/products/containers/api/#tokens-26b085).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -250,13 +252,16 @@ class ContainerToken(pulumi.CustomResource):
         # Container Token
         container = scaleway.serverless.ContainerToken("container", container_id=main_container.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Tokens can be imported using the `{region}/{id}`, e.g. bash
+        Tokens can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:serverless/containerToken:ContainerToken main fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:serverless/containerToken:ContainerToken main fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -282,8 +287,10 @@ class ContainerToken(pulumi.CustomResource):
         For more information see [the documentation](https://developers.scaleway.com/en/products/containers/api/#tokens-26b085).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -297,13 +304,16 @@ class ContainerToken(pulumi.CustomResource):
         # Container Token
         container = scaleway.serverless.ContainerToken("container", container_id=main_container.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Tokens can be imported using the `{region}/{id}`, e.g. bash
+        Tokens can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:serverless/containerToken:ContainerToken main fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:serverless/containerToken:ContainerToken main fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

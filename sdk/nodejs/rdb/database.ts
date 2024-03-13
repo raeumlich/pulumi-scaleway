@@ -9,21 +9,26 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
  *
  * const main = new scaleway.rdb.Database("main", {instanceId: scaleway_rdb_instance.main.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * RDB Database can be imported using the `{region}/{id}/{DBNAME}`, e.g. bash
+ * RDB Database can be imported using the `{region}/{id}/{DBNAME}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:rdb/database:Database rdb01_mydb fr-par/11111111-1111-1111-1111-111111111111/mydb
+ * $ pulumi import scaleway:rdb/database:Database rdb01_mydb fr-par/11111111-1111-1111-1111-111111111111/mydb
  * ```
  */
 export class Database extends pulumi.CustomResource {

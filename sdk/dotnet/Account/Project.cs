@@ -12,10 +12,12 @@ namespace Pulumi.Scaleway.Account
     /// <summary>
     /// ## Import
     /// 
-    /// Projects can be imported using the `id`, e.g. bash
+    /// Projects can be imported using the `id`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:account/project:Project project 11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:account/project:Project project 11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:account/project:Project")]

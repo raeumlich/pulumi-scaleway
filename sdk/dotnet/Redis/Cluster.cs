@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Redis
     /// For more information, see [the documentation](https://developers.scaleway.com/en/products/redis/api/v1alpha1/).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,8 +51,11 @@ namespace Pulumi.Scaleway.Redis
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With settings
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,8 +79,11 @@ namespace Pulumi.Scaleway.Redis
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With a private network
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -114,13 +122,16 @@ namespace Pulumi.Scaleway.Redis
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Redis Cluster can be imported using the `{zone}/{id}`, e.g. bash
+    /// Redis Cluster can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:redis/cluster:Cluster main fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:redis/cluster:Cluster main fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:redis/cluster:Cluster")]
@@ -144,8 +155,12 @@ namespace Pulumi.Scaleway.Redis
         /// &gt; **Important:** You cannot set `cluster_size` to 2, you either have to choose Standalone mode (1 node) or Cluster mode
         /// which is minimum 3 (1 main node + 2 secondary nodes)
         /// 
-        /// &gt; **Important:** You can set a bigger `cluster_size` than you initially did, it will migrate the Redis Cluster, but
-        /// keep in mind that you cannot downgrade a Redis Cluster so setting a smaller `cluster_size` will not have any effect.
+        /// &gt; **Important:** If you are using the Cluster mode (&gt;=3 nodes), you can set a bigger `cluster_size` than you initially
+        /// did, it will migrate the Redis Cluster but keep in mind that you cannot downgrade a Redis Cluster, so setting a smaller
+        /// `cluster_size` will destroy and recreate your Cluster.
+        /// 
+        /// &gt; **Important:** If you are using the Standalone mode (1 node), setting a bigger `cluster_size` will destroy and
+        /// recreate your Cluster as you will be switching to the Cluster mode.
         /// </summary>
         [Output("clusterSize")]
         public Output<int> ClusterSize { get; private set; } = null!;
@@ -180,26 +195,6 @@ namespace Pulumi.Scaleway.Redis
         /// <summary>
         /// Describes the private network you want to connect to your cluster. If not set, a public
         /// network will be provided. More details on the Private Network section
-        /// 
-        /// &gt; **Important:** The way to use private networks differs whether you are using redis in standalone or cluster mode.
-        /// 
-        /// - Standalone mode (`cluster_size` = 1) : you can attach as many private networks as you want (each must be a separate
-        /// block). If you detach your only private network, your cluster won't be reachable until you define a new private or
-        /// public network. You can modify your private_network and its specs, you can have both a private and public network side
-        /// by side.
-        /// 
-        /// - Cluster mode (`cluster_size` &gt; 1) : you can define a single private network as you create your cluster, you won't be
-        /// able to edit or detach it afterward, unless you create another cluster. Your `service_ips` must be listed as follows:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Output("privateNetworks")]
         public Output<ImmutableArray<Outputs.ClusterPrivateNetwork>> PrivateNetworks { get; private set; } = null!;
@@ -336,8 +331,12 @@ namespace Pulumi.Scaleway.Redis
         /// &gt; **Important:** You cannot set `cluster_size` to 2, you either have to choose Standalone mode (1 node) or Cluster mode
         /// which is minimum 3 (1 main node + 2 secondary nodes)
         /// 
-        /// &gt; **Important:** You can set a bigger `cluster_size` than you initially did, it will migrate the Redis Cluster, but
-        /// keep in mind that you cannot downgrade a Redis Cluster so setting a smaller `cluster_size` will not have any effect.
+        /// &gt; **Important:** If you are using the Cluster mode (&gt;=3 nodes), you can set a bigger `cluster_size` than you initially
+        /// did, it will migrate the Redis Cluster but keep in mind that you cannot downgrade a Redis Cluster, so setting a smaller
+        /// `cluster_size` will destroy and recreate your Cluster.
+        /// 
+        /// &gt; **Important:** If you are using the Standalone mode (1 node), setting a bigger `cluster_size` will destroy and
+        /// recreate your Cluster as you will be switching to the Cluster mode.
         /// </summary>
         [Input("clusterSize")]
         public Input<int>? ClusterSize { get; set; }
@@ -379,26 +378,6 @@ namespace Pulumi.Scaleway.Redis
         /// <summary>
         /// Describes the private network you want to connect to your cluster. If not set, a public
         /// network will be provided. More details on the Private Network section
-        /// 
-        /// &gt; **Important:** The way to use private networks differs whether you are using redis in standalone or cluster mode.
-        /// 
-        /// - Standalone mode (`cluster_size` = 1) : you can attach as many private networks as you want (each must be a separate
-        /// block). If you detach your only private network, your cluster won't be reachable until you define a new private or
-        /// public network. You can modify your private_network and its specs, you can have both a private and public network side
-        /// by side.
-        /// 
-        /// - Cluster mode (`cluster_size` &gt; 1) : you can define a single private network as you create your cluster, you won't be
-        /// able to edit or detach it afterward, unless you create another cluster. Your `service_ips` must be listed as follows:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public InputList<Inputs.ClusterPrivateNetworkArgs> PrivateNetworks
         {
@@ -507,8 +486,12 @@ namespace Pulumi.Scaleway.Redis
         /// &gt; **Important:** You cannot set `cluster_size` to 2, you either have to choose Standalone mode (1 node) or Cluster mode
         /// which is minimum 3 (1 main node + 2 secondary nodes)
         /// 
-        /// &gt; **Important:** You can set a bigger `cluster_size` than you initially did, it will migrate the Redis Cluster, but
-        /// keep in mind that you cannot downgrade a Redis Cluster so setting a smaller `cluster_size` will not have any effect.
+        /// &gt; **Important:** If you are using the Cluster mode (&gt;=3 nodes), you can set a bigger `cluster_size` than you initially
+        /// did, it will migrate the Redis Cluster but keep in mind that you cannot downgrade a Redis Cluster, so setting a smaller
+        /// `cluster_size` will destroy and recreate your Cluster.
+        /// 
+        /// &gt; **Important:** If you are using the Standalone mode (1 node), setting a bigger `cluster_size` will destroy and
+        /// recreate your Cluster as you will be switching to the Cluster mode.
         /// </summary>
         [Input("clusterSize")]
         public Input<int>? ClusterSize { get; set; }
@@ -556,26 +539,6 @@ namespace Pulumi.Scaleway.Redis
         /// <summary>
         /// Describes the private network you want to connect to your cluster. If not set, a public
         /// network will be provided. More details on the Private Network section
-        /// 
-        /// &gt; **Important:** The way to use private networks differs whether you are using redis in standalone or cluster mode.
-        /// 
-        /// - Standalone mode (`cluster_size` = 1) : you can attach as many private networks as you want (each must be a separate
-        /// block). If you detach your only private network, your cluster won't be reachable until you define a new private or
-        /// public network. You can modify your private_network and its specs, you can have both a private and public network side
-        /// by side.
-        /// 
-        /// - Cluster mode (`cluster_size` &gt; 1) : you can define a single private network as you create your cluster, you won't be
-        /// able to edit or detach it afterward, unless you create another cluster. Your `service_ips` must be listed as follows:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public InputList<Inputs.ClusterPrivateNetworkGetArgs> PrivateNetworks
         {

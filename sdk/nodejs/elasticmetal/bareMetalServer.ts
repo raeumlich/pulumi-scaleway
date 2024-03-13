@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * Creates and manages Scaleway Compute Baremetal servers. For more information, see [the documentation](https://developers.scaleway.com/en/products/baremetal/api).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -26,8 +28,11 @@ import * as utilities from "../utilities";
  *     sshKeyIds: [main.then(main => main.id)],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Without install config
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -42,13 +47,16 @@ import * as utilities from "../utilities";
  *     installConfigAfterward: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Baremetal servers can be imported using the `{zone}/{id}`, e.g. bash
+ * Baremetal servers can be imported using the `{zone}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:elasticmetal/bareMetalServer:BareMetalServer web fr-par-2/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:elasticmetal/bareMetalServer:BareMetalServer web fr-par-2/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class BareMetalServer extends pulumi.CustomResource {

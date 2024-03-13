@@ -13,8 +13,10 @@ namespace Pulumi.Scaleway.Ipam
     /// Books and manages Scaleway IPAM IPs.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,8 +49,11 @@ namespace Pulumi.Scaleway.Ipam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Request a specific IPv4
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,7 +75,7 @@ namespace Pulumi.Scaleway.Ipam
     /// 
     ///     var ip01 = new Scaleway.Ipam.IP("ip01", new()
     ///     {
-    ///         Address = "172.16.32.7/22",
+    ///         Address = "172.16.32.7",
     ///         Sources = new[]
     ///         {
     ///             new Scaleway.Ipam.Inputs.IPSourceArgs
@@ -82,8 +87,11 @@ namespace Pulumi.Scaleway.Ipam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Request an IPv6
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,13 +128,16 @@ namespace Pulumi.Scaleway.Ipam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// IPAM IPs can be imported using the `{region}/{id}`, e.g. bash
+    /// IPAM IPs can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:ipam/iP:IP ip_demo fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:ipam/iP:IP ip_demo fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:ipam/iP:IP")]
@@ -167,6 +178,12 @@ namespace Pulumi.Scaleway.Ipam
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<Outputs.IPResource>> Resources { get; private set; } = null!;
+
+        /// <summary>
+        /// The reverses DNS for this IP.
+        /// </summary>
+        [Output("reverses")]
+        public Output<ImmutableArray<Outputs.IPReverse>> Reverses { get; private set; } = null!;
 
         /// <summary>
         /// The source in which to book the IP.
@@ -335,6 +352,18 @@ namespace Pulumi.Scaleway.Ipam
         {
             get => _resources ?? (_resources = new InputList<Inputs.IPResourceGetArgs>());
             set => _resources = value;
+        }
+
+        [Input("reverses")]
+        private InputList<Inputs.IPReverseGetArgs>? _reverses;
+
+        /// <summary>
+        /// The reverses DNS for this IP.
+        /// </summary>
+        public InputList<Inputs.IPReverseGetArgs> Reverses
+        {
+            get => _reverses ?? (_reverses = new InputList<Inputs.IPReverseGetArgs>());
+            set => _reverses = value;
         }
 
         [Input("sources")]

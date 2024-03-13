@@ -163,8 +163,10 @@ class FunctionDomain(pulumi.CustomResource):
         For more information see [the documentation](https://developers.scaleway.com/en/products/functions/api/).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -182,13 +184,16 @@ class FunctionDomain(pulumi.CustomResource):
             hostname="example.com",
             opts=pulumi.ResourceOptions(depends_on=[main_function]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Domain can be imported using the `{region}/{id}`, e.g. bash
+        Domain can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:serverless/functionDomain:FunctionDomain main fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:serverless/functionDomain:FunctionDomain main fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,8 +216,10 @@ class FunctionDomain(pulumi.CustomResource):
         For more information see [the documentation](https://developers.scaleway.com/en/products/functions/api/).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -230,13 +237,16 @@ class FunctionDomain(pulumi.CustomResource):
             hostname="example.com",
             opts=pulumi.ResourceOptions(depends_on=[main_function]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Domain can be imported using the `{region}/{id}`, e.g. bash
+        Domain can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:serverless/functionDomain:FunctionDomain main fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:serverless/functionDomain:FunctionDomain main fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

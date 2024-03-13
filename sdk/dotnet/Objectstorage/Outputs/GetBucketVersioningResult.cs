@@ -13,6 +13,9 @@ namespace Pulumi.Scaleway.Objectstorage.Outputs
     [OutputType]
     public sealed class GetBucketVersioningResult
     {
+        /// <summary>
+        /// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

@@ -11,8 +11,10 @@ namespace Pulumi.Scaleway.Iot
 {
     /// <summary>
     /// ## Example Usage
+    /// 
     /// ### S3 Route
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,8 +48,11 @@ namespace Pulumi.Scaleway.Iot
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Rest Route
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,13 +83,16 @@ namespace Pulumi.Scaleway.Iot
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// IoT Routes can be imported using the `{region}/{id}`, e.g. bash
+    /// IoT Routes can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:iot/route:Route route01 fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:iot/route:Route route01 fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:iot/route:Route")]

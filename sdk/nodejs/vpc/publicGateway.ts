@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -22,13 +23,16 @@ import * as utilities from "../utilities";
  *     type: "VPC-GW-S",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Public gateway can be imported using the `{zone}/{id}`, e.g. bash
+ * Public gateway can be imported using the `{zone}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:vpc/publicGateway:PublicGateway main fr-par-1/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:vpc/publicGateway:PublicGateway main fr-par-1/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class PublicGateway extends pulumi.CustomResource {

@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Secret
     /// For more information, see [the documentation](https://developers.scaleway.com/en/products/secret_manager/api/v1alpha1/).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,13 +38,16 @@ namespace Pulumi.Scaleway.Secret
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// The Secret can be imported using the `{region}/{id}`, e.g. bash
+    /// The Secret can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:secret/secret:Secret main fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:secret/secret:Secret main fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:secret/secret:Secret")]
@@ -65,6 +70,12 @@ namespace Pulumi.Scaleway.Secret
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Path of the secret, defaults to `/`.
+        /// </summary>
+        [Output("path")]
+        public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
         /// The project ID containing is the secret.
@@ -163,6 +174,12 @@ namespace Pulumi.Scaleway.Secret
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Path of the secret, defaults to `/`.
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
         /// The project ID containing is the secret.
         /// </summary>
         [Input("projectId")]
@@ -212,6 +229,12 @@ namespace Pulumi.Scaleway.Secret
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Path of the secret, defaults to `/`.
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
 
         /// <summary>
         /// The project ID containing is the secret.

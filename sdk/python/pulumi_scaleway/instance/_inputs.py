@@ -250,6 +250,7 @@ class SecurityGroupInboundRuleArgs:
         :param pulumi.Input[str] ip: The ip this rule apply to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param pulumi.Input[str] ip_range: The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param pulumi.Input[int] port: The port this rule applies to. If no `port` nor `port_range` are specified, the rule will apply to all port. Only one of `port` and `port_range` should be specified.
+        :param pulumi.Input[str] port_range: Computed port range for this rule (e.g: 1-1024, 22-22)
         :param pulumi.Input[str] protocol: The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
         """
         pulumi.set(__self__, "action", action)
@@ -321,6 +322,9 @@ class SecurityGroupInboundRuleArgs:
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        Computed port range for this rule (e.g: 1-1024, 22-22)
+        """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
@@ -354,6 +358,7 @@ class SecurityGroupOutboundRuleArgs:
         :param pulumi.Input[str] ip: The ip this rule apply to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param pulumi.Input[str] ip_range: The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param pulumi.Input[int] port: The port this rule applies to. If no `port` nor `port_range` are specified, the rule will apply to all port. Only one of `port` and `port_range` should be specified.
+        :param pulumi.Input[str] port_range: Computed port range for this rule (e.g: 1-1024, 22-22)
         :param pulumi.Input[str] protocol: The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
         """
         pulumi.set(__self__, "action", action)
@@ -425,6 +430,9 @@ class SecurityGroupOutboundRuleArgs:
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        Computed port range for this rule (e.g: 1-1024, 22-22)
+        """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
@@ -458,6 +466,7 @@ class SecurityGroupRulesInboundRuleArgs:
         :param pulumi.Input[str] ip: The ip this rule apply to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param pulumi.Input[str] ip_range: The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param pulumi.Input[int] port: The port this rule apply to. If no port is specified, rule will apply to all port.
+        :param pulumi.Input[str] port_range: Computed port range for this rule (e.g: 1-1024, 22-22)
         :param pulumi.Input[str] protocol: The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
         """
         pulumi.set(__self__, "action", action)
@@ -529,6 +538,9 @@ class SecurityGroupRulesInboundRuleArgs:
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        Computed port range for this rule (e.g: 1-1024, 22-22)
+        """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
@@ -562,6 +574,7 @@ class SecurityGroupRulesOutboundRuleArgs:
         :param pulumi.Input[str] ip: The ip this rule apply to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param pulumi.Input[str] ip_range: The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param pulumi.Input[int] port: The port this rule apply to. If no port is specified, rule will apply to all port.
+        :param pulumi.Input[str] port_range: Computed port range for this rule (e.g: 1-1024, 22-22)
         :param pulumi.Input[str] protocol: The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
         """
         pulumi.set(__self__, "action", action)
@@ -633,6 +646,9 @@ class SecurityGroupRulesOutboundRuleArgs:
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        Computed port range for this rule (e.g: 1-1024, 22-22)
+        """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
@@ -660,6 +676,9 @@ class ServerPrivateNetworkArgs:
                  status: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] pn_id: The Private Network ID
+        :param pulumi.Input[str] mac_address: MAC address of the NIC
+        :param pulumi.Input[str] status: The private NIC state
         :param pulumi.Input[str] zone: `zone`) The zone in which the server should be created.
         """
         pulumi.set(__self__, "pn_id", pn_id)
@@ -673,6 +692,9 @@ class ServerPrivateNetworkArgs:
     @property
     @pulumi.getter(name="pnId")
     def pn_id(self) -> pulumi.Input[str]:
+        """
+        The Private Network ID
+        """
         return pulumi.get(self, "pn_id")
 
     @pn_id.setter
@@ -682,6 +704,9 @@ class ServerPrivateNetworkArgs:
     @property
     @pulumi.getter(name="macAddress")
     def mac_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        MAC address of the NIC
+        """
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
@@ -691,6 +716,9 @@ class ServerPrivateNetworkArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private NIC state
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -759,6 +787,7 @@ class ServerRootVolumeArgs:
                  volume_id: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] boot: Set the volume where the boot the server
         :param pulumi.Input[bool] delete_on_termination: Forces deletion of the root volume on instance termination.
                
                > **Important:** Updates to `root_volume.size_in_gb` will be ignored after the creation of the server.
@@ -786,6 +815,9 @@ class ServerRootVolumeArgs:
     @property
     @pulumi.getter
     def boot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set the volume where the boot the server
+        """
         return pulumi.get(self, "boot")
 
     @boot.setter

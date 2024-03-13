@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// <summary>
         /// Gets information about multiple Flexible IPs.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,8 +74,7 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFlexibleIPsResult> InvokeAsync(GetFlexibleIPsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlexibleIPsResult>("scaleway:elasticmetal/getFlexibleIPs:getFlexibleIPs", args ?? new GetFlexibleIPsArgs(), options.WithDefaults());
@@ -84,10 +82,9 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// <summary>
         /// Gets information about multiple Flexible IPs.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -145,8 +142,7 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFlexibleIPsResult> Invoke(GetFlexibleIPsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlexibleIPsResult>("scaleway:elasticmetal/getFlexibleIPs:getFlexibleIPs", args ?? new GetFlexibleIPsInvokeArgs(), options.WithDefaults());

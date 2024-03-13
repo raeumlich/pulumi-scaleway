@@ -226,8 +226,10 @@ class SDBDatabase(pulumi.CustomResource):
         Creates and manages Scaleway Serverless SQL Databases. For more information, see [the documentation](https://www.scaleway.com/en/developers/api/serverless-databases/).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -236,13 +238,16 @@ class SDBDatabase(pulumi.CustomResource):
             max_cpu=8,
             min_cpu=0)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Serverless SQL Database can be imported using the `{region}/{id}`, e.g. bash
+        Serverless SQL Database can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:serverless/sDBDatabase:SDBDatabase database fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:serverless/sDBDatabase:SDBDatabase database fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -265,8 +270,10 @@ class SDBDatabase(pulumi.CustomResource):
         Creates and manages Scaleway Serverless SQL Databases. For more information, see [the documentation](https://www.scaleway.com/en/developers/api/serverless-databases/).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -275,13 +282,16 @@ class SDBDatabase(pulumi.CustomResource):
             max_cpu=8,
             min_cpu=0)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Serverless SQL Database can be imported using the `{region}/{id}`, e.g. bash
+        Serverless SQL Database can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:serverless/sDBDatabase:SDBDatabase database fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:serverless/sDBDatabase:SDBDatabase database fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

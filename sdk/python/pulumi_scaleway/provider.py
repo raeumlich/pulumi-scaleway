@@ -33,20 +33,32 @@ class ProviderArgs:
         :param pulumi.Input[str] secret_key: The Scaleway secret Key.
         :param pulumi.Input[str] zone: The zone you want to attach the resource to
         """
+        if access_key is None:
+            access_key = _utilities.get_env('SCW_ACCESS_KEY')
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
         if api_url is not None:
             pulumi.set(__self__, "api_url", api_url)
+        if organization_id is None:
+            organization_id = _utilities.get_env('SCW_DEFAULT_ORGANIZATION_ID')
         if organization_id is not None:
             pulumi.set(__self__, "organization_id", organization_id)
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
+        if project_id is None:
+            project_id = _utilities.get_env('SCW_DEFAULT_PROJECT_ID')
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
+        if region is None:
+            region = _utilities.get_env('SCW_DEFAULT_REGION')
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if secret_key is None:
+            secret_key = _utilities.get_env('SCW_SECRET_KEY')
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
+        if zone is None:
+            zone = _utilities.get_env('SCW_DEFAULT_ZONE')
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
 
@@ -222,13 +234,25 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
+            if access_key is None:
+                access_key = _utilities.get_env('SCW_ACCESS_KEY')
             __props__.__dict__["access_key"] = access_key
             __props__.__dict__["api_url"] = api_url
+            if organization_id is None:
+                organization_id = _utilities.get_env('SCW_DEFAULT_ORGANIZATION_ID')
             __props__.__dict__["organization_id"] = organization_id
             __props__.__dict__["profile"] = profile
+            if project_id is None:
+                project_id = _utilities.get_env('SCW_DEFAULT_PROJECT_ID')
             __props__.__dict__["project_id"] = project_id
+            if region is None:
+                region = _utilities.get_env('SCW_DEFAULT_REGION')
             __props__.__dict__["region"] = region
+            if secret_key is None:
+                secret_key = _utilities.get_env('SCW_SECRET_KEY')
             __props__.__dict__["secret_key"] = secret_key
+            if zone is None:
+                zone = _utilities.get_env('SCW_DEFAULT_ZONE')
             __props__.__dict__["zone"] = zone
         super(Provider, __self__).__init__(
             'scaleway',

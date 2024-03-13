@@ -17,8 +17,10 @@ import (
 // For more information, see [the documentation](https://developers.scaleway.com/en/products/vpc-gw/api/v1/#step-3-attach-private-networks-to-the-vpc-public-gateway).
 //
 // ## Example Usage
+//
 // ### Create a gateway network with IPAM config
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,8 +70,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create a gateway network with a booked IPAM IP
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,7 +102,7 @@ import (
 //				return err
 //			}
 //			ip01, err := ipam.NewIP(ctx, "ip01", &ipam.IPArgs{
-//				Address: pulumi.String("172.16.64.7/22"),
+//				Address: pulumi.String("172.16.64.7"),
 //				Sources: ipam.IPSourceArray{
 //					&ipam.IPSourceArgs{
 //						PrivateNetworkId: pn01.ID(),
@@ -132,8 +137,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create a gateway network with DHCP
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -183,8 +191,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create a gateway network with a static IP address
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -222,15 +233,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Gateway network can be imported using the `{zone}/{id}`, e.g. bash
+// Gateway network can be imported using the `{zone}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:vpc/gatewayNetwork:GatewayNetwork main fr-par-1/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:vpc/gatewayNetwork:GatewayNetwork main fr-par-1/11111111-1111-1111-1111-111111111111
 // ```
 type GatewayNetwork struct {
 	pulumi.CustomResourceState

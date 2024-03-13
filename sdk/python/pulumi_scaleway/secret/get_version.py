@@ -156,7 +156,41 @@ def get_version(project_id: Optional[str] = None,
                 secret_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVersionResult:
     """
-    Use this data source to access information about an existing resource.
+    Gets information about Scaleway a Secret Version.
+    For more information, see [the documentation](https://developers.scaleway.com/en/products/secret_manager/api/v1alpha1/#secret-versions-079501).
+
+    ## Examples
+
+    ### Basic
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_scaleway as scaleway
+
+    main_secret = scaleway.secret.Secret("mainSecret", description="barr")
+    main_version = scaleway.secret.Version("mainVersion",
+        description="your description",
+        secret_id=main_secret.id,
+        data="your_secret")
+    data_by_secret_id = scaleway.secret.get_version_output(secret_id=main_secret.id,
+        revision="1")
+    data_by_secret_name = scaleway.secret.get_version_output(secret_name=main_secret.name,
+        revision="1")
+    pulumi.export("scalewaySecretAccessPayload", data_by_secret_name.data)
+    pulumi.export("scalewaySecretAccessPayloadById", data_by_secret_id.data)
+    ```
+    <!--End PulumiCodeChooser -->
+
+    ## Data
+
+    Note: This Data Source give you **access** to the secret payload encoded en base64.
+
+    Be aware that this is a sensitive attribute. For more information,
+    see Sensitive Data in State.
+
+    > **Important:**  This property is sensitive and will not be displayed in the plan.
+
 
     :param str project_id: The ID of the project the Secret version is associated with.
     :param str region: `region`) The region
@@ -198,7 +232,41 @@ def get_version_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
                        secret_name: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVersionResult]:
     """
-    Use this data source to access information about an existing resource.
+    Gets information about Scaleway a Secret Version.
+    For more information, see [the documentation](https://developers.scaleway.com/en/products/secret_manager/api/v1alpha1/#secret-versions-079501).
+
+    ## Examples
+
+    ### Basic
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_scaleway as scaleway
+
+    main_secret = scaleway.secret.Secret("mainSecret", description="barr")
+    main_version = scaleway.secret.Version("mainVersion",
+        description="your description",
+        secret_id=main_secret.id,
+        data="your_secret")
+    data_by_secret_id = scaleway.secret.get_version_output(secret_id=main_secret.id,
+        revision="1")
+    data_by_secret_name = scaleway.secret.get_version_output(secret_name=main_secret.name,
+        revision="1")
+    pulumi.export("scalewaySecretAccessPayload", data_by_secret_name.data)
+    pulumi.export("scalewaySecretAccessPayloadById", data_by_secret_id.data)
+    ```
+    <!--End PulumiCodeChooser -->
+
+    ## Data
+
+    Note: This Data Source give you **access** to the secret payload encoded en base64.
+
+    Be aware that this is a sensitive attribute. For more information,
+    see Sensitive Data in State.
+
+    > **Important:**  This property is sensitive and will not be displayed in the plan.
+
 
     :param str project_id: The ID of the project the Secret version is associated with.
     :param str region: `region`) The region

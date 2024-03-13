@@ -20,10 +20,9 @@ namespace Pulumi.Scaleway.Serverless
         /// 
         /// You can check also our [containers guide](https://www.scaleway.com/en/docs/compute/containers/concepts/).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,8 +52,7 @@ namespace Pulumi.Scaleway.Serverless
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("scaleway:serverless/getContainer:getContainer", args ?? new GetContainerArgs(), options.WithDefaults());
@@ -68,10 +66,9 @@ namespace Pulumi.Scaleway.Serverless
         /// 
         /// You can check also our [containers guide](https://www.scaleway.com/en/docs/compute/containers/concepts/).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -101,8 +98,7 @@ namespace Pulumi.Scaleway.Serverless
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerResult>("scaleway:serverless/getContainer:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());

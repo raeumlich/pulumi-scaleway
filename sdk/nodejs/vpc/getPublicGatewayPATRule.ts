@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -62,6 +63,7 @@ import * as utilities from "../utilities";
  *     patRuleId: pat01.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicGatewayPATRule(args: GetPublicGatewayPATRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicGatewayPATRuleResult> {
 
@@ -127,6 +129,7 @@ export interface GetPublicGatewayPATRuleResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -179,6 +182,7 @@ export interface GetPublicGatewayPATRuleResult {
  *     patRuleId: pat01.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicGatewayPATRuleOutput(args: GetPublicGatewayPATRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicGatewayPATRuleResult> {
     return pulumi.output(args).apply((a: any) => getPublicGatewayPATRule(a, opts))

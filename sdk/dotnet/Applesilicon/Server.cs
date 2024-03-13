@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Applesilicon
     /// see [the documentation](https://www.scaleway.com/en/docs/compute/apple-silicon/concepts).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +33,16 @@ namespace Pulumi.Scaleway.Applesilicon
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Instance servers can be imported using the `{zone}/{id}`, e.g. bash
+    /// Instance servers can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:applesilicon/server:Server main fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:applesilicon/server:Server main fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:applesilicon/server:Server")]

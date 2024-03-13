@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Webhosting
         /// <summary>
         /// Gets information about a webhosting offer.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Scaleway.Webhosting
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOfferResult> InvokeAsync(GetOfferArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOfferResult>("scaleway:webhosting/getOffer:getOffer", args ?? new GetOfferArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Scaleway.Webhosting
         /// <summary>
         /// Gets information about a webhosting offer.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Scaleway.Webhosting
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOfferResult> Invoke(GetOfferInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfferResult>("scaleway:webhosting/getOffer:getOffer", args ?? new GetOfferInvokeArgs(), options.WithDefaults());

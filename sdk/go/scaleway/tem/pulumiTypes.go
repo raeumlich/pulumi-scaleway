@@ -147,11 +147,16 @@ func (o DomainReputationArrayOutput) Index(i pulumi.IntInput) DomainReputationOu
 }
 
 type GetDomainReputation struct {
-	PreviousScore    int    `pulumi:"previousScore"`
+	// The previously-calculated domain's reputation score
+	PreviousScore int `pulumi:"previousScore"`
+	// Time and date the previous reputation score was calculated
 	PreviousScoredAt string `pulumi:"previousScoredAt"`
-	Score            int    `pulumi:"score"`
-	ScoredAt         string `pulumi:"scoredAt"`
-	Status           string `pulumi:"status"`
+	// A range from 0 to 100 that determines your domain's reputation score
+	Score int `pulumi:"score"`
+	// Time and date the score was calculated
+	ScoredAt string `pulumi:"scoredAt"`
+	// Status of the domain's reputation
+	Status string `pulumi:"status"`
 }
 
 // GetDomainReputationInput is an input type that accepts GetDomainReputationArgs and GetDomainReputationOutput values.
@@ -166,11 +171,16 @@ type GetDomainReputationInput interface {
 }
 
 type GetDomainReputationArgs struct {
-	PreviousScore    pulumi.IntInput    `pulumi:"previousScore"`
+	// The previously-calculated domain's reputation score
+	PreviousScore pulumi.IntInput `pulumi:"previousScore"`
+	// Time and date the previous reputation score was calculated
 	PreviousScoredAt pulumi.StringInput `pulumi:"previousScoredAt"`
-	Score            pulumi.IntInput    `pulumi:"score"`
-	ScoredAt         pulumi.StringInput `pulumi:"scoredAt"`
-	Status           pulumi.StringInput `pulumi:"status"`
+	// A range from 0 to 100 that determines your domain's reputation score
+	Score pulumi.IntInput `pulumi:"score"`
+	// Time and date the score was calculated
+	ScoredAt pulumi.StringInput `pulumi:"scoredAt"`
+	// Status of the domain's reputation
+	Status pulumi.StringInput `pulumi:"status"`
 }
 
 func (GetDomainReputationArgs) ElementType() reflect.Type {
@@ -224,22 +234,27 @@ func (o GetDomainReputationOutput) ToGetDomainReputationOutputWithContext(ctx co
 	return o
 }
 
+// The previously-calculated domain's reputation score
 func (o GetDomainReputationOutput) PreviousScore() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainReputation) int { return v.PreviousScore }).(pulumi.IntOutput)
 }
 
+// Time and date the previous reputation score was calculated
 func (o GetDomainReputationOutput) PreviousScoredAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainReputation) string { return v.PreviousScoredAt }).(pulumi.StringOutput)
 }
 
+// A range from 0 to 100 that determines your domain's reputation score
 func (o GetDomainReputationOutput) Score() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainReputation) int { return v.Score }).(pulumi.IntOutput)
 }
 
+// Time and date the score was calculated
 func (o GetDomainReputationOutput) ScoredAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainReputation) string { return v.ScoredAt }).(pulumi.StringOutput)
 }
 
+// Status of the domain's reputation
 func (o GetDomainReputationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainReputation) string { return v.Status }).(pulumi.StringOutput)
 }

@@ -192,21 +192,26 @@ class Database(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         main = scaleway.rdb.Database("main", instance_id=scaleway_rdb_instance["main"]["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        RDB Database can be imported using the `{region}/{id}/{DBNAME}`, e.g. bash
+        RDB Database can be imported using the `{region}/{id}/{DBNAME}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:rdb/database:Database rdb01_mydb fr-par/11111111-1111-1111-1111-111111111111/mydb
+        $ pulumi import scaleway:rdb/database:Database rdb01_mydb fr-par/11111111-1111-1111-1111-111111111111/mydb
         ```
 
         :param str resource_name: The name of the resource.
@@ -228,21 +233,26 @@ class Database(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         main = scaleway.rdb.Database("main", instance_id=scaleway_rdb_instance["main"]["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        RDB Database can be imported using the `{region}/{id}/{DBNAME}`, e.g. bash
+        RDB Database can be imported using the `{region}/{id}/{DBNAME}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:rdb/database:Database rdb01_mydb fr-par/11111111-1111-1111-1111-111111111111/mydb
+        $ pulumi import scaleway:rdb/database:Database rdb01_mydb fr-par/11111111-1111-1111-1111-111111111111/mydb
         ```
 
         :param str resource_name: The name of the resource.

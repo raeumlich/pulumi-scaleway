@@ -13,7 +13,7 @@ const __config = new pulumi.Config("scaleway");
 export declare const accessKey: string | undefined;
 Object.defineProperty(exports, "accessKey", {
     get() {
-        return __config.get("accessKey");
+        return __config.get("accessKey") ?? utilities.getEnv("SCW_ACCESS_KEY");
     },
     enumerable: true,
 });
@@ -35,7 +35,7 @@ Object.defineProperty(exports, "apiUrl", {
 export declare const organizationId: string | undefined;
 Object.defineProperty(exports, "organizationId", {
     get() {
-        return __config.get("organizationId");
+        return __config.get("organizationId") ?? utilities.getEnv("SCW_DEFAULT_ORGANIZATION_ID");
     },
     enumerable: true,
 });
@@ -57,7 +57,7 @@ Object.defineProperty(exports, "profile", {
 export declare const projectId: string | undefined;
 Object.defineProperty(exports, "projectId", {
     get() {
-        return __config.get("projectId");
+        return __config.get("projectId") ?? utilities.getEnv("SCW_DEFAULT_PROJECT_ID");
     },
     enumerable: true,
 });
@@ -68,7 +68,7 @@ Object.defineProperty(exports, "projectId", {
 export declare const region: string | undefined;
 Object.defineProperty(exports, "region", {
     get() {
-        return __config.get("region");
+        return __config.get("region") ?? utilities.getEnv("SCW_DEFAULT_REGION");
     },
     enumerable: true,
 });
@@ -79,7 +79,7 @@ Object.defineProperty(exports, "region", {
 export declare const secretKey: string | undefined;
 Object.defineProperty(exports, "secretKey", {
     get() {
-        return __config.get("secretKey");
+        return __config.get("secretKey") ?? utilities.getEnv("SCW_SECRET_KEY");
     },
     enumerable: true,
 });
@@ -90,7 +90,7 @@ Object.defineProperty(exports, "secretKey", {
 export declare const zone: string | undefined;
 Object.defineProperty(exports, "zone", {
     get() {
-        return __config.get("zone");
+        return __config.get("zone") ?? utilities.getEnv("SCW_DEFAULT_ZONE");
     },
     enumerable: true,
 });

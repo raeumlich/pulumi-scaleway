@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Iot
         /// <summary>
         /// Gets information about an IOT Hub.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Scaleway.Iot
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("scaleway:iot/getHub:getHub", args ?? new GetHubArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Scaleway.Iot
         /// <summary>
         /// Gets information about an IOT Hub.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Scaleway.Iot
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetHubResult> Invoke(GetHubInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHubResult>("scaleway:iot/getHub:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
@@ -156,6 +152,8 @@ namespace Pulumi.Scaleway.Iot
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string MqttCa;
+        public readonly string MqttCaUrl;
         public readonly string? Name;
         public readonly string OrganizationId;
         public readonly string ProductPlan;
@@ -190,6 +188,10 @@ namespace Pulumi.Scaleway.Iot
 
             string id,
 
+            string mqttCa,
+
+            string mqttCaUrl,
+
             string? name,
 
             string organizationId,
@@ -216,6 +218,8 @@ namespace Pulumi.Scaleway.Iot
             HubCaChallenge = hubCaChallenge;
             HubId = hubId;
             Id = id;
+            MqttCa = mqttCa;
+            MqttCaUrl = mqttCaUrl;
             Name = name;
             OrganizationId = organizationId;
             ProductPlan = productPlan;

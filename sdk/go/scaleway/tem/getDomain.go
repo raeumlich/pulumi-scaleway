@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainResult
@@ -83,6 +85,7 @@ type LookupDomainResult struct {
 	SmtpPort             int                   `pulumi:"smtpPort"`
 	SmtpPortAlternative  int                   `pulumi:"smtpPortAlternative"`
 	SmtpPortUnsecure     int                   `pulumi:"smtpPortUnsecure"`
+	SmtpsAuthUser        string                `pulumi:"smtpsAuthUser"`
 	SmtpsPort            int                   `pulumi:"smtpsPort"`
 	SmtpsPortAlternative int                   `pulumi:"smtpsPortAlternative"`
 	SpfConfig            string                `pulumi:"spfConfig"`
@@ -206,6 +209,10 @@ func (o LookupDomainResultOutput) SmtpPortAlternative() pulumi.IntOutput {
 
 func (o LookupDomainResultOutput) SmtpPortUnsecure() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupDomainResult) int { return v.SmtpPortUnsecure }).(pulumi.IntOutput)
+}
+
+func (o LookupDomainResultOutput) SmtpsAuthUser() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.SmtpsAuthUser }).(pulumi.StringOutput)
 }
 
 func (o LookupDomainResultOutput) SmtpsPort() pulumi.IntOutput {

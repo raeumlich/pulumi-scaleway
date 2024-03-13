@@ -43,6 +43,9 @@ namespace Pulumi.Scaleway.Documentdb.Outputs
         /// service if not set.
         /// </summary>
         public readonly string? ServiceIp;
+        /// <summary>
+        /// Private network zone
+        /// </summary>
         public readonly string? Zone;
 
         [OutputConstructor]

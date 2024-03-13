@@ -125,6 +125,7 @@ class _IPState:
                  project_id: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input['IPResourceArgs']]]] = None,
+                 reverses: Optional[pulumi.Input[Sequence[pulumi.Input['IPReverseArgs']]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['IPSourceArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  updated_at: Optional[pulumi.Input[str]] = None,
@@ -137,6 +138,7 @@ class _IPState:
         :param pulumi.Input[str] project_id: `project_id`) The ID of the project the IP is associated with.
         :param pulumi.Input[str] region: `region`) The region of the IP.
         :param pulumi.Input[Sequence[pulumi.Input['IPResourceArgs']]] resources: The IP resource.
+        :param pulumi.Input[Sequence[pulumi.Input['IPReverseArgs']]] reverses: The reverses DNS for this IP.
         :param pulumi.Input[Sequence[pulumi.Input['IPSourceArgs']]] sources: The source in which to book the IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The tags associated with the IP.
         :param pulumi.Input[str] updated_at: Date and time of IP's last update (RFC 3339 format).
@@ -154,6 +156,8 @@ class _IPState:
             pulumi.set(__self__, "region", region)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
+        if reverses is not None:
+            pulumi.set(__self__, "reverses", reverses)
         if sources is not None:
             pulumi.set(__self__, "sources", sources)
         if tags is not None:
@@ -237,6 +241,18 @@ class _IPState:
 
     @property
     @pulumi.getter
+    def reverses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPReverseArgs']]]]:
+        """
+        The reverses DNS for this IP.
+        """
+        return pulumi.get(self, "reverses")
+
+    @reverses.setter
+    def reverses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPReverseArgs']]]]):
+        pulumi.set(self, "reverses", value)
+
+    @property
+    @pulumi.getter
     def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPSourceArgs']]]]:
         """
         The source in which to book the IP.
@@ -300,8 +316,10 @@ class IP(pulumi.CustomResource):
         Books and manages Scaleway IPAM IPs.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -316,8 +334,11 @@ class IP(pulumi.CustomResource):
             private_network_id=pn01.id,
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Request a specific IPv4
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -329,13 +350,16 @@ class IP(pulumi.CustomResource):
                 subnet="172.16.32.0/22",
             ))
         ip01 = scaleway.ipam.IP("ip01",
-            address="172.16.32.7/22",
+            address="172.16.32.7",
             sources=[scaleway.ipam.IPSourceArgs(
                 private_network_id=pn01.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Request an IPv6
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -352,13 +376,16 @@ class IP(pulumi.CustomResource):
                 private_network_id=pn01.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IPAM IPs can be imported using the `{region}/{id}`, e.g. bash
+        IPAM IPs can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:ipam/iP:IP ip_demo fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:ipam/iP:IP ip_demo fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -380,8 +407,10 @@ class IP(pulumi.CustomResource):
         Books and manages Scaleway IPAM IPs.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -396,8 +425,11 @@ class IP(pulumi.CustomResource):
             private_network_id=pn01.id,
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Request a specific IPv4
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -409,13 +441,16 @@ class IP(pulumi.CustomResource):
                 subnet="172.16.32.0/22",
             ))
         ip01 = scaleway.ipam.IP("ip01",
-            address="172.16.32.7/22",
+            address="172.16.32.7",
             sources=[scaleway.ipam.IPSourceArgs(
                 private_network_id=pn01.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Request an IPv6
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -432,13 +467,16 @@ class IP(pulumi.CustomResource):
                 private_network_id=pn01.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IPAM IPs can be imported using the `{region}/{id}`, e.g. bash
+        IPAM IPs can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:ipam/iP:IP ip_demo fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:ipam/iP:IP ip_demo fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -481,6 +519,7 @@ class IP(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
             __props__.__dict__["resources"] = None
+            __props__.__dict__["reverses"] = None
             __props__.__dict__["updated_at"] = None
             __props__.__dict__["zone"] = None
         super(IP, __self__).__init__(
@@ -499,6 +538,7 @@ class IP(pulumi.CustomResource):
             project_id: Optional[pulumi.Input[str]] = None,
             region: Optional[pulumi.Input[str]] = None,
             resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPResourceArgs']]]]] = None,
+            reverses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPReverseArgs']]]]] = None,
             sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSourceArgs']]]]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             updated_at: Optional[pulumi.Input[str]] = None,
@@ -516,6 +556,7 @@ class IP(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: `project_id`) The ID of the project the IP is associated with.
         :param pulumi.Input[str] region: `region`) The region of the IP.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPResourceArgs']]]] resources: The IP resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPReverseArgs']]]] reverses: The reverses DNS for this IP.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSourceArgs']]]] sources: The source in which to book the IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The tags associated with the IP.
         :param pulumi.Input[str] updated_at: Date and time of IP's last update (RFC 3339 format).
@@ -531,6 +572,7 @@ class IP(pulumi.CustomResource):
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["region"] = region
         __props__.__dict__["resources"] = resources
+        __props__.__dict__["reverses"] = reverses
         __props__.__dict__["sources"] = sources
         __props__.__dict__["tags"] = tags
         __props__.__dict__["updated_at"] = updated_at
@@ -584,6 +626,14 @@ class IP(pulumi.CustomResource):
         The IP resource.
         """
         return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter
+    def reverses(self) -> pulumi.Output[Sequence['outputs.IPReverse']]:
+        """
+        The reverses DNS for this IP.
+        """
+        return pulumi.get(self, "reverses")
 
     @property
     @pulumi.getter

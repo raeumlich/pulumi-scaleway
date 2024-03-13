@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -34,6 +35,7 @@ import * as utilities from "../utilities";
  *     lbId: mainLoadBalancer.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBackend(args?: GetBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendResult> {
     args = args || {};
@@ -112,6 +114,7 @@ export interface GetBackendResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -134,6 +137,7 @@ export interface GetBackendResult {
  *     lbId: mainLoadBalancer.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBackendOutput(args?: GetBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendResult> {
     return pulumi.output(args).apply((a: any) => getBackend(a, opts))

@@ -14,6 +14,7 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,13 +27,16 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// IPs can be imported using the `{zone}/{id}`, e.g. bash
+    /// IPs can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:instance/iP:IP server_ip fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:instance/iP:IP server_ip fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:instance/iP:IP")]

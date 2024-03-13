@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -35,8 +37,11 @@ import * as utilities from "../utilities";
  *     directAccess: {},
  * });
  * ```
- * ### Private network
+ * <!--End PulumiCodeChooser -->
  *
+ * ### Private network with static endpoint
+ *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -58,13 +63,42 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Private network with IPAM
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as scaleway from "@pulumi/scaleway";
+ *
+ * const instance = new scaleway.rdb.Instance("instance", {
+ *     nodeType: "db-dev-s",
+ *     engine: "PostgreSQL-14",
+ *     isHaCluster: false,
+ *     disableBackup: true,
+ *     userName: "my_initial_user",
+ *     password: "thiZ_is_v&ry_s3cret",
+ * });
+ * const pn = new scaleway.vpc.PrivateNetwork("pn", {});
+ * const replica = new scaleway.rdb.ReadReplica("replica", {
+ *     instanceId: instance.id,
+ *     privateNetwork: {
+ *         privateNetworkId: pn.id,
+ *         enableIpam: true,
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Database Read replica can be imported using the `{region}/{id}`, e.g. bash
+ * Database Read replica can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:rdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:rdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class ReadReplica extends pulumi.CustomResource {

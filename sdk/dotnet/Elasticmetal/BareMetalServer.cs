@@ -13,8 +13,10 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// Creates and manages Scaleway Compute Baremetal servers. For more information, see [the documentation](https://developers.scaleway.com/en/products/baremetal/api).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,8 +43,11 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Without install config
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,13 +71,16 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Baremetal servers can be imported using the `{zone}/{id}`, e.g. bash
+    /// Baremetal servers can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:elasticmetal/bareMetalServer:BareMetalServer web fr-par-2/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:elasticmetal/bareMetalServer:BareMetalServer web fr-par-2/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:elasticmetal/bareMetalServer:BareMetalServer")]

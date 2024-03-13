@@ -22,7 +22,7 @@ class GetCockpitResult:
     """
     A collection of values returned by getCockpit.
     """
-    def __init__(__self__, endpoints=None, id=None, plan_id=None, project_id=None):
+    def __init__(__self__, endpoints=None, id=None, plan_id=None, project_id=None, push_urls=None):
         if endpoints and not isinstance(endpoints, list):
             raise TypeError("Expected argument 'endpoints' to be a list")
         pulumi.set(__self__, "endpoints", endpoints)
@@ -35,6 +35,9 @@ class GetCockpitResult:
         if project_id and not isinstance(project_id, str):
             raise TypeError("Expected argument 'project_id' to be a str")
         pulumi.set(__self__, "project_id", project_id)
+        if push_urls and not isinstance(push_urls, list):
+            raise TypeError("Expected argument 'push_urls' to be a list")
+        pulumi.set(__self__, "push_urls", push_urls)
 
     @property
     @pulumi.getter
@@ -65,6 +68,11 @@ class GetCockpitResult:
     def project_id(self) -> Optional[str]:
         return pulumi.get(self, "project_id")
 
+    @property
+    @pulumi.getter(name="pushUrls")
+    def push_urls(self) -> Sequence['outputs.GetCockpitPushUrlResult']:
+        return pulumi.get(self, "push_urls")
+
 
 class AwaitableGetCockpitResult(GetCockpitResult):
     # pylint: disable=using-constant-test
@@ -75,7 +83,8 @@ class AwaitableGetCockpitResult(GetCockpitResult):
             endpoints=self.endpoints,
             id=self.id,
             plan_id=self.plan_id,
-            project_id=self.project_id)
+            project_id=self.project_id,
+            push_urls=self.push_urls)
 
 
 def get_cockpit(project_id: Optional[str] = None,
@@ -87,19 +96,23 @@ def get_cockpit(project_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     main = scaleway.cockpit.get_cockpit()
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     main = scaleway.cockpit.get_cockpit(project_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str project_id: `project_id`) The ID of the project the cockpit is associated with.
@@ -113,7 +126,8 @@ def get_cockpit(project_id: Optional[str] = None,
         endpoints=pulumi.get(__ret__, 'endpoints'),
         id=pulumi.get(__ret__, 'id'),
         plan_id=pulumi.get(__ret__, 'plan_id'),
-        project_id=pulumi.get(__ret__, 'project_id'))
+        project_id=pulumi.get(__ret__, 'project_id'),
+        push_urls=pulumi.get(__ret__, 'push_urls'))
 
 
 @_utilities.lift_output_func(get_cockpit)
@@ -126,19 +140,23 @@ def get_cockpit_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     main = scaleway.cockpit.get_cockpit()
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     main = scaleway.cockpit.get_cockpit(project_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str project_id: `project_id`) The ID of the project the cockpit is associated with.

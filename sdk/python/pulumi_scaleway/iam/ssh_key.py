@@ -239,19 +239,23 @@ class SSHKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         main = scaleway.iam.SSHKey("main", public_key="<YOUR-PUBLIC-SSH-KEY>")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        SSH keys can be imported using the `id`, e.g. bash
+        SSH keys can be imported using the `id`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/sSHKey:SSHKey main 11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/sSHKey:SSHKey main 11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -275,19 +279,23 @@ class SSHKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         main = scaleway.iam.SSHKey("main", public_key="<YOUR-PUBLIC-SSH-KEY>")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        SSH keys can be imported using the `id`, e.g. bash
+        SSH keys can be imported using the `id`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/sSHKey:SSHKey main 11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/sSHKey:SSHKey main 11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

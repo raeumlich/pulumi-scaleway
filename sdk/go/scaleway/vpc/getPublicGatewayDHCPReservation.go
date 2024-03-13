@@ -13,6 +13,184 @@ import (
 
 // Gets information about a dhcp entries. For further information please check the
 // API [documentation](https://developers.scaleway.com/en/products/vpc-gw/api/v1/#dhcp-entries-e40fb6)
+//
+// ## Example Dynamic
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/instance"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/vpc"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mainPrivateNetwork, err := vpc.NewPrivateNetwork(ctx, "mainPrivateNetwork", nil)
+//			if err != nil {
+//				return err
+//			}
+//			mainServer, err := instance.NewServer(ctx, "mainServer", &instance.ServerArgs{
+//				Image: pulumi.String("ubuntu_jammy"),
+//				Type:  pulumi.String("DEV1-S"),
+//				Zone:  pulumi.String("fr-par-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainPrivateNIC, err := instance.NewPrivateNIC(ctx, "mainPrivateNIC", &instance.PrivateNICArgs{
+//				ServerId:         mainServer.ID(),
+//				PrivateNetworkId: mainPrivateNetwork.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainPublicGatewayIP, err := vpc.NewPublicGatewayIP(ctx, "mainPublicGatewayIP", nil)
+//			if err != nil {
+//				return err
+//			}
+//			mainPublicGatewayDHCP, err := vpc.NewPublicGatewayDHCP(ctx, "mainPublicGatewayDHCP", &vpc.PublicGatewayDHCPArgs{
+//				Subnet: pulumi.String("192.168.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainPublicGateway, err := vpc.NewPublicGateway(ctx, "mainPublicGateway", &vpc.PublicGatewayArgs{
+//				Type: pulumi.String("VPC-GW-S"),
+//				IpId: mainPublicGatewayIP.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainGatewayNetwork, err := vpc.NewGatewayNetwork(ctx, "mainGatewayNetwork", &vpc.GatewayNetworkArgs{
+//				GatewayId:        mainPublicGateway.ID(),
+//				PrivateNetworkId: mainPrivateNetwork.ID(),
+//				DhcpId:           mainPublicGatewayDHCP.ID(),
+//				CleanupDhcp:      pulumi.Bool(true),
+//				EnableMasquerade: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = vpc.LookupPublicGatewayDHCPReservationOutput(ctx, vpc.GetPublicGatewayDHCPReservationOutputArgs{
+//				MacAddress:       mainPrivateNIC.MacAddress,
+//				GatewayNetworkId: mainGatewayNetwork.ID(),
+//			}, nil)
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Example Static and PAT rule
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/instance"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/vpc"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mainPrivateNetwork, err := vpc.NewPrivateNetwork(ctx, "mainPrivateNetwork", nil)
+//			if err != nil {
+//				return err
+//			}
+//			mainSecurityGroup, err := instance.NewSecurityGroup(ctx, "mainSecurityGroup", &instance.SecurityGroupArgs{
+//				InboundDefaultPolicy:  pulumi.String("drop"),
+//				OutboundDefaultPolicy: pulumi.String("accept"),
+//				InboundRules: instance.SecurityGroupInboundRuleArray{
+//					&instance.SecurityGroupInboundRuleArgs{
+//						Action: pulumi.String("accept"),
+//						Port:   pulumi.Int(22),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainServer, err := instance.NewServer(ctx, "mainServer", &instance.ServerArgs{
+//				Image:           pulumi.String("ubuntu_jammy"),
+//				Type:            pulumi.String("DEV1-S"),
+//				Zone:            pulumi.String("fr-par-1"),
+//				SecurityGroupId: mainSecurityGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainPrivateNIC, err := instance.NewPrivateNIC(ctx, "mainPrivateNIC", &instance.PrivateNICArgs{
+//				ServerId:         mainServer.ID(),
+//				PrivateNetworkId: mainPrivateNetwork.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainPublicGatewayIP, err := vpc.NewPublicGatewayIP(ctx, "mainPublicGatewayIP", nil)
+//			if err != nil {
+//				return err
+//			}
+//			mainPublicGatewayDHCP, err := vpc.NewPublicGatewayDHCP(ctx, "mainPublicGatewayDHCP", &vpc.PublicGatewayDHCPArgs{
+//				Subnet: pulumi.String("192.168.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainPublicGateway, err := vpc.NewPublicGateway(ctx, "mainPublicGateway", &vpc.PublicGatewayArgs{
+//				Type: pulumi.String("VPC-GW-S"),
+//				IpId: mainPublicGatewayIP.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainGatewayNetwork, err := vpc.NewGatewayNetwork(ctx, "mainGatewayNetwork", &vpc.GatewayNetworkArgs{
+//				GatewayId:        mainPublicGateway.ID(),
+//				PrivateNetworkId: mainPrivateNetwork.ID(),
+//				DhcpId:           mainPublicGatewayDHCP.ID(),
+//				CleanupDhcp:      pulumi.Bool(true),
+//				EnableMasquerade: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainPublicGatewayDHCPReservation, err := vpc.NewPublicGatewayDHCPReservation(ctx, "mainPublicGatewayDHCPReservation", &vpc.PublicGatewayDHCPReservationArgs{
+//				GatewayNetworkId: mainGatewayNetwork.ID(),
+//				MacAddress:       mainPrivateNIC.MacAddress,
+//				IpAddress:        pulumi.String("192.168.1.4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// ## VPC PAT RULE
+//			_, err = vpc.NewPublicGatewayPATRule(ctx, "mainPublicGatewayPATRule", &vpc.PublicGatewayPATRuleArgs{
+//				GatewayId:   mainPublicGateway.ID(),
+//				PrivateIp:   mainPublicGatewayDHCPReservation.IpAddress,
+//				PrivatePort: pulumi.Int(22),
+//				PublicPort:  pulumi.Int(2222),
+//				Protocol:    pulumi.String("tcp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = vpc.LookupPublicGatewayDHCPReservationOutput(ctx, vpc.GetPublicGatewayDHCPReservationOutputArgs{
+//				ReservationId: mainPublicGatewayDHCPReservation.ID(),
+//			}, nil)
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 func LookupPublicGatewayDHCPReservation(ctx *pulumi.Context, args *LookupPublicGatewayDHCPReservationArgs, opts ...pulumi.InvokeOption) (*LookupPublicGatewayDHCPReservationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPublicGatewayDHCPReservationResult

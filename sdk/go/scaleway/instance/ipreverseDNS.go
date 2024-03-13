@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,15 +58,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// IPs reverse DNS can be imported using the `{zone}/{id}`, e.g. bash
+// IPs reverse DNS can be imported using the `{zone}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:instance/iPReverseDNS:IPReverseDNS reverse fr-par-1/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:instance/iPReverseDNS:IPReverseDNS reverse fr-par-1/11111111-1111-1111-1111-111111111111
 // ```
 type IPReverseDNS struct {
 	pulumi.CustomResourceState

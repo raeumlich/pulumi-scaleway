@@ -17,8 +17,10 @@ import (
 // You can also use the [scaleway-cli](https://github.com/scaleway/scaleway-cli) with `scw k8s version list` to list all available versions.
 //
 // ## Example Usage
+//
 // ### Use the latest version
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Use a specific version
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,6 +72,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetVersion(ctx *pulumi.Context, args *GetVersionArgs, opts ...pulumi.InvokeOption) (*GetVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVersionResult

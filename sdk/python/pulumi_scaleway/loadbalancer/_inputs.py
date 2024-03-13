@@ -453,7 +453,10 @@ class FrontendAclArgs:
         """
         :param pulumi.Input['FrontendAclActionArgs'] action: Action to undertake when an ACL filter matches.
         :param pulumi.Input['FrontendAclMatchArgs'] match: The ACL match rule. At least `ip_subnet` or `http_filter` and `http_filter_value` are required.
+        :param pulumi.Input[str] created_at: Date and time of ACL's creation (RFC 3339 format)
+        :param pulumi.Input[str] description: Description of the ACL
         :param pulumi.Input[str] name: The ACL name. If not provided it will be randomly generated.
+        :param pulumi.Input[str] updated_at: Date and time of ACL's update (RFC 3339 format)
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -493,6 +496,9 @@ class FrontendAclArgs:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time of ACL's creation (RFC 3339 format)
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -502,6 +508,9 @@ class FrontendAclArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the ACL
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -523,6 +532,9 @@ class FrontendAclArgs:
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time of ACL's update (RFC 3339 format)
+        """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
@@ -728,6 +740,7 @@ class LoadBalancerPrivateNetworkArgs:
         :param pulumi.Input[str] private_network_id: (Required) The ID of the Private Network to associate.
         :param pulumi.Input[bool] dhcp_config: (Optional) Set to true if you want to let DHCP assign IP addresses. See below.
         :param pulumi.Input[str] static_config: (Optional) Define a local ip address of your choice for the load balancer instance. See below.
+        :param pulumi.Input[str] status: The status of private network connection
         :param pulumi.Input[str] zone: `zone`) The zone of the load-balancer.
         """
         pulumi.set(__self__, "private_network_id", private_network_id)
@@ -779,6 +792,9 @@ class LoadBalancerPrivateNetworkArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of private network connection
+        """
         return pulumi.get(self, "status")
 
     @status.setter

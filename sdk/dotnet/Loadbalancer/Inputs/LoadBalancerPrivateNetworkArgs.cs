@@ -30,6 +30,9 @@ namespace Pulumi.Scaleway.Loadbalancer.Inputs
         [Input("staticConfig")]
         public Input<string>? StaticConfig { get; set; }
 
+        /// <summary>
+        /// The status of private network connection
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

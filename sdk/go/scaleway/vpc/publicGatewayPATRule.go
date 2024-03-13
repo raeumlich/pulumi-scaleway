@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,6 +99,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// PAT rule for SSH traffic
 //			_, err = vpc.NewPublicGatewayPATRule(ctx, "pat01", &vpc.PublicGatewayPATRuleArgs{
 //				GatewayId:   pg01.ID(),
 //				PrivateIp:   rsv01.IpAddress,
@@ -113,15 +115,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Public gateway PAT rules config can be imported using the `{zone}/{id}`, e.g. bash
+// Public gateway PAT rules config can be imported using the `{zone}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:vpc/publicGatewayPATRule:PublicGatewayPATRule main fr-par-1/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:vpc/publicGatewayPATRule:PublicGatewayPATRule main fr-par-1/11111111-1111-1111-1111-111111111111
 // ```
 type PublicGatewayPATRule struct {
 	pulumi.CustomResourceState

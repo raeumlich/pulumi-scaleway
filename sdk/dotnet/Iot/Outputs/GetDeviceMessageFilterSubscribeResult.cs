@@ -13,7 +13,13 @@ namespace Pulumi.Scaleway.Iot.Outputs
     [OutputType]
     public sealed class GetDeviceMessageFilterSubscribeResult
     {
+        /// <summary>
+        /// Subscribe message filter policy
+        /// </summary>
         public readonly string Policy;
+        /// <summary>
+        /// List of topics in the set
+        /// </summary>
         public readonly ImmutableArray<string> Topics;
 
         [OutputConstructor]

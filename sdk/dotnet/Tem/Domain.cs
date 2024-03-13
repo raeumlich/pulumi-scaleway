@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Tem
     /// For more information see [the documentation](https://developers.scaleway.com/en/products/transactional_email/api/).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,8 +33,11 @@ namespace Pulumi.Scaleway.Tem
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Add the required records to your DNS zone
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,13 +76,16 @@ namespace Pulumi.Scaleway.Tem
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Domains can be imported using the `{region}/{id}`, e.g. bash
+    /// Domains can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:tem/domain:Domain main fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:tem/domain:Domain main fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:tem/domain:Domain")]
@@ -180,6 +188,12 @@ namespace Pulumi.Scaleway.Tem
         /// </summary>
         [Output("smtpPortUnsecure")]
         public Output<int> SmtpPortUnsecure { get; private set; } = null!;
+
+        /// <summary>
+        /// SMTPS auth user refers to the identifier for a user authorized to send emails via SMTPS, ensuring secure email transmission.
+        /// </summary>
+        [Output("smtpsAuthUser")]
+        public Output<string> SmtpsAuthUser { get; private set; } = null!;
 
         /// <summary>
         /// The SMTPS port to use to send emails over TLS Wrapper.
@@ -389,6 +403,12 @@ namespace Pulumi.Scaleway.Tem
         /// </summary>
         [Input("smtpPortUnsecure")]
         public Input<int>? SmtpPortUnsecure { get; set; }
+
+        /// <summary>
+        /// SMTPS auth user refers to the identifier for a user authorized to send emails via SMTPS, ensuring secure email transmission.
+        /// </summary>
+        [Input("smtpsAuthUser")]
+        public Input<string>? SmtpsAuthUser { get; set; }
 
         /// <summary>
         /// The SMTPS port to use to send emails over TLS Wrapper.

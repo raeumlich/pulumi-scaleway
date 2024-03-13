@@ -253,6 +253,7 @@ def get_function(function_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -260,6 +261,7 @@ def get_function(function_id: Optional[str] = None,
     my_function = scaleway.serverless.get_function(function_id="11111111-1111-1111-1111-111111111111",
         namespace_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str function_id: The function id. Only one of `name` and `function_id` should be specified.
@@ -315,6 +317,7 @@ def get_function_output(function_id: Optional[pulumi.Input[Optional[str]]] = Non
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -322,6 +325,7 @@ def get_function_output(function_id: Optional[pulumi.Input[Optional[str]]] = Non
     my_function = scaleway.serverless.get_function(function_id="11111111-1111-1111-1111-111111111111",
         namespace_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str function_id: The function id. Only one of `name` and `function_id` should be specified.

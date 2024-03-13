@@ -21,8 +21,10 @@ namespace Pulumi.Scaleway.Instance
     /// About cloud-init documentation please check this [link](https://cloudinit.readthedocs.io/en/latest/).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,13 +70,16 @@ namespace Pulumi.Scaleway.Instance
     ///     }
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// User data can be imported using the `{zone}/{key}/{server_id}`, e.g. bash
+    /// User data can be imported using the `{zone}/{key}/{server_id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:instance/userData:UserData main fr-par-1/cloud-init/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:instance/userData:UserData main fr-par-1/cloud-init/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:instance/userData:UserData")]

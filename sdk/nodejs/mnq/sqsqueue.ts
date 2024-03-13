@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/how-to/create-manage-queues/)
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -32,6 +34,7 @@ import * as utilities from "../utilities";
  *     secretKey: mainSQSCredentials.secretKey,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class SQSQueue extends pulumi.CustomResource {
     /**

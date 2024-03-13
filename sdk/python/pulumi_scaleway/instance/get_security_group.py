@@ -196,12 +196,14 @@ def get_security_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     my_key = scaleway.instance.get_security_group(security_group_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The security group name. Only one of `name` and `security_group_id` should be specified.
@@ -246,12 +248,14 @@ def get_security_group_output(name: Optional[pulumi.Input[Optional[str]]] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     my_key = scaleway.instance.get_security_group(security_group_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The security group name. Only one of `name` and `security_group_id` should be specified.

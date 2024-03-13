@@ -226,6 +226,7 @@ def get_web_hosting(domain: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -233,6 +234,7 @@ def get_web_hosting(domain: Optional[str] = None,
     by_domain = scaleway.webhosting.get_web_hosting(domain="foobar.com")
     by_id = scaleway.webhosting.get_web_hosting(webhosting_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str domain: The hosting domain name. Only one of `domain` and `webhosting_id` should be specified.
@@ -282,6 +284,7 @@ def get_web_hosting_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -289,6 +292,7 @@ def get_web_hosting_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
     by_domain = scaleway.webhosting.get_web_hosting(domain="foobar.com")
     by_id = scaleway.webhosting.get_web_hosting(webhosting_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str domain: The hosting domain name. Only one of `domain` and `webhosting_id` should be specified.

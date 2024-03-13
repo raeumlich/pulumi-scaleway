@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     bucket: "bucket.test.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketPolicyResult> {
 
@@ -66,6 +68,7 @@ export interface GetBucketPolicyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -74,6 +77,7 @@ export interface GetBucketPolicyResult {
  *     bucket: "bucket.test.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBucketPolicy(a, opts))

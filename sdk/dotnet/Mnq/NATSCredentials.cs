@@ -15,8 +15,10 @@ namespace Pulumi.Scaleway.Mnq
     /// our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/nats-overview/)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +36,16 @@ namespace Pulumi.Scaleway.Mnq
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Namespaces can be imported using the `{region}/{id}`, e.g. bash
+    /// Namespaces can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:mnq/nATSCredentials:NATSCredentials main fr-par/11111111111111111111111111111111
+    /// $ pulumi import scaleway:mnq/nATSCredentials:NATSCredentials main fr-par/11111111111111111111111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:mnq/nATSCredentials:NATSCredentials")]

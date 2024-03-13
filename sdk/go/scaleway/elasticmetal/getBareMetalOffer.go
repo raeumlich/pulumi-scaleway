@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetBareMetalOffer(ctx *pulumi.Context, args *GetBareMetalOfferArgs, opts ...pulumi.InvokeOption) (*GetBareMetalOfferResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBareMetalOfferResult

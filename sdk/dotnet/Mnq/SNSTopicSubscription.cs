@@ -15,8 +15,10 @@ namespace Pulumi.Scaleway.Mnq
     /// our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,13 +60,16 @@ namespace Pulumi.Scaleway.Mnq
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// SNS topic subscriptions can be imported using the `{region}/{project-id}/{topic-name}/{subscription-id}`, e.g. bash
+    /// SNS topic subscriptions can be imported using the `{region}/{project-id}/{topic-name}/{subscription-id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:mnq/sNSTopicSubscription:SNSTopicSubscription main fr-par/11111111111111111111111111111111/my-topic/11111111111111111111111111111111
+    /// $ pulumi import scaleway:mnq/sNSTopicSubscription:SNSTopicSubscription main fr-par/11111111111111111111111111111111/my-topic/11111111111111111111111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:mnq/sNSTopicSubscription:SNSTopicSubscription")]

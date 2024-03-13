@@ -11,9 +11,16 @@ import (
 	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/internal"
 )
 
+// Creates and manages Scaleway Messaging and queuing Nats Accounts.
+// For further information please check
+// our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/nats-overview/)
+// To use Scaleway's provider with official nats jetstream provider, check out the corresponding guide
+//
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,15 +42,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Namespaces can be imported using the `{region}/{id}`, e.g. bash
+// Namespaces can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:mnq/nATSAccount:NATSAccount main fr-par/11111111111111111111111111111111
-//
+// $ pulumi import scaleway:mnq/nATSAccount:NATSAccount main fr-par/11111111111111111111111111111111
 // ```
 type NATSAccount struct {
 	pulumi.CustomResourceState

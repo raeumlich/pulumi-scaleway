@@ -18,6 +18,7 @@ import (
 //
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,6 +54,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretResult
@@ -71,6 +73,9 @@ type LookupSecretArgs struct {
 	// The organization ID the Project is associated with.
 	// If no default organizationId is set, one must be set explicitly in this datasource
 	OrganizationId *string `pulumi:"organizationId"`
+	// The secret path.
+	// Conflicts with `secretId`.
+	Path *string `pulumi:"path"`
 	// `projectId`) The ID of the
 	// project the secret is associated with.
 	ProjectId *string `pulumi:"projectId"`
@@ -89,6 +94,7 @@ type LookupSecretResult struct {
 	Id             string   `pulumi:"id"`
 	Name           *string  `pulumi:"name"`
 	OrganizationId string   `pulumi:"organizationId"`
+	Path           *string  `pulumi:"path"`
 	ProjectId      *string  `pulumi:"projectId"`
 	Region         *string  `pulumi:"region"`
 	SecretId       *string  `pulumi:"secretId"`
@@ -119,6 +125,9 @@ type LookupSecretOutputArgs struct {
 	// The organization ID the Project is associated with.
 	// If no default organizationId is set, one must be set explicitly in this datasource
 	OrganizationId pulumi.StringPtrInput `pulumi:"organizationId"`
+	// The secret path.
+	// Conflicts with `secretId`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
 	// `projectId`) The ID of the
 	// project the secret is associated with.
 	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
@@ -167,6 +176,10 @@ func (o LookupSecretResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupSecretResultOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+func (o LookupSecretResultOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSecretResultOutput) ProjectId() pulumi.StringPtrOutput {

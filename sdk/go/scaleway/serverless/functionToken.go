@@ -15,8 +15,10 @@ import (
 // For more information see [the documentation](https://developers.scaleway.com/en/products/functions/api/#tokens-26b085).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +44,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Namespace Token
 //			_, err = serverless.NewFunctionToken(ctx, "namespace", &serverless.FunctionTokenArgs{
 //				NamespaceId: mainFunctionNamespace.ID(),
 //				ExpiresAt:   pulumi.String("2022-10-18T11:35:15+02:00"),
@@ -49,6 +52,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Function Token
 //			_, err = serverless.NewFunctionToken(ctx, "function", &serverless.FunctionTokenArgs{
 //				FunctionId: mainFunction.ID(),
 //			})
@@ -60,15 +64,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Tokens can be imported using the `{region}/{id}`, e.g. bash
+// Tokens can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:serverless/functionToken:FunctionToken main fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:serverless/functionToken:FunctionToken main fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type FunctionToken struct {
 	pulumi.CustomResourceState

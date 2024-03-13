@@ -13,6 +13,9 @@ namespace Pulumi.Scaleway.Dns.Outputs
     [OutputType]
     public sealed class GetRecordGeoIpResult
     {
+        /// <summary>
+        /// The list of matches
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetRecordGeoIpMatchResult> Matches;
 
         [OutputConstructor]

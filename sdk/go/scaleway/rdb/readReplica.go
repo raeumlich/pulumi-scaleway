@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,8 +60,11 @@ import (
 //	}
 //
 // ```
-// ### Private network
+// <!--End PulumiCodeChooser -->
 //
+// ### Private network with static endpoint
+//
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,15 +108,64 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Private network with IPAM
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/rdb"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/vpc"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			instance, err := rdb.NewInstance(ctx, "instance", &rdb.InstanceArgs{
+//				NodeType:      pulumi.String("db-dev-s"),
+//				Engine:        pulumi.String("PostgreSQL-14"),
+//				IsHaCluster:   pulumi.Bool(false),
+//				DisableBackup: pulumi.Bool(true),
+//				UserName:      pulumi.String("my_initial_user"),
+//				Password:      pulumi.String("thiZ_is_v&ry_s3cret"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			pn, err := vpc.NewPrivateNetwork(ctx, "pn", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rdb.NewReadReplica(ctx, "replica", &rdb.ReadReplicaArgs{
+//				InstanceId: instance.ID(),
+//				PrivateNetwork: &rdb.ReadReplicaPrivateNetworkArgs{
+//					PrivateNetworkId: pn.ID(),
+//					EnableIpam:       pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Database Read replica can be imported using the `{region}/{id}`, e.g. bash
+// Database Read replica can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:rdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:rdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type ReadReplica struct {
 	pulumi.CustomResourceState

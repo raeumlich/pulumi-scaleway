@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'CockpitEndpointArgs',
+    'CockpitPushUrlArgs',
     'TokenScopesArgs',
 ]
 
@@ -99,6 +100,45 @@ class CockpitEndpointArgs:
     @traces_url.setter
     def traces_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "traces_url", value)
+
+
+@pulumi.input_type
+class CockpitPushUrlArgs:
+    def __init__(__self__, *,
+                 push_logs_url: Optional[pulumi.Input[str]] = None,
+                 push_metrics_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] push_logs_url: Push URL for logs (Grafana Loki)
+        :param pulumi.Input[str] push_metrics_url: Push URL for metrics (Grafana Mimir)
+        """
+        if push_logs_url is not None:
+            pulumi.set(__self__, "push_logs_url", push_logs_url)
+        if push_metrics_url is not None:
+            pulumi.set(__self__, "push_metrics_url", push_metrics_url)
+
+    @property
+    @pulumi.getter(name="pushLogsUrl")
+    def push_logs_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push URL for logs (Grafana Loki)
+        """
+        return pulumi.get(self, "push_logs_url")
+
+    @push_logs_url.setter
+    def push_logs_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "push_logs_url", value)
+
+    @property
+    @pulumi.getter(name="pushMetricsUrl")
+    def push_metrics_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Push URL for metrics (Grafana Mimir)
+        """
+        return pulumi.get(self, "push_metrics_url")
+
+    @push_metrics_url.setter
+    def push_metrics_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "push_metrics_url", value)
 
 
 @pulumi.input_type

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetOffer(ctx *pulumi.Context, args *GetOfferArgs, opts ...pulumi.InvokeOption) (*GetOfferResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOfferResult

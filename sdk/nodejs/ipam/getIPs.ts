@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ### By tag
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -21,9 +22,11 @@ import * as utilities from "../utilities";
  *     tags: ["tag"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ### By type and resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -53,6 +56,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIPs(args?: GetIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetIPsResult> {
     args = args || {};
@@ -161,6 +165,7 @@ export interface GetIPsResult {
  *
  * ### By tag
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -169,9 +174,11 @@ export interface GetIPsResult {
  *     tags: ["tag"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ### By type and resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -201,6 +208,7 @@ export interface GetIPsResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIPsOutput(args?: GetIPsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPsResult> {
     return pulumi.output(args).apply((a: any) => getIPs(a, opts))

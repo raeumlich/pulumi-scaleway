@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -115,6 +116,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupPublicGatewayPATRule(ctx *pulumi.Context, args *LookupPublicGatewayPATRuleArgs, opts ...pulumi.InvokeOption) (*LookupPublicGatewayPATRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPublicGatewayPATRuleResult

@@ -11,6 +11,69 @@ import (
 	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/internal"
 )
 
+// Gets information about Scaleway a Secret Version.
+// For more information, see [the documentation](https://developers.scaleway.com/en/products/secret_manager/api/v1alpha1/#secret-versions-079501).
+//
+// ## Examples
+//
+// ### Basic
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/secret"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mainSecret, err := secret.NewSecret(ctx, "mainSecret", &secret.SecretArgs{
+//				Description: pulumi.String("barr"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = secret.NewVersion(ctx, "mainVersion", &secret.VersionArgs{
+//				Description: pulumi.String("your description"),
+//				SecretId:    mainSecret.ID(),
+//				Data:        pulumi.String("your_secret"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			dataBySecretId := secret.LookupVersionOutput(ctx, secret.GetVersionOutputArgs{
+//				SecretId: mainSecret.ID(),
+//				Revision: pulumi.String("1"),
+//			}, nil)
+//			dataBySecretName := secret.LookupVersionOutput(ctx, secret.GetVersionOutputArgs{
+//				SecretName: mainSecret.Name,
+//				Revision:   pulumi.String("1"),
+//			}, nil)
+//			ctx.Export("scalewaySecretAccessPayload", dataBySecretName.ApplyT(func(dataBySecretName secret.GetVersionResult) (*string, error) {
+//				return &dataBySecretName.Data, nil
+//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("scalewaySecretAccessPayloadById", dataBySecretId.ApplyT(func(dataBySecretId secret.GetVersionResult) (*string, error) {
+//				return &dataBySecretId.Data, nil
+//			}).(pulumi.StringPtrOutput))
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Data
+//
+// Note: This Data Source give you **access** to the secret payload encoded en base64.
+//
+// Be aware that this is a sensitive attribute. For more information,
+// see Sensitive Data in State.
+//
+// > **Important:**  This property is sensitive and will not be displayed in the plan.
 func LookupVersion(ctx *pulumi.Context, args *LookupVersionArgs, opts ...pulumi.InvokeOption) (*LookupVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVersionResult

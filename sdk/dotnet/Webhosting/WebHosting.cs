@@ -15,6 +15,7 @@ namespace Pulumi.Scaleway.Webhosting
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,13 +44,16 @@ namespace Pulumi.Scaleway.Webhosting
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Hostings can be imported using the `{region}/{id}`, e.g. bash
+    /// Hostings can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:webhosting/webHosting:WebHosting hosting01 fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:webhosting/webHosting:WebHosting hosting01 fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:webhosting/webHosting:WebHosting")]

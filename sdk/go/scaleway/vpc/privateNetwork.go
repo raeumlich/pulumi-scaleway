@@ -15,8 +15,10 @@ import (
 // For more information, see [the documentation](https://developers.scaleway.com/en/products/vpc/api/#private-networks-ac2df4).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With subnets
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,15 +87,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Private networks can be imported using the `{region}/{id}`, e.g. bash
+// Private networks can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:vpc/privateNetwork:PrivateNetwork vpc_demo fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:vpc/privateNetwork:PrivateNetwork vpc_demo fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type PrivateNetwork struct {
 	pulumi.CustomResourceState

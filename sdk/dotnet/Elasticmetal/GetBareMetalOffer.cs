@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// <summary>
         /// Gets information about a baremetal offer. For more information, see [the documentation](https://developers.scaleway.com/en/products/baremetal/api).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBareMetalOfferResult> InvokeAsync(GetBareMetalOfferArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBareMetalOfferResult>("scaleway:elasticmetal/getBareMetalOffer:getBareMetalOffer", args ?? new GetBareMetalOfferArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// <summary>
         /// Gets information about a baremetal offer. For more information, see [the documentation](https://developers.scaleway.com/en/products/baremetal/api).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBareMetalOfferResult> Invoke(GetBareMetalOfferInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalOfferResult>("scaleway:elasticmetal/getBareMetalOffer:getBareMetalOffer", args ?? new GetBareMetalOfferInvokeArgs(), options.WithDefaults());

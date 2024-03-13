@@ -14,6 +14,7 @@ namespace Pulumi.Scaleway.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,16 @@ namespace Pulumi.Scaleway.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Applications can be imported using the `{id}`, e.g. bash
+    /// Applications can be imported using the `{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:iam/application:Application main 11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:iam/application:Application main 11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:iam/application:Application")]

@@ -1023,8 +1023,10 @@ class Server(pulumi.CustomResource):
         Please check our [FAQ - Instances](https://www.scaleway.com/en/docs/faq/instances).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1035,8 +1037,11 @@ class Server(pulumi.CustomResource):
             image="ubuntu_jammy",
             ip_id=public_ip.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With additional volumes and tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1056,8 +1061,11 @@ class Server(pulumi.CustomResource):
             ),
             additional_volume_ids=[data.id])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With a reserved IP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1072,8 +1080,11 @@ class Server(pulumi.CustomResource):
             ],
             ip_id=ip.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With security group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1105,8 +1116,11 @@ class Server(pulumi.CustomResource):
             image="ubuntu_jammy",
             security_group_id=www.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With user data and cloud-init
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1119,8 +1133,11 @@ class Server(pulumi.CustomResource):
                 "cloud-init": (lambda path: open(path).read())(f"{path['module']}/cloud-init.yml"),
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With private network
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1133,9 +1150,13 @@ class Server(pulumi.CustomResource):
                 pn_id=pn01.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Root volume configuration
+
         ### Resized block volume with installed image
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1148,8 +1169,11 @@ class Server(pulumi.CustomResource):
             ),
             type="PRO2-XXS")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### From snapshot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1164,6 +1188,8 @@ class Server(pulumi.CustomResource):
                 volume_id=from_snapshot_volume.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Private Network
 
         > **Important:** Updates to `private_network` will recreate a new private network interface.
@@ -1180,10 +1206,12 @@ class Server(pulumi.CustomResource):
 
         ## Import
 
-        Instance servers can be imported using the `{zone}/{id}`, e.g. bash
+        Instance servers can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:instance/server:Server web fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:instance/server:Server web fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -1252,8 +1280,10 @@ class Server(pulumi.CustomResource):
         Please check our [FAQ - Instances](https://www.scaleway.com/en/docs/faq/instances).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1264,8 +1294,11 @@ class Server(pulumi.CustomResource):
             image="ubuntu_jammy",
             ip_id=public_ip.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With additional volumes and tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1285,8 +1318,11 @@ class Server(pulumi.CustomResource):
             ),
             additional_volume_ids=[data.id])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With a reserved IP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1301,8 +1337,11 @@ class Server(pulumi.CustomResource):
             ],
             ip_id=ip.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With security group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1334,8 +1373,11 @@ class Server(pulumi.CustomResource):
             image="ubuntu_jammy",
             security_group_id=www.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With user data and cloud-init
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1348,8 +1390,11 @@ class Server(pulumi.CustomResource):
                 "cloud-init": (lambda path: open(path).read())(f"{path['module']}/cloud-init.yml"),
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With private network
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1362,9 +1407,13 @@ class Server(pulumi.CustomResource):
                 pn_id=pn01.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Root volume configuration
+
         ### Resized block volume with installed image
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1377,8 +1426,11 @@ class Server(pulumi.CustomResource):
             ),
             type="PRO2-XXS")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### From snapshot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -1393,6 +1445,8 @@ class Server(pulumi.CustomResource):
                 volume_id=from_snapshot_volume.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Private Network
 
         > **Important:** Updates to `private_network` will recreate a new private network interface.
@@ -1409,10 +1463,12 @@ class Server(pulumi.CustomResource):
 
         ## Import
 
-        Instance servers can be imported using the `{zone}/{id}`, e.g. bash
+        Instance servers can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:instance/server:Server web fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:instance/server:Server web fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

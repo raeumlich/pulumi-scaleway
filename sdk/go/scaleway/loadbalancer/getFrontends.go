@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,6 +46,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetFrontends(ctx *pulumi.Context, args *GetFrontendsArgs, opts ...pulumi.InvokeOption) (*GetFrontendsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFrontendsResult

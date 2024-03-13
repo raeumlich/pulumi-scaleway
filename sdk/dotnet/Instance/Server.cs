@@ -15,8 +15,10 @@ namespace Pulumi.Scaleway.Instance
     /// Please check our [FAQ - Instances](https://www.scaleway.com/en/docs/faq/instances).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,8 +38,11 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With additional volumes and tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,8 +78,11 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With a reserved IP
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,8 +107,11 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With security group
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -151,8 +162,11 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With user data and cloud-init
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -175,8 +189,11 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With private network
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -202,9 +219,13 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Root volume configuration
+    /// 
     /// ### Resized block volume with installed image
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -226,8 +247,11 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### From snapshot
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -258,6 +282,8 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Private Network
     /// 
     /// &gt; **Important:** Updates to `private_network` will recreate a new private network interface.
@@ -274,10 +300,12 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// ## Import
     /// 
-    /// Instance servers can be imported using the `{zone}/{id}`, e.g. bash
+    /// Instance servers can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:instance/server:Server web fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:instance/server:Server web fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:instance/server:Server")]

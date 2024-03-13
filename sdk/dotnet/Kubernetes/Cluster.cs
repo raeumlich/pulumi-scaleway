@@ -13,8 +13,10 @@ namespace Pulumi.Scaleway.Kubernetes
     /// Creates and manages Scaleway Kubernetes clusters. For more information, see [the documentation](https://developers.scaleway.com/en/products/k8s/api/).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,8 +44,11 @@ namespace Pulumi.Scaleway.Kubernetes
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Multicloud
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,10 +75,13 @@ namespace Pulumi.Scaleway.Kubernetes
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// For a detailed example of how to add or run Elastic Metal servers instead of instances on your cluster, please refer to this guide.
+    /// 
     /// ### With additional configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,13 +129,16 @@ namespace Pulumi.Scaleway.Kubernetes
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Kubernetes clusters can be imported using the `{region}/{id}`, e.g. bash
+    /// Kubernetes clusters can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:kubernetes/cluster:Cluster mycluster fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:kubernetes/cluster:Cluster mycluster fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:kubernetes/cluster:Cluster")]

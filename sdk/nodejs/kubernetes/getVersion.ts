@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * You can also use the [scaleway-cli](https://github.com/scaleway/scaleway-cli) with `scw k8s version list` to list all available versions.
  *
  * ## Example Usage
+ *
  * ### Use the latest version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -21,8 +23,11 @@ import * as utilities from "../utilities";
  *     name: "latest",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Use a specific version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -31,6 +36,7 @@ import * as utilities from "../utilities";
  *     name: "1.26.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVersion(args: GetVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetVersionResult> {
 
@@ -85,8 +91,10 @@ export interface GetVersionResult {
  * You can also use the [scaleway-cli](https://github.com/scaleway/scaleway-cli) with `scw k8s version list` to list all available versions.
  *
  * ## Example Usage
+ *
  * ### Use the latest version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -95,8 +103,11 @@ export interface GetVersionResult {
  *     name: "latest",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Use a specific version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -105,6 +116,7 @@ export interface GetVersionResult {
  *     name: "1.26.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVersionOutput(args: GetVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVersionResult> {
     return pulumi.output(args).apply((a: any) => getVersion(a, opts))

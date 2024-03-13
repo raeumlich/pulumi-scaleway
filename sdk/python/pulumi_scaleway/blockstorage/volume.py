@@ -269,6 +269,7 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -277,13 +278,16 @@ class Volume(pulumi.CustomResource):
             iops=5000,
             size_in_gb=20)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Block Volumes can be imported using the `{zone}/{id}`, e.g. bash
+        Block Volumes can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:blockstorage/volume:Volume block_volume fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:blockstorage/volume:Volume block_volume fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -308,6 +312,7 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -316,13 +321,16 @@ class Volume(pulumi.CustomResource):
             iops=5000,
             size_in_gb=20)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Block Volumes can be imported using the `{zone}/{id}`, e.g. bash
+        Block Volumes can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:blockstorage/volume:Volume block_volume fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:blockstorage/volume:Volume block_volume fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

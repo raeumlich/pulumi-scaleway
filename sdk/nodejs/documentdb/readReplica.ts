@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://www.scaleway.com/en/developers/api/document_db/).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -22,8 +24,11 @@ import * as utilities from "../utilities";
  *     instanceId: "11111111-1111-1111-1111-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Private network
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -37,13 +42,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Database Read replica can be imported using the `{region}/{id}`, e.g. bash
+ * Database Read replica can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:documentdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:documentdb/readReplica:ReadReplica rr fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class ReadReplica extends pulumi.CustomResource {

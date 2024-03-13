@@ -13,7 +13,13 @@ namespace Pulumi.Scaleway.Objectstorage.Outputs
     [OutputType]
     public sealed class BucketACLAccessControlPolicyGrant
     {
+        /// <summary>
+        /// Configuration block for the project being granted permissions.
+        /// </summary>
         public readonly Outputs.BucketACLAccessControlPolicyGrantGrantee? Grantee;
+        /// <summary>
+        /// Logging permissions assigned to the grantee for the bucket.
+        /// </summary>
         public readonly string Permission;
 
         [OutputConstructor]

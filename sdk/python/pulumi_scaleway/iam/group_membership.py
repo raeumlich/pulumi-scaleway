@@ -144,8 +144,10 @@ class GroupMembership(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/iam/api/v1alpha1/#groups-f592eb).
 
         ## Example Usage
+
         ### Application Membership
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -156,13 +158,20 @@ class GroupMembership(pulumi.CustomResource):
             group_id=group.id,
             application_id=app.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IAM group memberships can be imported using two format- For user`{group_id}/user/{user_id}` - For application`{group_id}/app/{application_id}` bash
+        IAM group memberships can be imported using two format:
+
+        - For user: `{group_id}/user/{user_id}`
+
+        - For application: `{group_id}/app/{application_id}`
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/groupMembership:GroupMembership app 11111111-1111-1111-1111-111111111111/app/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/groupMembership:GroupMembership app 11111111-1111-1111-1111-111111111111/app/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -184,8 +193,10 @@ class GroupMembership(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/iam/api/v1alpha1/#groups-f592eb).
 
         ## Example Usage
+
         ### Application Membership
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -196,13 +207,20 @@ class GroupMembership(pulumi.CustomResource):
             group_id=group.id,
             application_id=app.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IAM group memberships can be imported using two format- For user`{group_id}/user/{user_id}` - For application`{group_id}/app/{application_id}` bash
+        IAM group memberships can be imported using two format:
+
+        - For user: `{group_id}/user/{user_id}`
+
+        - For application: `{group_id}/app/{application_id}`
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iam/groupMembership:GroupMembership app 11111111-1111-1111-1111-111111111111/app/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iam/groupMembership:GroupMembership app 11111111-1111-1111-1111-111111111111/app/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

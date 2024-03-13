@@ -12,6 +12,9 @@ namespace Pulumi.Scaleway.Instance.Inputs
 
     public sealed class ServerRootVolumeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Set the volume where the boot the server
+        /// </summary>
         [Input("boot")]
         public Input<bool>? Boot { get; set; }
 

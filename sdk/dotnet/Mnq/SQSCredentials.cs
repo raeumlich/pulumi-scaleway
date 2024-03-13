@@ -15,8 +15,10 @@ namespace Pulumi.Scaleway.Mnq
     /// our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sqs-overview/)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +42,16 @@ namespace Pulumi.Scaleway.Mnq
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// SQS credentials can be imported using the `{region}/{id}`, e.g. bash
+    /// SQS credentials can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:mnq/sQSCredentials:SQSCredentials main fr-par/11111111111111111111111111111111
+    /// $ pulumi import scaleway:mnq/sQSCredentials:SQSCredentials main fr-par/11111111111111111111111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:mnq/sQSCredentials:SQSCredentials")]

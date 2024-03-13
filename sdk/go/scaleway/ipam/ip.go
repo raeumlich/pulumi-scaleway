@@ -15,8 +15,10 @@ import (
 // Books and manages Scaleway IPAM IPs.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,8 +60,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Request a specific IPv4
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,7 +92,7 @@ import (
 //				return err
 //			}
 //			_, err = ipam.NewIP(ctx, "ip01", &ipam.IPArgs{
-//				Address: pulumi.String("172.16.32.7/22"),
+//				Address: pulumi.String("172.16.32.7"),
 //				Sources: ipam.IPSourceArray{
 //					&ipam.IPSourceArgs{
 //						PrivateNetworkId: pn01.ID(),
@@ -102,8 +107,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Request an IPv6
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -148,15 +156,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// IPAM IPs can be imported using the `{region}/{id}`, e.g. bash
+// IPAM IPs can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:ipam/iP:IP ip_demo fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:ipam/iP:IP ip_demo fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type IP struct {
 	pulumi.CustomResourceState
@@ -173,6 +182,8 @@ type IP struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IP resource.
 	Resources IPResourceArrayOutput `pulumi:"resources"`
+	// The reverses DNS for this IP.
+	Reverses IPReverseArrayOutput `pulumi:"reverses"`
 	// The source in which to book the IP.
 	Sources IPSourceArrayOutput `pulumi:"sources"`
 	// The tags associated with the IP.
@@ -228,6 +239,8 @@ type ipState struct {
 	Region *string `pulumi:"region"`
 	// The IP resource.
 	Resources []IPResource `pulumi:"resources"`
+	// The reverses DNS for this IP.
+	Reverses []IPReverse `pulumi:"reverses"`
 	// The source in which to book the IP.
 	Sources []IPSource `pulumi:"sources"`
 	// The tags associated with the IP.
@@ -251,6 +264,8 @@ type IPState struct {
 	Region pulumi.StringPtrInput
 	// The IP resource.
 	Resources IPResourceArrayInput
+	// The reverses DNS for this IP.
+	Reverses IPReverseArrayInput
 	// The source in which to book the IP.
 	Sources IPSourceArrayInput
 	// The tags associated with the IP.
@@ -411,6 +426,11 @@ func (o IPOutput) Region() pulumi.StringOutput {
 // The IP resource.
 func (o IPOutput) Resources() IPResourceArrayOutput {
 	return o.ApplyT(func(v *IP) IPResourceArrayOutput { return v.Resources }).(IPResourceArrayOutput)
+}
+
+// The reverses DNS for this IP.
+func (o IPOutput) Reverses() IPReverseArrayOutput {
+	return o.ApplyT(func(v *IP) IPReverseArrayOutput { return v.Reverses }).(IPReverseArrayOutput)
 }
 
 // The source in which to book the IP.

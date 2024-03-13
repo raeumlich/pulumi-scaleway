@@ -15,10 +15,9 @@ namespace Pulumi.Scaleway.Objectstorage
         /// Gets information about the Bucket.
         /// For more information, see [the documentation](https://www.scaleway.com/en/docs/object-storage-feature/).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,11 +41,12 @@ namespace Pulumi.Scaleway.Objectstorage
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Fetching the bucket from a specific project
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +63,7 @@ namespace Pulumi.Scaleway.Objectstorage
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBucketResult> InvokeAsync(GetBucketArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("scaleway:objectstorage/getBucket:getBucket", args ?? new GetBucketArgs(), options.WithDefaults());
@@ -73,10 +72,9 @@ namespace Pulumi.Scaleway.Objectstorage
         /// Gets information about the Bucket.
         /// For more information, see [the documentation](https://www.scaleway.com/en/docs/object-storage-feature/).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -100,11 +98,12 @@ namespace Pulumi.Scaleway.Objectstorage
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// 
         /// ### Fetching the bucket from a specific project
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -121,8 +120,7 @@ namespace Pulumi.Scaleway.Objectstorage
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketResult>("scaleway:objectstorage/getBucket:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());

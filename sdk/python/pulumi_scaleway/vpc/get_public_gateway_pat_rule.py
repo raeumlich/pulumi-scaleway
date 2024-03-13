@@ -158,6 +158,7 @@ def get_public_gateway_pat_rule(pat_rule_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -201,6 +202,7 @@ def get_public_gateway_pat_rule(pat_rule_id: Optional[str] = None,
         protocol="tcp")
     main = scaleway.vpc.get_public_gateway_pat_rule_output(pat_rule_id=pat01.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str pat_rule_id: The ID of the PAT rule to retrieve
@@ -237,6 +239,7 @@ def get_public_gateway_pat_rule_output(pat_rule_id: Optional[pulumi.Input[str]] 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -280,6 +283,7 @@ def get_public_gateway_pat_rule_output(pat_rule_id: Optional[pulumi.Input[str]] 
         protocol="tcp")
     main = scaleway.vpc.get_public_gateway_pat_rule_output(pat_rule_id=pat01.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str pat_rule_id: The ID of the PAT rule to retrieve

@@ -17,7 +17,13 @@ namespace Pulumi.Scaleway.Loadbalancer.Outputs
         /// Action to undertake when an ACL filter matches.
         /// </summary>
         public readonly Outputs.FrontendAclAction Action;
+        /// <summary>
+        /// Date and time of ACL's creation (RFC 3339 format)
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// Description of the ACL
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// The ACL match rule. At least `ip_subnet` or `http_filter` and `http_filter_value` are required.
@@ -27,6 +33,9 @@ namespace Pulumi.Scaleway.Loadbalancer.Outputs
         /// The ACL name. If not provided it will be randomly generated.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Date and time of ACL's update (RFC 3339 format)
+        /// </summary>
         public readonly string? UpdatedAt;
 
         [OutputConstructor]

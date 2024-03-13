@@ -400,8 +400,10 @@ class GatewayNetwork(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/vpc-gw/api/v1/#step-3-attach-private-networks-to-the-vpc-public-gateway).
 
         ## Example Usage
+
         ### Create a gateway network with IPAM config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -421,8 +423,11 @@ class GatewayNetwork(pulumi.CustomResource):
                 push_default_route=True,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a gateway network with a booked IPAM IP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -434,7 +439,7 @@ class GatewayNetwork(pulumi.CustomResource):
             ),
             vpc_id=vpc01.id)
         ip01 = scaleway.ipam.IP("ip01",
-            address="172.16.64.7/22",
+            address="172.16.64.7",
             sources=[scaleway.ipam.IPSourceArgs(
                 private_network_id=pn01.id,
             )])
@@ -448,8 +453,11 @@ class GatewayNetwork(pulumi.CustomResource):
                 ipam_ip_id=ip01.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a gateway network with DHCP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -469,8 +477,11 @@ class GatewayNetwork(pulumi.CustomResource):
             cleanup_dhcp=True,
             enable_masquerade=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a gateway network with a static IP address
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -484,13 +495,16 @@ class GatewayNetwork(pulumi.CustomResource):
             enable_masquerade=True,
             static_address="192.168.1.42/24")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Gateway network can be imported using the `{zone}/{id}`, e.g. bash
+        Gateway network can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:vpc/gatewayNetwork:GatewayNetwork main fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:vpc/gatewayNetwork:GatewayNetwork main fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -517,8 +531,10 @@ class GatewayNetwork(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/vpc-gw/api/v1/#step-3-attach-private-networks-to-the-vpc-public-gateway).
 
         ## Example Usage
+
         ### Create a gateway network with IPAM config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -538,8 +554,11 @@ class GatewayNetwork(pulumi.CustomResource):
                 push_default_route=True,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a gateway network with a booked IPAM IP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -551,7 +570,7 @@ class GatewayNetwork(pulumi.CustomResource):
             ),
             vpc_id=vpc01.id)
         ip01 = scaleway.ipam.IP("ip01",
-            address="172.16.64.7/22",
+            address="172.16.64.7",
             sources=[scaleway.ipam.IPSourceArgs(
                 private_network_id=pn01.id,
             )])
@@ -565,8 +584,11 @@ class GatewayNetwork(pulumi.CustomResource):
                 ipam_ip_id=ip01.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a gateway network with DHCP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -586,8 +608,11 @@ class GatewayNetwork(pulumi.CustomResource):
             cleanup_dhcp=True,
             enable_masquerade=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a gateway network with a static IP address
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -601,13 +626,16 @@ class GatewayNetwork(pulumi.CustomResource):
             enable_masquerade=True,
             static_address="192.168.1.42/24")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Gateway network can be imported using the `{zone}/{id}`, e.g. bash
+        Gateway network can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:vpc/gatewayNetwork:GatewayNetwork main fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:vpc/gatewayNetwork:GatewayNetwork main fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

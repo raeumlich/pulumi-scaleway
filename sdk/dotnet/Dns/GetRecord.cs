@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Dns
         /// <summary>
         /// Gets information about a domain record.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,8 +41,7 @@ namespace Pulumi.Scaleway.Dns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRecordResult> InvokeAsync(GetRecordArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecordResult>("scaleway:dns/getRecord:getRecord", args ?? new GetRecordArgs(), options.WithDefaults());
@@ -51,10 +49,9 @@ namespace Pulumi.Scaleway.Dns
         /// <summary>
         /// Gets information about a domain record.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -79,8 +76,7 @@ namespace Pulumi.Scaleway.Dns
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRecordResult> Invoke(GetRecordInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecordResult>("scaleway:dns/getRecord:getRecord", args ?? new GetRecordInvokeArgs(), options.WithDefaults());

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     region: "nl-ams",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVPCs(args?: GetVPCsArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCsResult> {
     args = args || {};
@@ -84,6 +86,7 @@ export interface GetVPCsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -93,6 +96,7 @@ export interface GetVPCsResult {
  *     region: "nl-ams",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVPCsOutput(args?: GetVPCsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCsResult> {
     return pulumi.output(args).apply((a: any) => getVPCs(a, opts))

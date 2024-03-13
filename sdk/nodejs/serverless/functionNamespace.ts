@@ -9,21 +9,26 @@ import * as utilities from "../utilities";
  * For more information see [the documentation](https://developers.scaleway.com/en/products/functions/api/).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
  *
  * const main = new scaleway.serverless.FunctionNamespace("main", {description: "Main function namespace"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Namespaces can be imported using the `{region}/{id}`, e.g. bash
+ * Namespaces can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:serverless/functionNamespace:FunctionNamespace main fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:serverless/functionNamespace:FunctionNamespace main fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class FunctionNamespace extends pulumi.CustomResource {

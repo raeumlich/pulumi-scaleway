@@ -13,8 +13,10 @@ import (
 )
 
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +40,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// IoT Hubs can be imported using the `{region}/{id}`, e.g. bash
+// IoT Hubs can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:iot/hub:Hub hub01 fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:iot/hub:Hub hub01 fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type Hub struct {
 	pulumi.CustomResourceState
@@ -73,6 +76,10 @@ type Hub struct {
 	HubCa pulumi.StringPtrOutput `pulumi:"hubCa"`
 	// Challenge certificate for the user provided hub CA
 	HubCaChallenge pulumi.StringPtrOutput `pulumi:"hubCaChallenge"`
+	// The MQTT certificat content
+	MqttCa pulumi.StringOutput `pulumi:"mqttCa"`
+	// The MQTT ca url
+	MqttCaUrl pulumi.StringOutput `pulumi:"mqttCaUrl"`
 	// The name of the IoT Hub instance you want to create (e.g. `my-hub`).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The organization_id you want to attach the resource to
@@ -146,6 +153,10 @@ type hubState struct {
 	HubCa *string `pulumi:"hubCa"`
 	// Challenge certificate for the user provided hub CA
 	HubCaChallenge *string `pulumi:"hubCaChallenge"`
+	// The MQTT certificat content
+	MqttCa *string `pulumi:"mqttCa"`
+	// The MQTT ca url
+	MqttCaUrl *string `pulumi:"mqttCaUrl"`
 	// The name of the IoT Hub instance you want to create (e.g. `my-hub`).
 	Name *string `pulumi:"name"`
 	// The organization_id you want to attach the resource to
@@ -187,6 +198,10 @@ type HubState struct {
 	HubCa pulumi.StringPtrInput
 	// Challenge certificate for the user provided hub CA
 	HubCaChallenge pulumi.StringPtrInput
+	// The MQTT certificat content
+	MqttCa pulumi.StringPtrInput
+	// The MQTT ca url
+	MqttCaUrl pulumi.StringPtrInput
 	// The name of the IoT Hub instance you want to create (e.g. `my-hub`).
 	Name pulumi.StringPtrInput
 	// The organization_id you want to attach the resource to
@@ -401,6 +416,16 @@ func (o HubOutput) HubCa() pulumi.StringPtrOutput {
 // Challenge certificate for the user provided hub CA
 func (o HubOutput) HubCaChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringPtrOutput { return v.HubCaChallenge }).(pulumi.StringPtrOutput)
+}
+
+// The MQTT certificat content
+func (o HubOutput) MqttCa() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.MqttCa }).(pulumi.StringOutput)
+}
+
+// The MQTT ca url
+func (o HubOutput) MqttCaUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.MqttCaUrl }).(pulumi.StringOutput)
 }
 
 // The name of the IoT Hub instance you want to create (e.g. `my-hub`).

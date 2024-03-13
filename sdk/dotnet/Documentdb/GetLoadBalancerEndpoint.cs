@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Documentdb
         /// <summary>
         /// Gets information about an DocumentDB load balancer endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Scaleway.Documentdb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLoadBalancerEndpointResult> InvokeAsync(GetLoadBalancerEndpointArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerEndpointResult>("scaleway:documentdb/getLoadBalancerEndpoint:getLoadBalancerEndpoint", args ?? new GetLoadBalancerEndpointArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Scaleway.Documentdb
         /// <summary>
         /// Gets information about an DocumentDB load balancer endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Scaleway.Documentdb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLoadBalancerEndpointResult> Invoke(GetLoadBalancerEndpointInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerEndpointResult>("scaleway:documentdb/getLoadBalancerEndpoint:getLoadBalancerEndpoint", args ?? new GetLoadBalancerEndpointInvokeArgs(), options.WithDefaults());

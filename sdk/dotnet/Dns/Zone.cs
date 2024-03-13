@@ -15,6 +15,7 @@ namespace Pulumi.Scaleway.Dns
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,16 @@ namespace Pulumi.Scaleway.Dns
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Zone can be imported using the `{subdomain}.{domain}`, e.g. bash
+    /// Zone can be imported using the `{subdomain}.{domain}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:dns/zone:Zone test test.scaleway-terraform.com
+    /// $ pulumi import scaleway:dns/zone:Zone test test.scaleway-terraform.com
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:dns/zone:Zone")]

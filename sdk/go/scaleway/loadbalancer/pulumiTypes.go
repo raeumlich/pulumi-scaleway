@@ -1345,13 +1345,16 @@ func (o CertficateLetsencryptPtrOutput) SubjectAlternativeNames() pulumi.StringA
 
 type FrontendAcl struct {
 	// Action to undertake when an ACL filter matches.
-	Action      FrontendAclAction `pulumi:"action"`
-	CreatedAt   *string           `pulumi:"createdAt"`
-	Description *string           `pulumi:"description"`
+	Action FrontendAclAction `pulumi:"action"`
+	// Date and time of ACL's creation (RFC 3339 format)
+	CreatedAt *string `pulumi:"createdAt"`
+	// Description of the ACL
+	Description *string `pulumi:"description"`
 	// The ACL match rule. At least `ipSubnet` or `httpFilter` and `httpFilterValue` are required.
 	Match FrontendAclMatch `pulumi:"match"`
 	// The ACL name. If not provided it will be randomly generated.
-	Name      *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Date and time of ACL's update (RFC 3339 format)
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
@@ -1368,13 +1371,16 @@ type FrontendAclInput interface {
 
 type FrontendAclArgs struct {
 	// Action to undertake when an ACL filter matches.
-	Action      FrontendAclActionInput `pulumi:"action"`
-	CreatedAt   pulumi.StringPtrInput  `pulumi:"createdAt"`
-	Description pulumi.StringPtrInput  `pulumi:"description"`
+	Action FrontendAclActionInput `pulumi:"action"`
+	// Date and time of ACL's creation (RFC 3339 format)
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// Description of the ACL
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The ACL match rule. At least `ipSubnet` or `httpFilter` and `httpFilterValue` are required.
 	Match FrontendAclMatchInput `pulumi:"match"`
 	// The ACL name. If not provided it will be randomly generated.
-	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Date and time of ACL's update (RFC 3339 format)
 	UpdatedAt pulumi.StringPtrInput `pulumi:"updatedAt"`
 }
 
@@ -1434,10 +1440,12 @@ func (o FrontendAclOutput) Action() FrontendAclActionOutput {
 	return o.ApplyT(func(v FrontendAcl) FrontendAclAction { return v.Action }).(FrontendAclActionOutput)
 }
 
+// Date and time of ACL's creation (RFC 3339 format)
 func (o FrontendAclOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendAcl) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// Description of the ACL
 func (o FrontendAclOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendAcl) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -1452,6 +1460,7 @@ func (o FrontendAclOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendAcl) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Date and time of ACL's update (RFC 3339 format)
 func (o FrontendAclOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendAcl) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
@@ -1756,7 +1765,8 @@ type LoadBalancerPrivateNetwork struct {
 	PrivateNetworkId string `pulumi:"privateNetworkId"`
 	// (Optional) Define a local ip address of your choice for the load balancer instance. See below.
 	StaticConfig *string `pulumi:"staticConfig"`
-	Status       *string `pulumi:"status"`
+	// The status of private network connection
+	Status *string `pulumi:"status"`
 	// `zone`) The zone of the load-balancer.
 	Zone *string `pulumi:"zone"`
 }
@@ -1779,7 +1789,8 @@ type LoadBalancerPrivateNetworkArgs struct {
 	PrivateNetworkId pulumi.StringInput `pulumi:"privateNetworkId"`
 	// (Optional) Define a local ip address of your choice for the load balancer instance. See below.
 	StaticConfig pulumi.StringPtrInput `pulumi:"staticConfig"`
-	Status       pulumi.StringPtrInput `pulumi:"status"`
+	// The status of private network connection
+	Status pulumi.StringPtrInput `pulumi:"status"`
 	// `zone`) The zone of the load-balancer.
 	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
@@ -1850,6 +1861,7 @@ func (o LoadBalancerPrivateNetworkOutput) StaticConfig() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LoadBalancerPrivateNetwork) *string { return v.StaticConfig }).(pulumi.StringPtrOutput)
 }
 
+// The status of private network connection
 func (o LoadBalancerPrivateNetworkOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerPrivateNetwork) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2409,11 +2421,16 @@ func (o GetACLsAclMatchArrayOutput) Index(i pulumi.IntInput) GetACLsAclMatchOutp
 }
 
 type GetBackendHealthCheckHttp struct {
-	Code       int    `pulumi:"code"`
+	// The expected HTTP status code
+	Code int `pulumi:"code"`
+	// The HTTP host header to use for HC requests
 	HostHeader string `pulumi:"hostHeader"`
-	Method     string `pulumi:"method"`
-	Sni        string `pulumi:"sni"`
-	Uri        string `pulumi:"uri"`
+	// The HTTP method to use for HC requests
+	Method string `pulumi:"method"`
+	// The SNI to use for HC requests over SSL
+	Sni string `pulumi:"sni"`
+	// The HTTPS endpoint URL to call for HC requests
+	Uri string `pulumi:"uri"`
 }
 
 // GetBackendHealthCheckHttpInput is an input type that accepts GetBackendHealthCheckHttpArgs and GetBackendHealthCheckHttpOutput values.
@@ -2428,11 +2445,16 @@ type GetBackendHealthCheckHttpInput interface {
 }
 
 type GetBackendHealthCheckHttpArgs struct {
-	Code       pulumi.IntInput    `pulumi:"code"`
+	// The expected HTTP status code
+	Code pulumi.IntInput `pulumi:"code"`
+	// The HTTP host header to use for HC requests
 	HostHeader pulumi.StringInput `pulumi:"hostHeader"`
-	Method     pulumi.StringInput `pulumi:"method"`
-	Sni        pulumi.StringInput `pulumi:"sni"`
-	Uri        pulumi.StringInput `pulumi:"uri"`
+	// The HTTP method to use for HC requests
+	Method pulumi.StringInput `pulumi:"method"`
+	// The SNI to use for HC requests over SSL
+	Sni pulumi.StringInput `pulumi:"sni"`
+	// The HTTPS endpoint URL to call for HC requests
+	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
 func (GetBackendHealthCheckHttpArgs) ElementType() reflect.Type {
@@ -2486,22 +2508,27 @@ func (o GetBackendHealthCheckHttpOutput) ToGetBackendHealthCheckHttpOutputWithCo
 	return o
 }
 
+// The expected HTTP status code
 func (o GetBackendHealthCheckHttpOutput) Code() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBackendHealthCheckHttp) int { return v.Code }).(pulumi.IntOutput)
 }
 
+// The HTTP host header to use for HC requests
 func (o GetBackendHealthCheckHttpOutput) HostHeader() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackendHealthCheckHttp) string { return v.HostHeader }).(pulumi.StringOutput)
 }
 
+// The HTTP method to use for HC requests
 func (o GetBackendHealthCheckHttpOutput) Method() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackendHealthCheckHttp) string { return v.Method }).(pulumi.StringOutput)
 }
 
+// The SNI to use for HC requests over SSL
 func (o GetBackendHealthCheckHttpOutput) Sni() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackendHealthCheckHttp) string { return v.Sni }).(pulumi.StringOutput)
 }
 
+// The HTTPS endpoint URL to call for HC requests
 func (o GetBackendHealthCheckHttpOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackendHealthCheckHttp) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -3158,6 +3185,7 @@ func (o GetBackendsBackendHealthCheckTcpArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetCertificateCustomCertificate struct {
+	// The full PEM-formatted certificate chain
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -3173,6 +3201,7 @@ type GetCertificateCustomCertificateInput interface {
 }
 
 type GetCertificateCustomCertificateArgs struct {
+	// The full PEM-formatted certificate chain
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -3227,6 +3256,7 @@ func (o GetCertificateCustomCertificateOutput) ToGetCertificateCustomCertificate
 	return o
 }
 
+// The full PEM-formatted certificate chain
 func (o GetCertificateCustomCertificateOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateCustomCertificate) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -3252,7 +3282,9 @@ func (o GetCertificateCustomCertificateArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetCertificateLetsencrypt struct {
-	CommonName              string   `pulumi:"commonName"`
+	// The main domain name of the certificate
+	CommonName string `pulumi:"commonName"`
+	// The alternative domain names of the certificate
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 }
 
@@ -3268,7 +3300,9 @@ type GetCertificateLetsencryptInput interface {
 }
 
 type GetCertificateLetsencryptArgs struct {
-	CommonName              pulumi.StringInput      `pulumi:"commonName"`
+	// The main domain name of the certificate
+	CommonName pulumi.StringInput `pulumi:"commonName"`
+	// The alternative domain names of the certificate
 	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
 }
 
@@ -3323,10 +3357,12 @@ func (o GetCertificateLetsencryptOutput) ToGetCertificateLetsencryptOutputWithCo
 	return o
 }
 
+// The main domain name of the certificate
 func (o GetCertificateLetsencryptOutput) CommonName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateLetsencrypt) string { return v.CommonName }).(pulumi.StringOutput)
 }
 
+// The alternative domain names of the certificate
 func (o GetCertificateLetsencryptOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCertificateLetsencrypt) []string { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
 }
@@ -3352,13 +3388,18 @@ func (o GetCertificateLetsencryptArrayOutput) Index(i pulumi.IntInput) GetCertif
 }
 
 type GetFrontendAcl struct {
-	Actions     []GetFrontendAclAction `pulumi:"actions"`
-	CreatedAt   string                 `pulumi:"createdAt"`
-	Description string                 `pulumi:"description"`
-	Matches     []GetFrontendAclMatch  `pulumi:"matches"`
+	// Action to undertake when an ACL filter matches
+	Actions []GetFrontendAclAction `pulumi:"actions"`
+	// Date and time of ACL's creation (RFC 3339 format)
+	CreatedAt string `pulumi:"createdAt"`
+	// Description of the ACL
+	Description string `pulumi:"description"`
+	// The ACL match rule
+	Matches []GetFrontendAclMatch `pulumi:"matches"`
 	// The name of the frontend.
 	// - When using the `name` you should specify the `lb-id`
-	Name      string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Date and time of ACL's update (RFC 3339 format)
 	UpdatedAt string `pulumi:"updatedAt"`
 }
 
@@ -3374,13 +3415,18 @@ type GetFrontendAclInput interface {
 }
 
 type GetFrontendAclArgs struct {
-	Actions     GetFrontendAclActionArrayInput `pulumi:"actions"`
-	CreatedAt   pulumi.StringInput             `pulumi:"createdAt"`
-	Description pulumi.StringInput             `pulumi:"description"`
-	Matches     GetFrontendAclMatchArrayInput  `pulumi:"matches"`
+	// Action to undertake when an ACL filter matches
+	Actions GetFrontendAclActionArrayInput `pulumi:"actions"`
+	// Date and time of ACL's creation (RFC 3339 format)
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Description of the ACL
+	Description pulumi.StringInput `pulumi:"description"`
+	// The ACL match rule
+	Matches GetFrontendAclMatchArrayInput `pulumi:"matches"`
 	// The name of the frontend.
 	// - When using the `name` you should specify the `lb-id`
-	Name      pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Date and time of ACL's update (RFC 3339 format)
 	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
 }
 
@@ -3435,18 +3481,22 @@ func (o GetFrontendAclOutput) ToGetFrontendAclOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Action to undertake when an ACL filter matches
 func (o GetFrontendAclOutput) Actions() GetFrontendAclActionArrayOutput {
 	return o.ApplyT(func(v GetFrontendAcl) []GetFrontendAclAction { return v.Actions }).(GetFrontendAclActionArrayOutput)
 }
 
+// Date and time of ACL's creation (RFC 3339 format)
 func (o GetFrontendAclOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontendAcl) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Description of the ACL
 func (o GetFrontendAclOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontendAcl) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// The ACL match rule
 func (o GetFrontendAclOutput) Matches() GetFrontendAclMatchArrayOutput {
 	return o.ApplyT(func(v GetFrontendAcl) []GetFrontendAclMatch { return v.Matches }).(GetFrontendAclMatchArrayOutput)
 }
@@ -3457,6 +3507,7 @@ func (o GetFrontendAclOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontendAcl) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Date and time of ACL's update (RFC 3339 format)
 func (o GetFrontendAclOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontendAcl) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
@@ -3482,8 +3533,10 @@ func (o GetFrontendAclArrayOutput) Index(i pulumi.IntInput) GetFrontendAclOutput
 }
 
 type GetFrontendAclAction struct {
+	// Redirect parameters when using an ACL with `redirect` action
 	Redirects []GetFrontendAclActionRedirect `pulumi:"redirects"`
-	Type      string                         `pulumi:"type"`
+	// The action type
+	Type string `pulumi:"type"`
 }
 
 // GetFrontendAclActionInput is an input type that accepts GetFrontendAclActionArgs and GetFrontendAclActionOutput values.
@@ -3498,8 +3551,10 @@ type GetFrontendAclActionInput interface {
 }
 
 type GetFrontendAclActionArgs struct {
+	// Redirect parameters when using an ACL with `redirect` action
 	Redirects GetFrontendAclActionRedirectArrayInput `pulumi:"redirects"`
-	Type      pulumi.StringInput                     `pulumi:"type"`
+	// The action type
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetFrontendAclActionArgs) ElementType() reflect.Type {
@@ -3553,10 +3608,12 @@ func (o GetFrontendAclActionOutput) ToGetFrontendAclActionOutputWithContext(ctx 
 	return o
 }
 
+// Redirect parameters when using an ACL with `redirect` action
 func (o GetFrontendAclActionOutput) Redirects() GetFrontendAclActionRedirectArrayOutput {
 	return o.ApplyT(func(v GetFrontendAclAction) []GetFrontendAclActionRedirect { return v.Redirects }).(GetFrontendAclActionRedirectArrayOutput)
 }
 
+// The action type
 func (o GetFrontendAclActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontendAclAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3582,9 +3639,12 @@ func (o GetFrontendAclActionArrayOutput) Index(i pulumi.IntInput) GetFrontendAcl
 }
 
 type GetFrontendAclActionRedirect struct {
-	Code   int    `pulumi:"code"`
+	// The HTTP redirect code to use
+	Code int `pulumi:"code"`
+	// An URL can be used in case of a location redirect
 	Target string `pulumi:"target"`
-	Type   string `pulumi:"type"`
+	// The redirect type
+	Type string `pulumi:"type"`
 }
 
 // GetFrontendAclActionRedirectInput is an input type that accepts GetFrontendAclActionRedirectArgs and GetFrontendAclActionRedirectOutput values.
@@ -3599,9 +3659,12 @@ type GetFrontendAclActionRedirectInput interface {
 }
 
 type GetFrontendAclActionRedirectArgs struct {
-	Code   pulumi.IntInput    `pulumi:"code"`
+	// The HTTP redirect code to use
+	Code pulumi.IntInput `pulumi:"code"`
+	// An URL can be used in case of a location redirect
 	Target pulumi.StringInput `pulumi:"target"`
-	Type   pulumi.StringInput `pulumi:"type"`
+	// The redirect type
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetFrontendAclActionRedirectArgs) ElementType() reflect.Type {
@@ -3655,14 +3718,17 @@ func (o GetFrontendAclActionRedirectOutput) ToGetFrontendAclActionRedirectOutput
 	return o
 }
 
+// The HTTP redirect code to use
 func (o GetFrontendAclActionRedirectOutput) Code() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFrontendAclActionRedirect) int { return v.Code }).(pulumi.IntOutput)
 }
 
+// An URL can be used in case of a location redirect
 func (o GetFrontendAclActionRedirectOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontendAclActionRedirect) string { return v.Target }).(pulumi.StringOutput)
 }
 
+// The redirect type
 func (o GetFrontendAclActionRedirectOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontendAclActionRedirect) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3688,11 +3754,16 @@ func (o GetFrontendAclActionRedirectArrayOutput) Index(i pulumi.IntInput) GetFro
 }
 
 type GetFrontendAclMatch struct {
-	HttpFilter       string   `pulumi:"httpFilter"`
-	HttpFilterOption string   `pulumi:"httpFilterOption"`
+	// The HTTP filter to match
+	HttpFilter string `pulumi:"httpFilter"`
+	// You can use this field with httpHeaderMatch acl type to set the header name to filter
+	HttpFilterOption string `pulumi:"httpFilterOption"`
+	// A list of possible values to match for the given HTTP filter
 	HttpFilterValues []string `pulumi:"httpFilterValues"`
-	Invert           bool     `pulumi:"invert"`
-	IpSubnets        []string `pulumi:"ipSubnets"`
+	// If set to true, the condition will be of type "unless"
+	Invert bool `pulumi:"invert"`
+	// A list of IPs or CIDR v4/v6 addresses of the client of the session to match
+	IpSubnets []string `pulumi:"ipSubnets"`
 }
 
 // GetFrontendAclMatchInput is an input type that accepts GetFrontendAclMatchArgs and GetFrontendAclMatchOutput values.
@@ -3707,11 +3778,16 @@ type GetFrontendAclMatchInput interface {
 }
 
 type GetFrontendAclMatchArgs struct {
-	HttpFilter       pulumi.StringInput      `pulumi:"httpFilter"`
-	HttpFilterOption pulumi.StringInput      `pulumi:"httpFilterOption"`
+	// The HTTP filter to match
+	HttpFilter pulumi.StringInput `pulumi:"httpFilter"`
+	// You can use this field with httpHeaderMatch acl type to set the header name to filter
+	HttpFilterOption pulumi.StringInput `pulumi:"httpFilterOption"`
+	// A list of possible values to match for the given HTTP filter
 	HttpFilterValues pulumi.StringArrayInput `pulumi:"httpFilterValues"`
-	Invert           pulumi.BoolInput        `pulumi:"invert"`
-	IpSubnets        pulumi.StringArrayInput `pulumi:"ipSubnets"`
+	// If set to true, the condition will be of type "unless"
+	Invert pulumi.BoolInput `pulumi:"invert"`
+	// A list of IPs or CIDR v4/v6 addresses of the client of the session to match
+	IpSubnets pulumi.StringArrayInput `pulumi:"ipSubnets"`
 }
 
 func (GetFrontendAclMatchArgs) ElementType() reflect.Type {
@@ -3765,22 +3841,27 @@ func (o GetFrontendAclMatchOutput) ToGetFrontendAclMatchOutputWithContext(ctx co
 	return o
 }
 
+// The HTTP filter to match
 func (o GetFrontendAclMatchOutput) HttpFilter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontendAclMatch) string { return v.HttpFilter }).(pulumi.StringOutput)
 }
 
+// You can use this field with httpHeaderMatch acl type to set the header name to filter
 func (o GetFrontendAclMatchOutput) HttpFilterOption() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontendAclMatch) string { return v.HttpFilterOption }).(pulumi.StringOutput)
 }
 
+// A list of possible values to match for the given HTTP filter
 func (o GetFrontendAclMatchOutput) HttpFilterValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFrontendAclMatch) []string { return v.HttpFilterValues }).(pulumi.StringArrayOutput)
 }
 
+// If set to true, the condition will be of type "unless"
 func (o GetFrontendAclMatchOutput) Invert() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFrontendAclMatch) bool { return v.Invert }).(pulumi.BoolOutput)
 }
 
+// A list of IPs or CIDR v4/v6 addresses of the client of the session to match
 func (o GetFrontendAclMatchOutput) IpSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFrontendAclMatch) []string { return v.IpSubnets }).(pulumi.StringArrayOutput)
 }
@@ -4141,10 +4222,14 @@ func (o GetIPsIpArrayOutput) Index(i pulumi.IntInput) GetIPsIpOutput {
 }
 
 type GetLoadBalancerPrivateNetwork struct {
-	DhcpConfig       bool     `pulumi:"dhcpConfig"`
-	PrivateNetworkId string   `pulumi:"privateNetworkId"`
-	StaticConfigs    []string `pulumi:"staticConfigs"`
-	Status           string   `pulumi:"status"`
+	// Set to true if you want to let DHCP assign IP addresses
+	DhcpConfig bool `pulumi:"dhcpConfig"`
+	// The Private Network ID
+	PrivateNetworkId string `pulumi:"privateNetworkId"`
+	// Define an IP address in the subnet of your private network that will be assigned to your load balancer instance
+	StaticConfigs []string `pulumi:"staticConfigs"`
+	// The status of private network connection
+	Status string `pulumi:"status"`
 	// (Defaults to provider `zone`) The zone in which the LB exists.
 	Zone string `pulumi:"zone"`
 }
@@ -4161,10 +4246,14 @@ type GetLoadBalancerPrivateNetworkInput interface {
 }
 
 type GetLoadBalancerPrivateNetworkArgs struct {
-	DhcpConfig       pulumi.BoolInput        `pulumi:"dhcpConfig"`
-	PrivateNetworkId pulumi.StringInput      `pulumi:"privateNetworkId"`
-	StaticConfigs    pulumi.StringArrayInput `pulumi:"staticConfigs"`
-	Status           pulumi.StringInput      `pulumi:"status"`
+	// Set to true if you want to let DHCP assign IP addresses
+	DhcpConfig pulumi.BoolInput `pulumi:"dhcpConfig"`
+	// The Private Network ID
+	PrivateNetworkId pulumi.StringInput `pulumi:"privateNetworkId"`
+	// Define an IP address in the subnet of your private network that will be assigned to your load balancer instance
+	StaticConfigs pulumi.StringArrayInput `pulumi:"staticConfigs"`
+	// The status of private network connection
+	Status pulumi.StringInput `pulumi:"status"`
 	// (Defaults to provider `zone`) The zone in which the LB exists.
 	Zone pulumi.StringInput `pulumi:"zone"`
 }
@@ -4220,18 +4309,22 @@ func (o GetLoadBalancerPrivateNetworkOutput) ToGetLoadBalancerPrivateNetworkOutp
 	return o
 }
 
+// Set to true if you want to let DHCP assign IP addresses
 func (o GetLoadBalancerPrivateNetworkOutput) DhcpConfig() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLoadBalancerPrivateNetwork) bool { return v.DhcpConfig }).(pulumi.BoolOutput)
 }
 
+// The Private Network ID
 func (o GetLoadBalancerPrivateNetworkOutput) PrivateNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerPrivateNetwork) string { return v.PrivateNetworkId }).(pulumi.StringOutput)
 }
 
+// Define an IP address in the subnet of your private network that will be assigned to your load balancer instance
 func (o GetLoadBalancerPrivateNetworkOutput) StaticConfigs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLoadBalancerPrivateNetwork) []string { return v.StaticConfigs }).(pulumi.StringArrayOutput)
 }
 
+// The status of private network connection
 func (o GetLoadBalancerPrivateNetworkOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLoadBalancerPrivateNetwork) string { return v.Status }).(pulumi.StringOutput)
 }

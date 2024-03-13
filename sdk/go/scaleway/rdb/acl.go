@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api/#acl-rules-allowed-ips).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +49,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Database Instance can be imported using the `{region}/{id}`, e.g. bash
+// Database Instance can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:rdb/aCL:ACL acl01 fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:rdb/aCL:ACL acl01 fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type ACL struct {
 	pulumi.CustomResourceState

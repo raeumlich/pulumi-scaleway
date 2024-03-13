@@ -13,7 +13,13 @@ namespace Pulumi.Scaleway.Iot.Outputs
     [OutputType]
     public sealed class GetDeviceCertificateResult
     {
+        /// <summary>
+        /// X509 PEM encoded certificate of the device
+        /// </summary>
         public readonly string Crt;
+        /// <summary>
+        /// X509 PEM encoded key of the device
+        /// </summary>
         public readonly string Key;
 
         [OutputConstructor]

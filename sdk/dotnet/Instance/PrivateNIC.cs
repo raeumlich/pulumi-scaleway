@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Instance
     /// [the documentation](https://developers.scaleway.com/en/products/instance/api/#private-nics-a42eea).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,8 +34,11 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With zone
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,13 +68,16 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Private NICs can be imported using the `{zone}/{server_id}/{private_nic_id}`, e.g. bash
+    /// Private NICs can be imported using the `{zone}/{server_id}/{private_nic_id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:instance/privateNIC:PrivateNIC pnic01 fr-par-1/11111111-1111-1111-1111-111111111111/22222222-2222-2222-2222-222222222222
+    /// $ pulumi import scaleway:instance/privateNIC:PrivateNIC pnic01 fr-par-1/11111111-1111-1111-1111-111111111111/22222222-2222-2222-2222-222222222222
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:instance/privateNIC:PrivateNIC")]

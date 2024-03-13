@@ -11,19 +11,23 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
  *
  * const main = new scaleway.iam.SSHKey("main", {publicKey: "<YOUR-PUBLIC-SSH-KEY>"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * SSH keys can be imported using the `id`, e.g. bash
+ * SSH keys can be imported using the `id`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:iam/sSHKey:SSHKey main 11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:iam/sSHKey:SSHKey main 11111111-1111-1111-1111-111111111111
  * ```
  */
 export class SSHKey extends pulumi.CustomResource {

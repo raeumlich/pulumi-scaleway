@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     hubId: "11111111-1111-1111-1111-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getHub(args?: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
     args = args || {};
@@ -73,6 +75,8 @@ export interface GetHubResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly mqttCa: string;
+    readonly mqttCaUrl: string;
     readonly name?: string;
     readonly organizationId: string;
     readonly productPlan: string;
@@ -86,6 +90,7 @@ export interface GetHubResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -94,6 +99,7 @@ export interface GetHubResult {
  *     hubId: "11111111-1111-1111-1111-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getHubOutput(args?: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
     return pulumi.output(args).apply((a: any) => getHub(a, opts))

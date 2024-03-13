@@ -15,10 +15,9 @@ namespace Pulumi.Scaleway.Vpc
         /// Gets information about a public gateway PAT rule. For further information please check the
         /// API [documentation](https://developers.scaleway.com/en/products/vpc-gw/api/v1/#get-8faeea)
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -102,8 +101,7 @@ namespace Pulumi.Scaleway.Vpc
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPublicGatewayPATRuleResult> InvokeAsync(GetPublicGatewayPATRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicGatewayPATRuleResult>("scaleway:vpc/getPublicGatewayPATRule:getPublicGatewayPATRule", args ?? new GetPublicGatewayPATRuleArgs(), options.WithDefaults());
@@ -112,10 +110,9 @@ namespace Pulumi.Scaleway.Vpc
         /// Gets information about a public gateway PAT rule. For further information please check the
         /// API [documentation](https://developers.scaleway.com/en/products/vpc-gw/api/v1/#get-8faeea)
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -199,8 +196,7 @@ namespace Pulumi.Scaleway.Vpc
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPublicGatewayPATRuleResult> Invoke(GetPublicGatewayPATRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicGatewayPATRuleResult>("scaleway:vpc/getPublicGatewayPATRule:getPublicGatewayPATRule", args ?? new GetPublicGatewayPATRuleInvokeArgs(), options.WithDefaults());

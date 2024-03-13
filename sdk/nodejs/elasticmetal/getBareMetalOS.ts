@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -24,6 +25,7 @@ import * as utilities from "../utilities";
  *     osId: "03b7f4ba-a6a1-4305-984e-b54fafbf1681",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBareMetalOS(args?: GetBareMetalOSArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalOSResult> {
     args = args || {};
@@ -80,6 +82,7 @@ export interface GetBareMetalOSResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -92,6 +95,7 @@ export interface GetBareMetalOSResult {
  *     osId: "03b7f4ba-a6a1-4305-984e-b54fafbf1681",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBareMetalOSOutput(args?: GetBareMetalOSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalOSResult> {
     return pulumi.output(args).apply((a: any) => getBareMetalOS(a, opts))

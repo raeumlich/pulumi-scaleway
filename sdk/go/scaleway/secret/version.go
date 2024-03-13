@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://developers.scaleway.com/en/products/secret_manager/api/v1alpha1/#secret-versions-079501).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +55,18 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// The Secret Version can be imported using the `{region}/{id}/{revision}`, e.g. ~> **Important:** Be aware if you import with revision `latest` you will overwrite the version you used before. bash
+// The Secret Version can be imported using the `{region}/{id}/{revision}`, e.g.
+//
+// ~> **Important:** Be aware if you import with revision `latest` you will overwrite the version you used before.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:secret/version:Version main fr-par/11111111-1111-1111-1111-111111111111/2
-//
+// $ pulumi import scaleway:secret/version:Version main fr-par/11111111-1111-1111-1111-111111111111/2
 // ```
 type Version struct {
 	pulumi.CustomResourceState

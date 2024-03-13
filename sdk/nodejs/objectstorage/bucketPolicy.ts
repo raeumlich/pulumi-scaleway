@@ -9,8 +9,10 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://www.scaleway.com/en/docs/storage/object/api-cli/bucket-policy/).
  *
  * ## Example Usage
+ *
  * ### Example Usage with an IAM user
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -32,26 +34,30 @@ import * as utilities from "../utilities";
  * const bucket = new scaleway.objectstorage.Bucket("bucket", {});
  * const policyBucketPolicy = new scaleway.objectstorage.BucketPolicy("policyBucketPolicy", {
  *     bucket: bucket.name,
- *     policy: pulumi.all([user, bucket.name, bucket.name]).apply(([user, bucketName, bucketName1]) => JSON.stringify({
+ *     policy: pulumi.jsonStringify({
  *         Version: "2023-04-17",
  *         Id: "MyBucketPolicy",
  *         Statement: [{
  *             Effect: "Allow",
  *             Action: ["s3:*"],
  *             Principal: {
- *                 SCW: `user_id:${user.id}`,
+ *                 SCW: user.then(user => `user_id:${user.id}`),
  *             },
  *             Resource: [
- *                 bucketName,
- *                 `${bucketName1}/*`,
+ *                 bucket.name,
+ *                 pulumi.interpolate`${bucket.name}/*`,
  *             ],
  *         }],
- *     })),
+ *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with an IAM application
+ *
  * ### Creating a bucket and delegating read access to an application
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -72,28 +78,31 @@ import * as utilities from "../utilities";
  * const bucket = new scaleway.objectstorage.Bucket("bucket", {});
  * const policyBucketPolicy = new scaleway.objectstorage.BucketPolicy("policyBucketPolicy", {
  *     bucket: bucket.id,
- *     policy: pulumi.all([reading_app.id, bucket.name, bucket.name]).apply(([id, bucketName, bucketName1]) => JSON.stringify({
+ *     policy: pulumi.jsonStringify({
  *         Version: "2023-04-17",
  *         Statement: [{
  *             Sid: "Delegate read access",
  *             Effect: "Allow",
  *             Principal: {
- *                 SCW: `application_id:${id}`,
+ *                 SCW: pulumi.interpolate`application_id:${reading_app.id}`,
  *             },
  *             Action: [
  *                 "s3:ListBucket",
  *                 "s3:GetObject",
  *             ],
  *             Resource: [
- *                 bucketName,
- *                 `${bucketName1}/*`,
+ *                 bucket.name,
+ *                 pulumi.interpolate`${bucket.name}/*`,
  *             ],
  *         }],
- *     })),
+ *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Reading the bucket with the application
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -110,8 +119,11 @@ import * as utilities from "../utilities";
  *     name: "some-unique-name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with AWS provider
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -143,8 +155,11 @@ import * as utilities from "../utilities";
  *     policy: policy.apply(policy => policy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with deprecated version 2012-10-17
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -156,7 +171,7 @@ import * as utilities from "../utilities";
  * const bucket = new scaleway.objectstorage.Bucket("bucket", {region: "fr-par"});
  * const policy = new scaleway.objectstorage.BucketPolicy("policy", {
  *     bucket: bucket.name,
- *     policy: pulumi.all([_default, bucket.name, bucket.name]).apply(([_default, bucketName, bucketName1]) => JSON.stringify({
+ *     policy: pulumi.jsonStringify({
  *         Version: "2012-10-17",
  *         Statement: [{
  *             Effect: "Allow",
@@ -165,31 +180,38 @@ import * as utilities from "../utilities";
  *                 "s3:GetObjectTagging",
  *             ],
  *             Principal: {
- *                 SCW: `project_id:${_default.id}`,
+ *                 SCW: _default.then(_default => `project_id:${_default.id}`),
  *             },
  *             Resource: [
- *                 bucketName,
- *                 `${bucketName1}/*`,
+ *                 bucket.name,
+ *                 pulumi.interpolate`${bucket.name}/*`,
  *             ],
  *         }],
- *     })),
+ *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * **NB:** To configure the AWS provider with Scaleway credentials, please visit this [tutorial](https://www.scaleway.com/en/docs/storage/object/api-cli/object-storage-aws-cli/).
  *
  * ## Import
  *
- * Bucket policies can be imported using the `{region}/{bucketName}` identifier, e.g. bash
+ * Bucket policies can be imported using the `{region}/{bucketName}` identifier, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket
+ * $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket
  * ```
  *
- *  ~> **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project. If you are using a project different from the default one, you have to specify the project ID at the end of the import command. bash
+ * ~> **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project.
+ *
+ * If you are using a project different from the default one, you have to specify the project ID at the end of the import command.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
+ * $ pulumi import scaleway:objectstorage/bucketPolicy:BucketPolicy some_bucket fr-par/some-bucket@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
  * ```
  */
 export class BucketPolicy extends pulumi.CustomResource {

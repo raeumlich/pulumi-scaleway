@@ -125,19 +125,23 @@ class SNS(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
 
         ## Example Usage
+
         ### Basic
 
         Activate SNS for default project
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         main = scaleway.mnq.SNS("main")
         ```
+        <!--End PulumiCodeChooser -->
 
         Activate SNS for a specific project
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -146,13 +150,16 @@ class SNS(pulumi.CustomResource):
         # For specific project in default region
         for_project = scaleway.mnq.SNS("forProject", project_id=project.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        SNS status can be imported using the `{region}/{project_id}`, e.g. bash
+        SNS status can be imported using the `{region}/{project_id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:mnq/sNS:SNS main fr-par/11111111111111111111111111111111
+        $ pulumi import scaleway:mnq/sNS:SNS main fr-par/11111111111111111111111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,19 +180,23 @@ class SNS(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
 
         ## Example Usage
+
         ### Basic
 
         Activate SNS for default project
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         main = scaleway.mnq.SNS("main")
         ```
+        <!--End PulumiCodeChooser -->
 
         Activate SNS for a specific project
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -194,13 +205,16 @@ class SNS(pulumi.CustomResource):
         # For specific project in default region
         for_project = scaleway.mnq.SNS("forProject", project_id=project.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        SNS status can be imported using the `{region}/{project_id}`, e.g. bash
+        SNS status can be imported using the `{region}/{project_id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:mnq/sNS:SNS main fr-par/11111111111111111111111111111111
+        $ pulumi import scaleway:mnq/sNS:SNS main fr-par/11111111111111111111111111111111
         ```
 
         :param str resource_name: The name of the resource.

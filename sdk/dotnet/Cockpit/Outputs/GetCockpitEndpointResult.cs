@@ -29,6 +29,9 @@ namespace Pulumi.Scaleway.Cockpit.Outputs
         /// The metrics URL
         /// </summary>
         public readonly string MetricsUrl;
+        /// <summary>
+        /// The traces URL
+        /// </summary>
         public readonly string TracesUrl;
 
         [OutputConstructor]

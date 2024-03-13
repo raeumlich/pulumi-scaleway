@@ -22,7 +22,7 @@ class GetConsumptionsResult:
     """
     A collection of values returned by getConsumptions.
     """
-    def __init__(__self__, consumptions=None, id=None, organization_id=None, updated_at=None):
+    def __init__(__self__, consumptions=None, id=None, organization_id=None, project_id=None, updated_at=None):
         if consumptions and not isinstance(consumptions, list):
             raise TypeError("Expected argument 'consumptions' to be a list")
         pulumi.set(__self__, "consumptions", consumptions)
@@ -32,6 +32,9 @@ class GetConsumptionsResult:
         if organization_id and not isinstance(organization_id, str):
             raise TypeError("Expected argument 'organization_id' to be a str")
         pulumi.set(__self__, "organization_id", organization_id)
+        if project_id and not isinstance(project_id, str):
+            raise TypeError("Expected argument 'project_id' to be a str")
+        pulumi.set(__self__, "project_id", project_id)
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
@@ -58,6 +61,14 @@ class GetConsumptionsResult:
         return pulumi.get(self, "organization_id")
 
     @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        The project ID of the consumption.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
         """
@@ -75,14 +86,20 @@ class AwaitableGetConsumptionsResult(GetConsumptionsResult):
             consumptions=self.consumptions,
             id=self.id,
             organization_id=self.organization_id,
+            project_id=self.project_id,
             updated_at=self.updated_at)
 
 
-def get_consumptions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsumptionsResult:
+def get_consumptions(project_id: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsumptionsResult:
     """
     Gets information about your Consumptions.
+
+
+    :param str project_id: `project_id`) The ID of the project the consumption list is associated with.
     """
     __args__ = dict()
+    __args__['projectId'] = project_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('scaleway:billing/getConsumptions:getConsumptions', __args__, opts=opts, typ=GetConsumptionsResult).value
 
@@ -90,12 +107,17 @@ def get_consumptions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         consumptions=pulumi.get(__ret__, 'consumptions'),
         id=pulumi.get(__ret__, 'id'),
         organization_id=pulumi.get(__ret__, 'organization_id'),
+        project_id=pulumi.get(__ret__, 'project_id'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_consumptions)
-def get_consumptions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsumptionsResult]:
+def get_consumptions_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsumptionsResult]:
     """
     Gets information about your Consumptions.
+
+
+    :param str project_id: `project_id`) The ID of the project the consumption list is associated with.
     """
     ...

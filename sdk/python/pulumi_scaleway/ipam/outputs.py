@@ -12,6 +12,7 @@ from . import outputs
 
 __all__ = [
     'IPResource',
+    'IPReverse',
     'IPSource',
     'GetIPResourceResult',
     'GetIPsIpResult',
@@ -89,6 +90,37 @@ class IPResource(dict):
         The type of resource the IP is attached to.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class IPReverse(dict):
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 hostname: Optional[str] = None):
+        """
+        :param str address: Request a specific IP in the requested source pool.
+        :param str hostname: The reverse domain name.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Request a specific IP in the requested source pool.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[str]:
+        """
+        The reverse domain name.
+        """
+        return pulumi.get(self, "hostname")
 
 
 @pulumi.output_type

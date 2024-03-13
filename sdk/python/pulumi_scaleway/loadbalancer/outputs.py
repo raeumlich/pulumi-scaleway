@@ -500,7 +500,10 @@ class FrontendAcl(dict):
         """
         :param 'FrontendAclActionArgs' action: Action to undertake when an ACL filter matches.
         :param 'FrontendAclMatchArgs' match: The ACL match rule. At least `ip_subnet` or `http_filter` and `http_filter_value` are required.
+        :param str created_at: Date and time of ACL's creation (RFC 3339 format)
+        :param str description: Description of the ACL
         :param str name: The ACL name. If not provided it will be randomly generated.
+        :param str updated_at: Date and time of ACL's update (RFC 3339 format)
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -532,11 +535,17 @@ class FrontendAcl(dict):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        Date and time of ACL's creation (RFC 3339 format)
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Description of the ACL
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -550,6 +559,9 @@ class FrontendAcl(dict):
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        Date and time of ACL's update (RFC 3339 format)
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -755,6 +767,7 @@ class LoadBalancerPrivateNetwork(dict):
         :param str private_network_id: (Required) The ID of the Private Network to associate.
         :param bool dhcp_config: (Optional) Set to true if you want to let DHCP assign IP addresses. See below.
         :param str static_config: (Optional) Define a local ip address of your choice for the load balancer instance. See below.
+        :param str status: The status of private network connection
         :param str zone: `zone`) The zone of the load-balancer.
         """
         pulumi.set(__self__, "private_network_id", private_network_id)
@@ -794,6 +807,9 @@ class LoadBalancerPrivateNetwork(dict):
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
+        """
+        The status of private network connection
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -1054,6 +1070,13 @@ class GetBackendHealthCheckHttpResult(dict):
                  method: str,
                  sni: str,
                  uri: str):
+        """
+        :param int code: The expected HTTP status code
+        :param str host_header: The HTTP host header to use for HC requests
+        :param str method: The HTTP method to use for HC requests
+        :param str sni: The SNI to use for HC requests over SSL
+        :param str uri: The HTTPS endpoint URL to call for HC requests
+        """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "host_header", host_header)
         pulumi.set(__self__, "method", method)
@@ -1063,26 +1086,41 @@ class GetBackendHealthCheckHttpResult(dict):
     @property
     @pulumi.getter
     def code(self) -> int:
+        """
+        The expected HTTP status code
+        """
         return pulumi.get(self, "code")
 
     @property
     @pulumi.getter(name="hostHeader")
     def host_header(self) -> str:
+        """
+        The HTTP host header to use for HC requests
+        """
         return pulumi.get(self, "host_header")
 
     @property
     @pulumi.getter
     def method(self) -> str:
+        """
+        The HTTP method to use for HC requests
+        """
         return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
     def sni(self) -> str:
+        """
+        The SNI to use for HC requests over SSL
+        """
         return pulumi.get(self, "sni")
 
     @property
     @pulumi.getter
     def uri(self) -> str:
+        """
+        The HTTPS endpoint URL to call for HC requests
+        """
         return pulumi.get(self, "uri")
 
 
@@ -1457,11 +1495,17 @@ class GetBackendsBackendHealthCheckTcpResult(dict):
 class GetCertificateCustomCertificateResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
+        """
+        :param str certificate_chain: The full PEM-formatted certificate chain
+        """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
+        """
+        The full PEM-formatted certificate chain
+        """
         return pulumi.get(self, "certificate_chain")
 
 
@@ -1470,17 +1514,27 @@ class GetCertificateLetsencryptResult(dict):
     def __init__(__self__, *,
                  common_name: str,
                  subject_alternative_names: Sequence[str]):
+        """
+        :param str common_name: The main domain name of the certificate
+        :param Sequence[str] subject_alternative_names: The alternative domain names of the certificate
+        """
         pulumi.set(__self__, "common_name", common_name)
         pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter(name="commonName")
     def common_name(self) -> str:
+        """
+        The main domain name of the certificate
+        """
         return pulumi.get(self, "common_name")
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Sequence[str]:
+        """
+        The alternative domain names of the certificate
+        """
         return pulumi.get(self, "subject_alternative_names")
 
 
@@ -1494,8 +1548,13 @@ class GetFrontendAclResult(dict):
                  name: str,
                  updated_at: str):
         """
+        :param Sequence['GetFrontendAclActionArgs'] actions: Action to undertake when an ACL filter matches
+        :param str created_at: Date and time of ACL's creation (RFC 3339 format)
+        :param str description: Description of the ACL
+        :param Sequence['GetFrontendAclMatchArgs'] matches: The ACL match rule
         :param str name: The name of the frontend.
                - When using the `name` you should specify the `lb-id`
+        :param str updated_at: Date and time of ACL's update (RFC 3339 format)
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "created_at", created_at)
@@ -1507,21 +1566,33 @@ class GetFrontendAclResult(dict):
     @property
     @pulumi.getter
     def actions(self) -> Sequence['outputs.GetFrontendAclActionResult']:
+        """
+        Action to undertake when an ACL filter matches
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        Date and time of ACL's creation (RFC 3339 format)
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Description of the ACL
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def matches(self) -> Sequence['outputs.GetFrontendAclMatchResult']:
+        """
+        The ACL match rule
+        """
         return pulumi.get(self, "matches")
 
     @property
@@ -1536,6 +1607,9 @@ class GetFrontendAclResult(dict):
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        Date and time of ACL's update (RFC 3339 format)
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -1544,17 +1618,27 @@ class GetFrontendAclActionResult(dict):
     def __init__(__self__, *,
                  redirects: Sequence['outputs.GetFrontendAclActionRedirectResult'],
                  type: str):
+        """
+        :param Sequence['GetFrontendAclActionRedirectArgs'] redirects: Redirect parameters when using an ACL with `redirect` action
+        :param str type: The action type
+        """
         pulumi.set(__self__, "redirects", redirects)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def redirects(self) -> Sequence['outputs.GetFrontendAclActionRedirectResult']:
+        """
+        Redirect parameters when using an ACL with `redirect` action
+        """
         return pulumi.get(self, "redirects")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The action type
+        """
         return pulumi.get(self, "type")
 
 
@@ -1564,6 +1648,11 @@ class GetFrontendAclActionRedirectResult(dict):
                  code: int,
                  target: str,
                  type: str):
+        """
+        :param int code: The HTTP redirect code to use
+        :param str target: An URL can be used in case of a location redirect
+        :param str type: The redirect type
+        """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "target", target)
         pulumi.set(__self__, "type", type)
@@ -1571,16 +1660,25 @@ class GetFrontendAclActionRedirectResult(dict):
     @property
     @pulumi.getter
     def code(self) -> int:
+        """
+        The HTTP redirect code to use
+        """
         return pulumi.get(self, "code")
 
     @property
     @pulumi.getter
     def target(self) -> str:
+        """
+        An URL can be used in case of a location redirect
+        """
         return pulumi.get(self, "target")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The redirect type
+        """
         return pulumi.get(self, "type")
 
 
@@ -1592,6 +1690,13 @@ class GetFrontendAclMatchResult(dict):
                  http_filter_values: Sequence[str],
                  invert: bool,
                  ip_subnets: Sequence[str]):
+        """
+        :param str http_filter: The HTTP filter to match
+        :param str http_filter_option: You can use this field with http_header_match acl type to set the header name to filter
+        :param Sequence[str] http_filter_values: A list of possible values to match for the given HTTP filter
+        :param bool invert: If set to true, the condition will be of type "unless"
+        :param Sequence[str] ip_subnets: A list of IPs or CIDR v4/v6 addresses of the client of the session to match
+        """
         pulumi.set(__self__, "http_filter", http_filter)
         pulumi.set(__self__, "http_filter_option", http_filter_option)
         pulumi.set(__self__, "http_filter_values", http_filter_values)
@@ -1601,26 +1706,41 @@ class GetFrontendAclMatchResult(dict):
     @property
     @pulumi.getter(name="httpFilter")
     def http_filter(self) -> str:
+        """
+        The HTTP filter to match
+        """
         return pulumi.get(self, "http_filter")
 
     @property
     @pulumi.getter(name="httpFilterOption")
     def http_filter_option(self) -> str:
+        """
+        You can use this field with http_header_match acl type to set the header name to filter
+        """
         return pulumi.get(self, "http_filter_option")
 
     @property
     @pulumi.getter(name="httpFilterValues")
     def http_filter_values(self) -> Sequence[str]:
+        """
+        A list of possible values to match for the given HTTP filter
+        """
         return pulumi.get(self, "http_filter_values")
 
     @property
     @pulumi.getter
     def invert(self) -> bool:
+        """
+        If set to true, the condition will be of type "unless"
+        """
         return pulumi.get(self, "invert")
 
     @property
     @pulumi.getter(name="ipSubnets")
     def ip_subnets(self) -> Sequence[str]:
+        """
+        A list of IPs or CIDR v4/v6 addresses of the client of the session to match
+        """
         return pulumi.get(self, "ip_subnets")
 
 
@@ -1838,6 +1958,10 @@ class GetLoadBalancerPrivateNetworkResult(dict):
                  status: str,
                  zone: str):
         """
+        :param bool dhcp_config: Set to true if you want to let DHCP assign IP addresses
+        :param str private_network_id: The Private Network ID
+        :param Sequence[str] static_configs: Define an IP address in the subnet of your private network that will be assigned to your load balancer instance
+        :param str status: The status of private network connection
         :param str zone: (Defaults to provider `zone`) The zone in which the LB exists.
         """
         pulumi.set(__self__, "dhcp_config", dhcp_config)
@@ -1849,21 +1973,33 @@ class GetLoadBalancerPrivateNetworkResult(dict):
     @property
     @pulumi.getter(name="dhcpConfig")
     def dhcp_config(self) -> bool:
+        """
+        Set to true if you want to let DHCP assign IP addresses
+        """
         return pulumi.get(self, "dhcp_config")
 
     @property
     @pulumi.getter(name="privateNetworkId")
     def private_network_id(self) -> str:
+        """
+        The Private Network ID
+        """
         return pulumi.get(self, "private_network_id")
 
     @property
     @pulumi.getter(name="staticConfigs")
     def static_configs(self) -> Sequence[str]:
+        """
+        Define an IP address in the subnet of your private network that will be assigned to your load balancer instance
+        """
         return pulumi.get(self, "static_configs")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        The status of private network connection
+        """
         return pulumi.get(self, "status")
 
     @property

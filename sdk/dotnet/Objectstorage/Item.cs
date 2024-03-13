@@ -15,16 +15,22 @@ namespace Pulumi.Scaleway.Objectstorage
     /// 
     /// ## Import
     /// 
-    /// Objects can be imported using the `{region}/{bucketName}/{objectKey}` identifier, e.g. bash
+    /// Objects can be imported using the `{region}/{bucketName}/{objectKey}` identifier, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:objectstorage/item:Item some_object fr-par/some-bucket/some-file
+    /// $ pulumi import scaleway:objectstorage/item:Item some_object fr-par/some-bucket/some-file
     /// ```
     /// 
-    ///  ~&gt; **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project. If you are using a project different from the default one, you have to specify the project ID at the end of the import command. bash
+    /// ~&gt; **Important:** The `project_id` attribute has a particular behavior with s3 products because the s3 API is scoped by project.
+    /// 
+    /// If you are using a project different from the default one, you have to specify the project ID at the end of the import command.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:objectstorage/item:Item some_object fr-par/some-bucket/some-file@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
+    /// $ pulumi import scaleway:objectstorage/item:Item some_object fr-par/some-bucket/some-file@xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:objectstorage/item:Item")]

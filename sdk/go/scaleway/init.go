@@ -11,6 +11,26 @@ import (
 	"github.com/raeumlich/pulumi-scaleway/sdk/go/scaleway/internal"
 )
 
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "scaleway:index/ipamIpReverseDns:IpamIpReverseDns":
+		r = &IpamIpReverseDns{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
 type pkg struct {
 	version semver.Version
 }
@@ -34,6 +54,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"scaleway",
+		"index/ipamIpReverseDns",
+		&module{version},
+	)
 	pulumi.RegisterResourcePackage(
 		"scaleway",
 		&pkg{version},

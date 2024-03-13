@@ -93,12 +93,14 @@ def get_bucket_policy(bucket: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     main = scaleway.objectstorage.get_bucket_policy(bucket="bucket.test.com")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str bucket: The bucket name.
@@ -130,12 +132,14 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     main = scaleway.objectstorage.get_bucket_policy(bucket="bucket.test.com")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str bucket: The bucket name.

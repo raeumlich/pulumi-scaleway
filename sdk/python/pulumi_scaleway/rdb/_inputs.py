@@ -157,12 +157,19 @@ class InstancePrivateNetworkArgs:
                  zone: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] pn_id: The ID of the private network.
-        :param pulumi.Input[bool] enable_ipam: Whether the endpoint should be configured with IPAM. Defaults to `false` if `ip_net` is defined, `true` otherwise.
+        :param pulumi.Input[bool] enable_ipam: If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+               
+               > **NOTE:** Please calculate your host IP using cidrhost. Otherwise, let IPAM service
+               handle the host IP on the network.
+               
+               > **Important:** Updates to `private_network` will recreate the Instance's endpoint
         :param pulumi.Input[str] endpoint_id: The ID of the endpoint.
         :param pulumi.Input[str] hostname: Hostname of the endpoint.
         :param pulumi.Input[str] ip: IPv4 address on the network.
+        :param pulumi.Input[str] ip_net: The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
         :param pulumi.Input[str] name: The name of the Database Instance.
         :param pulumi.Input[int] port: Port in the Private Network.
+        :param pulumi.Input[str] zone: The zone you want to attach the resource to
         """
         pulumi.set(__self__, "pn_id", pn_id)
         if enable_ipam is not None:
@@ -198,7 +205,12 @@ class InstancePrivateNetworkArgs:
     @pulumi.getter(name="enableIpam")
     def enable_ipam(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the endpoint should be configured with IPAM. Defaults to `false` if `ip_net` is defined, `true` otherwise.
+        If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+
+        > **NOTE:** Please calculate your host IP using cidrhost. Otherwise, let IPAM service
+        handle the host IP on the network.
+
+        > **Important:** Updates to `private_network` will recreate the Instance's endpoint
         """
         return pulumi.get(self, "enable_ipam")
 
@@ -245,6 +257,9 @@ class InstancePrivateNetworkArgs:
     @property
     @pulumi.getter(name="ipNet")
     def ip_net(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+        """
         return pulumi.get(self, "ip_net")
 
     @ip_net.setter
@@ -278,6 +293,9 @@ class InstancePrivateNetworkArgs:
     @property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The zone you want to attach the resource to
+        """
         return pulumi.get(self, "zone")
 
     @zone.setter
@@ -441,14 +459,14 @@ class ReadReplicaPrivateNetworkArgs:
                  zone: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] private_network_id: UUID of the private network to be connected to the read replica.
+        :param pulumi.Input[bool] enable_ipam: If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
         :param pulumi.Input[str] endpoint_id: The ID of the endpoint of the read replica.
         :param pulumi.Input[str] hostname: Hostname of the endpoint. Only one of ip and hostname may be set.
         :param pulumi.Input[str] ip: IPv4 address of the endpoint (IP address). Only one of ip and hostname may be set.
         :param pulumi.Input[str] name: Name of the endpoint.
         :param pulumi.Input[int] port: TCP port of the endpoint.
-        :param pulumi.Input[str] service_ip: The IP network address within the private subnet. This must be an IPv4 address with a
-               CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-               service if not set.
+        :param pulumi.Input[str] service_ip: The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+        :param pulumi.Input[str] zone: Private network zone
         """
         pulumi.set(__self__, "private_network_id", private_network_id)
         if enable_ipam is not None:
@@ -483,6 +501,9 @@ class ReadReplicaPrivateNetworkArgs:
     @property
     @pulumi.getter(name="enableIpam")
     def enable_ipam(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+        """
         return pulumi.get(self, "enable_ipam")
 
     @enable_ipam.setter
@@ -553,9 +574,7 @@ class ReadReplicaPrivateNetworkArgs:
     @pulumi.getter(name="serviceIp")
     def service_ip(self) -> Optional[pulumi.Input[str]]:
         """
-        The IP network address within the private subnet. This must be an IPv4 address with a
-        CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-        service if not set.
+        The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
         """
         return pulumi.get(self, "service_ip")
 
@@ -566,6 +585,9 @@ class ReadReplicaPrivateNetworkArgs:
     @property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private network zone
+        """
         return pulumi.get(self, "zone")
 
     @zone.setter

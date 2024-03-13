@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Vpc
         /// <summary>
         /// Gets information about a public gateway.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -45,8 +44,7 @@ namespace Pulumi.Scaleway.Vpc
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPublicGatewayResult> InvokeAsync(GetPublicGatewayArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicGatewayResult>("scaleway:vpc/getPublicGateway:getPublicGateway", args ?? new GetPublicGatewayArgs(), options.WithDefaults());
@@ -54,10 +52,9 @@ namespace Pulumi.Scaleway.Vpc
         /// <summary>
         /// Gets information about a public gateway.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -85,8 +82,7 @@ namespace Pulumi.Scaleway.Vpc
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPublicGatewayResult> Invoke(GetPublicGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicGatewayResult>("scaleway:vpc/getPublicGateway:getPublicGateway", args ?? new GetPublicGatewayInvokeArgs(), options.WithDefaults());

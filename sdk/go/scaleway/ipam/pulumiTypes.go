@@ -137,6 +137,112 @@ func (o IPResourceArrayOutput) Index(i pulumi.IntInput) IPResourceOutput {
 	}).(IPResourceOutput)
 }
 
+type IPReverse struct {
+	// Request a specific IP in the requested source pool.
+	Address *string `pulumi:"address"`
+	// The reverse domain name.
+	Hostname *string `pulumi:"hostname"`
+}
+
+// IPReverseInput is an input type that accepts IPReverseArgs and IPReverseOutput values.
+// You can construct a concrete instance of `IPReverseInput` via:
+//
+//	IPReverseArgs{...}
+type IPReverseInput interface {
+	pulumi.Input
+
+	ToIPReverseOutput() IPReverseOutput
+	ToIPReverseOutputWithContext(context.Context) IPReverseOutput
+}
+
+type IPReverseArgs struct {
+	// Request a specific IP in the requested source pool.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// The reverse domain name.
+	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
+}
+
+func (IPReverseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPReverse)(nil)).Elem()
+}
+
+func (i IPReverseArgs) ToIPReverseOutput() IPReverseOutput {
+	return i.ToIPReverseOutputWithContext(context.Background())
+}
+
+func (i IPReverseArgs) ToIPReverseOutputWithContext(ctx context.Context) IPReverseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPReverseOutput)
+}
+
+// IPReverseArrayInput is an input type that accepts IPReverseArray and IPReverseArrayOutput values.
+// You can construct a concrete instance of `IPReverseArrayInput` via:
+//
+//	IPReverseArray{ IPReverseArgs{...} }
+type IPReverseArrayInput interface {
+	pulumi.Input
+
+	ToIPReverseArrayOutput() IPReverseArrayOutput
+	ToIPReverseArrayOutputWithContext(context.Context) IPReverseArrayOutput
+}
+
+type IPReverseArray []IPReverseInput
+
+func (IPReverseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPReverse)(nil)).Elem()
+}
+
+func (i IPReverseArray) ToIPReverseArrayOutput() IPReverseArrayOutput {
+	return i.ToIPReverseArrayOutputWithContext(context.Background())
+}
+
+func (i IPReverseArray) ToIPReverseArrayOutputWithContext(ctx context.Context) IPReverseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPReverseArrayOutput)
+}
+
+type IPReverseOutput struct{ *pulumi.OutputState }
+
+func (IPReverseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPReverse)(nil)).Elem()
+}
+
+func (o IPReverseOutput) ToIPReverseOutput() IPReverseOutput {
+	return o
+}
+
+func (o IPReverseOutput) ToIPReverseOutputWithContext(ctx context.Context) IPReverseOutput {
+	return o
+}
+
+// Request a specific IP in the requested source pool.
+func (o IPReverseOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPReverse) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// The reverse domain name.
+func (o IPReverseOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPReverse) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+type IPReverseArrayOutput struct{ *pulumi.OutputState }
+
+func (IPReverseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPReverse)(nil)).Elem()
+}
+
+func (o IPReverseArrayOutput) ToIPReverseArrayOutput() IPReverseArrayOutput {
+	return o
+}
+
+func (o IPReverseArrayOutput) ToIPReverseArrayOutputWithContext(ctx context.Context) IPReverseArrayOutput {
+	return o
+}
+
+func (o IPReverseArrayOutput) Index(i pulumi.IntInput) IPReverseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPReverse {
+		return vs[0].([]IPReverse)[vs[1].(int)]
+	}).(IPReverseOutput)
+}
+
 type IPSource struct {
 	// The private network the IP lives in if the IP is a private IP.
 	PrivateNetworkId *string `pulumi:"privateNetworkId"`
@@ -898,6 +1004,8 @@ func (o GetIPsResourcePtrOutput) Type() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IPResourceInput)(nil)).Elem(), IPResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IPResourceArrayInput)(nil)).Elem(), IPResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPReverseInput)(nil)).Elem(), IPReverseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPReverseArrayInput)(nil)).Elem(), IPReverseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IPSourceInput)(nil)).Elem(), IPSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IPSourceArrayInput)(nil)).Elem(), IPSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIPResourceInput)(nil)).Elem(), GetIPResourceArgs{})
@@ -910,6 +1018,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIPsResourcePtrInput)(nil)).Elem(), GetIPsResourceArgs{})
 	pulumi.RegisterOutputType(IPResourceOutput{})
 	pulumi.RegisterOutputType(IPResourceArrayOutput{})
+	pulumi.RegisterOutputType(IPReverseOutput{})
+	pulumi.RegisterOutputType(IPReverseArrayOutput{})
 	pulumi.RegisterOutputType(IPSourceOutput{})
 	pulumi.RegisterOutputType(IPSourceArrayOutput{})
 	pulumi.RegisterOutputType(GetIPResourceOutput{})

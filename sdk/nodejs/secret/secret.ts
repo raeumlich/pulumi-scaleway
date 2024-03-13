@@ -9,8 +9,10 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://developers.scaleway.com/en/products/secret_manager/api/v1alpha1/).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -23,13 +25,16 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * The Secret can be imported using the `{region}/{id}`, e.g. bash
+ * The Secret can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:secret/secret:Secret main fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:secret/secret:Secret main fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Secret extends pulumi.CustomResource {
@@ -73,6 +78,10 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Path of the secret, defaults to `/`.
+     */
+    public readonly path!: pulumi.Output<string | undefined>;
+    /**
      * The project ID containing is the secret.
      */
     public readonly projectId!: pulumi.Output<string>;
@@ -114,6 +123,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -124,6 +134,7 @@ export class Secret extends pulumi.CustomResource {
             const args = argsOrState as SecretArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -153,6 +164,10 @@ export interface SecretState {
      * Name of the secret (e.g. `my-secret`).
      */
     name?: pulumi.Input<string>;
+    /**
+     * Path of the secret, defaults to `/`.
+     */
+    path?: pulumi.Input<string>;
     /**
      * The project ID containing is the secret.
      */
@@ -192,6 +207,10 @@ export interface SecretArgs {
      * Name of the secret (e.g. `my-secret`).
      */
     name?: pulumi.Input<string>;
+    /**
+     * Path of the secret, defaults to `/`.
+     */
+    path?: pulumi.Input<string>;
     /**
      * The project ID containing is the secret.
      */

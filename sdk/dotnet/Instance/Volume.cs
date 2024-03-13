@@ -15,6 +15,7 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,16 @@ namespace Pulumi.Scaleway.Instance
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// volumes can be imported using the `{zone}/{id}`, e.g. bash
+    /// volumes can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:instance/volume:Volume server_volume fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:instance/volume:Volume server_volume fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:instance/volume:Volume")]

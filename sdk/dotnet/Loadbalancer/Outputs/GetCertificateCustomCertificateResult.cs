@@ -13,6 +13,9 @@ namespace Pulumi.Scaleway.Loadbalancer.Outputs
     [OutputType]
     public sealed class GetCertificateCustomCertificateResult
     {
+        /// <summary>
+        /// The full PEM-formatted certificate chain
+        /// </summary>
         public readonly string CertificateChain;
 
         [OutputConstructor]

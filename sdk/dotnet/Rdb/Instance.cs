@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Rdb
     /// For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Example Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,8 +38,11 @@ namespace Pulumi.Scaleway.Rdb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with Settings
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,8 +70,11 @@ namespace Pulumi.Scaleway.Rdb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with backup schedule
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,11 +97,81 @@ namespace Pulumi.Scaleway.Rdb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Examples of endpoints configuration
     /// 
     /// RDB Instances can have a maximum of 1 public endpoint and 1 private endpoint. It can have both, or none.
+    /// 
+    /// ### 1 static private network endpoint
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Scaleway = Pulumi.Scaleway;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pn = new Scaleway.Vpc.PrivateNetwork("pn", new()
+    ///     {
+    ///         Ipv4Subnet = new Scaleway.Vpc.Inputs.PrivateNetworkIpv4SubnetArgs
+    ///         {
+    ///             Subnet = "172.16.20.0/22",
+    ///         },
+    ///     });
+    /// 
+    ///     var main = new Scaleway.Rdb.Instance("main", new()
+    ///     {
+    ///         NodeType = "db-dev-s",
+    ///         Engine = "PostgreSQL-11",
+    ///         PrivateNetwork = new Scaleway.Rdb.Inputs.InstancePrivateNetworkArgs
+    ///         {
+    ///             PnId = pn.Id,
+    ///             IpNet = "172.16.20.4/22",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### 1 IPAM private network endpoint + 1 public endpoint
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Scaleway = Pulumi.Scaleway;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pn = new Scaleway.Vpc.PrivateNetwork("pn");
+    /// 
+    ///     var main = new Scaleway.Rdb.Instance("main", new()
+    ///     {
+    ///         NodeType = "DB-DEV-S",
+    ///         Engine = "PostgreSQL-11",
+    ///         PrivateNetwork = new Scaleway.Rdb.Inputs.InstancePrivateNetworkArgs
+    ///         {
+    ///             PnId = pn.Id,
+    ///             EnableIpam = true,
+    ///         },
+    ///         LoadBalancers = new[]
+    ///         {
+    ///             null,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Default: 1 public endpoint
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,8 +188,10 @@ namespace Pulumi.Scaleway.Rdb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; If nothing is defined, your instance will have a default public load-balancer endpoint
+    /// 
     /// ## Limitations
     /// 
     /// The Managed Database product is only compliant with the private network in the default availability zone (AZ).
@@ -120,10 +200,12 @@ namespace Pulumi.Scaleway.Rdb
     /// 
     /// ## Import
     /// 
-    /// Database Instance can be imported using the `{region}/{id}`, e.g. bash
+    /// Database Instance can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:rdb/instance:Instance rdb01 fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:rdb/instance:Instance rdb01 fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:rdb/instance:Instance")]
@@ -281,7 +363,7 @@ namespace Pulumi.Scaleway.Rdb
         public Output<string> UserName { get; private set; } = null!;
 
         /// <summary>
-        /// Volume size (in GB) when `volume_type` is set to `bssd`.
+        /// Volume size (in GB). Cannot be used when `volume_type` is set to `lssd`.
         /// 
         /// &gt; **Important:** Once your instance reaches `disk_full` status, you should increase the volume size before making any other change to your instance.
         /// </summary>
@@ -289,7 +371,7 @@ namespace Pulumi.Scaleway.Rdb
         public Output<int> VolumeSizeInGb { get; private set; } = null!;
 
         /// <summary>
-        /// Type of volume where data are stored (`bssd` or `lssd`).
+        /// Type of volume where data are stored (`bssd`, `lssd` or `sbs_5k`).
         /// </summary>
         [Output("volumeType")]
         public Output<string?> VolumeType { get; private set; } = null!;
@@ -501,7 +583,7 @@ namespace Pulumi.Scaleway.Rdb
         public Input<string>? UserName { get; set; }
 
         /// <summary>
-        /// Volume size (in GB) when `volume_type` is set to `bssd`.
+        /// Volume size (in GB). Cannot be used when `volume_type` is set to `lssd`.
         /// 
         /// &gt; **Important:** Once your instance reaches `disk_full` status, you should increase the volume size before making any other change to your instance.
         /// </summary>
@@ -509,7 +591,7 @@ namespace Pulumi.Scaleway.Rdb
         public Input<int>? VolumeSizeInGb { get; set; }
 
         /// <summary>
-        /// Type of volume where data are stored (`bssd` or `lssd`).
+        /// Type of volume where data are stored (`bssd`, `lssd` or `sbs_5k`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
@@ -714,7 +796,7 @@ namespace Pulumi.Scaleway.Rdb
         public Input<string>? UserName { get; set; }
 
         /// <summary>
-        /// Volume size (in GB) when `volume_type` is set to `bssd`.
+        /// Volume size (in GB). Cannot be used when `volume_type` is set to `lssd`.
         /// 
         /// &gt; **Important:** Once your instance reaches `disk_full` status, you should increase the volume size before making any other change to your instance.
         /// </summary>
@@ -722,7 +804,7 @@ namespace Pulumi.Scaleway.Rdb
         public Input<int>? VolumeSizeInGb { get; set; }
 
         /// <summary>
-        /// Type of volume where data are stored (`bssd` or `lssd`).
+        /// Type of volume where data are stored (`bssd`, `lssd` or `sbs_5k`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

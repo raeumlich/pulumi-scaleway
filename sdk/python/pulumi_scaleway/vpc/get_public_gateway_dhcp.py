@@ -222,6 +222,7 @@ def get_public_gateway_dhcp(dhcp_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -229,6 +230,7 @@ def get_public_gateway_dhcp(dhcp_id: Optional[str] = None,
     main = scaleway.vpc.PublicGatewayDHCP("main", subnet="192.168.0.0/24")
     dhcp_by_id = scaleway.vpc.get_public_gateway_dhcp_output(dhcp_id=main.id)
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     __args__['dhcpId'] = dhcp_id
@@ -266,6 +268,7 @@ def get_public_gateway_dhcp_output(dhcp_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -273,5 +276,6 @@ def get_public_gateway_dhcp_output(dhcp_id: Optional[pulumi.Input[str]] = None,
     main = scaleway.vpc.PublicGatewayDHCP("main", subnet="192.168.0.0/24")
     dhcp_by_id = scaleway.vpc.get_public_gateway_dhcp_output(dhcp_id=main.id)
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

@@ -56,6 +56,9 @@ namespace Pulumi.Scaleway.Documentdb.Inputs
         [Input("serviceIp")]
         public Input<string>? ServiceIp { get; set; }
 
+        /// <summary>
+        /// Private network zone
+        /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
 

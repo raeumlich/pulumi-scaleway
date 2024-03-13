@@ -20,7 +20,7 @@ class _ExportableConfig(types.ModuleType):
         """
         The Scaleway access key.
         """
-        return __config__.get('accessKey')
+        return __config__.get('accessKey') or _utilities.get_env('SCW_ACCESS_KEY')
 
     @property
     def api_url(self) -> Optional[str]:
@@ -34,7 +34,7 @@ class _ExportableConfig(types.ModuleType):
         """
         The Scaleway organization ID.
         """
-        return __config__.get('organizationId')
+        return __config__.get('organizationId') or _utilities.get_env('SCW_DEFAULT_ORGANIZATION_ID')
 
     @property
     def profile(self) -> Optional[str]:
@@ -48,26 +48,26 @@ class _ExportableConfig(types.ModuleType):
         """
         The Scaleway project ID.
         """
-        return __config__.get('projectId')
+        return __config__.get('projectId') or _utilities.get_env('SCW_DEFAULT_PROJECT_ID')
 
     @property
     def region(self) -> Optional[str]:
         """
         The region you want to attach the resource to
         """
-        return __config__.get('region')
+        return __config__.get('region') or _utilities.get_env('SCW_DEFAULT_REGION')
 
     @property
     def secret_key(self) -> Optional[str]:
         """
         The Scaleway secret Key.
         """
-        return __config__.get('secretKey')
+        return __config__.get('secretKey') or _utilities.get_env('SCW_SECRET_KEY')
 
     @property
     def zone(self) -> Optional[str]:
         """
         The zone you want to attach the resource to
         """
-        return __config__.get('zone')
+        return __config__.get('zone') or _utilities.get_env('SCW_DEFAULT_ZONE')
 

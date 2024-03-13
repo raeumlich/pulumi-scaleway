@@ -138,12 +138,14 @@ def get_load_balancer_endpoint(instance_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     my_endpoint = scaleway.documentdb.get_load_balancer_endpoint(instance_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str instance_id: The DocumentDB Instance on which the endpoint is attached. Only one of `instance_name` and `instance_id` should be specified.
@@ -182,12 +184,14 @@ def get_load_balancer_endpoint_output(instance_id: Optional[pulumi.Input[Optiona
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     my_endpoint = scaleway.documentdb.get_load_balancer_endpoint(instance_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str instance_id: The DocumentDB Instance on which the endpoint is attached. Only one of `instance_name` and `instance_id` should be specified.

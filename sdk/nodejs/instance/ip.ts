@@ -9,19 +9,23 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
  *
  * const serverIp = new scaleway.instance.IP("serverIp", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * IPs can be imported using the `{zone}/{id}`, e.g. bash
+ * IPs can be imported using the `{zone}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:instance/iP:IP server_ip fr-par-1/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:instance/iP:IP server_ip fr-par-1/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class IP extends pulumi.CustomResource {

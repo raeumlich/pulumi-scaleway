@@ -12,14 +12,20 @@ import (
 )
 
 // Gets information about your Consumptions.
-func GetConsumptions(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetConsumptionsResult, error) {
+func GetConsumptions(ctx *pulumi.Context, args *GetConsumptionsArgs, opts ...pulumi.InvokeOption) (*GetConsumptionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConsumptionsResult
-	err := ctx.Invoke("scaleway:billing/getConsumptions:getConsumptions", nil, &rv, opts...)
+	err := ctx.Invoke("scaleway:billing/getConsumptions:getConsumptions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getConsumptions.
+type GetConsumptionsArgs struct {
+	// `projectId`) The ID of the project the consumption list is associated with.
+	ProjectId *string `pulumi:"projectId"`
 }
 
 // A collection of values returned by getConsumptions.
@@ -29,19 +35,33 @@ type GetConsumptionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id             string `pulumi:"id"`
 	OrganizationId string `pulumi:"organizationId"`
+	// The project ID of the consumption.
+	ProjectId string `pulumi:"projectId"`
 	// The last consumption update date.
 	UpdatedAt string `pulumi:"updatedAt"`
 }
 
-func GetConsumptionsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetConsumptionsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetConsumptionsResult, error) {
-		r, err := GetConsumptions(ctx, opts...)
-		var s GetConsumptionsResult
-		if r != nil {
-			s = *r
-		}
-		return s, err
-	}).(GetConsumptionsResultOutput)
+func GetConsumptionsOutput(ctx *pulumi.Context, args GetConsumptionsOutputArgs, opts ...pulumi.InvokeOption) GetConsumptionsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetConsumptionsResult, error) {
+			args := v.(GetConsumptionsArgs)
+			r, err := GetConsumptions(ctx, &args, opts...)
+			var s GetConsumptionsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(GetConsumptionsResultOutput)
+}
+
+// A collection of arguments for invoking getConsumptions.
+type GetConsumptionsOutputArgs struct {
+	// `projectId`) The ID of the project the consumption list is associated with.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+}
+
+func (GetConsumptionsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConsumptionsArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getConsumptions.
@@ -71,6 +91,11 @@ func (o GetConsumptionsResultOutput) Id() pulumi.StringOutput {
 
 func (o GetConsumptionsResultOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConsumptionsResult) string { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+// The project ID of the consumption.
+func (o GetConsumptionsResultOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConsumptionsResult) string { return v.ProjectId }).(pulumi.StringOutput)
 }
 
 // The last consumption update date.

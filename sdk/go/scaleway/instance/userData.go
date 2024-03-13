@@ -23,8 +23,10 @@ import (
 // About cloud-init documentation please check this [link](https://cloudinit.readthedocs.io/en/latest/).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +45,7 @@ import (
 //				"cloud-init": "#cloud-config\napt-update: true\napt-upgrade: true\n",
 //				"foo":        "bar",
 //			}
-//			if param := cfg.GetBool("userData"); param != nil {
+//			if param := cfg.GetObject("userData"); param != nil {
 //				userData = param
 //			}
 //			mainServer, err := instance.NewServer(ctx, "mainServer", &instance.ServerArgs{
@@ -53,6 +55,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// User data with a single value
 //			_, err = instance.NewUserData(ctx, "mainUserData", &instance.UserDataArgs{
 //				ServerId: mainServer.ID(),
 //				Key:      pulumi.String("foo"),
@@ -61,6 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// User Data with many keys.
 //			var data []*instance.UserData
 //			for index := 0; index < userData; index++ {
 //				key0 := index
@@ -80,15 +84,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// User data can be imported using the `{zone}/{key}/{server_id}`, e.g. bash
+// User data can be imported using the `{zone}/{key}/{server_id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:instance/userData:UserData main fr-par-1/cloud-init/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:instance/userData:UserData main fr-par-1/cloud-init/11111111-1111-1111-1111-111111111111
 // ```
 type UserData struct {
 	pulumi.CustomResourceState

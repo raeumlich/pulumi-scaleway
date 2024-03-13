@@ -13,7 +13,7 @@ namespace Pulumi.Scaleway.Redis.Inputs
     public sealed class ClusterPublicNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The UUID of the private network resource.
+        /// The UUID of the Private Network resource.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

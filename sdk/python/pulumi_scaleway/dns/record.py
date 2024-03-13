@@ -465,8 +465,10 @@ class Record(pulumi.CustomResource):
         For more information, see [the documentation](https://www.scaleway.com/en/docs/network/domains-and-dns/how-to/manage-dns-records/).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -494,8 +496,11 @@ class Record(pulumi.CustomResource):
             ttl=3600,
             type="MX")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With dynamic records
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -564,8 +569,11 @@ class Record(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create an instance and add records with the new instance IP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -602,6 +610,8 @@ class Record(pulumi.CustomResource):
             data=f"web.{dns_zone}.",
             ttl=3600)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Multiple records
 
         Some record types can have multiple `data` with the same `name` (eg: `A`, `AAAA`, `MX`, `NS`...).\\
@@ -611,10 +621,12 @@ class Record(pulumi.CustomResource):
 
         ## Import
 
-        Record can be imported using the `{dns_zone}/{id}`, e.g. bash
+        Record can be imported using the `{dns_zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:dns/record:Record www subdomain.domain.tld/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:dns/record:Record www subdomain.domain.tld/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -643,8 +655,10 @@ class Record(pulumi.CustomResource):
         For more information, see [the documentation](https://www.scaleway.com/en/docs/network/domains-and-dns/how-to/manage-dns-records/).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -672,8 +686,11 @@ class Record(pulumi.CustomResource):
             ttl=3600,
             type="MX")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With dynamic records
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -742,8 +759,11 @@ class Record(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create an instance and add records with the new instance IP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -780,6 +800,8 @@ class Record(pulumi.CustomResource):
             data=f"web.{dns_zone}.",
             ttl=3600)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Multiple records
 
         Some record types can have multiple `data` with the same `name` (eg: `A`, `AAAA`, `MX`, `NS`...).\\
@@ -789,10 +811,12 @@ class Record(pulumi.CustomResource):
 
         ## Import
 
-        Record can be imported using the `{dns_zone}/{id}`, e.g. bash
+        Record can be imported using the `{dns_zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:dns/record:Record www subdomain.domain.tld/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:dns/record:Record www subdomain.domain.tld/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

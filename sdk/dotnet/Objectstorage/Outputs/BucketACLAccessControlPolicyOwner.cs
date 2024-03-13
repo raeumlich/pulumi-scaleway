@@ -13,6 +13,9 @@ namespace Pulumi.Scaleway.Objectstorage.Outputs
     [OutputType]
     public sealed class BucketACLAccessControlPolicyOwner
     {
+        /// <summary>
+        /// The project ID of the grantee.
+        /// </summary>
         public readonly string? DisplayName;
         /// <summary>
         /// The `region`,`bucket` and `acl` separated by (`/`).

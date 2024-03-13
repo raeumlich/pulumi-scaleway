@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOption) (*LookupHubResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHubResult
@@ -77,6 +79,8 @@ type LookupHubResult struct {
 	HubId                  *string `pulumi:"hubId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id             string  `pulumi:"id"`
+	MqttCa         string  `pulumi:"mqttCa"`
+	MqttCaUrl      string  `pulumi:"mqttCaUrl"`
 	Name           *string `pulumi:"name"`
 	OrganizationId string  `pulumi:"organizationId"`
 	ProductPlan    string  `pulumi:"productPlan"`
@@ -179,6 +183,14 @@ func (o LookupHubResultOutput) HubId() pulumi.StringPtrOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupHubResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHubResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupHubResultOutput) MqttCa() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHubResult) string { return v.MqttCa }).(pulumi.StringOutput)
+}
+
+func (o LookupHubResultOutput) MqttCaUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHubResult) string { return v.MqttCaUrl }).(pulumi.StringOutput)
 }
 
 func (o LookupHubResultOutput) Name() pulumi.StringPtrOutput {

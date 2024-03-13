@@ -18,6 +18,7 @@ namespace Pulumi.Scaleway.Instance
         /// 
         /// ### Basic
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,6 +35,7 @@ namespace Pulumi.Scaleway.Instance
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServersResult> InvokeAsync(GetServersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServersResult>("scaleway:instance/getServers:getServers", args ?? new GetServersArgs(), options.WithDefaults());
@@ -45,6 +47,7 @@ namespace Pulumi.Scaleway.Instance
         /// 
         /// ### Basic
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,6 +64,7 @@ namespace Pulumi.Scaleway.Instance
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServersResult> Invoke(GetServersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServersResult>("scaleway:instance/getServers:getServers", args ?? new GetServersInvokeArgs(), options.WithDefaults());

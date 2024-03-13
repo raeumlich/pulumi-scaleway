@@ -988,10 +988,13 @@ func (o GetBareMetalOfferMemoryArrayOutput) Index(i pulumi.IntInput) GetBareMeta
 }
 
 type GetBareMetalServerIp struct {
+	// The IPv6 address
 	Address string `pulumi:"address"`
 	// The ID of the server.
-	Id      string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The Reverse of the IPv6
 	Reverse string `pulumi:"reverse"`
+	// The version of the IPv6
 	Version string `pulumi:"version"`
 }
 
@@ -1007,10 +1010,13 @@ type GetBareMetalServerIpInput interface {
 }
 
 type GetBareMetalServerIpArgs struct {
+	// The IPv6 address
 	Address pulumi.StringInput `pulumi:"address"`
 	// The ID of the server.
-	Id      pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Reverse of the IPv6
 	Reverse pulumi.StringInput `pulumi:"reverse"`
+	// The version of the IPv6
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -1065,6 +1071,7 @@ func (o GetBareMetalServerIpOutput) ToGetBareMetalServerIpOutputWithContext(ctx 
 	return o
 }
 
+// The IPv6 address
 func (o GetBareMetalServerIpOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIp) string { return v.Address }).(pulumi.StringOutput)
 }
@@ -1074,10 +1081,12 @@ func (o GetBareMetalServerIpOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIp) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Reverse of the IPv6
 func (o GetBareMetalServerIpOutput) Reverse() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIp) string { return v.Reverse }).(pulumi.StringOutput)
 }
 
+// The version of the IPv6
 func (o GetBareMetalServerIpOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIp) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1103,10 +1112,13 @@ func (o GetBareMetalServerIpArrayOutput) Index(i pulumi.IntInput) GetBareMetalSe
 }
 
 type GetBareMetalServerIpv4 struct {
+	// The IPv6 address
 	Address string `pulumi:"address"`
 	// The ID of the server.
-	Id      string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The Reverse of the IPv6
 	Reverse string `pulumi:"reverse"`
+	// The version of the IPv6
 	Version string `pulumi:"version"`
 }
 
@@ -1122,10 +1134,13 @@ type GetBareMetalServerIpv4Input interface {
 }
 
 type GetBareMetalServerIpv4Args struct {
+	// The IPv6 address
 	Address pulumi.StringInput `pulumi:"address"`
 	// The ID of the server.
-	Id      pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Reverse of the IPv6
 	Reverse pulumi.StringInput `pulumi:"reverse"`
+	// The version of the IPv6
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -1180,6 +1195,7 @@ func (o GetBareMetalServerIpv4Output) ToGetBareMetalServerIpv4OutputWithContext(
 	return o
 }
 
+// The IPv6 address
 func (o GetBareMetalServerIpv4Output) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIpv4) string { return v.Address }).(pulumi.StringOutput)
 }
@@ -1189,10 +1205,12 @@ func (o GetBareMetalServerIpv4Output) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIpv4) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Reverse of the IPv6
 func (o GetBareMetalServerIpv4Output) Reverse() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIpv4) string { return v.Reverse }).(pulumi.StringOutput)
 }
 
+// The version of the IPv6
 func (o GetBareMetalServerIpv4Output) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIpv4) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1218,10 +1236,13 @@ func (o GetBareMetalServerIpv4ArrayOutput) Index(i pulumi.IntInput) GetBareMetal
 }
 
 type GetBareMetalServerIpv6 struct {
+	// The IPv6 address
 	Address string `pulumi:"address"`
 	// The ID of the server.
-	Id      string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The Reverse of the IPv6
 	Reverse string `pulumi:"reverse"`
+	// The version of the IPv6
 	Version string `pulumi:"version"`
 }
 
@@ -1237,10 +1258,13 @@ type GetBareMetalServerIpv6Input interface {
 }
 
 type GetBareMetalServerIpv6Args struct {
+	// The IPv6 address
 	Address pulumi.StringInput `pulumi:"address"`
 	// The ID of the server.
-	Id      pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Reverse of the IPv6
 	Reverse pulumi.StringInput `pulumi:"reverse"`
+	// The version of the IPv6
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -1295,6 +1319,7 @@ func (o GetBareMetalServerIpv6Output) ToGetBareMetalServerIpv6OutputWithContext(
 	return o
 }
 
+// The IPv6 address
 func (o GetBareMetalServerIpv6Output) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIpv6) string { return v.Address }).(pulumi.StringOutput)
 }
@@ -1304,10 +1329,12 @@ func (o GetBareMetalServerIpv6Output) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIpv6) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Reverse of the IPv6
 func (o GetBareMetalServerIpv6Output) Reverse() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIpv6) string { return v.Reverse }).(pulumi.StringOutput)
 }
 
+// The version of the IPv6
 func (o GetBareMetalServerIpv6Output) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerIpv6) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1333,6 +1360,7 @@ func (o GetBareMetalServerIpv6ArrayOutput) Index(i pulumi.IntInput) GetBareMetal
 }
 
 type GetBareMetalServerOption struct {
+	// Auto expire the option after this date
 	ExpiresAt string `pulumi:"expiresAt"`
 	// The ID of the server.
 	Id string `pulumi:"id"`
@@ -1352,6 +1380,7 @@ type GetBareMetalServerOptionInput interface {
 }
 
 type GetBareMetalServerOptionArgs struct {
+	// Auto expire the option after this date
 	ExpiresAt pulumi.StringInput `pulumi:"expiresAt"`
 	// The ID of the server.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1410,6 +1439,7 @@ func (o GetBareMetalServerOptionOutput) ToGetBareMetalServerOptionOutputWithCont
 	return o
 }
 
+// Auto expire the option after this date
 func (o GetBareMetalServerOptionOutput) ExpiresAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerOption) string { return v.ExpiresAt }).(pulumi.StringOutput)
 }
@@ -1445,12 +1475,16 @@ func (o GetBareMetalServerOptionArrayOutput) Index(i pulumi.IntInput) GetBareMet
 }
 
 type GetBareMetalServerPrivateNetwork struct {
+	// The date and time of the creation of the private network
 	CreatedAt string `pulumi:"createdAt"`
 	// The ID of the server.
-	Id        string `pulumi:"id"`
-	Status    string `pulumi:"status"`
+	Id string `pulumi:"id"`
+	// The private network status
+	Status string `pulumi:"status"`
+	// The date and time of the last update of the private network
 	UpdatedAt string `pulumi:"updatedAt"`
-	Vlan      int    `pulumi:"vlan"`
+	// The VLAN ID associated to the private network
+	Vlan int `pulumi:"vlan"`
 }
 
 // GetBareMetalServerPrivateNetworkInput is an input type that accepts GetBareMetalServerPrivateNetworkArgs and GetBareMetalServerPrivateNetworkOutput values.
@@ -1465,12 +1499,16 @@ type GetBareMetalServerPrivateNetworkInput interface {
 }
 
 type GetBareMetalServerPrivateNetworkArgs struct {
+	// The date and time of the creation of the private network
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
 	// The ID of the server.
-	Id        pulumi.StringInput `pulumi:"id"`
-	Status    pulumi.StringInput `pulumi:"status"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The private network status
+	Status pulumi.StringInput `pulumi:"status"`
+	// The date and time of the last update of the private network
 	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
-	Vlan      pulumi.IntInput    `pulumi:"vlan"`
+	// The VLAN ID associated to the private network
+	Vlan pulumi.IntInput `pulumi:"vlan"`
 }
 
 func (GetBareMetalServerPrivateNetworkArgs) ElementType() reflect.Type {
@@ -1524,6 +1562,7 @@ func (o GetBareMetalServerPrivateNetworkOutput) ToGetBareMetalServerPrivateNetwo
 	return o
 }
 
+// The date and time of the creation of the private network
 func (o GetBareMetalServerPrivateNetworkOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerPrivateNetwork) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -1533,14 +1572,17 @@ func (o GetBareMetalServerPrivateNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerPrivateNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The private network status
 func (o GetBareMetalServerPrivateNetworkOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerPrivateNetwork) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// The date and time of the last update of the private network
 func (o GetBareMetalServerPrivateNetworkOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBareMetalServerPrivateNetwork) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// The VLAN ID associated to the private network
 func (o GetBareMetalServerPrivateNetworkOutput) Vlan() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBareMetalServerPrivateNetwork) int { return v.Vlan }).(pulumi.IntOutput)
 }

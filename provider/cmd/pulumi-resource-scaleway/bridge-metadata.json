@@ -57,6 +57,9 @@
                 "fields": {
                     "endpoints": {
                         "maxItemsOne": false
+                    },
+                    "push_url": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -462,6 +465,9 @@
                     "resource": {
                         "maxItemsOne": false
                     },
+                    "reverses": {
+                        "maxItemsOne": false
+                    },
                     "source": {
                         "maxItemsOne": false
                     },
@@ -470,8 +476,16 @@
                     }
                 }
             },
+            "scaleway_ipam_ip_reverse_dns": {
+                "current": "scaleway:index/ipamIpReverseDns:IpamIpReverseDns"
+            },
             "scaleway_job_definition": {
-                "current": "scaleway:serverless/jobDefinition:JobDefinition"
+                "current": "scaleway:serverless/jobDefinition:JobDefinition",
+                "fields": {
+                    "cron": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "scaleway_k8s_cluster": {
                 "current": "scaleway:kubernetes/cluster:Cluster",
@@ -1076,6 +1090,9 @@
                 "current": "scaleway:cockpit/getCockpit:getCockpit",
                 "fields": {
                     "endpoints": {
+                        "maxItemsOne": false
+                    },
+                    "push_url": {
                         "maxItemsOne": false
                     }
                 }

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -19,13 +20,16 @@ import * as utilities from "../utilities";
  *     subdomain: "test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Zone can be imported using the `{subdomain}.{domain}`, e.g. bash
+ * Zone can be imported using the `{subdomain}.{domain}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:dns/zone:Zone test test.scaleway-terraform.com
+ * $ pulumi import scaleway:dns/zone:Zone test test.scaleway-terraform.com
  * ```
  */
 export class Zone extends pulumi.CustomResource {

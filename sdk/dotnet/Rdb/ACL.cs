@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Rdb
     /// For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api/#acl-rules-allowed-ips).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,13 +41,16 @@ namespace Pulumi.Scaleway.Rdb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Database Instance can be imported using the `{region}/{id}`, e.g. bash
+    /// Database Instance can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:rdb/aCL:ACL acl01 fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:rdb/aCL:ACL acl01 fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:rdb/aCL:ACL")]

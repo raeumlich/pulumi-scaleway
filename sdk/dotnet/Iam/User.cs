@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Iam
     /// For more information, see [the documentation](https://www.scaleway.com/en/developers/api/iam/#path-users-list-users-of-an-organization).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +33,16 @@ namespace Pulumi.Scaleway.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// IAM users can be imported using the `{id}`, e.g. bash
+    /// IAM users can be imported using the `{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:iam/user:User basic 11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:iam/user:User basic 11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:iam/user:User")]

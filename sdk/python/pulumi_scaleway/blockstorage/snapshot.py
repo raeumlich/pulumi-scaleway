@@ -203,19 +203,23 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         block_snapshot = scaleway.blockstorage.Snapshot("blockSnapshot", volume_id="11111111-1111-1111-1111-111111111111")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Block Snapshots can be imported using the `{zone}/{id}`, e.g. bash
+        Block Snapshots can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:blockstorage/snapshot:Snapshot main fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:blockstorage/snapshot:Snapshot main fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -238,19 +242,23 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         block_snapshot = scaleway.blockstorage.Snapshot("blockSnapshot", volume_id="11111111-1111-1111-1111-111111111111")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Block Snapshots can be imported using the `{zone}/{id}`, e.g. bash
+        Block Snapshots can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:blockstorage/snapshot:Snapshot main fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:blockstorage/snapshot:Snapshot main fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

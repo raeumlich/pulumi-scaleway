@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Cockpit
         /// <summary>
         /// Gets information about a Scaleway Cockpit plan.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Scaleway.Cockpit
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPlanResult> InvokeAsync(GetPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlanResult>("scaleway:cockpit/getPlan:getPlan", args ?? new GetPlanArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Scaleway.Cockpit
         /// <summary>
         /// Gets information about a Scaleway Cockpit plan.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Scaleway.Cockpit
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("scaleway:cockpit/getPlan:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());

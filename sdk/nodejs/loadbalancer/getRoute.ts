@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -39,6 +40,7 @@ import * as utilities from "../utilities";
  *     routeId: rt01.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
 
@@ -80,6 +82,7 @@ export interface GetRouteResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -109,6 +112,7 @@ export interface GetRouteResult {
  *     routeId: rt01.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply((a: any) => getRoute(a, opts))

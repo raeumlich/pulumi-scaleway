@@ -14,6 +14,10 @@ namespace Pulumi.Scaleway.Iot.Inputs
     {
         [Input("crt")]
         private Input<string>? _crt;
+
+        /// <summary>
+        /// X509 PEM encoded certificate of the device
+        /// </summary>
         public Input<string>? Crt
         {
             get => _crt;

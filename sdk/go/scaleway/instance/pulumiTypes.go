@@ -228,7 +228,8 @@ type SecurityGroupInboundRule struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ipRange` are specified, rule will apply to all ip. Only one of `ip` and `ipRange` should be specified.
 	IpRange *string `pulumi:"ipRange"`
 	// The port this rule applies to. If no `port` nor `portRange` are specified, the rule will apply to all port. Only one of `port` and `portRange` should be specified.
-	Port      *int    `pulumi:"port"`
+	Port *int `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange *string `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol *string `pulumi:"protocol"`
@@ -255,7 +256,8 @@ type SecurityGroupInboundRuleArgs struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ipRange` are specified, rule will apply to all ip. Only one of `ip` and `ipRange` should be specified.
 	IpRange pulumi.StringPtrInput `pulumi:"ipRange"`
 	// The port this rule applies to. If no `port` nor `portRange` are specified, the rule will apply to all port. Only one of `port` and `portRange` should be specified.
-	Port      pulumi.IntPtrInput    `pulumi:"port"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange pulumi.StringPtrInput `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -334,6 +336,7 @@ func (o SecurityGroupInboundRuleOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityGroupInboundRule) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Computed port range for this rule (e.g: 1-1024, 22-22)
 func (o SecurityGroupInboundRuleOutput) PortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupInboundRule) *string { return v.PortRange }).(pulumi.StringPtrOutput)
 }
@@ -373,7 +376,8 @@ type SecurityGroupOutboundRule struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ipRange` are specified, rule will apply to all ip. Only one of `ip` and `ipRange` should be specified.
 	IpRange *string `pulumi:"ipRange"`
 	// The port this rule applies to. If no `port` nor `portRange` are specified, the rule will apply to all port. Only one of `port` and `portRange` should be specified.
-	Port      *int    `pulumi:"port"`
+	Port *int `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange *string `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol *string `pulumi:"protocol"`
@@ -400,7 +404,8 @@ type SecurityGroupOutboundRuleArgs struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ipRange` are specified, rule will apply to all ip. Only one of `ip` and `ipRange` should be specified.
 	IpRange pulumi.StringPtrInput `pulumi:"ipRange"`
 	// The port this rule applies to. If no `port` nor `portRange` are specified, the rule will apply to all port. Only one of `port` and `portRange` should be specified.
-	Port      pulumi.IntPtrInput    `pulumi:"port"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange pulumi.StringPtrInput `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -479,6 +484,7 @@ func (o SecurityGroupOutboundRuleOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityGroupOutboundRule) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Computed port range for this rule (e.g: 1-1024, 22-22)
 func (o SecurityGroupOutboundRuleOutput) PortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupOutboundRule) *string { return v.PortRange }).(pulumi.StringPtrOutput)
 }
@@ -518,7 +524,8 @@ type SecurityGroupRulesInboundRule struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ipRange` are specified, rule will apply to all ip. Only one of `ip` and `ipRange` should be specified.
 	IpRange *string `pulumi:"ipRange"`
 	// The port this rule apply to. If no port is specified, rule will apply to all port.
-	Port      *int    `pulumi:"port"`
+	Port *int `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange *string `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol *string `pulumi:"protocol"`
@@ -545,7 +552,8 @@ type SecurityGroupRulesInboundRuleArgs struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ipRange` are specified, rule will apply to all ip. Only one of `ip` and `ipRange` should be specified.
 	IpRange pulumi.StringPtrInput `pulumi:"ipRange"`
 	// The port this rule apply to. If no port is specified, rule will apply to all port.
-	Port      pulumi.IntPtrInput    `pulumi:"port"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange pulumi.StringPtrInput `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -624,6 +632,7 @@ func (o SecurityGroupRulesInboundRuleOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityGroupRulesInboundRule) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Computed port range for this rule (e.g: 1-1024, 22-22)
 func (o SecurityGroupRulesInboundRuleOutput) PortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupRulesInboundRule) *string { return v.PortRange }).(pulumi.StringPtrOutput)
 }
@@ -663,7 +672,8 @@ type SecurityGroupRulesOutboundRule struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ipRange` are specified, rule will apply to all ip. Only one of `ip` and `ipRange` should be specified.
 	IpRange *string `pulumi:"ipRange"`
 	// The port this rule apply to. If no port is specified, rule will apply to all port.
-	Port      *int    `pulumi:"port"`
+	Port *int `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange *string `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol *string `pulumi:"protocol"`
@@ -690,7 +700,8 @@ type SecurityGroupRulesOutboundRuleArgs struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ipRange` are specified, rule will apply to all ip. Only one of `ip` and `ipRange` should be specified.
 	IpRange pulumi.StringPtrInput `pulumi:"ipRange"`
 	// The port this rule apply to. If no port is specified, rule will apply to all port.
-	Port      pulumi.IntPtrInput    `pulumi:"port"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange pulumi.StringPtrInput `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -769,6 +780,7 @@ func (o SecurityGroupRulesOutboundRuleOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityGroupRulesOutboundRule) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Computed port range for this rule (e.g: 1-1024, 22-22)
 func (o SecurityGroupRulesOutboundRuleOutput) PortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupRulesOutboundRule) *string { return v.PortRange }).(pulumi.StringPtrOutput)
 }
@@ -799,9 +811,12 @@ func (o SecurityGroupRulesOutboundRuleArrayOutput) Index(i pulumi.IntInput) Secu
 }
 
 type ServerPrivateNetwork struct {
+	// MAC address of the NIC
 	MacAddress *string `pulumi:"macAddress"`
-	PnId       string  `pulumi:"pnId"`
-	Status     *string `pulumi:"status"`
+	// The Private Network ID
+	PnId string `pulumi:"pnId"`
+	// The private NIC state
+	Status *string `pulumi:"status"`
 	// `zone`) The zone in which the server should be created.
 	Zone *string `pulumi:"zone"`
 }
@@ -818,9 +833,12 @@ type ServerPrivateNetworkInput interface {
 }
 
 type ServerPrivateNetworkArgs struct {
+	// MAC address of the NIC
 	MacAddress pulumi.StringPtrInput `pulumi:"macAddress"`
-	PnId       pulumi.StringInput    `pulumi:"pnId"`
-	Status     pulumi.StringPtrInput `pulumi:"status"`
+	// The Private Network ID
+	PnId pulumi.StringInput `pulumi:"pnId"`
+	// The private NIC state
+	Status pulumi.StringPtrInput `pulumi:"status"`
 	// `zone`) The zone in which the server should be created.
 	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
@@ -876,14 +894,17 @@ func (o ServerPrivateNetworkOutput) ToServerPrivateNetworkOutputWithContext(ctx 
 	return o
 }
 
+// MAC address of the NIC
 func (o ServerPrivateNetworkOutput) MacAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPrivateNetwork) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
 }
 
+// The Private Network ID
 func (o ServerPrivateNetworkOutput) PnId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPrivateNetwork) string { return v.PnId }).(pulumi.StringOutput)
 }
 
+// The private NIC state
 func (o ServerPrivateNetworkOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerPrivateNetwork) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1020,6 +1041,7 @@ func (o ServerPublicIpArrayOutput) Index(i pulumi.IntInput) ServerPublicIpOutput
 }
 
 type ServerRootVolume struct {
+	// Set the volume where the boot the server
 	Boot *bool `pulumi:"boot"`
 	// Forces deletion of the root volume on instance termination.
 	//
@@ -1050,6 +1072,7 @@ type ServerRootVolumeInput interface {
 }
 
 type ServerRootVolumeArgs struct {
+	// Set the volume where the boot the server
 	Boot pulumi.BoolPtrInput `pulumi:"boot"`
 	// Forces deletion of the root volume on instance termination.
 	//
@@ -1145,6 +1168,7 @@ func (o ServerRootVolumeOutput) ToServerRootVolumePtrOutputWithContext(ctx conte
 	}).(ServerRootVolumePtrOutput)
 }
 
+// Set the volume where the boot the server
 func (o ServerRootVolumeOutput) Boot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServerRootVolume) *bool { return v.Boot }).(pulumi.BoolPtrOutput)
 }
@@ -1203,6 +1227,7 @@ func (o ServerRootVolumePtrOutput) Elem() ServerRootVolumeOutput {
 	}).(ServerRootVolumeOutput)
 }
 
+// Set the volume where the boot the server
 func (o ServerRootVolumePtrOutput) Boot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerRootVolume) *bool {
 		if v == nil {
@@ -1439,7 +1464,8 @@ type GetSecurityGroupInboundRule struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule apply to.
 	IpRange string `pulumi:"ipRange"`
 	// The port this rule apply to. If no port is specified, rule will apply to all port.
-	Port      int    `pulumi:"port"`
+	Port int `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange string `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol string `pulumi:"protocol"`
@@ -1464,7 +1490,8 @@ type GetSecurityGroupInboundRuleArgs struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule apply to.
 	IpRange pulumi.StringInput `pulumi:"ipRange"`
 	// The port this rule apply to. If no port is specified, rule will apply to all port.
-	Port      pulumi.IntInput    `pulumi:"port"`
+	Port pulumi.IntInput `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange pulumi.StringInput `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -1541,6 +1568,7 @@ func (o GetSecurityGroupInboundRuleOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSecurityGroupInboundRule) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// Computed port range for this rule (e.g: 1-1024, 22-22)
 func (o GetSecurityGroupInboundRuleOutput) PortRange() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupInboundRule) string { return v.PortRange }).(pulumi.StringOutput)
 }
@@ -1578,7 +1606,8 @@ type GetSecurityGroupOutboundRule struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule apply to.
 	IpRange string `pulumi:"ipRange"`
 	// The port this rule apply to. If no port is specified, rule will apply to all port.
-	Port      int    `pulumi:"port"`
+	Port int `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange string `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol string `pulumi:"protocol"`
@@ -1603,7 +1632,8 @@ type GetSecurityGroupOutboundRuleArgs struct {
 	// The ip range (e.g `192.168.1.0/24`) this rule apply to.
 	IpRange pulumi.StringInput `pulumi:"ipRange"`
 	// The port this rule apply to. If no port is specified, rule will apply to all port.
-	Port      pulumi.IntInput    `pulumi:"port"`
+	Port pulumi.IntInput `pulumi:"port"`
+	// Computed port range for this rule (e.g: 1-1024, 22-22)
 	PortRange pulumi.StringInput `pulumi:"portRange"`
 	// The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -1680,6 +1710,7 @@ func (o GetSecurityGroupOutboundRuleOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSecurityGroupOutboundRule) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// Computed port range for this rule (e.g: 1-1024, 22-22)
 func (o GetSecurityGroupOutboundRuleOutput) PortRange() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupOutboundRule) string { return v.PortRange }).(pulumi.StringOutput)
 }
@@ -1710,9 +1741,12 @@ func (o GetSecurityGroupOutboundRuleArrayOutput) Index(i pulumi.IntInput) GetSec
 }
 
 type GetServerPrivateNetwork struct {
+	// MAC address of the NIC
 	MacAddress string `pulumi:"macAddress"`
-	PnId       string `pulumi:"pnId"`
-	Status     string `pulumi:"status"`
+	// The Private Network ID
+	PnId string `pulumi:"pnId"`
+	// The private NIC state
+	Status string `pulumi:"status"`
 	// `zone`) The zone in which the server exists.
 	Zone string `pulumi:"zone"`
 }
@@ -1729,9 +1763,12 @@ type GetServerPrivateNetworkInput interface {
 }
 
 type GetServerPrivateNetworkArgs struct {
+	// MAC address of the NIC
 	MacAddress pulumi.StringInput `pulumi:"macAddress"`
-	PnId       pulumi.StringInput `pulumi:"pnId"`
-	Status     pulumi.StringInput `pulumi:"status"`
+	// The Private Network ID
+	PnId pulumi.StringInput `pulumi:"pnId"`
+	// The private NIC state
+	Status pulumi.StringInput `pulumi:"status"`
 	// `zone`) The zone in which the server exists.
 	Zone pulumi.StringInput `pulumi:"zone"`
 }
@@ -1787,14 +1824,17 @@ func (o GetServerPrivateNetworkOutput) ToGetServerPrivateNetworkOutputWithContex
 	return o
 }
 
+// MAC address of the NIC
 func (o GetServerPrivateNetworkOutput) MacAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerPrivateNetwork) string { return v.MacAddress }).(pulumi.StringOutput)
 }
 
+// The Private Network ID
 func (o GetServerPrivateNetworkOutput) PnId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerPrivateNetwork) string { return v.PnId }).(pulumi.StringOutput)
 }
 
+// The private NIC state
 func (o GetServerPrivateNetworkOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerPrivateNetwork) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1931,6 +1971,7 @@ func (o GetServerPublicIpArrayOutput) Index(i pulumi.IntInput) GetServerPublicIp
 }
 
 type GetServerRootVolume struct {
+	// Set the volume where the boot the server
 	Boot bool `pulumi:"boot"`
 	// Forces deletion of the root volume on instance termination.
 	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
@@ -1939,7 +1980,8 @@ type GetServerRootVolume struct {
 	// Size of the root volume in gigabytes.
 	SizeInGb int `pulumi:"sizeInGb"`
 	// The volume ID of the root volume of the server.
-	VolumeId   string `pulumi:"volumeId"`
+	VolumeId string `pulumi:"volumeId"`
+	// Volume type of the root volume
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -1955,6 +1997,7 @@ type GetServerRootVolumeInput interface {
 }
 
 type GetServerRootVolumeArgs struct {
+	// Set the volume where the boot the server
 	Boot pulumi.BoolInput `pulumi:"boot"`
 	// Forces deletion of the root volume on instance termination.
 	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
@@ -1963,7 +2006,8 @@ type GetServerRootVolumeArgs struct {
 	// Size of the root volume in gigabytes.
 	SizeInGb pulumi.IntInput `pulumi:"sizeInGb"`
 	// The volume ID of the root volume of the server.
-	VolumeId   pulumi.StringInput `pulumi:"volumeId"`
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
+	// Volume type of the root volume
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -2018,6 +2062,7 @@ func (o GetServerRootVolumeOutput) ToGetServerRootVolumeOutputWithContext(ctx co
 	return o
 }
 
+// Set the volume where the boot the server
 func (o GetServerRootVolumeOutput) Boot() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServerRootVolume) bool { return v.Boot }).(pulumi.BoolOutput)
 }
@@ -2042,6 +2087,7 @@ func (o GetServerRootVolumeOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerRootVolume) string { return v.VolumeId }).(pulumi.StringOutput)
 }
 
+// Volume type of the root volume
 func (o GetServerRootVolumeOutput) VolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerRootVolume) string { return v.VolumeType }).(pulumi.StringOutput)
 }
@@ -2465,8 +2511,10 @@ func (o GetServersServerPublicIpArrayOutput) Index(i pulumi.IntInput) GetServers
 }
 
 type GetSnapshotImport struct {
+	// Bucket containing qcow
 	Bucket string `pulumi:"bucket"`
-	Key    string `pulumi:"key"`
+	// Key of the qcow file in the specified bucket
+	Key string `pulumi:"key"`
 }
 
 // GetSnapshotImportInput is an input type that accepts GetSnapshotImportArgs and GetSnapshotImportOutput values.
@@ -2481,8 +2529,10 @@ type GetSnapshotImportInput interface {
 }
 
 type GetSnapshotImportArgs struct {
+	// Bucket containing qcow
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	Key    pulumi.StringInput `pulumi:"key"`
+	// Key of the qcow file in the specified bucket
+	Key pulumi.StringInput `pulumi:"key"`
 }
 
 func (GetSnapshotImportArgs) ElementType() reflect.Type {
@@ -2536,10 +2586,12 @@ func (o GetSnapshotImportOutput) ToGetSnapshotImportOutputWithContext(ctx contex
 	return o
 }
 
+// Bucket containing qcow
 func (o GetSnapshotImportOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotImport) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// Key of the qcow file in the specified bucket
 func (o GetSnapshotImportOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotImport) string { return v.Key }).(pulumi.StringOutput)
 }

@@ -16,8 +16,10 @@ import * as utilities from "../utilities";
  * About cloud-init documentation please check this [link](https://cloudinit.readthedocs.io/en/latest/).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -50,13 +52,16 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * User data can be imported using the `{zone}/{key}/{server_id}`, e.g. bash
+ * User data can be imported using the `{zone}/{key}/{server_id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:instance/userData:UserData main fr-par-1/cloud-init/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:instance/userData:UserData main fr-par-1/cloud-init/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class UserData extends pulumi.CustomResource {

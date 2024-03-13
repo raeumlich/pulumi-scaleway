@@ -290,6 +290,7 @@ def get_bare_metal_server(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -298,6 +299,7 @@ def get_bare_metal_server(name: Optional[str] = None,
         zone="fr-par-2")
     by_id = scaleway.elasticmetal.get_bare_metal_server(server_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The server name. Only one of `name` and `server_id` should be specified.
@@ -354,6 +356,7 @@ def get_bare_metal_server_output(name: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -362,6 +365,7 @@ def get_bare_metal_server_output(name: Optional[pulumi.Input[Optional[str]]] = N
         zone="fr-par-2")
     by_id = scaleway.elasticmetal.get_bare_metal_server(server_id="11111111-1111-1111-1111-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The server name. Only one of `name` and `server_id` should be specified.

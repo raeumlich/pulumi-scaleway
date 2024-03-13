@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Public gateway DHCP config can be imported using the `{zone}/{id}`, e.g. bash
+// Public gateway DHCP config can be imported using the `{zone}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:vpc/publicGatewayDHCP:PublicGatewayDHCP main fr-par-1/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:vpc/publicGatewayDHCP:PublicGatewayDHCP main fr-par-1/11111111-1111-1111-1111-111111111111
 // ```
 type PublicGatewayDHCP struct {
 	pulumi.CustomResourceState

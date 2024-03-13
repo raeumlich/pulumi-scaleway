@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -23,6 +24,7 @@ import * as utilities from "../utilities";
  *     zone: "fr-par-2",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRoutes(args?: GetRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutesResult> {
     args = args || {};
@@ -72,6 +74,7 @@ export interface GetRoutesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -84,6 +87,7 @@ export interface GetRoutesResult {
  *     zone: "fr-par-2",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRoutesOutput(args?: GetRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutesResult> {
     return pulumi.output(args).apply((a: any) => getRoutes(a, opts))

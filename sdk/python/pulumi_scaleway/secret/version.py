@@ -236,8 +236,10 @@ class Version(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/secret_manager/api/v1alpha1/#secret-versions-079501).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -253,13 +255,18 @@ class Version(pulumi.CustomResource):
             secret_id=main.id,
             data="my_new_secret")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        The Secret Version can be imported using the `{region}/{id}/{revision}`, e.g. ~> **Important:** Be aware if you import with revision `latest` you will overwrite the version you used before. bash
+        The Secret Version can be imported using the `{region}/{id}/{revision}`, e.g.
+
+        ~> **Important:** Be aware if you import with revision `latest` you will overwrite the version you used before.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:secret/version:Version main fr-par/11111111-1111-1111-1111-111111111111/2
+        $ pulumi import scaleway:secret/version:Version main fr-par/11111111-1111-1111-1111-111111111111/2
         ```
 
         :param str resource_name: The name of the resource.
@@ -281,8 +288,10 @@ class Version(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/secret_manager/api/v1alpha1/#secret-versions-079501).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -298,13 +307,18 @@ class Version(pulumi.CustomResource):
             secret_id=main.id,
             data="my_new_secret")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        The Secret Version can be imported using the `{region}/{id}/{revision}`, e.g. ~> **Important:** Be aware if you import with revision `latest` you will overwrite the version you used before. bash
+        The Secret Version can be imported using the `{region}/{id}/{revision}`, e.g.
+
+        ~> **Important:** Be aware if you import with revision `latest` you will overwrite the version you used before.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:secret/version:Version main fr-par/11111111-1111-1111-1111-111111111111/2
+        $ pulumi import scaleway:secret/version:Version main fr-par/11111111-1111-1111-1111-111111111111/2
         ```
 
         :param str resource_name: The name of the resource.

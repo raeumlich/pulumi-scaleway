@@ -124,6 +124,7 @@ def get_flexible_ips(project_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -147,6 +148,7 @@ def get_flexible_ips(project_id: Optional[str] = None,
         ])
     fips_by_server_id = scaleway.elasticmetal.get_flexible_ips_output(server_ids=[base.id])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str project_id: (Defaults to provider `project_id`) The ID of the project the IP is in.
@@ -183,6 +185,7 @@ def get_flexible_ips_output(project_id: Optional[pulumi.Input[Optional[str]]] = 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -206,6 +209,7 @@ def get_flexible_ips_output(project_id: Optional[pulumi.Input[Optional[str]]] = 
         ])
     fips_by_server_id = scaleway.elasticmetal.get_flexible_ips_output(server_ids=[base.id])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str project_id: (Defaults to provider `project_id`) The ID of the project the IP is in.

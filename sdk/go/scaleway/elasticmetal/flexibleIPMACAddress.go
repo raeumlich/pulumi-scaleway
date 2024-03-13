@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://developers.scaleway.com/en/products/flexible-ip/api).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Duplicate on many other flexible IPs
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,15 +112,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Flexible IP Mac Addresses can be imported using the `{zone}/{id}`, e.g. bash
+// Flexible IP Mac Addresses can be imported using the `{zone}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:elasticmetal/flexibleIPMACAddress:FlexibleIPMACAddress main fr-par-1/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:elasticmetal/flexibleIPMACAddress:FlexibleIPMACAddress main fr-par-1/11111111-1111-1111-1111-111111111111
 // ```
 type FlexibleIPMACAddress struct {
 	pulumi.CustomResourceState

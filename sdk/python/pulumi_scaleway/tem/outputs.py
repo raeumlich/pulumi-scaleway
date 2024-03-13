@@ -110,6 +110,13 @@ class GetDomainReputationResult(dict):
                  score: int,
                  scored_at: str,
                  status: str):
+        """
+        :param int previous_score: The previously-calculated domain's reputation score
+        :param str previous_scored_at: Time and date the previous reputation score was calculated
+        :param int score: A range from 0 to 100 that determines your domain's reputation score
+        :param str scored_at: Time and date the score was calculated
+        :param str status: Status of the domain's reputation
+        """
         pulumi.set(__self__, "previous_score", previous_score)
         pulumi.set(__self__, "previous_scored_at", previous_scored_at)
         pulumi.set(__self__, "score", score)
@@ -119,26 +126,41 @@ class GetDomainReputationResult(dict):
     @property
     @pulumi.getter(name="previousScore")
     def previous_score(self) -> int:
+        """
+        The previously-calculated domain's reputation score
+        """
         return pulumi.get(self, "previous_score")
 
     @property
     @pulumi.getter(name="previousScoredAt")
     def previous_scored_at(self) -> str:
+        """
+        Time and date the previous reputation score was calculated
+        """
         return pulumi.get(self, "previous_scored_at")
 
     @property
     @pulumi.getter
     def score(self) -> int:
+        """
+        A range from 0 to 100 that determines your domain's reputation score
+        """
         return pulumi.get(self, "score")
 
     @property
     @pulumi.getter(name="scoredAt")
     def scored_at(self) -> str:
+        """
+        Time and date the score was calculated
+        """
         return pulumi.get(self, "scored_at")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        Status of the domain's reputation
+        """
         return pulumi.get(self, "status")
 
 

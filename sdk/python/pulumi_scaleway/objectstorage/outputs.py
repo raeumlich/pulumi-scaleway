@@ -36,6 +36,9 @@ class BucketACLAccessControlPolicy(dict):
     def __init__(__self__, *,
                  owner: 'outputs.BucketACLAccessControlPolicyOwner',
                  grants: Optional[Sequence['outputs.BucketACLAccessControlPolicyGrant']] = None):
+        """
+        :param 'BucketACLAccessControlPolicyOwnerArgs' owner: Configuration block of the bucket project owner's display organization ID.
+        """
         pulumi.set(__self__, "owner", owner)
         if grants is not None:
             pulumi.set(__self__, "grants", grants)
@@ -43,6 +46,9 @@ class BucketACLAccessControlPolicy(dict):
     @property
     @pulumi.getter
     def owner(self) -> 'outputs.BucketACLAccessControlPolicyOwner':
+        """
+        Configuration block of the bucket project owner's display organization ID.
+        """
         return pulumi.get(self, "owner")
 
     @property
@@ -56,6 +62,10 @@ class BucketACLAccessControlPolicyGrant(dict):
     def __init__(__self__, *,
                  permission: str,
                  grantee: Optional['outputs.BucketACLAccessControlPolicyGrantGrantee'] = None):
+        """
+        :param str permission: Logging permissions assigned to the grantee for the bucket.
+        :param 'BucketACLAccessControlPolicyGrantGranteeArgs' grantee: Configuration block for the project being granted permissions.
+        """
         pulumi.set(__self__, "permission", permission)
         if grantee is not None:
             pulumi.set(__self__, "grantee", grantee)
@@ -63,11 +73,17 @@ class BucketACLAccessControlPolicyGrant(dict):
     @property
     @pulumi.getter
     def permission(self) -> str:
+        """
+        Logging permissions assigned to the grantee for the bucket.
+        """
         return pulumi.get(self, "permission")
 
     @property
     @pulumi.getter
     def grantee(self) -> Optional['outputs.BucketACLAccessControlPolicyGrantGrantee']:
+        """
+        Configuration block for the project being granted permissions.
+        """
         return pulumi.get(self, "grantee")
 
 
@@ -96,6 +112,7 @@ class BucketACLAccessControlPolicyGrantGrantee(dict):
                  display_name: Optional[str] = None):
         """
         :param str id: The `region`,`bucket` and `acl` separated by (`/`).
+        :param str type: Type of grantee. Valid values: `CanonicalUser`
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -113,6 +130,9 @@ class BucketACLAccessControlPolicyGrantGrantee(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Type of grantee. Valid values: `CanonicalUser`
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -145,6 +165,7 @@ class BucketACLAccessControlPolicyOwner(dict):
                  display_name: Optional[str] = None):
         """
         :param str id: The `region`,`bucket` and `acl` separated by (`/`).
+        :param str display_name: The project ID of the grantee.
         """
         pulumi.set(__self__, "id", id)
         if display_name is not None:
@@ -161,6 +182,9 @@ class BucketACLAccessControlPolicyOwner(dict):
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The project ID of the grantee.
+        """
         return pulumi.get(self, "display_name")
 
 
@@ -629,7 +653,13 @@ class GetBucketLifecycleRuleResult(dict):
                  tags: Mapping[str, str],
                  transitions: Sequence['outputs.GetBucketLifecycleRuleTransitionResult']):
         """
+        :param int abort_incomplete_multipart_upload_days: Specifies the number of days after initiating a multipart upload when the multipart upload must be completed
+        :param bool enabled: Specifies if the configuration rule is Enabled or Disabled
+        :param Sequence['GetBucketLifecycleRuleExpirationArgs'] expirations: Specifies a period in the object's expire
         :param str id: The unique name of the bucket.
+        :param str prefix: The prefix identifying one or more objects to which the rule applies
+        :param Mapping[str, str] tags: The tags associated with the bucket lifecycle
+        :param Sequence['GetBucketLifecycleRuleTransitionArgs'] transitions: Define when objects transition to another storage class
         """
         pulumi.set(__self__, "abort_incomplete_multipart_upload_days", abort_incomplete_multipart_upload_days)
         pulumi.set(__self__, "enabled", enabled)
@@ -642,16 +672,25 @@ class GetBucketLifecycleRuleResult(dict):
     @property
     @pulumi.getter(name="abortIncompleteMultipartUploadDays")
     def abort_incomplete_multipart_upload_days(self) -> int:
+        """
+        Specifies the number of days after initiating a multipart upload when the multipart upload must be completed
+        """
         return pulumi.get(self, "abort_incomplete_multipart_upload_days")
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Specifies if the configuration rule is Enabled or Disabled
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def expirations(self) -> Sequence['outputs.GetBucketLifecycleRuleExpirationResult']:
+        """
+        Specifies a period in the object's expire
+        """
         return pulumi.get(self, "expirations")
 
     @property
@@ -665,16 +704,25 @@ class GetBucketLifecycleRuleResult(dict):
     @property
     @pulumi.getter
     def prefix(self) -> str:
+        """
+        The prefix identifying one or more objects to which the rule applies
+        """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        The tags associated with the bucket lifecycle
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def transitions(self) -> Sequence['outputs.GetBucketLifecycleRuleTransitionResult']:
+        """
+        Define when objects transition to another storage class
+        """
         return pulumi.get(self, "transitions")
 
 
@@ -682,11 +730,17 @@ class GetBucketLifecycleRuleResult(dict):
 class GetBucketLifecycleRuleExpirationResult(dict):
     def __init__(__self__, *,
                  days: int):
+        """
+        :param int days: Specifies the number of days after object creation when the specific rule action takes effect
+        """
         pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter
     def days(self) -> int:
+        """
+        Specifies the number of days after object creation when the specific rule action takes effect
+        """
         return pulumi.get(self, "days")
 
 
@@ -695,17 +749,27 @@ class GetBucketLifecycleRuleTransitionResult(dict):
     def __init__(__self__, *,
                  days: int,
                  storage_class: str):
+        """
+        :param int days: Specifies the number of days after object creation when the specific rule action takes effect
+        :param str storage_class: Specifies the Scaleway Object Storage class to which you want the object to transition
+        """
         pulumi.set(__self__, "days", days)
         pulumi.set(__self__, "storage_class", storage_class)
 
     @property
     @pulumi.getter
     def days(self) -> int:
+        """
+        Specifies the number of days after object creation when the specific rule action takes effect
+        """
         return pulumi.get(self, "days")
 
     @property
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> str:
+        """
+        Specifies the Scaleway Object Storage class to which you want the object to transition
+        """
         return pulumi.get(self, "storage_class")
 
 
@@ -713,11 +777,17 @@ class GetBucketLifecycleRuleTransitionResult(dict):
 class GetBucketVersioningResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
+        """
+        :param bool enabled: Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state
+        """
         return pulumi.get(self, "enabled")
 
 

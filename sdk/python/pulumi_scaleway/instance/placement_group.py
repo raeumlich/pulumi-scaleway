@@ -268,19 +268,23 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         availability_group = scaleway.instance.PlacementGroup("availabilityGroup")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Placement groups can be imported using the `{zone}/{id}`, e.g. bash
+        Placement groups can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:instance/placementGroup:PlacementGroup availability_group fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:instance/placementGroup:PlacementGroup availability_group fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,19 +307,23 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
 
         availability_group = scaleway.instance.PlacementGroup("availabilityGroup")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Placement groups can be imported using the `{zone}/{id}`, e.g. bash
+        Placement groups can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:instance/placementGroup:PlacementGroup availability_group fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:instance/placementGroup:PlacementGroup availability_group fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

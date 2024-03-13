@@ -370,8 +370,10 @@ class SNSTopic(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -387,13 +389,16 @@ class SNSTopic(pulumi.CustomResource):
             access_key=main_sns_credentials.access_key,
             secret_key=main_sns_credentials.secret_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        SNS topic can be imported using the `{region}/{project-id}/{topic-name}`, e.g. bash
+        SNS topic can be imported using the `{region}/{project-id}/{topic-name}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:mnq/sNSTopic:SNSTopic main fr-par/11111111111111111111111111111111/my-topic
+        $ pulumi import scaleway:mnq/sNSTopic:SNSTopic main fr-par/11111111111111111111111111111111/my-topic
         ```
 
         :param str resource_name: The name of the resource.
@@ -421,8 +426,10 @@ class SNSTopic(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -438,13 +445,16 @@ class SNSTopic(pulumi.CustomResource):
             access_key=main_sns_credentials.access_key,
             secret_key=main_sns_credentials.secret_key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        SNS topic can be imported using the `{region}/{project-id}/{topic-name}`, e.g. bash
+        SNS topic can be imported using the `{region}/{project-id}/{topic-name}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:mnq/sNSTopic:SNSTopic main fr-par/11111111111111111111111111111111/my-topic
+        $ pulumi import scaleway:mnq/sNSTopic:SNSTopic main fr-par/11111111111111111111111111111111/my-topic
         ```
 
         :param str resource_name: The name of the resource.

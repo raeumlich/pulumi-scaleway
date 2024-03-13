@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -23,6 +24,7 @@ import * as utilities from "../utilities";
  *     name: "tf-backend-datasource",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBackends(args: GetBackendsArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendsResult> {
 
@@ -77,6 +79,7 @@ export interface GetBackendsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -89,6 +92,7 @@ export interface GetBackendsResult {
  *     name: "tf-backend-datasource",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBackendsOutput(args: GetBackendsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendsResult> {
     return pulumi.output(args).apply((a: any) => getBackends(a, opts))

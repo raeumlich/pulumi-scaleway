@@ -13,10 +13,25 @@ namespace Pulumi.Scaleway.Tem.Outputs
     [OutputType]
     public sealed class GetDomainReputationResult
     {
+        /// <summary>
+        /// The previously-calculated domain's reputation score
+        /// </summary>
         public readonly int PreviousScore;
+        /// <summary>
+        /// Time and date the previous reputation score was calculated
+        /// </summary>
         public readonly string PreviousScoredAt;
+        /// <summary>
+        /// A range from 0 to 100 that determines your domain's reputation score
+        /// </summary>
         public readonly int Score;
+        /// <summary>
+        /// Time and date the score was calculated
+        /// </summary>
         public readonly string ScoredAt;
+        /// <summary>
+        /// Status of the domain's reputation
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

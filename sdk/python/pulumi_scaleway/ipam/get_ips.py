@@ -183,15 +183,18 @@ def get_ips(attached: Optional[bool] = None,
 
     ### By tag
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     by_tag = scaleway.ipam.get_ips(tags=["tag"])
     ```
+    <!--End PulumiCodeChooser -->
 
     ### By type and resource
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -217,6 +220,7 @@ def get_ips(attached: Optional[bool] = None,
             type="redis_cluster",
         ))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool attached: Defines whether to filter only for IPs which are attached to a resource.
@@ -275,15 +279,18 @@ def get_ips_output(attached: Optional[pulumi.Input[Optional[bool]]] = None,
 
     ### By tag
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
 
     by_tag = scaleway.ipam.get_ips(tags=["tag"])
     ```
+    <!--End PulumiCodeChooser -->
 
     ### By type and resource
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_scaleway as scaleway
@@ -309,6 +316,7 @@ def get_ips_output(attached: Optional[pulumi.Input[Optional[bool]]] = None,
             type="redis_cluster",
         ))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool attached: Defines whether to filter only for IPs which are attached to a resource.

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -26,6 +27,7 @@ import * as utilities from "../utilities";
  *     privateNetworkId: "11111111-1111-1111-1111-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrivateNetwork(args?: GetPrivateNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateNetworkResult> {
     args = args || {};
@@ -94,6 +96,7 @@ export interface GetPrivateNetworkResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -109,6 +112,7 @@ export interface GetPrivateNetworkResult {
  *     privateNetworkId: "11111111-1111-1111-1111-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrivateNetworkOutput(args?: GetPrivateNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateNetworkResult> {
     return pulumi.output(args).apply((a: any) => getPrivateNetwork(a, opts))

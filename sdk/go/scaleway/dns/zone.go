@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Zone can be imported using the `{subdomain}.{domain}`, e.g. bash
+// Zone can be imported using the `{subdomain}.{domain}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:dns/zone:Zone test test.scaleway-terraform.com
-//
+// $ pulumi import scaleway:dns/zone:Zone test test.scaleway-terraform.com
 // ```
 type Zone struct {
 	pulumi.CustomResourceState

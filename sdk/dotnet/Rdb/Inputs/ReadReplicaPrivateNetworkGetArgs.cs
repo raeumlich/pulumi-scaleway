@@ -12,6 +12,9 @@ namespace Pulumi.Scaleway.Rdb.Inputs
 
     public sealed class ReadReplicaPrivateNetworkGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If true, the IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
+        /// </summary>
         [Input("enableIpam")]
         public Input<bool>? EnableIpam { get; set; }
 
@@ -52,13 +55,14 @@ namespace Pulumi.Scaleway.Rdb.Inputs
         public Input<string> PrivateNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The IP network address within the private subnet. This must be an IPv4 address with a
-        /// CIDR notation. The IP network address within the private subnet is determined by the IP Address Management (IPAM)
-        /// service if not set.
+        /// The IP network address within the private subnet. This must be an IPv4 address with a CIDR notation. If not set, The IP network address within the private subnet is determined by the IP Address Management (IPAM) service.
         /// </summary>
         [Input("serviceIp")]
         public Input<string>? ServiceIp { get; set; }
 
+        /// <summary>
+        /// Private network zone
+        /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
 

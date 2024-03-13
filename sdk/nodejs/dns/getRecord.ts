@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -26,6 +27,7 @@ import * as utilities from "../utilities";
  *     recordId: "11111111-1111-1111-1111-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRecord(args?: GetRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordResult> {
     args = args || {};
@@ -122,6 +124,7 @@ export interface GetRecordResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -137,6 +140,7 @@ export interface GetRecordResult {
  *     recordId: "11111111-1111-1111-1111-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRecordOutput(args?: GetRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordResult> {
     return pulumi.output(args).apply((a: any) => getRecord(a, opts))

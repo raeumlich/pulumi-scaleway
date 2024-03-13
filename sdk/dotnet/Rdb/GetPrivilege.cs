@@ -14,10 +14,9 @@ namespace Pulumi.Scaleway.Rdb
         /// <summary>
         /// Gets information about the privilege on RDB database.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Scaleway.Rdb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrivilegeResult> InvokeAsync(GetPrivilegeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivilegeResult>("scaleway:rdb/getPrivilege:getPrivilege", args ?? new GetPrivilegeArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Scaleway.Rdb
         /// <summary>
         /// Gets information about the privilege on RDB database.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Scaleway.Rdb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrivilegeResult> Invoke(GetPrivilegeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivilegeResult>("scaleway:rdb/getPrivilege:getPrivilege", args ?? new GetPrivilegeInvokeArgs(), options.WithDefaults());

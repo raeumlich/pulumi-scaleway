@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://developers.scaleway.com/en/products/redis/api/v1alpha1/).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -34,8 +36,11 @@ import * as utilities from "../utilities";
  *     version: "6.2.6",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With settings
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -51,8 +56,11 @@ import * as utilities from "../utilities";
  *     version: "6.2.6",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With a private network
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -72,13 +80,16 @@ import * as utilities from "../utilities";
  *     dependsOn: [pn],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Redis Cluster can be imported using the `{zone}/{id}`, e.g. bash
+ * Redis Cluster can be imported using the `{zone}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:redis/cluster:Cluster main fr-par-1/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:redis/cluster:Cluster main fr-par-1/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -123,8 +134,12 @@ export class Cluster extends pulumi.CustomResource {
      * > **Important:** You cannot set `clusterSize` to 2, you either have to choose Standalone mode (1 node) or Cluster mode
      * which is minimum 3 (1 main node + 2 secondary nodes)
      *
-     * > **Important:** You can set a bigger `clusterSize` than you initially did, it will migrate the Redis Cluster, but
-     * keep in mind that you cannot downgrade a Redis Cluster so setting a smaller `clusterSize` will not have any effect.
+     * > **Important:** If you are using the Cluster mode (>=3 nodes), you can set a bigger `clusterSize` than you initially
+     * did, it will migrate the Redis Cluster but keep in mind that you cannot downgrade a Redis Cluster, so setting a smaller
+     * `clusterSize` will destroy and recreate your Cluster.
+     *
+     * > **Important:** If you are using the Standalone mode (1 node), setting a bigger `clusterSize` will destroy and
+     * recreate your Cluster as you will be switching to the Cluster mode.
      */
     public readonly clusterSize!: pulumi.Output<number>;
     /**
@@ -149,20 +164,6 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Describes the private network you want to connect to your cluster. If not set, a public
      * network will be provided. More details on the Private Network section
-     *
-     * > **Important:** The way to use private networks differs whether you are using redis in standalone or cluster mode.
-     *
-     * - Standalone mode (`clusterSize` = 1) : you can attach as many private networks as you want (each must be a separate
-     * block). If you detach your only private network, your cluster won't be reachable until you define a new private or
-     * public network. You can modify your privateNetwork and its specs, you can have both a private and public network side
-     * by side.
-     *
-     * - Cluster mode (`clusterSize` > 1) : you can define a single private network as you create your cluster, you won't be
-     * able to edit or detach it afterward, unless you create another cluster. Your `serviceIps` must be listed as follows:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     public readonly privateNetworks!: pulumi.Output<outputs.redis.ClusterPrivateNetwork[] | undefined>;
     /**
@@ -298,8 +299,12 @@ export interface ClusterState {
      * > **Important:** You cannot set `clusterSize` to 2, you either have to choose Standalone mode (1 node) or Cluster mode
      * which is minimum 3 (1 main node + 2 secondary nodes)
      *
-     * > **Important:** You can set a bigger `clusterSize` than you initially did, it will migrate the Redis Cluster, but
-     * keep in mind that you cannot downgrade a Redis Cluster so setting a smaller `clusterSize` will not have any effect.
+     * > **Important:** If you are using the Cluster mode (>=3 nodes), you can set a bigger `clusterSize` than you initially
+     * did, it will migrate the Redis Cluster but keep in mind that you cannot downgrade a Redis Cluster, so setting a smaller
+     * `clusterSize` will destroy and recreate your Cluster.
+     *
+     * > **Important:** If you are using the Standalone mode (1 node), setting a bigger `clusterSize` will destroy and
+     * recreate your Cluster as you will be switching to the Cluster mode.
      */
     clusterSize?: pulumi.Input<number>;
     /**
@@ -324,20 +329,6 @@ export interface ClusterState {
     /**
      * Describes the private network you want to connect to your cluster. If not set, a public
      * network will be provided. More details on the Private Network section
-     *
-     * > **Important:** The way to use private networks differs whether you are using redis in standalone or cluster mode.
-     *
-     * - Standalone mode (`clusterSize` = 1) : you can attach as many private networks as you want (each must be a separate
-     * block). If you detach your only private network, your cluster won't be reachable until you define a new private or
-     * public network. You can modify your privateNetwork and its specs, you can have both a private and public network side
-     * by side.
-     *
-     * - Cluster mode (`clusterSize` > 1) : you can define a single private network as you create your cluster, you won't be
-     * able to edit or detach it afterward, unless you create another cluster. Your `serviceIps` must be listed as follows:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     privateNetworks?: pulumi.Input<pulumi.Input<inputs.redis.ClusterPrivateNetwork>[]>;
     /**
@@ -401,8 +392,12 @@ export interface ClusterArgs {
      * > **Important:** You cannot set `clusterSize` to 2, you either have to choose Standalone mode (1 node) or Cluster mode
      * which is minimum 3 (1 main node + 2 secondary nodes)
      *
-     * > **Important:** You can set a bigger `clusterSize` than you initially did, it will migrate the Redis Cluster, but
-     * keep in mind that you cannot downgrade a Redis Cluster so setting a smaller `clusterSize` will not have any effect.
+     * > **Important:** If you are using the Cluster mode (>=3 nodes), you can set a bigger `clusterSize` than you initially
+     * did, it will migrate the Redis Cluster but keep in mind that you cannot downgrade a Redis Cluster, so setting a smaller
+     * `clusterSize` will destroy and recreate your Cluster.
+     *
+     * > **Important:** If you are using the Standalone mode (1 node), setting a bigger `clusterSize` will destroy and
+     * recreate your Cluster as you will be switching to the Cluster mode.
      */
     clusterSize?: pulumi.Input<number>;
     /**
@@ -423,20 +418,6 @@ export interface ClusterArgs {
     /**
      * Describes the private network you want to connect to your cluster. If not set, a public
      * network will be provided. More details on the Private Network section
-     *
-     * > **Important:** The way to use private networks differs whether you are using redis in standalone or cluster mode.
-     *
-     * - Standalone mode (`clusterSize` = 1) : you can attach as many private networks as you want (each must be a separate
-     * block). If you detach your only private network, your cluster won't be reachable until you define a new private or
-     * public network. You can modify your privateNetwork and its specs, you can have both a private and public network side
-     * by side.
-     *
-     * - Cluster mode (`clusterSize` > 1) : you can define a single private network as you create your cluster, you won't be
-     * able to edit or detach it afterward, unless you create another cluster. Your `serviceIps` must be listed as follows:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     privateNetworks?: pulumi.Input<pulumi.Input<inputs.redis.ClusterPrivateNetwork>[]>;
     /**

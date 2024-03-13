@@ -18,6 +18,7 @@ namespace Pulumi.Scaleway.Mnq
         /// 
         /// ### Basic
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,6 +36,7 @@ namespace Pulumi.Scaleway.Mnq
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSQSResult> InvokeAsync(GetSQSArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSQSResult>("scaleway:mnq/getSQS:getSQS", args ?? new GetSQSArgs(), options.WithDefaults());
@@ -46,6 +48,7 @@ namespace Pulumi.Scaleway.Mnq
         /// 
         /// ### Basic
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,6 +66,7 @@ namespace Pulumi.Scaleway.Mnq
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSQSResult> Invoke(GetSQSInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSQSResult>("scaleway:mnq/getSQS:getSQS", args ?? new GetSQSInvokeArgs(), options.WithDefaults());

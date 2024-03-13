@@ -235,6 +235,7 @@ class PublicGatewayIP(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -247,13 +248,16 @@ class PublicGatewayIP(pulumi.CustomResource):
             ttl=3600,
             type="A")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Public gateway can be imported using the `{zone}/{id}`, e.g. bash
+        Public gateway can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:vpc/publicGatewayIP:PublicGatewayIP main fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:vpc/publicGatewayIP:PublicGatewayIP main fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -275,6 +279,7 @@ class PublicGatewayIP(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -287,13 +292,16 @@ class PublicGatewayIP(pulumi.CustomResource):
             ttl=3600,
             type="A")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Public gateway can be imported using the `{zone}/{id}`, e.g. bash
+        Public gateway can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:vpc/publicGatewayIP:PublicGatewayIP main fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:vpc/publicGatewayIP:PublicGatewayIP main fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

@@ -282,8 +282,10 @@ class Route(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ### S3 Route
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -300,8 +302,11 @@ class Route(pulumi.CustomResource):
                 strategy="per_topic",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Rest Route
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -318,13 +323,16 @@ class Route(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IoT Routes can be imported using the `{region}/{id}`, e.g. bash
+        IoT Routes can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iot/route:Route route01 fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iot/route:Route route01 fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -345,8 +353,10 @@ class Route(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ### S3 Route
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -363,8 +373,11 @@ class Route(pulumi.CustomResource):
                 strategy="per_topic",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Rest Route
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -381,13 +394,16 @@ class Route(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        IoT Routes can be imported using the `{region}/{id}`, e.g. bash
+        IoT Routes can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:iot/route:Route route01 fr-par/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:iot/route:Route route01 fr-par/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

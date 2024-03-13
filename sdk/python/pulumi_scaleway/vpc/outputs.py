@@ -302,17 +302,27 @@ class GetGatewayNetworkIpamConfigResult(dict):
     def __init__(__self__, *,
                  ipam_ip_id: str,
                  push_default_route: bool):
+        """
+        :param str ipam_ip_id: Use this IPAM-booked IP ID as the Gateway's IP in this Private Network
+        :param bool push_default_route: Defines whether the default route is enabled on that Gateway Network
+        """
         pulumi.set(__self__, "ipam_ip_id", ipam_ip_id)
         pulumi.set(__self__, "push_default_route", push_default_route)
 
     @property
     @pulumi.getter(name="ipamIpId")
     def ipam_ip_id(self) -> str:
+        """
+        Use this IPAM-booked IP ID as the Gateway's IP in this Private Network
+        """
         return pulumi.get(self, "ipam_ip_id")
 
     @property
     @pulumi.getter(name="pushDefaultRoute")
     def push_default_route(self) -> bool:
+        """
+        Defines whether the default route is enabled on that Gateway Network
+        """
         return pulumi.get(self, "push_default_route")
 
 
@@ -327,7 +337,13 @@ class GetPrivateNetworkIpv4SubnetResult(dict):
                  subnet_mask: str,
                  updated_at: str):
         """
+        :param str address: The network address of the subnet in dotted decimal notation, e.g., '192.168.0.0' for a '192.168.0.0/24' subnet
+        :param str created_at: The date and time of the creation of the subnet
         :param str id: The ID of the private network.
+        :param int prefix_length: The length of the network prefix, e.g., 24 for a 255.255.255.0 mask
+        :param str subnet: The subnet CIDR
+        :param str subnet_mask: The subnet mask expressed in dotted decimal notation, e.g., '255.255.255.0' for a /24 subnet
+        :param str updated_at: The date and time of the last update of the subnet
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "created_at", created_at)
@@ -340,11 +356,17 @@ class GetPrivateNetworkIpv4SubnetResult(dict):
     @property
     @pulumi.getter
     def address(self) -> str:
+        """
+        The network address of the subnet in dotted decimal notation, e.g., '192.168.0.0' for a '192.168.0.0/24' subnet
+        """
         return pulumi.get(self, "address")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        The date and time of the creation of the subnet
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -358,21 +380,33 @@ class GetPrivateNetworkIpv4SubnetResult(dict):
     @property
     @pulumi.getter(name="prefixLength")
     def prefix_length(self) -> int:
+        """
+        The length of the network prefix, e.g., 24 for a 255.255.255.0 mask
+        """
         return pulumi.get(self, "prefix_length")
 
     @property
     @pulumi.getter
     def subnet(self) -> str:
+        """
+        The subnet CIDR
+        """
         return pulumi.get(self, "subnet")
 
     @property
     @pulumi.getter(name="subnetMask")
     def subnet_mask(self) -> str:
+        """
+        The subnet mask expressed in dotted decimal notation, e.g., '255.255.255.0' for a /24 subnet
+        """
         return pulumi.get(self, "subnet_mask")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        The date and time of the last update of the subnet
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -387,7 +421,13 @@ class GetPrivateNetworkIpv6SubnetResult(dict):
                  subnet_mask: str,
                  updated_at: str):
         """
+        :param str address: The network address of the subnet in dotted decimal notation, e.g., '192.168.0.0' for a '192.168.0.0/24' subnet
+        :param str created_at: The date and time of the creation of the subnet
         :param str id: The ID of the private network.
+        :param int prefix_length: The length of the network prefix, e.g., 24 for a 255.255.255.0 mask
+        :param str subnet: The subnet CIDR
+        :param str subnet_mask: The subnet mask expressed in dotted decimal notation, e.g., '255.255.255.0' for a /24 subnet
+        :param str updated_at: The date and time of the last update of the subnet
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "created_at", created_at)
@@ -400,11 +440,17 @@ class GetPrivateNetworkIpv6SubnetResult(dict):
     @property
     @pulumi.getter
     def address(self) -> str:
+        """
+        The network address of the subnet in dotted decimal notation, e.g., '192.168.0.0' for a '192.168.0.0/24' subnet
+        """
         return pulumi.get(self, "address")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        The date and time of the creation of the subnet
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -418,21 +464,33 @@ class GetPrivateNetworkIpv6SubnetResult(dict):
     @property
     @pulumi.getter(name="prefixLength")
     def prefix_length(self) -> int:
+        """
+        The length of the network prefix, e.g., 24 for a 255.255.255.0 mask
+        """
         return pulumi.get(self, "prefix_length")
 
     @property
     @pulumi.getter
     def subnet(self) -> str:
+        """
+        The subnet CIDR
+        """
         return pulumi.get(self, "subnet")
 
     @property
     @pulumi.getter(name="subnetMask")
     def subnet_mask(self) -> str:
+        """
+        The subnet mask expressed in dotted decimal notation, e.g., '255.255.255.0' for a /24 subnet
+        """
         return pulumi.get(self, "subnet_mask")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        The date and time of the last update of the subnet
+        """
         return pulumi.get(self, "updated_at")
 
 

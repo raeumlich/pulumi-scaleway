@@ -17,10 +17,9 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// 
         /// You can also use the [scaleway-cli](https://github.com/scaleway/scaleway-cli) with `scw baremetal os list` to list all available operating systems.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,8 +41,7 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBareMetalOSResult> InvokeAsync(GetBareMetalOSArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBareMetalOSResult>("scaleway:elasticmetal/getBareMetalOS:getBareMetalOS", args ?? new GetBareMetalOSArgs(), options.WithDefaults());
@@ -54,10 +52,9 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// 
         /// You can also use the [scaleway-cli](https://github.com/scaleway/scaleway-cli) with `scw baremetal os list` to list all available operating systems.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -79,8 +76,7 @@ namespace Pulumi.Scaleway.Elasticmetal
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBareMetalOSResult> Invoke(GetBareMetalOSInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalOSResult>("scaleway:elasticmetal/getBareMetalOS:getBareMetalOS", args ?? new GetBareMetalOSInvokeArgs(), options.WithDefaults());

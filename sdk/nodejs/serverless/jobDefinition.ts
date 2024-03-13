@@ -2,14 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Creates and manages a Scaleway Serverless Job Definition. For more information, see [the documentation](https://pkg.go.dev/github.com/scaleway/scaleway-sdk-go@master/api/jobs/v1alpha1).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -25,13 +29,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Serverless Jobs can be imported using the `{region}/{id}`, e.g. bash
+ * Serverless Jobs can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:serverless/jobDefinition:JobDefinition job fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:serverless/jobDefinition:JobDefinition job fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class JobDefinition extends pulumi.CustomResource {
@@ -70,6 +77,7 @@ export class JobDefinition extends pulumi.CustomResource {
      * The amount of vCPU computing resources to allocate to each container running the job.
      */
     public readonly cpuLimit!: pulumi.Output<number>;
+    public readonly cron!: pulumi.Output<outputs.serverless.JobDefinitionCron | undefined>;
     /**
      * The description of the job
      */
@@ -118,6 +126,7 @@ export class JobDefinition extends pulumi.CustomResource {
             const state = argsOrState as JobDefinitionState | undefined;
             resourceInputs["command"] = state ? state.command : undefined;
             resourceInputs["cpuLimit"] = state ? state.cpuLimit : undefined;
+            resourceInputs["cron"] = state ? state.cron : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["env"] = state ? state.env : undefined;
             resourceInputs["imageUri"] = state ? state.imageUri : undefined;
@@ -136,6 +145,7 @@ export class JobDefinition extends pulumi.CustomResource {
             }
             resourceInputs["command"] = args ? args.command : undefined;
             resourceInputs["cpuLimit"] = args ? args.cpuLimit : undefined;
+            resourceInputs["cron"] = args ? args.cron : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["env"] = args ? args.env : undefined;
             resourceInputs["imageUri"] = args ? args.imageUri : undefined;
@@ -162,6 +172,7 @@ export interface JobDefinitionState {
      * The amount of vCPU computing resources to allocate to each container running the job.
      */
     cpuLimit?: pulumi.Input<number>;
+    cron?: pulumi.Input<inputs.serverless.JobDefinitionCron>;
     /**
      * The description of the job
      */
@@ -208,6 +219,7 @@ export interface JobDefinitionArgs {
      * The amount of vCPU computing resources to allocate to each container running the job.
      */
     cpuLimit: pulumi.Input<number>;
+    cron?: pulumi.Input<inputs.serverless.JobDefinitionCron>;
     /**
      * The description of the job
      */

@@ -407,8 +407,10 @@ class Image(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/instance/api/#images-41389b).
 
         ## Example Usage
+
         ### From a volume
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -419,8 +421,11 @@ class Image(pulumi.CustomResource):
         volume_snapshot = scaleway.instance.Snapshot("volumeSnapshot", volume_id=volume.id)
         volume_image = scaleway.instance.Image("volumeImage", root_volume_id=volume_snapshot.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### From a server
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -431,13 +436,16 @@ class Image(pulumi.CustomResource):
         server_snapshot = scaleway.instance.Snapshot("serverSnapshot", volume_id=scaleway_instance_server["main"]["root_volume"][0]["volume_id"])
         server_image = scaleway.instance.Image("serverImage", root_volume_id=server_snapshot.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Images can be imported using the `{zone}/{id}`, e.g. bash
+        Images can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:instance/image:Image main fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:instance/image:Image main fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -464,8 +472,10 @@ class Image(pulumi.CustomResource):
         For more information, see [the documentation](https://developers.scaleway.com/en/products/instance/api/#images-41389b).
 
         ## Example Usage
+
         ### From a volume
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -476,8 +486,11 @@ class Image(pulumi.CustomResource):
         volume_snapshot = scaleway.instance.Snapshot("volumeSnapshot", volume_id=volume.id)
         volume_image = scaleway.instance.Image("volumeImage", root_volume_id=volume_snapshot.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### From a server
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -488,13 +501,16 @@ class Image(pulumi.CustomResource):
         server_snapshot = scaleway.instance.Snapshot("serverSnapshot", volume_id=scaleway_instance_server["main"]["root_volume"][0]["volume_id"])
         server_image = scaleway.instance.Image("serverImage", root_volume_id=server_snapshot.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Images can be imported using the `{zone}/{id}`, e.g. bash
+        Images can be imported using the `{zone}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:instance/image:Image main fr-par-1/11111111-1111-1111-1111-111111111111
+        $ pulumi import scaleway:instance/image:Image main fr-par-1/11111111-1111-1111-1111-111111111111
         ```
 
         :param str resource_name: The name of the resource.

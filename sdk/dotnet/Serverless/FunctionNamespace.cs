@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Serverless
     /// For more information see [the documentation](https://developers.scaleway.com/en/products/functions/api/).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +33,16 @@ namespace Pulumi.Scaleway.Serverless
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Namespaces can be imported using the `{region}/{id}`, e.g. bash
+    /// Namespaces can be imported using the `{region}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:serverless/functionNamespace:FunctionNamespace main fr-par/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:serverless/functionNamespace:FunctionNamespace main fr-par/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:serverless/functionNamespace:FunctionNamespace")]

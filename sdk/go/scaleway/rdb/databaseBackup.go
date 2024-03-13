@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With expiration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,15 +74,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// RDB Database can be imported using the `{region}/{id}`, e.g. bash
+// RDB Database can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:rdb/databaseBackup:DatabaseBackup mybackup fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:rdb/databaseBackup:DatabaseBackup mybackup fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type DatabaseBackup struct {
 	pulumi.CustomResourceState

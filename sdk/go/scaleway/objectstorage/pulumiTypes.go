@@ -15,7 +15,8 @@ var _ = internal.GetEnvOrDefault
 
 type BucketACLAccessControlPolicy struct {
 	Grants []BucketACLAccessControlPolicyGrant `pulumi:"grants"`
-	Owner  BucketACLAccessControlPolicyOwner   `pulumi:"owner"`
+	// Configuration block of the bucket project owner's display organization ID.
+	Owner BucketACLAccessControlPolicyOwner `pulumi:"owner"`
 }
 
 // BucketACLAccessControlPolicyInput is an input type that accepts BucketACLAccessControlPolicyArgs and BucketACLAccessControlPolicyOutput values.
@@ -31,7 +32,8 @@ type BucketACLAccessControlPolicyInput interface {
 
 type BucketACLAccessControlPolicyArgs struct {
 	Grants BucketACLAccessControlPolicyGrantArrayInput `pulumi:"grants"`
-	Owner  BucketACLAccessControlPolicyOwnerInput      `pulumi:"owner"`
+	// Configuration block of the bucket project owner's display organization ID.
+	Owner BucketACLAccessControlPolicyOwnerInput `pulumi:"owner"`
 }
 
 func (BucketACLAccessControlPolicyArgs) ElementType() reflect.Type {
@@ -115,6 +117,7 @@ func (o BucketACLAccessControlPolicyOutput) Grants() BucketACLAccessControlPolic
 	return o.ApplyT(func(v BucketACLAccessControlPolicy) []BucketACLAccessControlPolicyGrant { return v.Grants }).(BucketACLAccessControlPolicyGrantArrayOutput)
 }
 
+// Configuration block of the bucket project owner's display organization ID.
 func (o BucketACLAccessControlPolicyOutput) Owner() BucketACLAccessControlPolicyOwnerOutput {
 	return o.ApplyT(func(v BucketACLAccessControlPolicy) BucketACLAccessControlPolicyOwner { return v.Owner }).(BucketACLAccessControlPolicyOwnerOutput)
 }
@@ -152,6 +155,7 @@ func (o BucketACLAccessControlPolicyPtrOutput) Grants() BucketACLAccessControlPo
 	}).(BucketACLAccessControlPolicyGrantArrayOutput)
 }
 
+// Configuration block of the bucket project owner's display organization ID.
 func (o BucketACLAccessControlPolicyPtrOutput) Owner() BucketACLAccessControlPolicyOwnerPtrOutput {
 	return o.ApplyT(func(v *BucketACLAccessControlPolicy) *BucketACLAccessControlPolicyOwner {
 		if v == nil {
@@ -162,8 +166,10 @@ func (o BucketACLAccessControlPolicyPtrOutput) Owner() BucketACLAccessControlPol
 }
 
 type BucketACLAccessControlPolicyGrant struct {
-	Grantee    *BucketACLAccessControlPolicyGrantGrantee `pulumi:"grantee"`
-	Permission string                                    `pulumi:"permission"`
+	// Configuration block for the project being granted permissions.
+	Grantee *BucketACLAccessControlPolicyGrantGrantee `pulumi:"grantee"`
+	// Logging permissions assigned to the grantee for the bucket.
+	Permission string `pulumi:"permission"`
 }
 
 // BucketACLAccessControlPolicyGrantInput is an input type that accepts BucketACLAccessControlPolicyGrantArgs and BucketACLAccessControlPolicyGrantOutput values.
@@ -178,8 +184,10 @@ type BucketACLAccessControlPolicyGrantInput interface {
 }
 
 type BucketACLAccessControlPolicyGrantArgs struct {
-	Grantee    BucketACLAccessControlPolicyGrantGranteePtrInput `pulumi:"grantee"`
-	Permission pulumi.StringInput                               `pulumi:"permission"`
+	// Configuration block for the project being granted permissions.
+	Grantee BucketACLAccessControlPolicyGrantGranteePtrInput `pulumi:"grantee"`
+	// Logging permissions assigned to the grantee for the bucket.
+	Permission pulumi.StringInput `pulumi:"permission"`
 }
 
 func (BucketACLAccessControlPolicyGrantArgs) ElementType() reflect.Type {
@@ -233,10 +241,12 @@ func (o BucketACLAccessControlPolicyGrantOutput) ToBucketACLAccessControlPolicyG
 	return o
 }
 
+// Configuration block for the project being granted permissions.
 func (o BucketACLAccessControlPolicyGrantOutput) Grantee() BucketACLAccessControlPolicyGrantGranteePtrOutput {
 	return o.ApplyT(func(v BucketACLAccessControlPolicyGrant) *BucketACLAccessControlPolicyGrantGrantee { return v.Grantee }).(BucketACLAccessControlPolicyGrantGranteePtrOutput)
 }
 
+// Logging permissions assigned to the grantee for the bucket.
 func (o BucketACLAccessControlPolicyGrantOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketACLAccessControlPolicyGrant) string { return v.Permission }).(pulumi.StringOutput)
 }
@@ -264,7 +274,8 @@ func (o BucketACLAccessControlPolicyGrantArrayOutput) Index(i pulumi.IntInput) B
 type BucketACLAccessControlPolicyGrantGrantee struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The `region`,`bucket` and `acl` separated by (`/`).
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Type of grantee. Valid values: `CanonicalUser`
 	Type string `pulumi:"type"`
 }
 
@@ -282,7 +293,8 @@ type BucketACLAccessControlPolicyGrantGranteeInput interface {
 type BucketACLAccessControlPolicyGrantGranteeArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The `region`,`bucket` and `acl` separated by (`/`).
-	Id   pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Type of grantee. Valid values: `CanonicalUser`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -372,6 +384,7 @@ func (o BucketACLAccessControlPolicyGrantGranteeOutput) Id() pulumi.StringOutput
 	return o.ApplyT(func(v BucketACLAccessControlPolicyGrantGrantee) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Type of grantee. Valid values: `CanonicalUser`
 func (o BucketACLAccessControlPolicyGrantGranteeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketACLAccessControlPolicyGrantGrantee) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -419,6 +432,7 @@ func (o BucketACLAccessControlPolicyGrantGranteePtrOutput) Id() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Type of grantee. Valid values: `CanonicalUser`
 func (o BucketACLAccessControlPolicyGrantGranteePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketACLAccessControlPolicyGrantGrantee) *string {
 		if v == nil {
@@ -429,6 +443,7 @@ func (o BucketACLAccessControlPolicyGrantGranteePtrOutput) Type() pulumi.StringP
 }
 
 type BucketACLAccessControlPolicyOwner struct {
+	// The project ID of the grantee.
 	DisplayName *string `pulumi:"displayName"`
 	// The `region`,`bucket` and `acl` separated by (`/`).
 	Id string `pulumi:"id"`
@@ -446,6 +461,7 @@ type BucketACLAccessControlPolicyOwnerInput interface {
 }
 
 type BucketACLAccessControlPolicyOwnerArgs struct {
+	// The project ID of the grantee.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The `region`,`bucket` and `acl` separated by (`/`).
 	Id pulumi.StringInput `pulumi:"id"`
@@ -528,6 +544,7 @@ func (o BucketACLAccessControlPolicyOwnerOutput) ToBucketACLAccessControlPolicyO
 	}).(BucketACLAccessControlPolicyOwnerPtrOutput)
 }
 
+// The project ID of the grantee.
 func (o BucketACLAccessControlPolicyOwnerOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketACLAccessControlPolicyOwner) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -561,6 +578,7 @@ func (o BucketACLAccessControlPolicyOwnerPtrOutput) Elem() BucketACLAccessContro
 	}).(BucketACLAccessControlPolicyOwnerOutput)
 }
 
+// The project ID of the grantee.
 func (o BucketACLAccessControlPolicyOwnerPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketACLAccessControlPolicyOwner) *string {
 		if v == nil {
@@ -1985,13 +2003,19 @@ func (o GetBucketCorsRuleArrayOutput) Index(i pulumi.IntInput) GetBucketCorsRule
 }
 
 type GetBucketLifecycleRule struct {
-	AbortIncompleteMultipartUploadDays int                                `pulumi:"abortIncompleteMultipartUploadDays"`
-	Enabled                            bool                               `pulumi:"enabled"`
-	Expirations                        []GetBucketLifecycleRuleExpiration `pulumi:"expirations"`
+	// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed
+	AbortIncompleteMultipartUploadDays int `pulumi:"abortIncompleteMultipartUploadDays"`
+	// Specifies if the configuration rule is Enabled or Disabled
+	Enabled bool `pulumi:"enabled"`
+	// Specifies a period in the object's expire
+	Expirations []GetBucketLifecycleRuleExpiration `pulumi:"expirations"`
 	// The unique name of the bucket.
-	Id          string                             `pulumi:"id"`
-	Prefix      string                             `pulumi:"prefix"`
-	Tags        map[string]string                  `pulumi:"tags"`
+	Id string `pulumi:"id"`
+	// The prefix identifying one or more objects to which the rule applies
+	Prefix string `pulumi:"prefix"`
+	// The tags associated with the bucket lifecycle
+	Tags map[string]string `pulumi:"tags"`
+	// Define when objects transition to another storage class
 	Transitions []GetBucketLifecycleRuleTransition `pulumi:"transitions"`
 }
 
@@ -2007,13 +2031,19 @@ type GetBucketLifecycleRuleInput interface {
 }
 
 type GetBucketLifecycleRuleArgs struct {
-	AbortIncompleteMultipartUploadDays pulumi.IntInput                            `pulumi:"abortIncompleteMultipartUploadDays"`
-	Enabled                            pulumi.BoolInput                           `pulumi:"enabled"`
-	Expirations                        GetBucketLifecycleRuleExpirationArrayInput `pulumi:"expirations"`
+	// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed
+	AbortIncompleteMultipartUploadDays pulumi.IntInput `pulumi:"abortIncompleteMultipartUploadDays"`
+	// Specifies if the configuration rule is Enabled or Disabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Specifies a period in the object's expire
+	Expirations GetBucketLifecycleRuleExpirationArrayInput `pulumi:"expirations"`
 	// The unique name of the bucket.
-	Id          pulumi.StringInput                         `pulumi:"id"`
-	Prefix      pulumi.StringInput                         `pulumi:"prefix"`
-	Tags        pulumi.StringMapInput                      `pulumi:"tags"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The prefix identifying one or more objects to which the rule applies
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The tags associated with the bucket lifecycle
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Define when objects transition to another storage class
 	Transitions GetBucketLifecycleRuleTransitionArrayInput `pulumi:"transitions"`
 }
 
@@ -2068,14 +2098,17 @@ func (o GetBucketLifecycleRuleOutput) ToGetBucketLifecycleRuleOutputWithContext(
 	return o
 }
 
+// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed
 func (o GetBucketLifecycleRuleOutput) AbortIncompleteMultipartUploadDays() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketLifecycleRule) int { return v.AbortIncompleteMultipartUploadDays }).(pulumi.IntOutput)
 }
 
+// Specifies if the configuration rule is Enabled or Disabled
 func (o GetBucketLifecycleRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBucketLifecycleRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Specifies a period in the object's expire
 func (o GetBucketLifecycleRuleOutput) Expirations() GetBucketLifecycleRuleExpirationArrayOutput {
 	return o.ApplyT(func(v GetBucketLifecycleRule) []GetBucketLifecycleRuleExpiration { return v.Expirations }).(GetBucketLifecycleRuleExpirationArrayOutput)
 }
@@ -2085,14 +2118,17 @@ func (o GetBucketLifecycleRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The prefix identifying one or more objects to which the rule applies
 func (o GetBucketLifecycleRuleOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleRule) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
+// The tags associated with the bucket lifecycle
 func (o GetBucketLifecycleRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetBucketLifecycleRule) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Define when objects transition to another storage class
 func (o GetBucketLifecycleRuleOutput) Transitions() GetBucketLifecycleRuleTransitionArrayOutput {
 	return o.ApplyT(func(v GetBucketLifecycleRule) []GetBucketLifecycleRuleTransition { return v.Transitions }).(GetBucketLifecycleRuleTransitionArrayOutput)
 }
@@ -2118,6 +2154,7 @@ func (o GetBucketLifecycleRuleArrayOutput) Index(i pulumi.IntInput) GetBucketLif
 }
 
 type GetBucketLifecycleRuleExpiration struct {
+	// Specifies the number of days after object creation when the specific rule action takes effect
 	Days int `pulumi:"days"`
 }
 
@@ -2133,6 +2170,7 @@ type GetBucketLifecycleRuleExpirationInput interface {
 }
 
 type GetBucketLifecycleRuleExpirationArgs struct {
+	// Specifies the number of days after object creation when the specific rule action takes effect
 	Days pulumi.IntInput `pulumi:"days"`
 }
 
@@ -2187,6 +2225,7 @@ func (o GetBucketLifecycleRuleExpirationOutput) ToGetBucketLifecycleRuleExpirati
 	return o
 }
 
+// Specifies the number of days after object creation when the specific rule action takes effect
 func (o GetBucketLifecycleRuleExpirationOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketLifecycleRuleExpiration) int { return v.Days }).(pulumi.IntOutput)
 }
@@ -2212,7 +2251,9 @@ func (o GetBucketLifecycleRuleExpirationArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetBucketLifecycleRuleTransition struct {
-	Days         int    `pulumi:"days"`
+	// Specifies the number of days after object creation when the specific rule action takes effect
+	Days int `pulumi:"days"`
+	// Specifies the Scaleway Object Storage class to which you want the object to transition
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -2228,7 +2269,9 @@ type GetBucketLifecycleRuleTransitionInput interface {
 }
 
 type GetBucketLifecycleRuleTransitionArgs struct {
-	Days         pulumi.IntInput    `pulumi:"days"`
+	// Specifies the number of days after object creation when the specific rule action takes effect
+	Days pulumi.IntInput `pulumi:"days"`
+	// Specifies the Scaleway Object Storage class to which you want the object to transition
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -2283,10 +2326,12 @@ func (o GetBucketLifecycleRuleTransitionOutput) ToGetBucketLifecycleRuleTransiti
 	return o
 }
 
+// Specifies the number of days after object creation when the specific rule action takes effect
 func (o GetBucketLifecycleRuleTransitionOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketLifecycleRuleTransition) int { return v.Days }).(pulumi.IntOutput)
 }
 
+// Specifies the Scaleway Object Storage class to which you want the object to transition
 func (o GetBucketLifecycleRuleTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleRuleTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -2312,6 +2357,7 @@ func (o GetBucketLifecycleRuleTransitionArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetBucketVersioning struct {
+	// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2327,6 +2373,7 @@ type GetBucketVersioningInput interface {
 }
 
 type GetBucketVersioningArgs struct {
+	// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -2381,6 +2428,7 @@ func (o GetBucketVersioningOutput) ToGetBucketVersioningOutputWithContext(ctx co
 	return o
 }
 
+// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state
 func (o GetBucketVersioningOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBucketVersioning) bool { return v.Enabled }).(pulumi.BoolOutput)
 }

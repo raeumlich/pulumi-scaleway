@@ -476,7 +476,10 @@ class GetBareMetalServerIpResult(dict):
                  reverse: str,
                  version: str):
         """
+        :param str address: The IPv6 address
         :param str id: The ID of the server.
+        :param str reverse: The Reverse of the IPv6
+        :param str version: The version of the IPv6
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "id", id)
@@ -486,6 +489,9 @@ class GetBareMetalServerIpResult(dict):
     @property
     @pulumi.getter
     def address(self) -> str:
+        """
+        The IPv6 address
+        """
         return pulumi.get(self, "address")
 
     @property
@@ -499,11 +505,17 @@ class GetBareMetalServerIpResult(dict):
     @property
     @pulumi.getter
     def reverse(self) -> str:
+        """
+        The Reverse of the IPv6
+        """
         return pulumi.get(self, "reverse")
 
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        The version of the IPv6
+        """
         return pulumi.get(self, "version")
 
 
@@ -515,7 +527,10 @@ class GetBareMetalServerIpv4Result(dict):
                  reverse: str,
                  version: str):
         """
+        :param str address: The IPv6 address
         :param str id: The ID of the server.
+        :param str reverse: The Reverse of the IPv6
+        :param str version: The version of the IPv6
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "id", id)
@@ -525,6 +540,9 @@ class GetBareMetalServerIpv4Result(dict):
     @property
     @pulumi.getter
     def address(self) -> str:
+        """
+        The IPv6 address
+        """
         return pulumi.get(self, "address")
 
     @property
@@ -538,11 +556,17 @@ class GetBareMetalServerIpv4Result(dict):
     @property
     @pulumi.getter
     def reverse(self) -> str:
+        """
+        The Reverse of the IPv6
+        """
         return pulumi.get(self, "reverse")
 
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        The version of the IPv6
+        """
         return pulumi.get(self, "version")
 
 
@@ -554,7 +578,10 @@ class GetBareMetalServerIpv6Result(dict):
                  reverse: str,
                  version: str):
         """
+        :param str address: The IPv6 address
         :param str id: The ID of the server.
+        :param str reverse: The Reverse of the IPv6
+        :param str version: The version of the IPv6
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "id", id)
@@ -564,6 +591,9 @@ class GetBareMetalServerIpv6Result(dict):
     @property
     @pulumi.getter
     def address(self) -> str:
+        """
+        The IPv6 address
+        """
         return pulumi.get(self, "address")
 
     @property
@@ -577,11 +607,17 @@ class GetBareMetalServerIpv6Result(dict):
     @property
     @pulumi.getter
     def reverse(self) -> str:
+        """
+        The Reverse of the IPv6
+        """
         return pulumi.get(self, "reverse")
 
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        The version of the IPv6
+        """
         return pulumi.get(self, "version")
 
 
@@ -592,6 +628,7 @@ class GetBareMetalServerOptionResult(dict):
                  id: str,
                  name: str):
         """
+        :param str expires_at: Auto expire the option after this date
         :param str id: The ID of the server.
         :param str name: The server name. Only one of `name` and `server_id` should be specified.
         """
@@ -602,6 +639,9 @@ class GetBareMetalServerOptionResult(dict):
     @property
     @pulumi.getter(name="expiresAt")
     def expires_at(self) -> str:
+        """
+        Auto expire the option after this date
+        """
         return pulumi.get(self, "expires_at")
 
     @property
@@ -630,7 +670,11 @@ class GetBareMetalServerPrivateNetworkResult(dict):
                  updated_at: str,
                  vlan: int):
         """
+        :param str created_at: The date and time of the creation of the private network
         :param str id: The ID of the server.
+        :param str status: The private network status
+        :param str updated_at: The date and time of the last update of the private network
+        :param int vlan: The VLAN ID associated to the private network
         """
         pulumi.set(__self__, "created_at", created_at)
         pulumi.set(__self__, "id", id)
@@ -641,6 +685,9 @@ class GetBareMetalServerPrivateNetworkResult(dict):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
+        """
+        The date and time of the creation of the private network
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -654,16 +701,25 @@ class GetBareMetalServerPrivateNetworkResult(dict):
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        The private network status
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
+        """
+        The date and time of the last update of the private network
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter
     def vlan(self) -> int:
+        """
+        The VLAN ID associated to the private network
+        """
         return pulumi.get(self, "vlan")
 
 

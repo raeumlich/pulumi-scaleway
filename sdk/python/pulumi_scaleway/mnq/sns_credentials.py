@@ -205,8 +205,10 @@ class SNSCredentials(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -220,13 +222,16 @@ class SNSCredentials(pulumi.CustomResource):
                 can_publish=False,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        SNS credentials can be imported using the `{region}/{id}`, e.g. bash
+        SNS credentials can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:mnq/sNSCredentials:SNSCredentials main fr-par/11111111111111111111111111111111
+        $ pulumi import scaleway:mnq/sNSCredentials:SNSCredentials main fr-par/11111111111111111111111111111111
         ```
 
         :param str resource_name: The name of the resource.
@@ -248,8 +253,10 @@ class SNSCredentials(pulumi.CustomResource):
         our [documentation](https://www.scaleway.com/en/docs/serverless/messaging/reference-content/sns-overview/)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_scaleway as scaleway
@@ -263,13 +270,16 @@ class SNSCredentials(pulumi.CustomResource):
                 can_publish=False,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        SNS credentials can be imported using the `{region}/{id}`, e.g. bash
+        SNS credentials can be imported using the `{region}/{id}`, e.g.
+
+        bash
 
         ```sh
-         $ pulumi import scaleway:mnq/sNSCredentials:SNSCredentials main fr-par/11111111111111111111111111111111
+        $ pulumi import scaleway:mnq/sNSCredentials:SNSCredentials main fr-par/11111111111111111111111111111111
         ```
 
         :param str resource_name: The name of the resource.

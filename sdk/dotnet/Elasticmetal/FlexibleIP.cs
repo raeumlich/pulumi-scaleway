@@ -14,8 +14,10 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// For more information, see [the documentation](https://developers.scaleway.com/en/products/flexible-ip/api).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,8 +33,11 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With zone
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,8 +53,11 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With IPv6
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,8 +73,11 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With baremetal server
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -109,13 +120,16 @@ namespace Pulumi.Scaleway.Elasticmetal
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Flexible IPs can be imported using the `{zone}/{id}`, e.g. bash
+    /// Flexible IPs can be imported using the `{zone}/{id}`, e.g.
+    /// 
+    /// bash
     /// 
     /// ```sh
-    ///  $ pulumi import scaleway:elasticmetal/flexibleIP:FlexibleIP main fr-par-1/11111111-1111-1111-1111-111111111111
+    /// $ pulumi import scaleway:elasticmetal/flexibleIP:FlexibleIP main fr-par-1/11111111-1111-1111-1111-111111111111
     /// ```
     /// </summary>
     [ScalewayResourceType("scaleway:elasticmetal/flexibleIP:FlexibleIP")]

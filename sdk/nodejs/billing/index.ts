@@ -4,7 +4,7 @@
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetConsumptionsResult } from "./getConsumptions";
+export { GetConsumptionsArgs, GetConsumptionsResult, GetConsumptionsOutputArgs } from "./getConsumptions";
 export const getConsumptions: typeof import("./getConsumptions").getConsumptions = null as any;
 export const getConsumptionsOutput: typeof import("./getConsumptions").getConsumptionsOutput = null as any;
 utilities.lazyLoad(exports, ["getConsumptions","getConsumptionsOutput"], () => require("./getConsumptions"));

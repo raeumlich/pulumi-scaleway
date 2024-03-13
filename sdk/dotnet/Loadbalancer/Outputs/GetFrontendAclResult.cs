@@ -13,15 +13,30 @@ namespace Pulumi.Scaleway.Loadbalancer.Outputs
     [OutputType]
     public sealed class GetFrontendAclResult
     {
+        /// <summary>
+        /// Action to undertake when an ACL filter matches
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFrontendAclActionResult> Actions;
+        /// <summary>
+        /// Date and time of ACL's creation (RFC 3339 format)
+        /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// Description of the ACL
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// The ACL match rule
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFrontendAclMatchResult> Matches;
         /// <summary>
         /// The name of the frontend.
         /// - When using the `name` you should specify the `lb-id`
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Date and time of ACL's update (RFC 3339 format)
+        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     dhcpId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicGatewayDHCP(args: GetPublicGatewayDHCPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicGatewayDHCPResult> {
 
@@ -67,6 +69,7 @@ export interface GetPublicGatewayDHCPResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -76,6 +79,7 @@ export interface GetPublicGatewayDHCPResult {
  *     dhcpId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicGatewayDHCPOutput(args: GetPublicGatewayDHCPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicGatewayDHCPResult> {
     return pulumi.output(args).apply((a: any) => getPublicGatewayDHCP(a, opts))

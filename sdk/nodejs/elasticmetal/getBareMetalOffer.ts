@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     zone: "fr-par-2",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBareMetalOffer(args?: GetBareMetalOfferArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalOfferResult> {
     args = args || {};
@@ -103,6 +105,7 @@ export interface GetBareMetalOfferResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -112,6 +115,7 @@ export interface GetBareMetalOfferResult {
  *     zone: "fr-par-2",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBareMetalOfferOutput(args?: GetBareMetalOfferOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalOfferResult> {
     return pulumi.output(args).apply((a: any) => getBareMetalOffer(a, opts))

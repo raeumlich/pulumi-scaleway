@@ -15,8 +15,10 @@ import (
 // Creates and manages a Scaleway Serverless Job Definition. For more information, see [the documentation](https://pkg.go.dev/github.com/scaleway/scaleway-sdk-go@master/api/jobs/v1alpha1).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +49,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Serverless Jobs can be imported using the `{region}/{id}`, e.g. bash
+// Serverless Jobs can be imported using the `{region}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:serverless/jobDefinition:JobDefinition job fr-par/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:serverless/jobDefinition:JobDefinition job fr-par/11111111-1111-1111-1111-111111111111
 // ```
 type JobDefinition struct {
 	pulumi.CustomResourceState
@@ -63,7 +66,8 @@ type JobDefinition struct {
 	// The command that will be run in the container if specified.
 	Command pulumi.StringPtrOutput `pulumi:"command"`
 	// The amount of vCPU computing resources to allocate to each container running the job.
-	CpuLimit pulumi.IntOutput `pulumi:"cpuLimit"`
+	CpuLimit pulumi.IntOutput           `pulumi:"cpuLimit"`
+	Cron     JobDefinitionCronPtrOutput `pulumi:"cron"`
 	// The description of the job
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The environment variables of the container.
@@ -121,7 +125,8 @@ type jobDefinitionState struct {
 	// The command that will be run in the container if specified.
 	Command *string `pulumi:"command"`
 	// The amount of vCPU computing resources to allocate to each container running the job.
-	CpuLimit *int `pulumi:"cpuLimit"`
+	CpuLimit *int               `pulumi:"cpuLimit"`
+	Cron     *JobDefinitionCron `pulumi:"cron"`
 	// The description of the job
 	Description *string `pulumi:"description"`
 	// The environment variables of the container.
@@ -145,6 +150,7 @@ type JobDefinitionState struct {
 	Command pulumi.StringPtrInput
 	// The amount of vCPU computing resources to allocate to each container running the job.
 	CpuLimit pulumi.IntPtrInput
+	Cron     JobDefinitionCronPtrInput
 	// The description of the job
 	Description pulumi.StringPtrInput
 	// The environment variables of the container.
@@ -171,7 +177,8 @@ type jobDefinitionArgs struct {
 	// The command that will be run in the container if specified.
 	Command *string `pulumi:"command"`
 	// The amount of vCPU computing resources to allocate to each container running the job.
-	CpuLimit int `pulumi:"cpuLimit"`
+	CpuLimit int                `pulumi:"cpuLimit"`
+	Cron     *JobDefinitionCron `pulumi:"cron"`
 	// The description of the job
 	Description *string `pulumi:"description"`
 	// The environment variables of the container.
@@ -196,6 +203,7 @@ type JobDefinitionArgs struct {
 	Command pulumi.StringPtrInput
 	// The amount of vCPU computing resources to allocate to each container running the job.
 	CpuLimit pulumi.IntInput
+	Cron     JobDefinitionCronPtrInput
 	// The description of the job
 	Description pulumi.StringPtrInput
 	// The environment variables of the container.
@@ -309,6 +317,10 @@ func (o JobDefinitionOutput) Command() pulumi.StringPtrOutput {
 // The amount of vCPU computing resources to allocate to each container running the job.
 func (o JobDefinitionOutput) CpuLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.IntOutput { return v.CpuLimit }).(pulumi.IntOutput)
+}
+
+func (o JobDefinitionOutput) Cron() JobDefinitionCronPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) JobDefinitionCronPtrOutput { return v.Cron }).(JobDefinitionCronPtrOutput)
 }
 
 // The description of the job

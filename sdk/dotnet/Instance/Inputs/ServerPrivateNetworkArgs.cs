@@ -12,12 +12,21 @@ namespace Pulumi.Scaleway.Instance.Inputs
 
     public sealed class ServerPrivateNetworkArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// MAC address of the NIC
+        /// </summary>
         [Input("macAddress")]
         public Input<string>? MacAddress { get; set; }
 
+        /// <summary>
+        /// The Private Network ID
+        /// </summary>
         [Input("pnId", required: true)]
         public Input<string> PnId { get; set; } = null!;
 
+        /// <summary>
+        /// The private NIC state
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

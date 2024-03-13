@@ -249,6 +249,7 @@ class SecurityGroupInboundRule(dict):
         :param str ip: The ip this rule apply to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param str ip_range: The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param int port: The port this rule applies to. If no `port` nor `port_range` are specified, the rule will apply to all port. Only one of `port` and `port_range` should be specified.
+        :param str port_range: Computed port range for this rule (e.g: 1-1024, 22-22)
         :param str protocol: The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
         """
         pulumi.set(__self__, "action", action)
@@ -301,6 +302,9 @@ class SecurityGroupInboundRule(dict):
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional[str]:
+        """
+        Computed port range for this rule (e.g: 1-1024, 22-22)
+        """
         return pulumi.get(self, "port_range")
 
     @property
@@ -345,6 +349,7 @@ class SecurityGroupOutboundRule(dict):
         :param str ip: The ip this rule apply to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param str ip_range: The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param int port: The port this rule applies to. If no `port` nor `port_range` are specified, the rule will apply to all port. Only one of `port` and `port_range` should be specified.
+        :param str port_range: Computed port range for this rule (e.g: 1-1024, 22-22)
         :param str protocol: The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
         """
         pulumi.set(__self__, "action", action)
@@ -397,6 +402,9 @@ class SecurityGroupOutboundRule(dict):
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional[str]:
+        """
+        Computed port range for this rule (e.g: 1-1024, 22-22)
+        """
         return pulumi.get(self, "port_range")
 
     @property
@@ -441,6 +449,7 @@ class SecurityGroupRulesInboundRule(dict):
         :param str ip: The ip this rule apply to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param str ip_range: The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param int port: The port this rule apply to. If no port is specified, rule will apply to all port.
+        :param str port_range: Computed port range for this rule (e.g: 1-1024, 22-22)
         :param str protocol: The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
         """
         pulumi.set(__self__, "action", action)
@@ -493,6 +502,9 @@ class SecurityGroupRulesInboundRule(dict):
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional[str]:
+        """
+        Computed port range for this rule (e.g: 1-1024, 22-22)
+        """
         return pulumi.get(self, "port_range")
 
     @property
@@ -537,6 +549,7 @@ class SecurityGroupRulesOutboundRule(dict):
         :param str ip: The ip this rule apply to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param str ip_range: The ip range (e.g `192.168.1.0/24`) this rule applies to. If no `ip` nor `ip_range` are specified, rule will apply to all ip. Only one of `ip` and `ip_range` should be specified.
         :param int port: The port this rule apply to. If no port is specified, rule will apply to all port.
+        :param str port_range: Computed port range for this rule (e.g: 1-1024, 22-22)
         :param str protocol: The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
         """
         pulumi.set(__self__, "action", action)
@@ -589,6 +602,9 @@ class SecurityGroupRulesOutboundRule(dict):
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional[str]:
+        """
+        Computed port range for this rule (e.g: 1-1024, 22-22)
+        """
         return pulumi.get(self, "port_range")
 
     @property
@@ -627,6 +643,9 @@ class ServerPrivateNetwork(dict):
                  status: Optional[str] = None,
                  zone: Optional[str] = None):
         """
+        :param str pn_id: The Private Network ID
+        :param str mac_address: MAC address of the NIC
+        :param str status: The private NIC state
         :param str zone: `zone`) The zone in which the server should be created.
         """
         pulumi.set(__self__, "pn_id", pn_id)
@@ -640,16 +659,25 @@ class ServerPrivateNetwork(dict):
     @property
     @pulumi.getter(name="pnId")
     def pn_id(self) -> str:
+        """
+        The Private Network ID
+        """
         return pulumi.get(self, "pn_id")
 
     @property
     @pulumi.getter(name="macAddress")
     def mac_address(self) -> Optional[str]:
+        """
+        MAC address of the NIC
+        """
         return pulumi.get(self, "mac_address")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
+        """
+        The private NIC state
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -725,6 +753,7 @@ class ServerRootVolume(dict):
                  volume_id: Optional[str] = None,
                  volume_type: Optional[str] = None):
         """
+        :param bool boot: Set the volume where the boot the server
         :param bool delete_on_termination: Forces deletion of the root volume on instance termination.
                
                > **Important:** Updates to `root_volume.size_in_gb` will be ignored after the creation of the server.
@@ -752,6 +781,9 @@ class ServerRootVolume(dict):
     @property
     @pulumi.getter
     def boot(self) -> Optional[bool]:
+        """
+        Set the volume where the boot the server
+        """
         return pulumi.get(self, "boot")
 
     @property
@@ -847,6 +879,7 @@ class GetSecurityGroupInboundRuleResult(dict):
         :param str ip: The ip this rule apply to.
         :param str ip_range: The ip range (e.g `192.168.1.0/24`) this rule apply to.
         :param int port: The port this rule apply to. If no port is specified, rule will apply to all port.
+        :param str port_range: Computed port range for this rule (e.g: 1-1024, 22-22)
         :param str protocol: The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
         """
         pulumi.set(__self__, "action", action)
@@ -891,6 +924,9 @@ class GetSecurityGroupInboundRuleResult(dict):
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> str:
+        """
+        Computed port range for this rule (e.g: 1-1024, 22-22)
+        """
         return pulumi.get(self, "port_range")
 
     @property
@@ -916,6 +952,7 @@ class GetSecurityGroupOutboundRuleResult(dict):
         :param str ip: The ip this rule apply to.
         :param str ip_range: The ip range (e.g `192.168.1.0/24`) this rule apply to.
         :param int port: The port this rule apply to. If no port is specified, rule will apply to all port.
+        :param str port_range: Computed port range for this rule (e.g: 1-1024, 22-22)
         :param str protocol: The protocol this rule apply to. Possible values are: `TCP`, `UDP`, `ICMP` or `ANY`.
         """
         pulumi.set(__self__, "action", action)
@@ -960,6 +997,9 @@ class GetSecurityGroupOutboundRuleResult(dict):
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> str:
+        """
+        Computed port range for this rule (e.g: 1-1024, 22-22)
+        """
         return pulumi.get(self, "port_range")
 
     @property
@@ -979,6 +1019,9 @@ class GetServerPrivateNetworkResult(dict):
                  status: str,
                  zone: str):
         """
+        :param str mac_address: MAC address of the NIC
+        :param str pn_id: The Private Network ID
+        :param str status: The private NIC state
         :param str zone: `zone`) The zone in which the server exists.
         """
         pulumi.set(__self__, "mac_address", mac_address)
@@ -989,16 +1032,25 @@ class GetServerPrivateNetworkResult(dict):
     @property
     @pulumi.getter(name="macAddress")
     def mac_address(self) -> str:
+        """
+        MAC address of the NIC
+        """
         return pulumi.get(self, "mac_address")
 
     @property
     @pulumi.getter(name="pnId")
     def pn_id(self) -> str:
+        """
+        The Private Network ID
+        """
         return pulumi.get(self, "pn_id")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        The private NIC state
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -1049,10 +1101,12 @@ class GetServerRootVolumeResult(dict):
                  volume_id: str,
                  volume_type: str):
         """
+        :param bool boot: Set the volume where the boot the server
         :param bool delete_on_termination: Forces deletion of the root volume on instance termination.
         :param str name: The server name. Only one of `name` and `server_id` should be specified.
         :param int size_in_gb: Size of the root volume in gigabytes.
         :param str volume_id: The volume ID of the root volume of the server.
+        :param str volume_type: Volume type of the root volume
         """
         pulumi.set(__self__, "boot", boot)
         pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -1064,6 +1118,9 @@ class GetServerRootVolumeResult(dict):
     @property
     @pulumi.getter
     def boot(self) -> bool:
+        """
+        Set the volume where the boot the server
+        """
         return pulumi.get(self, "boot")
 
     @property
@@ -1101,6 +1158,9 @@ class GetServerRootVolumeResult(dict):
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> str:
+        """
+        Volume type of the root volume
+        """
         return pulumi.get(self, "volume_type")
 
 
@@ -1394,17 +1454,27 @@ class GetSnapshotImportResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
+        """
+        :param str bucket: Bucket containing qcow
+        :param str key: Key of the qcow file in the specified bucket
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        """
+        Bucket containing qcow
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Key of the qcow file in the specified bucket
+        """
         return pulumi.get(self, "key")
 
 

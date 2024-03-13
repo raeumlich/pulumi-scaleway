@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * For more information, see [the documentation](https://developers.scaleway.com/en/products/rdb/api).
  *
  * ## Example Usage
+ *
  * ### Example Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -26,8 +28,11 @@ import * as utilities from "../utilities";
  *     userName: "my_initial_user",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with Settings
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -46,8 +51,11 @@ import * as utilities from "../utilities";
  *     userName: "my_initial_user",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with backup schedule
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -63,11 +71,56 @@ import * as utilities from "../utilities";
  *     userName: "my_initial_user",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Examples of endpoints configuration
  *
  * RDB Instances can have a maximum of 1 public endpoint and 1 private endpoint. It can have both, or none.
+ *
+ * ### 1 static private network endpoint
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as scaleway from "@pulumi/scaleway";
+ *
+ * const pn = new scaleway.vpc.PrivateNetwork("pn", {ipv4Subnet: {
+ *     subnet: "172.16.20.0/22",
+ * }});
+ * const main = new scaleway.rdb.Instance("main", {
+ *     nodeType: "db-dev-s",
+ *     engine: "PostgreSQL-11",
+ *     privateNetwork: {
+ *         pnId: pn.id,
+ *         ipNet: "172.16.20.4/22",
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### 1 IPAM private network endpoint + 1 public endpoint
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as scaleway from "@pulumi/scaleway";
+ *
+ * const pn = new scaleway.vpc.PrivateNetwork("pn", {});
+ * const main = new scaleway.rdb.Instance("main", {
+ *     nodeType: "DB-DEV-S",
+ *     engine: "PostgreSQL-11",
+ *     privateNetwork: {
+ *         pnId: pn.id,
+ *         enableIpam: true,
+ *     },
+ *     loadBalancers: [{}],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Default: 1 public endpoint
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -77,8 +130,10 @@ import * as utilities from "../utilities";
  *     nodeType: "db-dev-s",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > If nothing is defined, your instance will have a default public load-balancer endpoint
+ *
  * ## Limitations
  *
  * The Managed Database product is only compliant with the private network in the default availability zone (AZ).
@@ -87,10 +142,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Database Instance can be imported using the `{region}/{id}`, e.g. bash
+ * Database Instance can be imported using the `{region}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:rdb/instance:Instance rdb01 fr-par/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:rdb/instance:Instance rdb01 fr-par/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Instance extends pulumi.CustomResource {
@@ -231,13 +288,13 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly userName!: pulumi.Output<string>;
     /**
-     * Volume size (in GB) when `volumeType` is set to `bssd`.
+     * Volume size (in GB). Cannot be used when `volumeType` is set to `lssd`.
      *
      * > **Important:** Once your instance reaches `diskFull` status, you should increase the volume size before making any other change to your instance.
      */
     public readonly volumeSizeInGb!: pulumi.Output<number>;
     /**
-     * Type of volume where data are stored (`bssd` or `lssd`).
+     * Type of volume where data are stored (`bssd`, `lssd` or `sbs5k`).
      */
     public readonly volumeType!: pulumi.Output<string | undefined>;
 
@@ -432,13 +489,13 @@ export interface InstanceState {
      */
     userName?: pulumi.Input<string>;
     /**
-     * Volume size (in GB) when `volumeType` is set to `bssd`.
+     * Volume size (in GB). Cannot be used when `volumeType` is set to `lssd`.
      *
      * > **Important:** Once your instance reaches `diskFull` status, you should increase the volume size before making any other change to your instance.
      */
     volumeSizeInGb?: pulumi.Input<number>;
     /**
-     * Type of volume where data are stored (`bssd` or `lssd`).
+     * Type of volume where data are stored (`bssd`, `lssd` or `sbs5k`).
      */
     volumeType?: pulumi.Input<string>;
 }
@@ -535,13 +592,13 @@ export interface InstanceArgs {
      */
     userName?: pulumi.Input<string>;
     /**
-     * Volume size (in GB) when `volumeType` is set to `bssd`.
+     * Volume size (in GB). Cannot be used when `volumeType` is set to `lssd`.
      *
      * > **Important:** Once your instance reaches `diskFull` status, you should increase the volume size before making any other change to your instance.
      */
     volumeSizeInGb?: pulumi.Input<number>;
     /**
-     * Type of volume where data are stored (`bssd` or `lssd`).
+     * Type of volume where data are stored (`bssd`, `lssd` or `sbs5k`).
      */
     volumeType?: pulumi.Input<string>;
 }

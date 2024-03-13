@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * Creates and manages Scaleway Load-Balancer Frontends. For more information, see [the documentation](https://www.scaleway.com/en/developers/api/load-balancer/zoned-api/#path-frontends).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -22,8 +24,11 @@ import * as utilities from "../utilities";
  *     inboundPort: 80,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## With ACLs
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -109,13 +114,16 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Load-Balancer frontend can be imported using the `{zone}/{id}`, e.g. bash
+ * Load-Balancer frontend can be imported using the `{zone}/{id}`, e.g.
+ *
+ * bash
  *
  * ```sh
- *  $ pulumi import scaleway:loadbalancer/frontend:Frontend frontend01 fr-par-1/11111111-1111-1111-1111-111111111111
+ * $ pulumi import scaleway:loadbalancer/frontend:Frontend frontend01 fr-par-1/11111111-1111-1111-1111-111111111111
  * ```
  */
 export class Frontend extends pulumi.CustomResource {

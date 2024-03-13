@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     userName: "my-user",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrivilege(args: GetPrivilegeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivilegeResult> {
 
@@ -76,6 +78,7 @@ export interface GetPrivilegeResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as scaleway from "@pulumi/scaleway";
@@ -86,6 +89,7 @@ export interface GetPrivilegeResult {
  *     userName: "my-user",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrivilegeOutput(args: GetPrivilegeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivilegeResult> {
     return pulumi.output(args).apply((a: any) => getPrivilege(a, opts))

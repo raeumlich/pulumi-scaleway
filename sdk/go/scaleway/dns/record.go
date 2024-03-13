@@ -16,8 +16,10 @@ import (
 // For more information, see [the documentation](https://www.scaleway.com/en/docs/network/domains-and-dns/how-to/manage-dns-records/).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,8 +75,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With dynamic records
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -177,8 +182,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create an instance and add records with the new instance IP
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -252,6 +260,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Multiple records
 //
 // Some record types can have multiple `data` with the same `name` (eg: `A`, `AAAA`, `MX`, `NS`...).\
@@ -261,12 +271,12 @@ import (
 //
 // ## Import
 //
-// Record can be imported using the `{dns_zone}/{id}`, e.g. bash
+// Record can be imported using the `{dns_zone}/{id}`, e.g.
+//
+// bash
 //
 // ```sh
-//
-//	$ pulumi import scaleway:dns/record:Record www subdomain.domain.tld/11111111-1111-1111-1111-111111111111
-//
+// $ pulumi import scaleway:dns/record:Record www subdomain.domain.tld/11111111-1111-1111-1111-111111111111
 // ```
 type Record struct {
 	pulumi.CustomResourceState

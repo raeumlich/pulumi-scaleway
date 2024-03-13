@@ -18,6 +18,9 @@ namespace Pulumi.Scaleway.Redis.Outputs
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<string> Ips;
+        /// <summary>
+        /// TCP port of the endpoint
+        /// </summary>
         public readonly int Port;
 
         [OutputConstructor]
